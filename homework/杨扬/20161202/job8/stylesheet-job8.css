@@ -1,0 +1,33 @@
+body {
+	text-align: center;
+	background: #fff2e3;
+}
+h1 {
+	font-size: 45px;
+	font-family: "黑体";
+	color: #666;
+	font-weight: bold;
+}
+p.introduction {
+	color: #999;
+}
+li {
+	background: #72b890;
+	display: inline-block;
+	margin: 25px 10px;
+	padding: 8px 20px;
+	list-style-type: none;
+	color: #000;
+	border-radius: 5px 30px 15px;
+}
+li#opa {
+	opacity: 0.5;
+}
+a {
+	text-decoration: none;
+	color: #fff;
+}
+p a {
+	text-decoration: none;
+	color: #72b890;
+}
