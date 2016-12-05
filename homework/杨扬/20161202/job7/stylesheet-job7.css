@@ -20,15 +20,15 @@ h2 {
 	overflow: hidden;
 }*/
 p {
-	width:400px;         /* 搜索自网上的方法 */
-	height:36px;         /* position可能是定位的意思，目前没有100%弄懂 */
-	overflow:hidden;     /* 我的理解：规定宽高，在结尾定位省略号进行遮挡 */
+	width:400px;		/* 搜索自网上的方法 */
+	height:36px;		/* position可能是定位的意思，目前没有100%弄懂 */
+	overflow:hidden;	/* 我的理解：规定宽高，在结尾定位省略号进行遮挡 */
 	position:relative;
 }
 p::after {
 	content: "……"; 
-	bottom:0;			 /*这里不懂为何直接用bottom*/
-	right:0;			 /*这里不懂为何直接用right*/
+	bottom:0;		/*这里不懂为何直接用bottom*/
+	right:0;		/*这里不懂为何直接用right*/
 	position: absolute;
-	background-color:#fff;     /* 搜索自网上的方法 */
+	background-color:#fff;  /* 搜索自网上的方法 */
 }
