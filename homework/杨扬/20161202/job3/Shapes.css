@@ -27,11 +27,11 @@ div.Ellipse {                            /*椭圆形*/
 	height: 0;
 	border: solid 150px #666;
 	border-radius: 100px 200px;
-	/*transform: rotate(40deg);            /*这句话是div旋转角度的方法，还未搜索语法规则，目前只是照搬使用*/
-    /*-o-transform: rotate(40deg);         /*这是为了适应不同的浏览器而存在的*/
+	/*transform: rotate(40deg);      /*这句话是div旋转角度的方法，还未搜索语法规则，目前只是照搬使用*/
+    /*-o-transform: rotate(40deg);       /*这是为了适应不同的浏览器而存在的*/
     -webkit-transform: rotate(-45deg); 
     /*-moz-transform: rotate(-45deg); */
-    margin: auto 50px;                        /*图片太宽了，调整一下*/
+    margin: auto 50px;                   /*图片太宽，有重叠部分，调整一下*/
 }
 /*div.Ellipse {
 	width: 0;
