@@ -1,0 +1,72 @@
+@charset "utf-8";
+body {
+	background-color: #fff2e3;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+.b1 {
+	/*margin: 0 auto;*//*not working , why*/
+	text-align: center;
+	font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+#header h1 {
+	color: #87968e;
+	font-size: 42px;
+}
+
+#header p {
+	color: #87968e;
+	opacity: 0.6;
+}
+
+#content li{
+	background-color: #72b890;
+	margin:30px 3px;
+	padding:6px 14px;
+	border-radius: 2px;
+
+}
+
+#content a {
+	color: #fff;
+}
+
+li:hover {
+	opacity: 0.8;
+}
+
+#content ul{
+  list-style: none;
+}
+
+#content li {
+	display: inline-block;
+}
+
+#c11 {
+	opacity: 0.6;
+}
+
+#c11:hover {
+	opacity: 0.8;
+}
+
+#c2 ul{
+	width: 200px;
+	margin: 2px auto;
+}
+
+#footer {
+	opacity: 0.6;
+}
+
+#footer a{
+	margin: 0;
+	color: #87968e;
+}
+
+

@@ -1,0 +1,67 @@
+div {
+	display: inline-block;
+}
+div.Square {                             /*正方形*/
+	width: 300px;
+	height: 300px;
+	border-style: solid;
+	border-color: yellow;
+	background-color: yellow;
+}
+div.Triangle {                           /*三角形*/
+	width: 0;
+	height: 0;
+	border-top: solid 150px transparent;
+	border-bottom: solid 300px red;
+	border-right: solid 150px transparent;
+	border-left: solid 150px transparent;
+}
+div.Circle {                             /*圆形*/
+	width: 0;
+	height: 0;
+	border: solid 150px blue;
+	border-radius: 150px;
+}
+div.Ellipse {                            /*椭圆形*/
+	width: 0;
+	height: 0;
+	border: solid 150px #666;
+	border-radius: 100px 200px;
+	/*transform: rotate(40deg);      /*这句话是div旋转角度的方法，还未搜索语法规则，目前只是照搬使用*/
+    /*-o-transform: rotate(40deg);       /*这是为了适应不同的浏览器而存在的*/
+    -webkit-transform: rotate(-45deg); 
+    /*-moz-transform: rotate(-45deg); */
+    margin: auto 50px;                   /*图片太宽，有重叠部分，调整一下*/
+}
+/*div.Ellipse {
+	width: 0;
+	height: 0;
+	border-top: solid 150px;
+	border-bottom: solid 300px;
+	border-right: solid 150px;
+	border-left: solid 150px;
+	border-color: orange;
+	border-radius: 150px;
+}*/
+div.Polygon {                            /*随意形*/
+	width: 0;
+	height: 0;
+	border: solid 150px green;
+	border-radius: 50px 150px 10px 100px;
+}
+div.blank {                              /*空心版形状*/
+	width: 100px;
+	height: 100px;
+	border: solid 150px orange;
+	border-radius: 100px 200px;
+/*    -webkit-transform: rotate(-45deg); 
+    margin: auto 50px; */
+}
+div.play {
+	width: 100px;
+	height: 100px;
+	border: 20px solid;
+	border-radius: 50px 100px;
+	margin-bottom: 200px;
+	-webkit-transform: rotate(90deg); 
+}

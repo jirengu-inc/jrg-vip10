@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+    ul{
+    	display: block;/* 让内部的<a>链接可以在整个行框中选中*/
+    }
+	li{
+		display: inline-block;/* 列表横向排列 */
+        
+	}
+	a{
+		display:inline-block; /*可以设置宽高 */
+        list-style: none;
+		background: url(./result.png) no-repeat ;
+		width: 45px;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 34px;
+		color: #000;
+		text-decoration:none;
+	}
+	.play{
+		
+		background: url(../img/result.png) no-repeat ;
+	}
+	.stop{
+		
+		background: url(../img/result.png) no-repeat 0 -62px;
+	}
+	.next{
+		
+		background: url(../img/result.png) no-repeat 0 -124px;
+	}
+	
+	.play:hover{
+		background: url(../img/result.png) no-repeat 0 -31px;
+		color: #a663be; 
+	}
+	.stop:hover{
+		background: url(../img/result.png) no-repeat 0 -93px;
+		color: #a663be; 
+	}
+	.next:hover{
+		background: url(../img/result.png) no-repeat 0 -155px;
+		color: #a663be; 
+	}
+   
+   
+
+</style>
+</head>
+
+<body>
+<ul>
+	<li>
+		<a class="play" href="#">播放</a>
+	</li>
+	<li>
+		<a class="stop" href="#">停止</a>
+	</li>
+	<li>
+		<a class="next" href="#">快进</a>
+	</li>
+	
+</ul>
+
+
+	
+	
+
+</body>
+</html>
