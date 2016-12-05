@@ -10,7 +10,7 @@
 		div.block1 {
 			margin: 100px 100px;   		 /*不继承*/
 			text-align: center;    		 /*文本居中*/
-			padding: 20px;    			 /*不继承*/
+			padding: 20px;    		 /*不继承*/
 			border: 3px solid red;
 			width: 500px;
 			height: 150px;
@@ -18,27 +18,29 @@
 		div.block2 {
 			margin: 0 auto;     		 /*不继承*/
 			/*text-align: center;    	   文本居中*/
-			padding: 20px;    			 /*不继承*/
+			padding: 20px;    		 /*不继承*/
 			border: 3px solid red;
 			width: 500px;
 			height: 150px;
+			background: yellow;
 		}
 		span.inline1 {
 			margin: 100px 100px;     	 /*不继承*/
-			padding: 20px;    			 /*不继承*/
+			padding: 20px;    		 /*不继承*/
 			border: 3px solid red;
 			width: 500px;
 			height: 150px;
 		}
-		div.textcenter {				 /*行内元素在父容器中添加居中语句*/
+		div.textcenter {			 /*行内元素在父容器中添加居中语句*/
 			text-align: center;    		 /*行内元素居中,文本本身早已居中*/
-		}						   /*div.textcenter与span.inline2为一组*/
+		}				         /*div.textcenter与span.inline2为一组*/
 		span.inline2 {
 			margin: 0 auto;     		 /*不继承*/
 			padding: 20px 100px;    	 /*不继承*/
 			border: 3px solid red;
 			width: 500px;
 			height: 150px;
+			background: yellow;
 		}
 	</style>
 </head>
