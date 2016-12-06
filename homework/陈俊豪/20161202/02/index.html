@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul,ol,li,p,h1,h2,h3,h4,h5,h6{margin: 0;padding: 0;}
+		body{
+			font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+			color: #87968e;
+			background-color:rgb(255,242,227);
+			margin: 50px auto;
+			width: 450px;
+			text-align: center;
+		}
+			.clearfix{
+			*zoom:1;
+		}
+		.clearfix::before,.clearfix::after{
+			content: "";
+			display: table;
+		}
+		.clearfix::after{
+			clear: both;
+		}
+		.header h1{
+			font-size: 48px;
+		}
+		.header span{
+			line-height: 95px;
+		}
+		.tab{
+			list-style: none;
+			height: 30px;
+		}
+		.tab:first-child{
+			margin: 0 0 0 50px;
+		}
+		.tab li{
+			float: left;
+			width: 60px;
+			height: 30px;
+			border-radius: 3px;
+			background-color: rgb(114,184,144);
+			margin: 0 5px;
+			line-height: 30px;
+			font-size: 12px;
+		}
+		.tab li a{
+			color: #fff;
+			text-decoration:none;
+		}
+		.content img{
+			padding: 40px 0;
+		}
+		.btns{
+			text-align: center;
+		}
+		.btns span{
+			display: inline-block;
+			width: 85px;
+			line-height: 30px;
+			color:#fff;
+			background-color: rgb(114,184,144);
+			border-radius: 3px;
+			font-size: 12px;
+		}
+		.btns a{
+			color: #fff;
+			text-decoration: none;
+		}
+		.footer{
+			margin-top: 35px;
+		}
+		.footer p{
+			font-size: 8px;
+		}
+		.footer p a{
+			color:#72b890;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<h1>我的项目</h1>
+			<span>一句话项目介绍</span>
+		</div>
+		<div class="content">
+			<ul class="tab clearfix">
+				<li><a href="#">项目1</a></li>
+				<li><a href="#">项目2</a></li>
+				<li><a href="#">项目3</a></li>
+				<li><a href="#">项目4</a></li>
+				<li><a href="#">项目5</a></li>
+			</ul>
+			<img src="elephant.jpg" alt="">
+			<p class="clearfix btns">
+				<span><a href="#">查看源码</a></span>
+				<span><a href="#">使用说明</a></span>
+			</p>
+			
+		</div>
+		<div class="footer">
+			<p>作者: 
+				<a>陈俊豪</a>
+			</p>
+		</div>
+		
+	</div>
+</body>
+</html>
