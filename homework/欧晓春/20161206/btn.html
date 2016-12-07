@@ -8,27 +8,33 @@
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
 <style>
-	
-	span{
+	.btn{
 		display: inline-block;
-		border: 1px solid;
-		background-color: red;
-		vertical-align: top;
+		padding: 5px;
+		background-color: #f36e41;
+		color: #fff;
+		font-size: 16px;
+		font-family: '微软雅黑';
+		cursor: pointer;
+		outline: none;
+		border-radius: 5px;
+		border: none;
+		text-decoration: none;
 	}
-	.a{
-		padding: 20px;
+	.btn:hover{
+		background-color: #c14d21;
 	}
-	.b{
-		padding: 40px;
-	}
-	.c{
-		padding: 60px;
+	.btn:active{
+		background-color: #e25f31;
 	}
 </style>
 </head>
 <body>
-    <span class="a">前端</span>
-    <span class="b">前端</span>
-    <span class="c">前端</span>
+    <div>
+    	<div class="btn">确定</div>
+    	<a href="#" class="btn">取消</a>
+    	<span class="btn">提交</span>
+    	<button class="btn">确定</button>
+    </div>
 </body>
 </html>
