@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style type="text/css">
+        *{
+        	padding: 0;
+        	margin: 0;
+        }
+    	.nav{
+           font-size: 20px;
+           background-color: #FF8000;
+    	}
+    	a{
+    		text-decoration: none;
+    		cursor: pointer;
+    	}
+        li{
+        	list-style: none;
+        }
+        .menu{
+        	display: inline-block;
+        	position: relative;
+        }
+        .menu>a{
+        	display: inline-block;
+        	color: #fff;
+        	padding: 5px 10px;
+        }
+        .menu-1{
+        	display: none;
+        	position: absolute;
+        	top: 100%;
+        }
+        .menu-1 li{
+        	border-right: 1px solid #FF8000;
+        	border-left: 1px solid #FF8000;
+        	border-bottom: 1px solid #FF8000;
+        	background-color: #FEB58F;
+        }
+        .menu-1 a{
+        	display: inline-block;
+        	padding: 5px 10px;
+        	color: #fff;
+        }
+        .menu>a:hover{
+        	background-color: #F90D8D;
+        }
+        .menu:hover .menu-1{
+        	display: block;
+        }
+        .menu-1 li:hover{
+            background-color: #F90D8D;
+        }
+    </style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li class="menu">
+				<a href="">前端</a>
+				<ul class="menu-1">
+					<li><a href="">JavaScript</a></li>
+				    <li><a href="">HTML</a></li>
+				    <li><a href="">CSS</a></li>
+				</ul>
+			</li>
+			<li class="menu">
+				<a href="">服务端</a>
+				<ul class="menu-1">
+					<li><a href="">Nade</a></li>
+				    <li><a href="">PHP</a></li>
+				    <li><a href="">Java</a></li>
+				</ul>
+			</li>
+			<li class="menu">
+				<a href="">前端工具</a>
+				<ul class="menu-1">
+					<li><a href="">Sublime</a></li>
+				    <li><a href="">WebStrom</a></li>
+				    <li><a href="">Git</a></li>
+				</ul>
+			</li>
+			<li class="menu"><a href="">HTML</a></li>
+			<li class="menu"><a href="">NODE</a></li>
+		</ul>
+	</div>
+</body>
+</html>
