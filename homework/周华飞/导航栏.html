@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>导航栏</title>
+    <style type="text/css">
+        .header {
+            background: #cbcbcb;
+        }
+        .navbar {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar>li {
+            list-style: none;
+            margin: 0;
+            padding: 10px 20px;
+            float: left;
+            position: relative;
+        }
+        .navbar a {
+            text-decoration: none;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            color: black;
+        }
+        .navbar>li:hover {
+            background: #a9a9a9;
+        }
+        .clearfix {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .nav {
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            border-top: none;
+            background: white;
+            display: none;
+            top: 42px;
+            left: 0;
+        }
+        .nav>li {
+            list-style: none;
+            padding: 10px 5px;
+            border-top: 1px solid #ccc;
+        }
+        .navbar>li:hover .nav  {
+            display: block;
+            position: absolute;
+        }
+        .nav>li:hover {
+            background: #cbcbcb;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <ul class="navbar">
+        <li><a href="#">前端</a>
+            <ul class="nav">
+                <li><a href="">Jabascript</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">HTML</a></li>
+            </ul>
+        </li>
+        <li><a href="#">服务端</a>
+            <ul class="nav">
+                <li><a href="">NODE</a></li>
+            </ul>
+        </li>
+        <li><a href="#">前端工具</a>
+            <ul class="nav">
+                <li><a href="">Sublime</a></li>
+                <li><a href="">Webstrom</a></li>
+                <li><a href="">Git</a></li>
+            </ul>
+        </li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">NODE</a></li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+</body>
+</html>
