@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.layout{
+		margin: 0 auto;
+		width: 900px;
+	}
+	.header{
+		height: 100px;
+		background: red;
+	}
+	.clearfix:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.aside{
+		height: 400px;
+		width: 100px;
+		background: pink;
+		float: left;
+	}
+	.content{
+		height: 300px;
+		background: #71b55c;
+		margin-left: 110px;
+	}
+	.footer{
+		height: 100px;
+		background: yellow;
+	}
+</style>
+</head>
+<body>
+    <div class="header layout">header</div>
+	<div class="main layout clearfix">
+		<div class="aside">aside</div>
+		<div class="content">content</div>
+	</div>
+	<div class="footer layout">footer</div>
+</body>
+</html>
