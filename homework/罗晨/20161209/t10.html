@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>第10题</title>
+	<style type="text/css">
+		body, ul, li, a{
+			padding: 0px;
+			margin: 0px;
+			font-size: 16px;
+		}
+		.ct{
+			margin-left: 2px;
+			margin-top: 1px;
+		}
+		.navigation{
+			background-color: #ccc;
+		}
+		.topbar li{
+			float: left;
+			list-style: none;
+			padding: 3px 15px;
+			height: 30px;
+			line-height: 30px;
+			position: relative;
+		}
+		.topbar a{
+			text-decoration: none;
+			color: black;
+			font-size: 20px;
+		}
+		.tips{
+			display: none;
+			position: absolute;
+			border: 1px solid #ccc;
+			margin: 1px 1px;
+		}
+		.tips li{
+			padding: 5px;
+		}
+		.navigation ul li:hover ul{
+			display:block;
+		}
+		.clear{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="navigation">
+			<ul class="topbar">
+				<li class="segment">
+					<a href="#">前端</a>
+					<ul class="tips">
+						<li>
+							<a href="#">JavaScript</a>
+						</li>
+						<li>
+							<a href="#">CSS</a>
+						</li>
+						<li>
+							<a href="#">HTML</a>
+						</li>
+					</ul>
+				</li>
+				<li class="segment">
+					<a href="#">服务端</a>
+					<ul class="tips">
+						<li>
+							<a href="#">Node</a>
+						</li>
+						<li>
+							<a href="#">PHP</a>
+						</li>
+						<li>
+							<a href="#">Java</a>
+						</li>
+					</ul>
+				</li>
+				<li class="segment">
+					<a href="#">前端工具</a>
+					<ul class="tips">
+						<li>
+							<a href="#">Sublime</a>
+						</li>
+						<li>
+							<a href="#">WebStorm</a>
+						</li>
+						<li>
+							<a href="#">Git</a>
+						</li>
+					</ul>
+				</li>
+				<li class="segment">
+					<a href="#">HTML</a>
+				</li>
+				<li class="segment">
+					<a href="#">NODE</a>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
