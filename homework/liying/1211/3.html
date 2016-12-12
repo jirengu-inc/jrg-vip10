@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>1211-3</title>
+  <style>
+  	.main, .aside, .ad{
+  		float: left; /*必须是浮动元素和负margin配合，才会使元素上移*/
+  	}
+
+	#container{
+		padding-left: 90px;/*父容器内容宽度减小*/
+		padding-right: 60px;
+	}
+  	.main{
+		height: 400px;
+		background-color: cyan;
+		/*自身内容的宽度等于父容器内容的宽度 ，此时如果再给元素加margin或者padding, 元素宽度会超出父容器内容的宽度*/
+		width: 100%;
+	}
+
+	.aside{
+		width: 80px;
+		height: 300px;
+		background-color: pink;
+		margin-left: -100%;
+
+		position: relative;
+		left: -90px;
+	}
+
+	.ad{
+		width: 50px;
+		height: 350px;
+		background-color: violet;
+		margin-left: -50px;
+
+		position: relative;
+		left: 60px;/*此时移动的方向参考浮动和负margin的相关内容*/
+	}
+
+	#container:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	
+	#footer{
+		height: 30px;
+		background-color: #ccc;
+	}
+  </style>
+</head>
+<body>
+<div id="container">
+	<div class="main">main</div>
+	<div class="aside">aside</div>
+	<div class="ad">ad</div>	
+</div>
+<div id="footer"></div>
+</body>
+</html>

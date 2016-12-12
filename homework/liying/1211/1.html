@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>1211-1</title>
+  <style>
+  	.layout{
+  		width: 960px;
+  		margin: 0 auto;
+  		/*border: 1px solid;*/
+  	}
+
+  	#header, #footer{
+  		background-color: yellow;
+  		height: 50px;
+  		min-width: 960px;
+  		/*不设置宽度时，宽度自适应，随屏幕大小变动，为当前屏幕宽度，此屏幕宽度可能小于内容设置的宽度，滚动内容，未设置宽度的地方可能出现空白条，设置最小宽度为内容设置的宽度可解决此问题*/
+  	}
+
+  	#container{
+  		background-color: pink;
+  		height: 400px;
+  	}
+
+
+  </style>
+</head>
+<body>
+<div id="header">
+	<div class="layout">header</div>
+</div>
+
+<div id="container" class="layout">container</div>
+
+<div id="footer">
+	<div class="layout">footer</div>
+</div>
+</body>
+</html>

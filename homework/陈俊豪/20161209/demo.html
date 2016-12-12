@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20161209-第九题</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{margin: 100px 100px;}
+		.demo1{
+			width: 200px;
+			height: 100px;
+			border:3px solid #ccc;
+			position: relative;
+		}
+		.demo1::after{
+			content: "";
+			position: absolute;
+			border-top:15px solid transparent;
+			border-right:15px solid transparent;
+			border-left:15px solid transparent;
+			border-bottom:15px solid rgb(136,136,136);
+			top:-31px;
+			left: 10px;
+		}
+		.demo2{
+			position: relative;
+			width: 200px;
+			height: 100px;
+			border:3px solid #ccc;
+			margin: 25px 0;
+		}
+		.demo2::after{
+			position: absolute;
+			content: "";
+			border-top:10px solid red;
+			border-right:10px solid red;
+			border-left:10px solid transparent;
+			border-bottom:10px solid transparent;
+			top: 0;
+			right: 0;
+		}
+		.demo3{
+			position: relative;
+			width: 200px;
+			height: 100px;
+			border:3px solid #ccc;
+		}
+		.demo3-span{
+			position: absolute;
+			border-top:15px solid transparent;
+			border-right:15px solid transparent;
+			border-left:15px solid transparent;
+			border-bottom:15px solid #ccc;
+			top: -30px;
+			left: 10px;
+		}
+		.demo3-span::after{
+			content: "";
+			position: absolute;
+			display: block;
+			border-top:15px solid transparent;
+			border-right:15px solid transparent;
+			border-left:15px solid transparent;
+			border-bottom:15px solid #fff;
+			top: -12px;
+			left: -15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="demo1"></div>
+	<div class="demo2"></div>
+	<div class="demo3">
+		<span class="demo3-span"></span>
+	</div>
+</body>
+</html>

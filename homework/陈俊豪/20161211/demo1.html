@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏布局</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			min-width: 1280px;
+		}
+		.left{
+			width: 200px;
+			height: 500px;
+			float: left;
+			background-color: red;
+		}
+		.right{
+			width: 200px;
+			height: 500px;
+			background-color: green;
+			float: right;
+		}
+		.main{
+			height: 500px;
+			background-color: blue;
+			margin: 0 210px 0 210px;
+		}
+	</style>
+</head>
+<body>
+	<div class="warp">
+		<div class="left">left</div>
+		<div class="right">right</div>
+		<div class="main">content</div>
+	</div>
+</body>
+</html>
