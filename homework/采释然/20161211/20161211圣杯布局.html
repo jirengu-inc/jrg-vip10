@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	padding: 0;
+	    	margin: 0;
+	    }
+	    body{
+	    	color: #fff;
+	    	min-width: 600px;
+	    }
+		#header{
+			height: 40px;
+            background-color: #5DBD39;
+		}
+		#footer{
+			height: 40px;
+            background-color: #EF8929;
+		}
+        #content{
+            padding: 0 200px;
+        }
+        #content::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+		.main,.aside-left,.aside-right{
+			float: left;
+		}
+		.main{
+			min-height: 400px;
+			width: 100%;
+			background-color: #F88B7B;
+		}
+		.aside-left{
+			width: 200px;
+			height: 250px;
+			margin-left: -100%;
+			position: relative;
+			left: -200px;
+			background-color: #865DA0;
+		}
+        .aside-right{
+			width: 200px;
+			height: 250px;
+			margin-left: -200px;
+			position: relative;
+			left: 200px;
+			background-color: #865DA0;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">header</div>
+	<div id="content">
+		<div class="main">main</div>
+		<div class="aside-left">aside</div>
+		<div class="aside-right">aside</div>
+	</div>
+	<div id="footer">footer</div>
+</body>
+</html>
