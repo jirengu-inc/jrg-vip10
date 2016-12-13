@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .layout {
+            width: 960px;
+            margin: 0 auto;
+            background: #C0C0C0;
+        }
+        .clearfix:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+
+        .header {
+            height: 100px;
+            background: #C0C0C0;
+        }
+        .aside_l {
+            width: 100px;
+            background: #e41f25;
+            height: 500px;
+            float: left;
+        }
+        .aside_r {
+            width: 200px;
+            height: 500px;
+            background: #e41f25;
+            float: right;
+        }
+        .content {
+            margin-left: 110px;
+            margin-right: 210px;
+            height: 500px;
+            background: #81d8d0;
+        }
+
+        .footer {
+            height: 70px;
+            background:#C0C0C0;
+        }
+    </style>
+</head>
+<body>
+<div class="header layout">头部</div>
+<div class="main layout clearfix">
+    <div class="aside_l fl">左侧栏</div>
+    <div class="aside_r fr">右侧栏</div>
+    <div class="content">内容</div>
+</div>
+<div class="footer layout">尾部</div>
+</body>
+</html>
