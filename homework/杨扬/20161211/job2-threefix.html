@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>三列布局-固定</title>
+	<style type="text/css">
+		.content {
+			text-align: center;		
+			font-size: 30px;
+			font-family: "黑体";
+		}
+		.content {
+			width: 1120px;
+			margin: 50px auto;
+		}
+		.clearfix {
+			content:  " ";
+			display: block;
+			clear: both;
+		}
+		.aside {
+			background: blue;
+			height: 350px;
+			width: 150px;
+			float: left;
+		}
+		.ad {
+			background: yellow;
+			height: 300px;
+			width: 150px;
+			float: right;
+		}
+		.main {
+			background: red;
+			width: 800px;
+			height: 600px;
+			margin-left: 160px;
+			margin-right: 160px;
+		}
+	</style>
+</head>
+<body>
+	<div class="content clearfix">
+		<div class="aside">left</div>
+		<div class="ad">right</div>
+		<div class="main">middle</div>
+	</div>
+</body>
+</html>
