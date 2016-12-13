@@ -1,0 +1,42 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.aside,.main,.extra{
+	float: left;
+}
+.content:after{
+	content: "";
+	display: block;
+	clear: both;
+
+
+}
+.content{
+	padding: 0 150px 0 100px;
+}
+.aside{
+	width: 100px;
+	height: 300px;
+	background-color: red;
+	margin-left: -100%;
+	position: relative;
+	left: -110px;
+
+}
+.extra{
+	width: 150px;
+	height: 300px;
+	background-color: yellow;
+	margin-left: -150px;
+	position: relative;
+	right: -160px;
+}
+.main{
+	background-color: blue;
+	height: 350px;
+	width: 100%;
+	
+
+	
+}
