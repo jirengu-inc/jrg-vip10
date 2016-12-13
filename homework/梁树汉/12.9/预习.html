@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位</title>
+	<style>
+		/*普通流定位*/
+		/*.no1,.no2,.no3 {
+			width: 100px;
+			height: 100px;
+			border:1px solid gray;
+		}
+		.no1{
+			background-color: red;
+		}
+		.no2{
+			background-color: green;
+
+		}
+		.no3{
+			background-color: yellow;
+		}*/
+		.view{
+			border:1px solid red;
+			position: relative;
+		}
+		.no1,.no2,.no3{
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+		}
+		/*相对定位*/
+		/*.no2{
+			background-color: green;
+			position: relative;
+			top: 10px;
+			right:-20px;
+		}
+*/
+		.no3{
+			background-color:green;
+			position: absolute;
+			/*left: 40px;
+			top: 50px;*/
+		}
+
+	</style>
+</head>
+<body>
+	<div class="view">
+	  <div class="no1">1</div>
+	  <div class="no2">2</div>
+	  <div class="no3">3</div>
+	</div>
+	<div class="duanluo">
+	  meiyouhsenwenti
+	  <p>这是一个p</p>
+		
+	</div>
+
+	<div style="border: solid 1px #0e0; width:200px; position:relative;">
+    	<div style="height: 100px; width: 100px; background-color: Red;">
+    	</div>
+    	<div style="height: 100px; width: 100px; background-color: Green; position:absolute; top:20px; left:20px;">
+    	</div>
+    	<div style="height: 100px; width: 100px; background-color: Yellow;">
+        </div>
+   </div>
+</body>
+</html>

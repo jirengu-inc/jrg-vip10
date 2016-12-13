@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  	<title>1209-10</title>
+</head>
+<style>
+	*{
+  		margin: 0;
+  		padding: 0;
+  	}
+
+  	.header{
+  		background-color: #ccc;
+  		/*margin: 20px 0 0 20px;*/
+  		font-size: 20px; 
+		font-family: '微软雅黑';
+		/*color:black;*//*字体颜色加在这里不生效，a标签不能继承父元素的字体颜色，原因是a标签自己有默认字体颜色，会覆盖掉继承自父元素的字体颜色*/
+  	}
+
+		
+	.header li{
+  		list-style: none;
+  	}
+
+	.header a{
+		text-decoration: none;
+		color:black;
+	}
+
+  	.header .nav-1{
+  		float: left;
+  		margin: 0;
+  		padding: 5px 10px;
+  		position: relative;
+  	}
+  	.header .nav-2{
+  	  	position: absolute;
+		left: -0.5px;
+  	  	visibility: hidden;
+  	  	border-left: 1px solid #ccc;
+  	  	border-right: 1px solid #ccc;
+  	  	border-bottom: 1px solid #ccc;
+  	  	color:black;
+  	  	z-index: -1;
+  	}
+
+	.header:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.nav-1:hover{
+		background-color: #888;
+	}
+
+	.nav-1:hover .nav-2{
+		visibility: visible;
+	}
+
+	.nav-2>li{
+		padding: 5px;
+	}
+
+	.nav-2 li:hover{
+		background-color: #bbb;
+	}
+
+	.nav-2 li:first-child{
+		padding: 10px 5px 5px 5px;
+	}
+</style>
+<body>
+    <ul class="header">
+    	<li class="nav-1">
+    		<a href="#">前端</a>
+    		<ul class="nav-2">
+              	<li><a href="#">JavaScript</a></li>
+    			<li><a href="#">HTML</a></li>
+    			<li><a href="#">CSS</a></li>
+          </ul>
+    	</li>
+    	<li class="nav-1" >
+    		<a href="#">服务端</a>
+    		<ul class="nav-2">
+    			<li><a href="#">Node</a></li>
+    			<li><a href="#">PHP</a></li>
+    			<li><a href="#">Java</a></li>
+          </ul>
+    	</li>
+    	<li class="nav-1" >
+    		<a href="#">前端工具</a>
+    		<ul class="nav-2">
+    			<li><a href="#">Sublime</a></li>
+    			<li><a href="#">WebStrom</a></li>
+    			<li><a href="#">Git</a></li>
+          </ul>
+    	</li>
+    	<li class="nav-1" >
+    		<a href="#">HTML</a>
+    	</li>
+    	<li class="nav-1" >
+    		<a href="#">NODE</a>
+    	</li>
+    </ul>
+</body>
+</html>
