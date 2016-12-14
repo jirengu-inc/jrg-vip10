@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三栏布局</title>
+    <style>
+        .wrap:after{
+            content:" ";
+            display: block;
+            clear:both;
+        }
+        .left{
+            width:100px;
+            height:300px;
+            background: red;
+            float:left;
+        }
+        .right{
+            width:150px;
+            height:400px;
+            background:blue;
+            float:right;
+        }
+        .main{
+            height:500px;
+            background: yellow;
+            margin-left:110px;
+            margin-right:160px;
+        }
+        .footer{
+            height:30px;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+        <div class="main">中间</div>
+    </div>
+    <div class="footer">尾部</div>
+</body>
+</html>

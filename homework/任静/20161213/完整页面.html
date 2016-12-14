@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.wrap {
+			width: 900px;
+			/*background: pink;*/
+			margin: 0 auto;
+		}
+		.fl {
+			float: left;
+		}
+		.clearfix:after {
+			content: "";
+			height: 0;
+			line-height: 0;
+			display: block;
+			clear: both;
+			visibility: hidden;
+		}
+		.clearfix {
+			zoom: 1;
+		}
+		.logo {
+			width: 70px;
+			height: 70px;
+			background: #CCC;
+			margin: 0 auto;
+			border-radius: 50%;
+			margin-top: 40px;
+			margin-bottom: 30px;
+		}
+		.nav {
+			margin-left: 160px;
+			margin-bottom: 30px;
+		}
+		.nav>li {
+			list-style: none;
+			float: left;
+			background: #CCC;
+			padding: 0px 40px;
+			margin-left: 20px;
+		}
+		.nav>li a {
+			text-decoration: none;
+			color: black;
+		}
+		.banner {
+			background: #CCC;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.banner>h1 {
+			padding-top: 40px;
+			padding-bottom: 30px;
+		}
+		.banner>p {
+			padding: 10px 0px;
+		}
+		.content {
+			width: 900px;
+			height: 600px;
+			/*background: pink;*/
+			margin: 0 auto;
+		}
+		.top {
+			width: ;
+		}
+		.one {
+			width: 150px;
+			height: 100px;
+			background: blue;
+			
+		}
+		.left {
+			width: 150px;
+			height: 190px;
+			/*background: yellow;*/
+			margin-left: 100px;
+		}
+		.left>h3 {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			background: #CCC;
+		}
+		.left>p {
+			background: #CCC;
+		}
+		.content_top {
+			margin-bottom: 20px;
+		}
+		.content_center {
+			margin-bottom: 20px;
+		}
+		
+	</style>
+</head>
+<body>
+	
+	<div class="logo"></div>
+	<div class="wrap">
+		<ul class="nav clearfix">
+			<li><a href="#">导航1</a></li>
+			<li><a href="#">导航2</a></li>
+			<li><a href="#">导航3</a></li>
+			<li><a href="#">导航4</a></li>
+		</ul>
+	</div>
+	<div class="banner">
+		<h1>这是标题1哦</h1>
+		<p>这是我写的段落哦这是我写的段落哦</p>
+		<p>这是我写的段落哦这是我写的段落哦</p>
+	</div>
+	<div class="content">
+		<div class="content_top clearfix">
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+		</div>
+		<div class="content_center clearfix">
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+		</div>
+		<div class="content_bottom">
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+			<div class="left fl">
+				<div class="one"></div>
+				<h3>这是小标题</h3>
+				<p>这是段落这是段落</p>
+			</div>
+		</div>
+
+	</div>
+	
+</body>
+</html>

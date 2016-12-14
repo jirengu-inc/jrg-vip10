@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a标签按钮</title>
+    <style>
+        .layout{
+            width:400px;
+            height:50px;
+            background: gray;
+            margin:100px auto;
+            
+        }
+        .btn{
+            font-size:0;
+            text-align: center;
+            padding: 6px;
+        }
+        .btn a{
+            display: inline-block;
+            text-decoration:none;
+            color:#000;
+            font-size:14px;
+            padding: 10px 20px;
+            background: #fff;
+            border:1px solid #000;
+            border-right:none;
+        }
+        .btn a:first-child{
+            border-radius:5px 0 0 5px;
+        }
+        .btn a:last-child{
+            border-right:1px solid #000;
+            border-radius:0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="btn">
+            <a href="#">左</a>
+            <a href="#">中</a>
+            <a href="#">右</a>
+        </div>
+    </div>
+   
+</body>
+</html>
