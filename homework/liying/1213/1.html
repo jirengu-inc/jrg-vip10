@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1213-1</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    a{
+        text-decoration: none;
+        color: #888;/*a链接的字体颜色不具有继承性*/
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .wraper{
+        margin-left: auto;
+        margin-right: auto;
+        width: 928px;
+        /*text-align: center;*//*使spec类里面的文字居中了，不是想要的结果*/
+    }
+
+    .header .h-img{
+        /*background: #D8D8D8;*/
+        background: cyan;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        margin: 54px auto 0;
+    }
+    .header>ul{
+        margin-top:41px;
+        text-align: center;
+    }
+    .header>ul li{
+        /*float: left;浮动元素对margin:0 auto和text-align:center失效，若要居中排列，需要其他方法，有待验证*/
+        display: inline-block;
+        line-height: 16px;
+        padding: 4px 0;
+        margin: 0 2em;
+        background: #d8d8d8;
+        width: 128px;
+        
+    }
+
+    .des{
+        margin-top: 35px;
+        background: #EFEFEF;
+        padding: 40px;
+        text-align: center;
+    }
+    .des>h1{
+        line-height: 40px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+    .des>p{
+        line-height: 24px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .spec{
+        margin-top: 42px;
+    }
+
+    .spec>ul{
+        margin-left: -32px;
+    }
+
+
+    .spec>ul li{
+        float: left;
+        margin-left: 32px;
+        margin-bottom: 32px;/*浮动不发生外边距合并，所以不写margin-top*/
+    }
+
+    .spec>ul .d-img{
+        /*不在外容器设置宽高，通过内容去撑开外容器的宽高*/
+        height: 180px;
+        width: 288px;
+        /*background: #D8D8D8;*/
+        background: cyan;
+    }
+    .spec>ul h3{
+        line-height: 24px;
+        background: #bcbcbc;
+        margin-top: 20px;
+    }
+    .spec>ul p{
+        line-height: 16px;
+        background: #ececec;
+        margin-top: 14px;
+    }
+    </style>
+</head>
+<body>
+<div class="header wraper">
+    <div class="h-img"></div>
+    <ul  class="clearfix">
+        <li><a href="">导航1</a></li>
+        <li><a href="">导航2</a></li>
+        <li><a href="">导航3</a></li>
+        <li><a href="">导航4</a></li>
+    </ul>
+</div>
+
+<div class="des">
+    <h1>这是h1标题</h1>
+    <p>这是段落这是段落这是段落这是段落这是段落这是段落这是段落</p>
+    <p>这是段落这是段落这是段落这是段落这是段落这是段落这是段落</p>
+</div>
+
+<div class="spec wraper clearfix">
+    <ul>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+         <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+         <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+        <li>
+            <div class="d-img"></div>
+            <h3>h3标题</h3>
+            <p>描述描述描述描述描述</p>
+        </li>
+    </ul>
+</div>
+   
+</body>
+
+</html>

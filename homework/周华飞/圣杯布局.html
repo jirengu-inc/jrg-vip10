@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .clearfix:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .fl {
+            float: left;/*2*/
+        }
+        .left {
+            width: 100px; /*1*/
+            height: 500px; /*1*/
+            background: #e41f25; /*1*/
+            margin-left: -100%;/*4*/
+            position: relative;/*6*/
+            left: -100px;/*6*/
+        }
+        .right {
+            width: 100px; /*1*/
+            height: 500px; /*1*/
+            background: #e41f25; /*1*/
+            margin-left: -100px;/*5*/
+            position: relative;/*7*/
+            left: 100px;/*7*/
+        }
+        .main {
+            height: 550px; /*1*/
+            background: #81d8d0; /*1*/
+            width: 100%;/*3*/
+        }
+        .content {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="content clearfix">
+    <div class="main fl">main</div>
+    <div class="left fl">left</div>
+    <div class="right fl">right</div>
+</div>
+</body>
+</html></html>

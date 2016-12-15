@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.nav {
+			background: #CCC;
+		}
+		.nav>li {
+			list-style: none;
+			font-size: 20px;
+			display: inline-block;
+			padding: 5px 25px;
+			position: relative;
+		}
+		.nav>li a{
+			text-decoration: none;
+			color: black;
+		}
+		.nav>li:hover {
+			background: pink;
+		}
+		.son {
+			position: absolute;
+			top: 28px;
+			padding: 0;
+			display: none;
+		}
+		.son>li {
+			list-style: none;
+			border-left: 1px solid #CCC;
+			border-right: 1px solid #CCC;
+		}
+		.son>li:hover {
+			background: skyblue;
+		}
+		.big:hover .son {
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li class="big">
+			<a href="#">前端</a>
+			<ul class="son">
+				<li class="small">Javascript</li>
+				<li class="small">CSS</li>
+				<li class="small">HTML</li>
+			</ul>
+		</li>
+		<li class="big">
+			<a href="#">服务端</a>
+			<ul class="son">
+				<li class="small">Javascript</li>
+				<li class="small">CSS</li>
+				<li class="small">HTML</li>
+			</ul>
+		</li>
+		<li class="big">
+			<a href="#">前端工具</a>
+			<ul class="son">
+				<li class="small">Javascript</li>
+				<li class="small">CSS</li>
+				<li class="small">HTML</li>
+			</ul>
+		</li>
+		<li><a href="#">HTML</a></li>
+		<li><a href="#">NODE</a></li>
+	</ul>
+</body>
+</html>
