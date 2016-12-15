@@ -9,7 +9,7 @@
   	}
 
 	#container{
-		padding-left: 90px;/*父容器内容宽度减小*/
+		padding-left: 190px;/*父容器内容宽度减小*/
 		padding-right: 60px;
 	}
   	.main{
@@ -20,13 +20,13 @@
 	}
 
 	.aside{
-		width: 80px;
+		width: 180px;/*宽度太小，不能模拟降少父容器内容宽度，左右下移的bug*/
 		height: 300px;
 		background-color: pink;
 		margin-left: -100%;
 
 		position: relative;
-		left: -90px;
+		left: -190px;
 	}
 
 	.ad{
@@ -40,7 +40,7 @@
 	}
 
 	#container:after{
-		content: "";
+		content: '';
 		display: block;
 		clear: both;
 	}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>三栏布局</title>
+	<style type="text/css">
+		body{
+			margin-top: 50px;
+			min-width: 300px;
+		}
+		#content:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.left{
+			width: 100px;
+			height: 600px;
+			background-color: blue;
+			float: left;
+		}
+		.right{
+			width: 200px;
+			height: 600px;
+			background-color: green;
+			float: right;
+		}
+		.main{
+			margin-left: 110px;
+			margin-right: 210px;
+			height: 700px;
+			background-color: red;
+		}
+		#footer{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div class="left">left-menu</div>
+		<div class="right">right-menu</div>
+		<div class="main">content</div>
+	</div>
+	<div id="footer">footer</div>
+</body>
+</html>

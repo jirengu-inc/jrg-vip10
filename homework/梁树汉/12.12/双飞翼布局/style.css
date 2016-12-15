@@ -1,0 +1,39 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.aside,.main,.extra{
+	float: left;
+}
+.content:after{
+	content: "";
+	display: block;
+	clear: both;
+
+}
+
+.aside{
+	width: 100px;
+	height: 300px;
+	background-color: red;
+	margin-left: -100%;
+	
+}
+.extra{
+	width: 150px;
+	height: 300px;
+	background-color: yellow;
+	margin-left: -150px;
+	
+}
+.main{
+	width: 100%;
+}
+.wrap{
+	background-color: blue;
+	margin-left: 110px;
+	margin-right: 160px;
+	height: 400px;
+
+	
+}
