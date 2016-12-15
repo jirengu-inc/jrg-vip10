@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>float</title>
+	<style>
+		.box{
+			width: 200px;
+			height: 100px;
+			border: 1px solid gray;
+			margin:20px;
+		}
+		.triangle::before{
+			content: " ";
+			display: block;
+			width: 0;
+			height: 0;
+			border:10px solid gray;
+			border-top: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-left: 10px solid transparent;
+			border-bottom: 10px solid
+			gray;
+			position: relative;
+			left:20px;
+			top: -20px;
+		}
+		.triangle-1::after{
+			content: " ";
+			display: block;
+			width: 0;
+			height: 0;
+			border:10px solid gray;
+			border-top: 10px solid red;
+			border-right: 10px solid red;
+			border-left: 10px solid transparent;
+			border-bottom: 10px solid
+			transparent;
+			position: relative;
+			left:181px;
+			
+		}
+		
+		.triangle-2::before{
+			content: " ";
+			display: block;
+			width: 0;
+			height: 0;
+			border:10px solid gray;
+			border-top: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-left: 10px solid transparent;
+			border-bottom: 10px solid
+			white;
+			position: relative;
+			left: 20px;
+			top:-18px;
+			z-index:100; 
+			
+		}
+		.triangle-2::after{
+			content: " ";
+			display: block;
+			width: 0;
+			height: 0;
+			border:10px solid gray;
+			border-top: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-left: 10px solid transparent;
+			border-bottom: 10px solid
+			gray;
+			position: relative;
+			left: 20px;
+			top:-39px;
+		}
+	</style>
+</head>
+<body>
+<div class="box triangle"></div>
+<div class="box triangle-1"></div>
+<div class="box triangle-2"></div>
+
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单栏布局</title>
+	<style>
+		*{margin:0;padding: 0;}
+		body{
+			min-width: 1280px;
+			margin: 0 auto;
+		}
+		.m{
+			margin: 0 auto;
+			max-width: 1280px;
+		}
+		.header{
+			background-color: red;
+			height: 30px;
+		}
+		.content{
+			background-color: blue;
+			width: 1280px;
+			height: 800px;
+			margin: 0 auto;
+		}
+		.footer{
+			background-color: green;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="warp">
+		<div class="header">
+			<div class="m">header</div>
+		</div>
+		<div class="content">content</div>
+		<div class="footer">
+			<div class="m">footer</div>
+		</div>
+	</div>
+</body>
+</html>

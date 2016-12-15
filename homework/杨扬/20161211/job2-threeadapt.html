@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>三列布局-自适应</title>
+	<style type="text/css">
+		.content {
+			text-align: center;		
+			font-size: 30px;
+			font-family: "黑体";
+		}
+		.content {
+			padding: 50px 100px;
+		}
+		.content:after {
+			content: " ";
+			display: block;
+			clear: both;
+		}
+		.aside {
+			background: blue;
+			height: 350px;
+			width: 15%;
+			float: left;
+		}
+		.ad {
+			background: yellow;
+			height: 300px;
+			width: 15%;
+			float: right;
+		}
+		.main {
+			background: red;
+			width: 68%;
+			height: 600px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="aside">left</div>
+		<div class="ad">right</div>
+		<div class="main">middle</div>
+	</div>
+</body>
+</html>

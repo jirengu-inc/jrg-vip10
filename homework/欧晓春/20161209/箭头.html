@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.a,.b,.c{
+		width: 250px;
+		height: 150px;
+		border: 1px solid;
+		margin: 50px;
+	}
+	.a:after{
+		content: '';
+		display: block;
+		border: 20px solid;
+		border-color: transparent transparent #999 transparent;
+		position: absolute;
+		top: 10px;
+		left: 75px;
+	}
+	.b:after{
+		content: '';
+		display: block;
+		border: 15px solid;
+		border-color: red red transparent transparent;
+		position: absolute;
+		left: 279px;
+	}
+	.c:before{
+		content: '';
+		display: block;
+		border: 20px solid;
+		border-color: transparent transparent black transparent;
+		position: absolute;
+		top: 415px;
+		left: 70px;
+	}
+	.c:after{
+		content: '';
+		display: block;
+		border: 20px solid;
+		border-color: transparent transparent white transparent;
+		position: absolute;
+		top: 416px;
+		left: 70px;
+	}
+</style>
+</head>
+<body>
+	<div class="a"></div>
+	<div class="b"></div>
+	<div class="c"></div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.mid-nav{
+	height: 110px;
+	background-color: red;
+	
+}
+.mid-footer{
+	height: 90px;
+	background-color: pink;
+	
+}
+.footer{
+	max-width: 960px;
+	margin: 0 auto;
+	border:1px solid white;
+	height:90px;
+}
+.nav{
+	max-width: 960px;
+	height: 100px;
+	border:1px solid white;
+	margin: 0 auto;
+}
+.main{
+	max-width: 960px;
+	height: 600px;
+	background-color: yellow;
+	margin: 0 auto;
+}

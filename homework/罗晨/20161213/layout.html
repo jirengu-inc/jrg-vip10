@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>自己的布局</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.header{
+			margin: 0 auto 35px;
+		}
+		.header .avator{
+			margin: 54px auto 41px;
+			width: 72px;
+			height: 72px;
+			border-radius: 50%;
+			background-color: #D8D8D8;
+			margin-top: 54px;
+		}
+		.header ul{
+			margin: 0 auto;
+			text-align: center;
+			width: 928px;
+		}
+		.header li{
+			display: inline-block;
+			width: 128px;
+			padding-top: 4px;
+			padding-bottom: 4px;
+			background-color: #D8D8D8;
+			margin-left: 30px;
+			margin-right: 30px;
+			line-height: 16px;
+			color: #565656;
+		}
+		.middle{
+			padding: 40px;
+			text-align: center;
+			background-color: #EFEFEF;
+		}
+		.middle h1{
+			margin: 35px 0;
+			line-height: 40px;
+			color: #444;
+		}
+		.middle .para p{
+			line-height: 24px;
+			margin: 20px 0;
+			color: #595959;
+		}
+		.content{
+			width: 928px;
+			padding-top: 42px;
+			margin: 0 auto;
+		}
+		.content .item{
+			width: 288px;
+			height: 254px;
+			float: left;
+			margin-right: 16px;
+			margin-bottom: 32px;
+			margin-left: -0.5px;
+		}
+		.content .item .img{
+			height: 180px;
+			width: 288px;
+			background-color: #D8D8D8;
+		}
+		.content .item .title{
+			width: 288px;
+			line-height: 24px;
+			margin: 20px 0;
+			background: #bcbcbc;
+			font-size: 1.17em;
+			font-weight: bold;
+		}
+		.content .item .desc{
+			width: 288px;
+			line-height: 16px;
+			background-color: #ececec;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="avator"></div>
+		<ul>
+			<li>丁丁</li>
+			<li>拉拉</li>
+			<li>迪西</li>
+			<li>波儿</li>
+		</ul>
+	</div>
+	<div class="middle">
+		<h1>大标题大标题大标题大标题大标题</h1>
+		<div class="para">
+			<p>这是段落这是段落这是段落这是段落这是段落这是段落这是段落</p>
+			<p>这是段落这是段落这是段落这是段落这是段落这是段落这是段落</p>
+		</div>
+	</div>
+	<div class="clearfix content">
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+		<div class="item">
+			<div class="img"></div>
+			<p class="title">标题标题标题标题</p>
+			<p class="desc">描述描述描述描述描述</p>
+		</div>
+	</div>
+</body>
+</html>

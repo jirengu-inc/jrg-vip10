@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平等距排列</title>
+    <style>
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        .main:after{
+            content:" ";
+            display: block;
+            clear:both;
+        }
+        .main{
+            width:640px;
+            border:1px solid blue;
+            margin:0 auto;
+            overflow:hidden;
+        }
+        .main .item{
+            width:200px;
+            height:200px;
+            background: red;
+            float:left;
+            margin:20px 0 0 20px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .main ul{
+            margin-left:-20px;
+            margin-top:-20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul>
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+            <li class="item">5</li>
+            <li class="item">6</li>
+            <li class="item">7</li>
+            <li class="item">8</li><li class="item">8</li><li class="item">8</li><li class="item">8</li>
+        </ul>
+    </div>
+</body>
+</html>

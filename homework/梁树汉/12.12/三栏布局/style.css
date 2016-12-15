@@ -1,0 +1,28 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.aside{
+	width: 200px;
+	height: 500px;
+	background-color: red;
+	float: left;
+
+}
+.content{
+	height: 550px;
+
+	background-color: green;
+	margin: 0 210px;
+}
+.aside-right{
+	width: 200px;
+	height: 500px;
+	background-color: blue;
+	float: right;
+}
+.footer{
+	height: 80px;
+	background-color: gray;
+}
