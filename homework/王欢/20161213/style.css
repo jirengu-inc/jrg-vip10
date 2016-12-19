@@ -1,0 +1,30 @@
+* { margin: 0; padding: 0; }
+ ul,ol{list-style: none;}
+body{color:#444;}
+
+.logo{width: 74px;height: 74px;border-radius: 50%;
+	background: #d8d8d8;
+	display: block;
+	margin: 0 auto;margin-top: 54px;}
+
+.nav{text-align: center;margin-top: 40px;padding-bottom: 37px; }
+.nav a{background: #d8d8d8;color: inherit;/*继承body颜色*/
+	text-decoration:none;
+	display: inline-block;
+	width: 128px;
+	line-height: 25px;
+	margin-left: 15px;margin-right: 15px;
+	}
+
+.banner{text-align:center;background: #efefef;padding: 30px;}
+.banner h1{padding: 20px;}
+.banner p{line-height: 50px;}
+
+.wrapper{width: 960px;margin:0 auto;}
+li{float:left;margin-left: 15px;margin-right:15px;
+	margin-top: 35px;}
+
+.img{width: 290px;height: 180px;background: #d8d8d8;}
+li h3 { line-height: 25px; background: #bcbcbc;
+	margin-top: 20px; margin-bottom: 15px; }
+li p { line-height: 20px; background: #ececec; }
