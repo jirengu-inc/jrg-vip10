@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    body{
+    	font-family: -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+                     "Fira Sans", "Droid Sans", "Helvetica Neue",sans-serif;
+    }
+    .clearfix::after{
+    	content: '';
+    	clear: both;
+    	display: block;
+    }
+    li {
+        list-style: none;
+    }
+    .layout{
+    	max-width: 960px;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+    .header{
+    	padding-top: 40px;
+    	padding-bottom: 40px;
+    	margin-bottom: 40px;
+    }
+    .intro {
+    	float: left;
+    }
+    .intro>div{
+    	display: inline-block;
+    	vertical-align: middle;
+    }
+    .intro>div>h1{
+    	font-size: 40px;
+    	font-weight: 100;
+    	letter-spacing: 3px;
+    	margin-bottom: 10px;
+    }
+    .intro>img{
+    	margin-right: 30px;
+    	vertical-align: middle;
+    }
+    .contact{
+    	float: right;
+    }
+    .contact>h2{
+    	font-size: 18px;
+    	line-height: 40px;
+    	border-bottom: 5px solid #000;
+    	padding-right: 300px;
+    	margin-bottom: 5px;
+    }
+    .contact li{
+    	line-height: 25px;
+    	font-size: 20px;
+    }
+    .contact span{
+    	margin-right: 10px;
+    	font-size: 20px;
+    }
+    .content{
+    	position: relative;
+    	margin-bottom: 50px;
+    }
+    .content>h2{
+        font-size: 18px;
+        line-height: 40px;
+        width: 430px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 30px;
+    }
+    .content-list{
+       padding-left: 70px;
+       color: #6F7373;
+    }
+    .content-list::before{
+    	content: '';
+    	display: block;
+    	border-left: 1px solid #000;
+    	position: absolute;
+    	top: 78px;
+    	left: 10px;
+    	bottom: 0;
+    	width: 0;
+    }
+    .content-list h3,.practice h3{
+    	font-weight: normal;
+    	font-size: 16px;
+    	padding-bottom: 10px;
+    }
+    .content-list h3 span{
+    	color: #ccc;
+    }
+    .content-list p,.practice p{
+    	font-size: 15px;
+    	margin-bottom: 30px;
+    }
+    .content-list li{
+    	position: relative;
+    }
+    .content-list li::before{
+        content: '';
+        display: block;
+        border: 4px solid #000;
+        border-radius: 50%;
+        position: absolute;
+        top: 5px;
+        left: -63px;
+        width: 0;
+        height: 0;
+    }
+    .content-list .describe{
+    	color: #ccc;
+    }
+    .practice{
+    	float: left;
+    }
+    .practice-list,.skill-list{
+    	color: #6F7373;
+    }
+    .practice-list .ct{
+    	width: 350px;
+    	margin-left: 50px;
+    	margin-top: 8px;
+    	display: inline-block;
+    	vertical-align: top;
+    }
+    .practice-list span{
+    	font-size: 28px;
+    	vertical-align: top;
+    }
+    .skill{
+    	float: right;
+    	width: 430px;
+    }
+    .skill-list li{
+    	float: left;
+    	line-height: 60px;
+    	width: 160px;
+    	margin-right: 55px;
+    	display: inline-block;
+    	vertical-align: middle;
+    }
+    .skill-list span{
+    	font-size: 28px;
+    	margin-right: 20px;
+    	vertical-align: middle;
+    }
+    @font-face {
+	    font-family: 'iconfont-resume';  /* project id 207048 */
+	    src: url('http://at.alicdn.com/t/font_z70ph6k59kxx0f6r.eot');
+	    src: url('http://at.alicdn.com/t/font_z70ph6k59kxx0f6r.eot?#iefix') format('embedded-opentype'),
+	    url('http://at.alicdn.com/t/font_z70ph6k59kxx0f6r.woff') format('woff'),
+	    url('http://at.alicdn.com/t/font_z70ph6k59kxx0f6r.ttf') format('truetype'),
+	    url('http://at.alicdn.com/t/font_z70ph6k59kxx0f6r.svg#iconfont') format('svg');
+	}
+	.iconfont-resume{
+	    font-family:"iconfont-resume" !important;
+	    font-size:16px;
+	    font-style:normal;
+	    -webkit-font-smoothing: antialiased;
+	    -webkit-text-stroke-width: 0.2px;
+	    -moz-osx-font-smoothing: grayscale;
+	    cursor: pointer;
+    }
+    .iconfont-resume:hover{
+    	color: #208AE5;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <header class="clearfix header">
+            <div class="intro">
+                <img src="images/touxiang.png" alt="head portrait">
+                <div>
+                	<h1>David Smith</h1>
+                    <p>Graphic &amp; Web Designer</p>
+                </div>
+            </div>
+            <div class="contact">
+                <h2>CONTACTS</h2>
+                <ul>
+                    <li><span class="iconfont-resume">&#xe694;</span>Somewhere</li>
+                    <li><span class="iconfont-resume">&#xe601;</span>10086</li>
+                    <li><span class="iconfont-resume">&#xe61f;</span>xxxxx@outlook.com</li>
+                    <li><span class="iconfont-resume">&#xe630;</span>www.xxxxx.com</li>
+                </ul>
+            </div>
+        </header>
+        <section class="clearfix">
+            <div class="content">
+                <h2>WORK EXPERIENCE</h2>
+                <ol class="content-list">
+                    <li>
+                        <h3>Marketplaces/<span>2012-2013</span></h3>
+                        <p>
+                            Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind. These passions, like great winds, have blown me hither and thither, in a wayward course, over a deep ocean of anguish, reaching to the very verge of despair.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Apple Inc./<span>2013-2014</span></h3>
+                        <p>
+                            With equal passion I have sought knowledge. I have wished to understand the hearts of men. I have tried to apprehend the Pythagorean power by which number holds sway above the flux. A little of this, but not much, I have achieved.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Aroma Bar Network/<span>2014-Now</span></h3>
+                        <p>
+                            Some books are to be tasted, others to be swallowed, and some few to be chewed and digested; that is, some books are to be read only in parts; others to be read, but not curiously; and some few to be read wholly, and with diligence and attention.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="content">
+                <h2>EDUCATION</h2>
+                <ol class="content-list">
+                    <li>
+                        <h3>College/<span>2008-2011</span></h3>
+                        <p class="describe">Visual Desgin Communication</p>
+                        <p>
+                            Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed.
+                        </p>
+                    </li>
+                    <li>
+                        <h3>University/<span>2011-2014</span></h3>
+                        <p class="describe">Information System</p>
+                        <p>
+                            Do not go gentle into that good night， Old age should burn and rave at close of day; Rage， rage against the dying of the light.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="content practice">
+                <h2>EXTRA CURRICULAR ACTIVITIES</h2>
+                <ul class="practice-list">
+                    <li>
+                        <span class="iconfont-resume">&#xe600;</span>
+                        <div class="ct">
+                        	<h3>Volunteer</h3>
+	                        <p>
+	                            I have nothing to offer but blood, toil, tears and sweat. I have nothing to offer but blood, toil, tears and sweat.
+	                        </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="iconfont-resume">&#xe600;</span>
+                         <div class="ct">
+                        	<h3>Volunteer</h3>
+	                        <p>
+	                            I have nothing to offer but blood, toil, tears and sweat. I have nothing to offer but blood, toil, tears and sweat.
+	                        </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content skill">
+                <h2>PROFESIONAL SKILLS</h2>
+                <ul class="skill-list">
+                    <li><span class="iconfont-resume">&#xe600;</span>HTML&amp;CSS</li>
+                    <li><span class="iconfont-resume">&#xe600;</span>JAVASCRIPT</li>
+                    <li><span class="iconfont-resume">&#xe600;</span>SLIM</li>
+                    <li><span class="iconfont-resume">&#xe600;</span>JQUERY</li>
+                    <li><span class="iconfont-resume">&#xe600;</span>PHOTOSHOP</li>
+                    <li><span class="iconfont-resume">&#xe600;</span>ILLUSTRATOR</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
