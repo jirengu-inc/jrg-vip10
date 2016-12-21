@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.box{
+			margin: 20px 20px;
+			width: 200px;
+			position: relative;
+		}
+		.sjx1{
+			border: 10px solid #ccc;
+			width: 0;
+			height: 0;
+			border-top: 10px solid transparent;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			position: absolute;
+			left: 10px;
+			top: -20px;
+		}
+		.bottom{
+			height: 100px;
+			width: 200px;
+			border: 1px solid #ccc;
+		}
+		.sjx2{
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-top: 10px solid red;
+			border-right: 10px solid red;
+			position: absolute;
+			right: -2px;
+			top: 0;
+		}
+		.sjx3{
+			width: 0;
+			height: 0;
+			border: 10px solid;
+			border-color: transparent transparent #ccc transparent;
+			position: absolute;
+			left: 10px;
+			top: -20px;
+		}
+		.sjx3:after{
+			content: '';
+			display: block;
+			border-bottom: 10px solid #fff;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			position: relative;
+			left: -10px;
+			top: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box box-1">
+		<div class="sjx1"></div>	
+		<div class="bottom"></div>	
+	</div>
+	<div class="box box2">
+		<div class="sjx2"></div>
+		<div class="bottom"></div>
+	</div>
+	<div class="box box3">
+		<div class="sjx3"></div>
+		<div class="bottom"></div>
+	</div>
+</body>
+</html>

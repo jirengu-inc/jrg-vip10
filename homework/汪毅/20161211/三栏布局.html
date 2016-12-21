@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>三栏布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.header{
+			height: 45px;
+			background: #f60;
+		}	
+		.main:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.left{
+			float: left;
+			background: #ccc;
+			height: 500px;
+			width: 150px;
+		}
+		.content{	
+			background: #333;		
+			height: 500px;
+			margin: 0 165px;
+		}
+		.right{
+			float: right;
+			width: 150px;
+			background: #888;
+			height: 500px;
+		}
+		.footer{
+			height: 38px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">		
+			header		
+	</div>
+	<div class="main">
+		<div class="left">
+			left
+		</div>		
+		<div class="right">
+			right
+		</div>
+		<div class="content">
+			content
+		</div>		
+	</div>
+	<div class="footer">		
+		footer		
+	</div>
+</body>
+</html>
