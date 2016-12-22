@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">	
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		a{text-decoration: none;color: #333;}
+		ul{list-style: none;}
+		.nav:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.nav{
+			background: #ccc;		
+		}
+		.nav .navbar>li{
+			float: left;
+			padding: 10px 20px;
+			text-align: center;
+			position: relative;			
+		}
+		.nav .navbar>li:hover{
+			background: #aaa;
+		}
+		.nav .navbar a{
+			display: block;
+		}		
+		.nav .navbar>li ul{
+			display: none;		
+		}
+		.nav .navbar>li ul li{
+			padding: 10px 20px;
+		}
+		.nav .navbar>li:hover ul{
+			display: block;
+		}
+		.navbar>li ul{
+			position:  absolute;
+			top: 38px;
+			left: 5px;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+		.navbar>li li:hover{
+			background: #bbb;
+		}
+		
+	</style>	
+	
+</head>
+<body>
+	<div class="nav">
+		<ul class="navbar">
+			<li>
+				<a href="">前端</a>
+				<ul>
+					<li><a href="">JavaScript</a>
+					<li><a href="">Html</a>
+					<li><a href="">Css</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="">服务端</a>
+				<ul>
+					<li><a href="">Node</a></li>
+					<li><a href="">Php</a></li>
+					<li><a href="">Java</a></li>
+					
+				</ul>
+			</li>
+			<li>
+				<a href="">服务工具</a>
+				<ul>
+					<li><a href="">Submit</a></li>
+					<li><a href="">Git</a></li>					
+				</ul>
+
+			</li>
+			<li>
+				<a href="">Html</a>
+			</li>
+			<li>
+				<a href="">Node</a>
+			</li>
+
+		</ul>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .layout {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+          color: black;
+          text-decoration: none;
+        }
+        .clerfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .font {
+            font-size: 18px;
+            font-family: Helvetica;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        #head {
+            padding: 60px 0;
+        }
+        .logo {
+            width: 60%;
+            float: left;
+            text-align: center;
+            font-family: ' WenQuanYi Micro Hei';
+            margin-left: 40px;
+        }
+        .logo img {
+            width: 160px;
+            height: 160px;
+            border-radius: 80px;
+            float: left;
+        }
+        .logo .my-name {
+            float: left;
+            padding: 40px 0 0 50px;
+        }
+        .logo .my-name h1 {
+            font-size: 50px;
+            font-weight: 100;
+        }
+        .logo .my-name p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .contacts {
+            float: left;
+        }
+        .contacts h3 {
+            font-family: '微软雅黑';
+            font-size: 18px;
+            border-bottom: 5px solid;
+            margin-bottom: 8px;
+        }
+        .contacts p {
+            padding-bottom: 8px;
+            font-family: Helvetica;
+        }
+        .contacts span {
+            font-weight: 900;
+            font-family: '微软雅黑';
+            padding-right: 15px;
+        }
+        #experience h2 {
+            width: 50%;
+        }
+        .work-e,.education-e {
+            border-left: 1px solid;
+            position: relative;
+            left: 20px;
+        }
+        #experience li {
+            list-style-image: url("http://7xpvnv.com2.z0.glb.qiniucdn.com/60e181be-f73e-4e6c-b71a-61676a6ca1e3");
+            padding-left: 65px;
+            margin-bottom: 25px;
+        }
+        #experience ul {
+            position: relative;
+            left: 13px;
+            top: -5px;
+            margin-bottom: 50px;
+        }
+        #experience h3,#more h3 {
+            font-weight: 100;
+            padding-bottom: 18px;
+        }
+        #experience ul li h3 span {
+            font-weight: 100;
+            color: #cccccc;
+        }
+        @font-face {font-family: "iconfont";
+            src: url('http://at.alicdn.com/t/font_zqr09pueksrwwmi.eot?t=1482386224447'); /* IE9*/
+            src: url('http://at.alicdn.com/t/font_zqr09pueksrwwmi.eot?t=1482386224447#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('http://at.alicdn.com/t/font_zqr09pueksrwwmi.woff?t=1482386224447') format('woff'), /* chrome, firefox */
+            url('http://at.alicdn.com/t/font_zqr09pueksrwwmi.ttf?t=1482386224447') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('http://at.alicdn.com/t/font_zqr09pueksrwwmi.svg?t=1482386224447#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        .iconfont {
+            font-family:"iconfont" !important;
+            vertical-align: middle;
+            font-size:25px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .iconfont:hover {
+            color: red;
+        }
+        #more {
+            margin-bottom: 50px;
+        }
+        .acivities,.skill {
+            width: 45%;
+            float: left;
+        }
+        .acivities {
+            margin-right: 10%;
+        }
+        #more h2 {
+            width: 100%;
+        }
+        .acivities a {
+            float: left;
+            margin-right: 30px;
+        }
+        .acivities p {
+            margin-left: 55px;
+        }
+        .acivities li {
+            padding-bottom: 30px;
+        }
+        .skill li {
+            float: left;
+            width: 170px;
+            line-height: 68px;
+            margin-left: 90px;
+        }
+        .skill a {
+            margin-right: 30px;
+        }
+        .skill ul {
+            margin-left: -90px;
+        }
+    </style>
+</head>
+<body>
+    <div id="head" class="layout clerfix">
+        <div class="logo">
+            <img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/2a3e0378-5473-4727-9a01-66f5dee65b6f" alt="">
+            <div class="my-name">
+                <h1>David Smith</h1>
+                <p>Graphic &amp; Web Designer</p>
+            </div>
+        </div>
+        <div class="contacts">
+            <h3>CONTACTS</h3>
+            <p><span>A</span>59 SomewhereStree, NY, USA</p>
+            <p><span>M</span>123456789</p>
+            <p><span>E</span><a href="mailto:XXX@XX.com">XXX@XX.com</a></p>
+            <p><span>B</span><a href="#">www.baidu.com</a></p>
+        </div>
+    </div>
+    <div id="experience" class="layout">
+        <div class="work">
+            <h2 class="font">WORK EXPERIENCE</h2>
+            <div class="work-e">
+                <ul>
+                    <li>
+                        <h3>Marketplaces / <span>2012 - 2013</span></h3>
+                        <p>
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Marketplaces / <span>2012 - 2013</span></h3>
+                        <p>
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Marketplaces / <span>2012 - 2013</span></h3>
+                        <p>
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="education">
+            <h2 class="font">EDUCATION</h2>
+            <div class="education-e">
+                <ul>
+                    <li>
+                        <h3>Marketplaces / <span>2012 - 2013</span></h3>
+                        <p>
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Marketplaces / <span>2012 - 2013</span></h3>
+                        <p>
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                            Nam liber tempor cum soluta nobies eleifend option congue nihil
+                            imperdiet doming id quod
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="more" class="layout clerfix">
+        <div class="acivities">
+            <h2 class="font">EXTRA CURRICULAR ACTIVITIES</h2>
+            <ul>
+                <li>
+                    <a href="#" class="iconfont">&#xe6fd;</a>
+                    <h3>volunteer</h3>
+                    <p>
+                        Claritas est etiam processus dynamicus,quisequitur mutationem
+                        Claritas est etiam processus dynamicus,quisequitur mutationem
+                    </p>
+                </li>
+                <li>
+                    <a href="#" class="iconfont">&#xe6fd;</a>
+                    <h3>volunteer</h3>
+                    <p>
+                        Claritas est etiam processus dynamicus,quisequitur mutationem
+                        Claritas est etiam processus dynamicus,quisequitur mutationem
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="skill">
+            <h2 class="font">PROFESIONAL SKILLS</h2>
+            <ul>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>HTML &amp; CSS</li>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>JQUERY</li>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>JAVASCRIPT</li>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>PHOTOSHOP</li>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>SLIM</li>
+                <li><a href="#" class="iconfont">&#xe6fd;</a>ILLUSTRATOR</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
