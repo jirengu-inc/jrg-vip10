@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font_cyadd1kekujzia4i/iconfont.eot');
+    src: url('../font_cyadd1kekujzia4i/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../font_cyadd1kekujzia4i/iconfont.woff') format('woff'),
+    url('../font_cyadd1kekujzia4i/iconfont.ttf') format('truetype'),
+    url('../font_cyadd1kekujzia4i/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.title .logo{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+}
+body{
+    font-family: Helvetica;
+}
+.title .logo span{
+    display: inline-block;
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+}
+.title .logo .left{
+    position: absolute;
+    top: 26%;
+    left: 20%;
+}
+.title .logo .right{
+    position: absolute;
+    bottom: 26%;
+    right: 20%;
+}
+.title .logo div{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom:0;
+    width: 60%;
+    height: 4px;
+    background-color: #fff;
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); 	/* IE 9 */
+    -moz-transform:rotate(-45deg); 	/* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg); 	/* Opera */
+}
+.title{
+    padding-top: 50px;
+}
+.clear:after{
+    clear:both;
+    width: 0;
+    height: 0;
+    content:'';
+    display: block;
+    visibility:hidden;
+}
+.box{
+    padding-bottom: 20px;
+    width: 1200px;
+    margin: auto;
+}
+.title .name{
+    margin-left: 80px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.title .name h1{
+    font-weight:normal;
+    font-size: 45px;
+    line-height: 50px;
+}
+.title .name span{
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 30px;
+    display: block;
+}
+.title .contact{
+    float: right;
+    width: 300px;
+}
+.title .contact h1{
+    padding-bottom: 8px;
+    border-bottom:6px #000 solid;
+    font-size: 20px;
+    line-height: 22px;
+}
+.title .contact p{
+    font-size:16px;
+    line-height:26px;
+}
+.content{
+    margin-top: 80px;
+}
+.content h1{
+    font-size: 18px;
+    width: 500px;
+    line-height: 58px;
+    border-bottom: 1px solid #a0a0a0;
+}
+.title .contact p i{
+    font-size: 12px;
+    margin-right: 17px;
+}
+.content ul{
+    margin-top: 40px;
+    border-left: 2px solid  #6f7071;
+    margin-left:16px;
+}
+.content ul li i{
+    width: 18px;
+    float: left;
+    height: 18px;
+    background: #1d2627;
+    border: 1px solid #000206;
+    border-radius: 50%;
+}
+.content ul li{
+    margin-bottom: 20px;
+}
+.content ul li div{
+    margin-left: -10.5px;
+    overflow: hidden;
+}
+.content ul li a{
+    margin-left: 88px;
+     float: left;
+     font-size: 18px;
+     line-height: 20px;
+ }
+.content ul li em{
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 100;
+    color: #bbc0c0;
+}
+.content ul li p{
+    margin-top: 10px;
+    margin-left:98px ;
+    font-size: 14px;
+    line-height: 28px;
+}
+.footer .left{
+    float: left;
+    overflow: hidden;
+    width: 499px;
+}
+.footer .left h1{
+    font-size: 18px;
+    width: 500px;
+    line-height: 58px;
+    border-bottom: 1px solid #a0a0a0;
+}
+.volunteer li i{
+    margin-left: 2px;
+    font-size: 30px;
+    line-height: 30px;
+}
+.volunteer li{
+    margin-top: 30px;
+}
+.volunteer li span{
+    display: inline-block;
+    font-size: 26px;
+    line-height: 30px;
+    margin-left: 79px;
+}
+.volunteer li p{
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 30px;
+    margin-left:110px;
+}
+.footer .right{
+    float: right;
+}
+.skills{
+    overflow: hidden;
+}
+.skills li{
+    margin: 30px 0;
+    width: 50%;
+    float: left;
+}
+.skills li i{
+    float: left;
+    font-size: 28px;
+    line-height: 30px;
+}
+.skills li span{
+    margin-left: 40px;
+    float: left;
+    font-size: 14px;
+    line-height: 30px;
+}
