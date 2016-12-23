@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>David Smith</title>
+    <style>
+        /*全局选择*/
+        *{
+            margin:0;
+            padding: 0;
+        }
+
+        body{
+            font-family: 'microsoft yahei','arial','calibri',serif;
+            line-height:1.5;
+            color:#444;
+        }
+        .clearfix:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+       /*主体居中*/
+        .wrapper{
+            width:920px;
+            margin:0 auto;
+            /*border:1px solid;*/
+        }
+        /*上部分*/
+        .personal{
+            /*border:1px solid red;*/
+            margin-top:50px;
+            position:relative;
+            margin-bottom:100px;
+        }
+        .logo-name{
+            float:left;
+            position:absolute;
+            top:50%;
+            margin-top:-75px;
+        }
+        /*logo*/
+        .logo{
+            height:150px;
+            width:150px;
+            border-radius:50%;
+            background: #000;
+            text-align:center;
+            line-height:1;
+            color:white;
+            font-size:30px;
+            display:inline-block;
+        }
+        .logo:before{
+            display:block;
+            margin:0 auto;
+            width:70px;
+            height:50%;
+            content:"";
+            border-bottom:2px solid white;
+            transform-origin:bottom center;
+            transform:rotateZ(-45deg);
+        }
+        .letter-d{
+            position:relative;
+            top:-32px;
+            left:-10px;
+        }
+        .letter-s{
+            position:relative;
+            top:0;
+            left:10px;
+        }
+        /*名字*/
+        .name{
+            display:inline-block;
+            margin-left:20px;
+        }
+        .name dt{
+            font-size:40px;
+            font-weight: lighter;
+        }
+        .name dd{
+            font-size:18px;
+            font-weight: bold;
+        }
+        /*联系方式*/
+        .contacts{
+            margin-left:550px;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        .contacts h3{
+            border-bottom:3px solid black;
+        }
+        .contacts dl{
+            margin-top:10px;
+        }
+        .contacts dt{
+            font-weight:bold;
+            float:left;
+        }
+        .contacts dd{
+            margin-left:20px;
+        }
+        /*中间部分 工作经历和教育经历*/
+        .work-edu{
+            /*border:1px solid darkolivegreen;*/
+        }
+        .work-edu p{
+            margin:15px 0;
+        }
+        .work-edu h3,.activities-skills h3{
+            width:400px;
+            border-bottom:1px solid #b0b0b0;
+            line-height:2;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        .work-edu div{
+            border-left:1px solid;
+            padding-left:100px;
+            position:relative;
+            float:left;
+            clear:left;
+        }
+        .work-edu div:last-child p{
+            margin-bottom:0;
+        }
+        .work-edu h4{
+            position:relative;
+        }
+
+        /*小圆点*/
+        .work-edu h4:before{
+            content:"";
+            display:inline-block;
+            width:14px;
+            height:14px;
+            background: #000;
+            border-radius:50%;
+            position:absolute;
+            left:-107px;
+        }
+        .work-edu span{
+            color:#d0d0d0;
+        }
+        /*下面的经历和技能*/
+        .activities{
+            float:left;
+
+        }
+        .skills{
+            float:left;
+        }
+        .skills-inner{
+            margin-left:100px;
+        }
+        .skills li{
+            list-style: none;
+        }
+        .icon-circle1{
+            position:relative;
+        }
+        .icon-circle1:before{
+            content:"+";
+            width:18px;
+            height:18px;
+            line-height:18px;
+            display:inline-block;
+            font-weight:bold;
+            border:1px solid;
+            border-radius:50%;
+            text-align: center;
+            position:absolute;
+            left:-109px;
+        }
+        .icon-circle2{
+            position:relative;
+        }
+        .icon-circle2:before{
+            content:"+";
+            width:18px;
+            height:18px;
+            line-height:18px;
+            display:inline-block;
+            font-weight:bold;
+            border:1px solid;
+            border-radius:50%;
+            text-align: center;
+            margin-right:25px;
+        }
+        .activities div{
+            padding-left:100px;
+            width:300px;
+        }
+        .activities p{
+            margin:15px 0;
+        }
+        .skills-inner ul{
+            width:400px;
+        }
+        .skills-inner li{
+            float:left;
+            width:200px;
+            margin-bottom:50px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="personal clearfix">
+        <div class="logo-name">
+            <div class="logo">
+                <span class="letter-d">D</span>
+                <span class="letter-s">S</span>
+            </div>
+            <div class="name">
+                <dl>
+                    <dt>Divd Smith</dt>
+                    <dd>Graphic&Web Designer</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="contacts">
+            <h3>CONTACTS</h3>
+            <dl class="clearfix">
+                <dt>A</dt>
+                <dd>59 Somewhere Street,NY,USA</dd>
+                <dt>M</dt>
+                <dd>123953943048</dd>
+                <dt>E</dt>
+                <dd>steve@gmail.com</dd>
+                <dt>B</dt>
+                <dd>www.behance.net/design</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="work-edu clearfix">
+        <h3>WORK EXPERIENCE</h3>
+        <div>
+            <h4>Marketplaces/<span>2012-2013</span></h4>
+            <p>
+                Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.
+            </p>
+        </div>
+        <div>
+            <h4>Apple Inc./<span>2013-2014</span></h4>
+            <p>
+               Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.
+            </p>
+        </div>
+        <div>
+            <h4>Aroma Bar Network/<span>2014-Now</span></h4>
+            <p>
+                Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.
+            </p>
+        </div>
+
+    </div>
+    <div class="work-edu clearfix">
+        <h3>EDUCATION</h3>
+        <div>
+            <h4>College/<span>2008-2011</span></h4>
+            <span>Visual Design Communicaton</span>
+            <p>
+                Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.
+            </p>
+        </div>
+        <div>
+            <h4>University/<span>2011-2014</span></h4>
+            <span>Information System</span>
+            <p>
+                Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.
+            </p>
+        </div>
+    </div>
+    <div class="activities-skills  clearfix">
+        <div class="activities">
+            <h3>EXTRA CURRICULAR ACTIVITIES</h3>
+            <div>
+                <h4 class="icon-circle1">Volunteer</h4>
+                <p>Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.</p>
+                <h4 class="icon-circle1">Volunteer</h4>
+                <p>Life is a horse, and either you ride it or it rides you.Life is a horse, and either you ride it or it rides you.</p>
+            </div>
+        </div>
+        <div class="skills">
+            <div class="skills-inner">
+                <h3>PROFESIONAL SKILLS</h3>
+                <ul>
+                    <li class="icon-circle2">HTML&CSS</li>
+                    <li class="icon-circle2">JQUERY</li>
+                    <li class="icon-circle2">JAVASCRIPT</li>
+                    <li class="icon-circle2">PHOTOSHOP</li>
+                    <li class="icon-circle2">SLIM</li>
+                    <li class="icon-circle2">ILLUSTRATOR</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

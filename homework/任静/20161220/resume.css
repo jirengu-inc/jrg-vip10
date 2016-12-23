@@ -1,0 +1,199 @@
+/*css 初始化 B*/
+* {
+	margin: 0;
+	padding: 0;
+}
+img,input{
+	border:0;
+}
+ul{
+	list-style: none;
+}
+body{
+	font-size: 12px;
+	color: #000;
+	font-family: "宋体";
+}
+.clearfix:after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	color: #0266A2;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+/*css 初始化 E*/
+/*header*/
+.header {
+	width: 1000px;
+	height: 320px;
+	/*background: pink;*/
+	margin: 0 auto;
+	/*padding: 65px 0 90px 0;*/
+}
+.logo {
+	width: 160px;
+	height: 160px;
+	background: black;
+	border-radius: 50%;
+	position: relative;
+	margin-top: 50px;
+}
+.logo_son {
+	width: 68px;
+	height: 68px;
+	background: #CCC;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -34px;
+	margin-top: -34px;
+}
+.name {
+	margin-top: 100px;
+	padding-left: 30px;
+}
+.name p {
+	font-size: 50px;
+}
+.name b {
+	font-size: 18px;
+}
+.contacts {
+	width: 360px;
+	height: 150px;
+	/*background: #CCC;*/
+	margin-top: 50px;
+}
+.contacts>h1 {
+	font-family: sans-serif;
+	padding-bottom: 4px;
+	border-bottom: 5px solid black;
+}
+.contacts>p {
+	margin-top: 8px;
+	font-size: 16px;
+}
+.contacts>p span {
+	padding-left: 10px;
+}
+/*experience*/
+.experience {
+	width: 1000px;
+	/*background: #DDD;*/
+	margin: 0 auto;
+}
+.experience>h2 {
+	width: 350px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 25px;
+}
+.dotted {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: black;
+	border-radius: 50%;
+	margin-right: 80px;
+
+}
+.title {
+	font-size: 20px;
+	
+	margin-left: 6px;
+
+}
+.dated {
+	color: #CCC;
+}
+.content {
+	height: 125px;
+	font-size: 16px;
+	border-left: 2px solid #CCC;
+	padding-top: 18px;
+	margin-left: 14px;
+	margin-top: -5px;
+	padding-left: 89px;
+	line-height: 25px;
+}
+/*education*/
+.content>span {
+	display: block;
+	margin-top: -16px;
+	color: #CCC;
+	font-size: 20px;
+}
+.content>p {
+	padding-top: 10px;
+}
+/*foot*/
+.foot {
+	width: 1000px;
+	background: pink;
+	margin: 0 auto;
+}
+.foot_l {
+	width: 436px;
+}
+.foot_l>h2 {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 25px;
+}
+.foot_logo {
+	display: inline-block;
+	width: 26px;
+	border-radius: 50%;
+	background: black;
+	color: white;
+	text-align: center;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.volunteer {
+	font-size: 25px;
+	padding-left: 60px;
+}
+.foot_l_top>p {
+	margin-top: 12px;
+	margin-left: 94px;
+	font-size: 16px;
+	padding-bottom: 30px;
+}
+
+.foot_r {
+	width: 386px;
+}
+
+.foot_r>h2 {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 25px;
+}
+.r_one {
+	font-size: 16px;
+	padding-left: 10px;
+}
+.grasp_l>p {
+	margin-bottom: 50px;
+}
+.grasp_r>p {
+	margin-bottom: 50px;
+}
