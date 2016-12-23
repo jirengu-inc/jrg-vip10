@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title>Resume</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_qokm3yzles9vn29.css">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			width: 1000px;
+			margin-left: 20px;
+		}
+		.header {
+		    height: 150px;
+		    margin-top: 50px;
+		}
+		.avatar, .name, .contacts{
+			margin-right: 10px;
+			width: 133.3px;
+			height: 104px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.avatar img {
+    		width: 100px;
+    		height: 100px;
+		}
+		.name p:nth-child(1) {
+		    font-weight: normal;
+		    font-size: 48px;
+		    padding-top: 10px;
+		    padding-bottom: 8px;
+		    margin-top: 0;
+		    margin-bottom: 0;
+		}
+		.name p:nth-child(2) {
+		    font-weight: bold;
+		    font-size: 18px;
+		    margin-top: 0;
+		    margin-bottom: 0;
+		    padding-top: 0;
+		    padding-bottom: 10px;
+		}
+		.name{
+			width: 400px;
+			height: 104px;
+			display: inline-block;
+		}
+		.contacts h3 {
+		    margin-top: 0;
+		    margin-bottom: 0;
+		    padding-bottom: 0;
+		    border-bottom: 3px solid #000;
+		}
+		.contacts div {
+		    margin-top: 10px;
+		    margin-bottom: 10px;
+		}
+		.contacts .prefix {
+		    font-weight: bold;
+		    display: inline-block;
+		    padding-right: 10px;
+		}
+		.contacts{
+			width: 400px;
+			height: 147px;
+			display: inline-block;
+			margin-right: 0;
+		}
+		.experience{
+			margin-bottom: 30px;
+		}
+		.experience h3 {
+		    margin-bottom: 8px;
+		    line-height: 1.5em;
+		}
+		.experience .subline {
+		    float: left;
+		    position: relative;
+		    height: 334px;
+		    border-left: 3px solid #000;
+		    top: 23px;
+		    left: 5.495px;
+		}
+		.experience .subline2 {
+		    float: left;
+		    position: relative;
+		    height: 223px;
+		    border-left: 3px solid #000;
+		    top: 23px;
+		    left: 5.495px;
+		}
+		.experience hr {
+		    position: relative;
+		    width: 400px;
+		    right: 5px;
+		}
+		.experience ul {
+		    padding-left: 90px;
+		    width: 870px;
+		    text-align: justify;
+		}
+		.experience li {
+		    list-style: none;
+		}
+		.experience .work {
+		    font-size: 18px;
+		}
+		.experience .circle {
+		    width: 10px;
+		    height: 10px;
+		    border-radius: 50%;
+		    background-color: #000;
+		    position: absolute;
+		    left: 21.5px;
+		    margin-top: 17px;
+		}
+		.experience .year {
+		    color: #ccc;
+		}
+		.experience .desc {
+		    line-height: 1.5em;
+		}
+		.market, .apple, .aroma{
+			line-height: 2.5em;
+		}
+		.footer-left{
+			width: 550px;
+			display: inline-block;
+			vertical-align: top;
+			line-height: 2em;
+		}
+		.footer-left span{
+			position: absolute;
+		}
+		.footer-left p{
+			margin-left: 50px;
+		}
+		.footer-right{
+			width: 350px;
+			display: inline-block;
+			vertical-align: top;
+			line-height: 2em;
+		}
+		.iconfont {
+		  font-family:"iconfont" !important;
+		  font-size:16px;
+		  font-style:normal;
+		  font-size: 20px;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
+		.icon-plus:before { 
+			content: "\e608";
+			font-size: 18px; 
+			position: relative;
+		}
+		.footer-left h3{
+			margin-bottom: 10px;
+			left: 10px;
+		}
+		.footer-right h3{
+			margin-bottom: 10px;
+			left: 10px;
+		}
+		.footer-right li{
+			list-style: none;
+			float: left;
+			margin-left: 40px;
+			height: 75px;
+			width: 130px;
+		}
+		.footer-right li span{
+			padding-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="avatar">
+			<img src="./avatar.png">
+		</div>
+		<div class="name">
+			<p>Lyndon C</p>
+			<p>Graphic & Web Designer</p>
+		</div>
+		<div class="contacts">
+			<h3>CONTACTS</h3>
+			<div class="address">
+				<span class="prefix">A</span><span class="desc">59 Somewhere Street, NY, USA</span>
+			</div>
+			<div class="mobile">
+				<span class="prefix">M</span><span class="desc">12 395 394 3048</span>
+			</div>
+			<div class="email">
+				<span class="prefix">E</span><span class="desc">steve@gmail.com</span>
+			</div>
+			<div class="website">
+				<span class="prefix">B</span><span class="desc">www.behance.net/design</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="experience">
+		<h3>WORK EXPERIENCE</h3>
+		<div class="subline"></div>
+		<hr>
+		<ul>
+			<li class="market">
+				<div class="work"><div class="circle"></div>Marketplaces / <span class="year">2012 - 2013</span></div>
+				<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum. Typi non habent claritatem insitaml; est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+			</li>
+			<li class="apple">
+				<div class="work"><div class="circle"></div>Apple Inc. / <span class="year">2013 - 2014</span></div>
+				<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum. Typi non habent claritatem insitaml; est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum, est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+			</li>
+			<li class="aroma">
+				<div class="work"><div class="circle"></div>Aroma Bar Network / <span class="year">2014 - Now</span></div>
+				<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum. Typi non habent claritatem insitaml; est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="experience">
+		<h3>EDUCATION</h3>
+		<div class="subline2"></div>
+		<hr>
+		<ul>
+			<li class="market">
+				<div class="work"><div class="circle"></div>College / <span class="year">2008 - 2011</span></div>
+				<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum. Typi non habent claritatem insitaml; est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+			</li>
+			<li class="apple">
+				<div class="work"><div class="circle"></div>University / <span class="year">2011 - 2014</span></div>
+				<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum. Typi non habent claritatem insitaml; est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum, est usus legentis in iis qui facit. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="footer-left">
+		<h3>EXTRA CURRICULAR ACTIVITIES</h3>
+		<hr>
+		<span class="iconfont icon-plus"></span>
+		<p>Volunteer</p>
+		<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum.</p>
+		<span class="iconfont icon-plus"></span>
+		<p>Volunteer</p>
+		<p class="desc">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdoet doming id quos mazim placerat facer possim assum.</p>
+	</div>
+	<div class="footer-right">
+		<h3>PROFESSIONAL SKILLS</h3>
+		<hr>
+		<ul>
+			<li>
+				<span class="iconfont icon-plus"></span>HTML & CSS
+			</li>
+			<li>
+				<span class="iconfont icon-plus"></span>JQUERY
+			</li>
+			<li>
+				<span class="iconfont icon-plus"></span>JAVASCRIPT
+			</li>
+			<li>
+				<span class="iconfont icon-plus"></span>PHOTOSHOP
+			</li>
+			<li>
+				<span class="iconfont icon-plus"></span>SLIM
+			</li>
+			<li>
+				<span class="iconfont icon-plus"></span>ILLUSTRATOR
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
