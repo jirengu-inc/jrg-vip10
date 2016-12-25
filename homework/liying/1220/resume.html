@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1220-resume</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        p{
+            opacity: 0.7;
+        }
+
+        ul, li{
+            list-style: none;
+        }
+
+        body{
+            width: 960px;
+            margin: 0 auto;
+            font-family: 16px/2 -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+                     "Fira Sans", "Droid Sans", "Helvetica Neue",sans-serif;
+        }
+
+        h1{
+            font-size: 50px;
+        }
+        
+        h2{
+            letter-spacing: 0.8px;
+        }
+
+        .layout{
+            float: left;
+
+        }
+
+        .clearfix:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+
+        .header{
+            margin-top: 30px;
+        }
+
+/*        .header .portrait{
+            width: 150px;
+            height: 150px;
+            border: 1px solid;
+            border-radius: 50%;
+            background: #000;
+            text-align: center;
+        }
+
+        .header .portrait>h2{
+            font-size: 40px;
+            padding: 50px 0;
+            color: #fff;
+            letter-spacing: 3px;
+        }*/
+        /*logo*/
+        .logo{
+            height:150px;
+            width:150px;
+            border-radius:50%;
+            background: #000;
+            text-align:center;
+            line-height:1;
+            color:white;
+            font-size:30px;
+            display:inline-block;
+        }
+        .logo:before{
+            display:block;
+            margin:0 auto;
+            width:70px;
+            height:50%;
+            content:"";
+            border-bottom:2px solid white;
+            transform-origin:bottom center;
+            transform:rotateZ(-45deg);
+        }
+        .letter-d{
+            position:relative;
+            top:-32px;
+            left:-10px;
+        }
+        .letter-s{
+            position:relative;
+            top:0;
+            left:10px;
+        }
+
+
+        .header .profile{
+            margin: 0px 50px;
+            padding: 50px 0;
+        }
+
+        .header .contacts{
+            margin-left: 100px;
+            float: right;
+        }
+
+        .header .contacts li{
+            font: 20px/1.5  serif;
+        }
+
+        .header .contacts h2{
+            border-bottom: 5px solid;
+            margin-bottom: 10px;
+        }
+
+        .header .mark{
+            display: inline-block;
+            font-weight: bolder;
+            margin: 0 10px 0 0;
+        }
+
+        .main{
+            margin-top: 30px;
+        }
+
+        .main hr{
+            width: 50%;
+        }
+
+        .main h2{
+            margin: 25px 0 10px 0;
+        }
+
+        .list-layout{
+            border-left: 1px solid #888;
+            padding-left: 80px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .main .list-layout>li:before{
+            content: '';
+            display: block;
+            border: 5px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            left: -5px;
+        }
+
+        .main .list-layout li{
+            margin-top: 20px;
+        }
+
+        .main .list-layout p{
+            margin-top: 15px;
+            line-height: 1.5em;
+        }
+
+        .footer{
+            margin-top: 30px;
+        }
+
+        .footer h2{
+            margin: 25px 0 10px 0;
+        }
+
+        .footer .activities{
+            width: 50%;
+            height: 50%;
+        }
+
+        .footer .act-list{
+            margin-top: 20px;
+           
+        }
+
+        .footer .act-list p{
+            padding-left: 80px;
+        }
+       
+
+        @font-face {
+            font-family: 'iconfont';  /* project id 208932 */
+            src: url('http://at.alicdn.com/t/font_wwl2ofrps8w1m7vi.eot');
+            src: url('http://at.alicdn.com/t/font_wwl2ofrps8w1m7vi.eot?#iefix') format('embedded-opentype'),
+            url('http://at.alicdn.com/t/font_wwl2ofrps8w1m7vi.woff') format('woff'),
+            url('http://at.alicdn.com/t/font_wwl2ofrps8w1m7vi.ttf') format('truetype'),
+            url('http://at.alicdn.com/t/font_wwl2ofrps8w1m7vi.svg#iconfont') format('svg');
+        }
+
+        .footer .icon-jiahao:before{ 
+            font-family:"iconfont";
+            content: "\e6fd"; 
+            font-size: 30px;
+            opacity: 0.8;
+        }
+
+        .footer .act-list .icon-jiahao{
+            margin-right: 50px;
+        }
+
+        .footer .act-list h3{
+            margin: 20px 0 15px 0;
+        }
+
+        .footer .act-list h3{
+            margin: 20px 0 15px 0;
+        }
+
+
+        .footer .act-list p{
+            line-height: 1.5em;
+        }
+
+        .footer .describe{
+            margin-bottom: 15px
+        }
+
+        .footer .skills{
+            width: 40%;
+            float: right;
+        }
+
+        .footer .skill-list .icon-jiahao{
+            margin-right: 30px;
+        }
+
+        .footer .skill-list li{
+            padding: 30px 20px;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .describe{
+            opacity: 0.3;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <div class="portrait layout">
+        <!-- <h2>D/S</h2> -->
+        <div class="logo">
+            <span class="letter-d">D</span>
+            <span class="letter-s">S</span>
+        </div>
+    </div>
+    <div class="profile layout">
+        <h1>David Smith</h1>
+        <p>Graphic & Web Designer</p>
+    </div>
+    <div class="contacts">
+        <h2>CONTACTS</h2>
+        <!--<hr>-->
+        <ul>
+            <li><span class="mark">A</span>59 Somewhere Street, NY, USA</li>
+            <li><span class="mark">M</span>12 395 394 3048</li>
+            <li><span class="mark">E</span>steve@gmail.com</li>
+            <li><span class="mark">B</span>www.behance.net/design</li>
+        </ul>
+    </div>
+</div>
+<div class="main clearfix">
+    <div class="experience">
+        <h2>WORK EXPERIENCE</h2>
+        <hr>
+        <ul class="work-list list-layout">
+            <li>
+                <h3>Marketplaces/<span class="describe">2012 - 2013</span></h3>
+                <p>Gyasi creates an unforgettable cast of characters as she follows seven generations of a family through the dislocations and continuing repercussions of slavery.</p>
+            </li>
+            <li>
+                <h3>Apple inc./<span class="describe">2013 - 2014</span></h3>
+                <p>Shirley Jackson was best known for literary suspense. Jackson’s unique contribution, writes Franklin, was “her primary focus” on the lives of her generation of women who were raised in the mid 20th Century.</p>
+            </li>
+            <li>
+                <h3>Aroma Bar Network/<span class="describe">2014 - Now</span></h3>
+                <p>Winters’ timely new work of speculative fiction is set in an alternative US: Lincoln never became president, the Civil War never happened, and there are still slaves in the certain states. Winters, an Edgar award winner, has crafted a fast-moving thriller with a contemporary ethical framework.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="education">
+        <h2>EDUCATION</h2>
+        <hr>
+        <ul class="edu-list list-layout">
+            <li>
+                <h3>College/<span class="describe">2008 - 2011</span></h3>
+                <h3 class="describe">Visual Desgin Communication</h3>
+                <p>Cole shows a breathtaking range in his splendid new collection of 55 essays. His cultural criticism is filled with surprising connections and intelligent provocations.</p>
+            </li>
+            <li>
+                <h3>University/<span class="describe">2011 - 2014</span></h3>
+                <h3 class="describe">Visual Desgin Communication</h3>
+                <p>Imagine Me Gone is a powerful story of loss and love. We’ve come to know intimately the joys and struggles of each member of a troubled family by its heart-wrenching conclusion.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="activities layout">
+        <h2>EXTRA CURRICULAR ACTIVITIES</h2>
+        <hr>
+        <ul class="act-list">
+            <li>
+                <h3><span class="icon-jiahao"></span>Volunteer</h3>
+                <p>It shows how its emphasis on authenticity and freedom are relevant today.</p>
+            </li>
+            <li>
+                <h3><span class="icon-jiahao"></span>Volunteer</h3>
+                <p>It shows how its emphasis on authenticity and freedom are relevant today.</p>
+            </li>
+        </ul>
+    </div>
+    <div class="skills">
+        <h2>PROFESIONAL SKILLS</h2>
+        <hr>
+        <ul class="skill-list">
+            <li class="layout clearfix"><span class="icon-jiahao"></span>HTML & CSS</li>
+            <li class="layout clearfix"><span class="icon-jiahao"></span>JQUERY</li>
+            <li class="layout clearfix"><span class="icon-jiahao"></span>JAVASCRIPT</li>
+            <li class="layout clearfix"><span class="icon-jiahao"></span>PHOTOSHOP</li>
+            <li class="layout clearfix"><span class="icon-jiahao"></span>SLIM</li>
+            <li class="layout clearfix"><span class="icon-jiahao"></span>ILLUSTRATOR</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
