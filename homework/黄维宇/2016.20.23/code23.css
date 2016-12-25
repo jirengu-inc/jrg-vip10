@@ -1,0 +1,88 @@
+/* css reset */
+* {
+  padding: 0;
+  margin: 0;
+}
+ul, ol {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+/* css reset end */
+
+/* css common */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.layout {
+  width: 900px;
+  margin: 0 auto;
+}
+/* css common end */
+
+/* page css */
+/* page header css */
+body {
+  background-color: black;
+  font-family: 微软雅黑,Microsoft YaHei,Helvetica,Tahoma,StSun,宋体,SimSun,sans-serif!important;
+}
+html,body {
+  height: 100%;
+}
+#header {
+  height: 100%;
+  background: url('http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg') center center no-repeat;
+  background-size: cover;
+  overflow: hidden; 
+}
+.nav {
+  width: 1198px;
+  height: 70px;
+  border: 1px solid #422d24;
+  
+  margin: 0 auto;
+  margin-top: 44px;
+}
+.nav>li {
+  float: left;
+  height: 100%;
+  width: 160px;
+  border-left: 1px solid #291b16;
+  border-right: 1px solid #3f2a22;
+  text-align: center;
+  background-color: #291712;
+}
+.nav>li:first-child {
+  border-left: none;
+}
+.nav>li:last-child {
+  border-right: none;
+}
+#logo {
+  width: 226px;
+}
+#logo img {
+  position: relative;
+  top: -40px;
+}
+.nav a {
+  color: #f8b700;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 70px;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.nav a:hover {
+  color: white;
+}
+/* page header css end*/
+
+/* page content css */
+#content {
+  background: url(http://wow.nos.netease.com/1/images/landing-legion/mid-bg.jpg) top center no-repeat;
+}

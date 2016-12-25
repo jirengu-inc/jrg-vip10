@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>魔兽世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        @font-face {font-family: "iconfont";
+            src: url('//at.alicdn.com/t/font_a1bjfjm7wp8yf1or.eot?t=1482562196585'); /* IE9*/
+            src: url('//at.alicdn.com/t/font_a1bjfjm7wp8yf1or.eot?t=1482562196585#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('//at.alicdn.com/t/font_a1bjfjm7wp8yf1or.woff?t=1482562196585') format('woff'), /* chrome, firefox */
+            url('//at.alicdn.com/t/font_a1bjfjm7wp8yf1or.ttf?t=1482562196585') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+            url('//at.alicdn.com/t/font_a1bjfjm7wp8yf1or.svg?t=1482562196585#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+            font-family:"iconfont" !important;
+            font-size:16px;
+            font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: rgb(36,17,1);
+            color: rgb(172,119,31);
+        }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .layout {
+            width: 1208px;
+            margin: 0 auto;
+        }
+        #header {
+            background-image: url("http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg");
+            background-size: cover;
+            background-position: center center;
+            height: 682px;
+            min-width: 1208px;
+            position: relative;
+        }
+        .menu {
+            padding-top: 42px;
+        }
+        .menu>li {
+            float: left;
+        }
+        .menu a {
+            display: block;
+            width: 160px;
+            height: 75px;
+            text-align: center;
+            font: 17px/75px '微软雅黑';
+            color: rgb(248,166,6);
+            background-color: rgb(35,21,19);
+            border-top: 1px solid rgb(63,42,34);
+            border-left: 1px solid rgb(63,42,34);
+            border-bottom: 1px solid rgb(63,42,34);
+            border-radius: 3px;
+        }
+        .menu a:hover {
+            color: #fff;
+        }
+        .menu .last {
+            border-top: 1px solid rgb(63,42,34);
+            border-right: 1px solid rgb(63,42,34);
+            border-bottom: 1px solid rgb(63,42,34);
+        }
+        .menu .logo a {
+            width: 240px;
+            background: rgb(35,21,19);
+        }
+        .menu .logo img {
+            position: relative;
+            top: -42px;
+        }
+        .logan {
+            background-image: url(http://wow.nos.netease.com/1/landing/wow/corner_20160823.png);
+            position: absolute;
+            width: 87px;
+            height: 70px;
+            left: 50%;
+            margin-left: 46px;
+            top: 108px;
+            z-index: 2;
+        }
+        .rock-right,.rock-left {
+            width: 259px;
+            height: 438px;
+            position: absolute;
+        }
+        .rock-left {
+            background-image: url('http://wow.nos.netease.com/1/images/landing-legion/rock_left.png');
+            background-size: cover;
+            left: 0;
+            top: 385px;
+        }
+        .rock-right {
+            background-image: url("http://wow.nos.netease.com/1/images/landing-legion/rock_right.png");
+            background-size: cover;
+            right: 0;
+            top: 385px;
+        }
+        #news {
+            background-color: rgb(13,9,6);
+            min-width: 1208px;
+        }
+        .news-items {
+            padding: 45px 0 130px 0;
+            /*margin-left: -1px;*/
+        }
+        .news-items li {
+            float: left;
+            margin-left: 12px;
+        }
+        .news-items li h3>a {
+            display: block;
+            height: 70px;
+            width: 290px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 70px;
+            color: rgb(248,183,0);
+            background: rgb(35,22,17);
+            border-bottom: 1px solid rgb(69,48,15);
+            border-radius: 3px 3px;
+        }
+        .news-items li img,.news-items li h3>a {
+            transition: all .5s;
+        }
+        .news-items li:hover a,.news-items li:hover img {
+            transform: translateY(-30px);
+        }
+        .news-items li:hover a{
+            color: white;
+        }
+        #corporation {
+            background: #000;
+            padding: 65px 0;
+            min-width: 1208px;
+        }
+        .link {
+            float: left;
+            padding-left: 100px;
+            margin-right: 45px;
+        }
+        .corporation-items {
+            float: left;
+            width: 630px;
+        }
+        .link a {
+            margin-right: 40px;
+            color: rgb(175,175,175);
+            text-align: center;
+            vertical-align: bottom;
+        }
+        .link a>span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('http://hearthstone.nos.netease.com/3/common/f-business_20160608.png');
+            margin-right: 13px;
+            vertical-align: middle;
+        }
+        .s-logo {
+            background-position: -5px -5px;
+        }
+        .f-logo {
+            background-position: -36px -5px;
+        }
+        .j-logo {
+            background-position: -5px -32px;
+        }
+        .link a:hover {
+            color: #fff;
+        }
+        .inc {
+            padding-top: 95px;
+        }
+        .inc .bx {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        .iconfont:hover {
+            color: #fff;
+        }
+        .corporation-items .co-brands {
+            color: #fff;
+            vertical-align: middle;
+            float: right;
+        }
+        .corporation-items .co-brands a {
+            display: inline-block;
+            vertical-align: middle;
+            background-image: url("http://diablo3.nos.netease.com/1/common/business-logo-wow.png");
+        }
+        .corporation-items .co-brands .intel {
+            width: 35px;
+            height: 25px;
+            background-position: 0px -3px;
+        }
+        .corporation-items .co-brands .nvidia {
+            width: 120px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-position: -36px -1px;
+        }
+
+        .lawsuit {
+            padding-top: 100px;
+            padding-bottom: 15px;
+            font-family: '微软雅黑';
+        }
+        .lawsuit a {
+            color: rgb(175,175,175);
+            font-size: 14px;
+            padding-right: 12px;
+            border-right: 1px solid rgb(175,175,175);
+        }
+        .lawsuit .api {
+            border: none;
+        }
+        .lawsuit li {
+            display: inline-block;
+        }
+        .lawsuit-p {
+            color: rgb(71,71,71);
+            font-size: 12px;
+            line-height: 17px;
+        }
+        .right {
+            margin-top: 15px;
+        }
+        .right img {
+            padding-right: 13px;
+        }
+        #footer {
+            background-color: #000;
+            min-width: 1208px;
+        }
+        #footer p {
+            min-width: 800px;
+            text-align: center;
+            font-size: 14px;
+            font-family: '微软雅黑';
+            color: rgb(71,71,71);
+            margin: 0 auto;
+            border-top: 1px solid rgb(26,26,26);
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="logan"></div>
+        <ul class="menu layout clearfix">
+            <li>
+                <a href="#">进入官网</a>
+            </li>
+            <li>
+                <a href="#">账号注册</a>
+            </li>
+            <li>
+                <a href="#">充值管理</a>
+            </li>
+            <li class="logo">
+                <a href="#"><img src="http://wow.nos.netease.com/1/images/landing-legion/logo.png" alt=""></a>
+            </li>
+            <li>
+                <a href="#">游戏下载</a>
+            </li>
+            <li>
+                <a href="#">客服中心</a>
+            </li>
+            <li class="last">
+                <a href="#">官方论坛</a>
+            </li>
+        </ul>
+        <div class="rock-left"></div>
+        <div class="rock-right"></div>
+    </div>
+    <div id="news">
+        <ul class="news-items layout clearfix">
+            <li>
+                <h3><a href="#">全新职业恶魔猎手</a></h3>
+                <a href="#"><img src="http://wow.nos.netease.com/1/images/wow/landing/eye_20160831.jpg" alt=""></a>
+            </li>
+            <li>
+                <h3><a href="#">神器系统</a></h3>
+                <a href="#"><img src="http://wow.nos.netease.com/1/images/wow/landing/eye_20160831_2.jpg" alt=""></a>
+            </li>
+            <li>
+                <h3><a href="#">职业大厅一览</a></h3>
+                <a href="#"><img src="http://wow.nos.netease.com/1/images/wow/landing/eye_20160831_3.jpg" alt=""></a>
+            </li>
+            <li>
+                <h3><a href="#">新服务器瓦里安、苏拉玛10/1开放</a></h3>
+                <a href="#"><img src="http://wow.nos.netease.com/1/landing/wow/landing20160930.jpg" alt=""></a>
+            </li>
+        </ul>
+    </div>
+    <div id="corporation" class="clearfix">
+        <div class="layout">
+            <div class="link">
+                <a href="#" class="service"><span class="s-logo"></span>在线客服</a>
+                <a href="#" class="feedback"><span class="f-logo"></span>反馈</a>
+                <a href="#" class="join"><span class="j-logo"></span>加入我们</a>
+                <div class="inc">
+                    <img class="bx" src="http://hearthstone.nos.netease.com/3/suspense/logo_blizzard.png" alt="">
+                    <img src="http://hearthstone.nos.netease.com/3/suspense/logo_ne.png" alt="">
+                </div>
+            </div>
+            <div class="corporation-items">
+                <p class="co-brands">
+                    合作品牌：
+                    <a href="#" class="intel"></a>
+                    <a href="#" class="nvidia"></a>
+                    <i class="iconfont">&#xe69a;</i>
+                </p>
+                <ul class="lawsuit">
+                    <li><a href="#">隐私</a></li>
+                    <li><a href="#">法律条款</a></li>
+                    <li><a href="#" class="api">API</a></li>
+                </ul>
+                <p class="lawsuit-p">©2016 暴雪娱乐股份有限公司版权所有 由上海网之易网络科技发展有限公司运营 著作权侵权 新出审字：[2014]1451号
+                    文网进字[2014]0116号 沪网文[2014]0731-161号 增值电信业务经营许可证编号：沪B2－20080012
+                    互联网违法和不良信息举报电话：0571-28090163</p>
+                <div class="right">
+                    <a href=""><img src="http://blz.nos.netease.com/1/frame/cprt/icon20120516.png" alt=""></a>
+                    <a href=""><img src="http://blz.nos.netease.com/1/frame/cprt/police.png" alt=""></a>
+                    <a href=""><img src="http://blz.nos.netease.com/1/frame/cprt/sgs-icon.png" alt=""></a>
+                    <a href=""><img src="http://blz.nos.netease.com/1/frame/cprt/zx110.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p>积极健康的游戏心态是健康游戏的开端，本游戏故事情节设置紧凑，请您合理控制游戏时间，避免沉溺游戏影响生活，注意自我保护，防范网络陷阱。<br/>
+        健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+
+    </div>
+</body>
+</html>
