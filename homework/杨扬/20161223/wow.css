@@ -1,0 +1,214 @@
+    /* reset css */
+html,body,ul,li,p,h3 {
+    margin: 0;
+    padding: 0;
+}
+ul,li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+    /* general css */
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+.layout {
+    width: 1200px;
+    margin: 0 auto;
+}
+.lenth {
+    width: 1000px;
+    margin: 0 auto;
+}
+    /* real css */
+html,body,.page {
+    height: 100%;
+}
+    /* header css */
+.header {
+    background: url("images/header-bg.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+.header>ul {
+    padding-top: 45px;
+}
+.header li {
+    box-sizing: border-box;
+    width: 160px;
+    height: 70px;
+    border: 1px solid #422d24;
+    border-left: none;
+    background-color: #281915;
+    float: left;
+    text-align: center;
+    line-height: 70px;
+}
+.header li:first-child {
+    border-left: 1px solid #422d24;
+}
+.header .logo-game {
+    width: 240px;
+}
+.logo-game img {
+    position: relative;
+    top: -42px
+}
+.header a {
+    display: block;
+    height: 70px;
+    color: #f8b700;
+    font-weight: bold;
+}
+    /* content css */
+.content {
+    background: url("images/content-bg.jpg") no-repeat top center;
+    background-size: auto;
+    height: 340px;
+}
+.content ul {
+    margin-left: -13px;
+}
+.content li {
+    width: 290px;
+    float: left;
+    margin-left: 13px;
+    padding-top: 60px;
+}
+.content li {
+    display: block;
+    transition: all 0.5s;
+}
+.content li:hover {
+    transform: translateY(-30px);
+}
+.content h3 {
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    color: #f8b700;
+    font-weight: bold;
+    background-color: #241712;
+}
+.content img {
+    border-top: 1px solid #45300f;
+    border-bottom: 1px solid #45300f;
+}
+    /* footer css 使用的 svg 字体图标 声明 */
+    .icon {
+        width: 1em; height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+    /* footer css */
+.footer {
+    background-color: black;
+}
+.footer a:hover {
+    color: #fff;
+}
+.business {
+    padding-top: 50px;
+}
+.help {
+    float: left;
+    margin-left: -15px;
+}
+.help a {
+    vertical-align: middle;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0 15px;
+}
+.help span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("images/footer-sprite1.png");
+    padding-right: 10px;
+    vertical-align: middle;
+}
+.footer .waiter {
+    background-position: -5px -7px;
+}
+.footer .feedback {
+    background-position: -35px -7px;
+}
+.footer .join {
+    background-position: -6px -33px;
+}
+.partners {
+    float: right;
+}
+.partners strong {
+    color: white;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.partners span {
+    display: inline-block;
+    height: 20px;
+    background-image: url("images/footer-sprite2.png");
+    padding-right: 10px;
+    vertical-align: middle;
+}
+.partners .inter {
+    width: 20px;
+    background-position: -5px -3px;
+}
+.partners .nvidia {
+    width: 87px;
+    background-position: -38px -3px;
+}
+.partners .icon {
+    font-size: 20px;
+    vertical-align: middle;
+}
+.copyright {
+    padding-top: 100px;
+}
+.wangyi {
+    position: relative;
+    top: -82px;
+    left: 15px
+}
+.logo,.text {
+    display: inline-block;
+    vertical-align: top;
+}
+.text {
+    font-size: 12px;
+    margin-left: 80px;
+    line-height: 20px;
+    color: #666;
+}
+.text a {
+    color: #666;
+}
+.statement a {
+    color: #ccc;
+}
+.text>p:first-child {
+    font-weight: bold;
+    color: #ccc;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+.text>p:last-child img {
+    padding: 5px 10px 5px 0;
+}
+.tips {
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    color: #666;
+    width: 1250px;
+    margin: 0 auto;
+    border-top: 1px #222 solid;
+    padding: 30px 0;
+}
