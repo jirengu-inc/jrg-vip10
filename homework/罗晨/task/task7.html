@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ch-ZN">
+<head>
+	<meta charset="utf-8">
+	<title>表单</title>
+	<style>
+		.name, .pwd, .gender, .sexual-orientation, .hobbies, .comment, .car-sub{
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<form action="" method="post">
+			<div class="name">
+				姓名：
+				<input type="text" name="name" placeholder="用户名">
+			</div>
+			<div class="pwd">
+				密码：
+				<input type="password" name="pwd" placeholder="密码">
+			</div>
+			<div class="gender">
+				性别：
+				<input type="radio" name="gender" value="male" checked="checked">男
+				<input type="radio" name="gender" value="female">女
+			</div>
+			<div class="sexual-orientation">
+				取向：
+				<input type="radio" name="sexual-orientaion" value="male">男
+				<input type="radio" name="sexual-orientaion" value="female" checked="checked">女
+			</div>
+			<div class="hobbies">
+				爱好：
+				<input type="checkbox" name="hobby" value="dota">dota
+				<input type="checkbox" name="hobby" value="travel" checked="checked">旅游
+				<input type="checkbox" name="hobby" value="pet" checked="checked">宠物
+			</div>
+			<div class="comment">
+				评论：
+				<textarea name="comment" cols="30" rows="10" placeholder="ddd"></textarea>
+			</div>
+			<div class="car-sub">
+				我的car：
+				<select name="car">
+					<option value="BMW">宝马</option>
+					<option value="sabo" selected="selected">萨博</option>
+					<option value="posche">保时捷</option>
+				</select>
+				<input type="submit" name="submit" value="提交">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
