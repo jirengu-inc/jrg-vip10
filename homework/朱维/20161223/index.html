@@ -25,7 +25,6 @@
             background-position: top center;
             background-repeat:no-repeat;
             overflow:hidden;
-
         }
 
         #header ul{
@@ -63,9 +62,13 @@
             border-bottom:1px solid #16110e;
         }
         #content li{
+            transition:all .5s ease 0s;
             float:left;
             background-color: #291a14;
             margin-right:13px;
+        }
+        #content li:hover{
+            transform:translateY(-10px);
         }
         #content li:last-of-type{
             margin-right:0;
@@ -73,11 +76,16 @@
         #content li>a{
             display:block;
             width:290px;
+            color:#f8b700;
+        }
+        #content li>a:hover{
+            color:#fff;
         }
         #content li h3{
             text-align:center;
             line-height:69px;
-            color:#f8b700;
+
+            font-size:18px;
         }
         #content li img{
             display:block;
@@ -87,21 +95,28 @@
         #footer{
             background: #000;
             color:#fff;
+            color:rgba(255,255,255,.3);
+            font-size:15px;
+            line-height:1.5;
         }
         #footer .top{
             width:1000px;
             margin:0 auto;
+            padding:50px 0;
+            color:#fff;
         }
         #footer .online{
             float:left;
         }
         #footer .copr{
             float:right;
+            margin-right:50px;
         }
         #footer .online a{
             color:#fff;
             vertical-align:middle;
             margin-right:30px;
+            color:rgba(255,255,255,.7);
         }
         #footer .online i{
             display:inline-block;
@@ -120,7 +135,108 @@
         .icon-3{
             background-position: -8px -32px;
         }
-        #footer .copr{}
+        #footer .copr a{
+            background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+            vertical-align:middle;
+        }
+        #footer .copr-1{
+            display:inline-block;
+            width:37px;
+            height:25px;
+        }
+        #footer .copr-2{
+            display:inline-block;
+            width:100px;
+            height:25px;
+            background-position: -34px 0;
+        }
+        #footer .middle{
+            width:1000px;
+            margin:0 auto;
+            padding-bottom:50px;
+        }
+        #footer .middle .com-img{
+            float:left;
+        }
+        #footer .middle .img-1{
+            display:inline-block;
+            background-image: url(http://hearthstone.nos.netease.com/3/suspense/logo_blizzard.png);
+            width:140px;
+            height:80px;
+            margin-right:30px;
+        }
+        #footer .middle .img-2{
+            display:inline-block;
+            background-image: url(http://hearthstone.nos.netease.com/3/suspense/logo_ne.png);
+            width:125px;
+            height:38px;
+        }
+        #footer .law{
+            margin-left:355px;
+            color:rgba(255,255,255,.7);
+        }
+        #footer .law>p:first-child {
+            line-height:2;
+            color:rgba(255,255,255,.7);
+        }
+        #footer .law>p:first-child a{
+            color:rgba(255,255,255,.7);
+            font-size:15px;
+        }
+        #footer .law>p{
+            color:rgba(255,255,255,.3);
+            font-size:12px;
+            line-height:1.8;
+        }
+        #footer .law>p a{
+            color:rgba(255,255,255,.3);
+        }
+        #footer .law>p a:hover{
+            color:rgb(255,255,255);
+        }
+        #footer .law>p:last-child{
+            padding-top:10px;
+        }
+        #footer .law i{
+            width:18px;
+            height:18px;
+            background-image: url(./img/icon.png);
+            margin-right:20px;
+        }
+        #footer .law .icon-1{
+            display:inline-block;
+            height:26px;
+            width:27px;
+            background-position: 0 0;
+        }
+        #footer .law .icon-2{
+            display:inline-block;
+            height:26px;
+            width:24px;
+            background-position: 0 -27px;
+        }
+        #footer .law .icon-3{
+            display:inline-block;
+            height:26px;
+            width:23px;
+            background-position: 0 -55px;
+        }
+        #footer .law .icon-4{
+            display:inline-block;
+            height:28px;
+            width:27px;
+            background-position: 0 -83px;
+        }
+        #footer .bottom{
+            width:90%;
+            margin:0 auto;
+            border-top:1px solid #1a1a1a;
+            font-size:12px;
+            text-align:center;
+            padding:30px 0;
+            line-height:1.8;
+        }
+
     </style>
 </head>
 <body>
@@ -160,20 +276,23 @@
                 <a href="#"><i class="icon-2"></i>反馈</a>
                 <a href="#"><i class="icon-3"></i>加入我们</a>
             </div>
-            <div class="copr">合作品牌<a href="#"></a><a href="#"></a></div>
+            <div class="copr">合作品牌：<a href="#" class="copr-1"></a><a href="#" class="copr-2"></a></div>
         </div>
-        <div class="middle">
+        <div class="middle clearfix ">
             <div class="com-img">
-                <img src="" alt=""><img src="" alt="">
+                <a href="#" class="img-1"></a><a href="#" class="img-2"></a>
             </div>
-            <div class="low">
-                <a href="#"></a><a href="#"></a><a href="#"></a>
-                <p></p>
-                <i></i><i></i><i></i><i></i>
+            <div class="law">
+                <p><a href="#">隐私</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">法律条款</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">API</a></p>
+                <p>©2016 暴雪娱乐股份有限公司版权所有 由上海网之易网络科技发展有限公司运营 著作权侵权 新出审字：[2014]1451号
+                文网进字[2014]0116号 <a href="#">沪网文[2014]0731-161号</a>&nbsp;<a href="#">增值电信业务经营许可证编号：沪B2－20080012</a><br>
+                    互联网违法和不良信息举报电话：0571-28090163</p>
+                <p><i class="icon-1"></i><i class="icon-2"></i><i class="icon-3"></i><i class="icon-4"></i></p>
             </div>
         </div>
         <div class="bottom">
-            <p></p>
+            <p>积极健康的游戏心态是健康游戏的开端，本游戏故事情节设置紧凑，请您合理控制游戏时间，避免沉溺游戏影响生活，注意自我保护，防范网络陷阱。</p>
+            <p>健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
         </div>
     </div>
 </body>
