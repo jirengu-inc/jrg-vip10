@@ -36,10 +36,10 @@ body, html{
     height: 100%;
 }
 #header{
-    height: 100%;/*é????a?????è??òaéè??2?éúD§*/
+    height: 100%;/*需要父容器上都设置高度为100%才有效*/
     background: url(http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg) center center no-repeat;
     background-size: cover;
-    overflow: hidden;/*×è?1é?±??ào?2￠*/
+    overflow: hidden;/*阻止外边距合并*/
 }
 
 .navbar{
