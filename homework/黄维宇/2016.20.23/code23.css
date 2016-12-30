@@ -8,6 +8,7 @@ ul, ol {
 }
 a {
   text-decoration: none;
+  outline: 0;
 }
 /* css reset end */
 
@@ -85,4 +86,195 @@ html,body {
 /* page content css */
 #content {
   background: url(http://wow.nos.netease.com/1/images/landing-legion/mid-bg.jpg) top center no-repeat;
+  height: 340px;
+  border-bottom: 1px solid #16110e;
 }
+.layout {
+  padding-top: 30px;
+  margin: 0 auto;
+  width: 1202px;
+}
+.banner>li {
+  float: left;
+  width: 290px;
+  margin-right: 14px;
+}
+.banner>li:last-child {
+  margin-right: 0;
+}
+.banner a {
+  transition: all .5s ease 0s;
+  display: block;
+  width: 290px;
+  border-bottom: 1px solid #45300f;
+}
+.banner a:hover {
+  margin-top: -15px;
+}
+.banner h3 {
+  height: 68px;
+  line-height: 68px;
+  font-weight: 700;
+  text-align: center;
+  color: #f8b700;
+  font-size: 18px;
+  background-color: rgba(41,26,20,.8);
+  border-bottom: 1px solid #45300f;
+}
+/* page content css end*/
+
+/* page footer css */
+#footer {
+  width: 1000px;
+  height: 423px;
+  margin: 0 auto;
+  
+}
+.business {
+  position: relative;
+  height: 26px;
+  padding: 50px 0;
+}
+.business>p {
+  font-size: 14px;
+  line-height: 26px;
+  float: left;
+  
+}
+.business>p a {
+  display: block;
+  float: left;
+  vertical-align: top;
+  margin-top: -4px;
+  margin-right: 37px;
+  color: rgba(255,255,255,.7);
+}
+.icon {
+  background-image: url(http://hearthstone.nos.netease.com/3/common/f-business_20160608.png);
+  background-repeat: no-repeat;
+}
+.icon-1 {
+  background-position: -6px -7px;
+  width: 19px;
+  height: 19px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  top: 5px;  
+}
+.icon-2 {
+  background-position: -36px -8px;
+  width: 19px;
+  height: 19px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  top: 6px;  
+}
+.icon-3 {
+  background-position: -8px -32px;
+  width: 19px;
+  height: 19px;
+  margin-right: 10px;
+  display: inline-block;
+  position: relative;
+  top: 4px;  
+}
+.fri {
+  float: right;
+  height: 26px;
+  margin-top: -3px;
+}
+.fri strong {
+  color: white;
+  font-size: 14px;
+  
+}
+.fri a {
+  display: inline-block;
+}
+.icon-intel {
+  background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+  background-repeat: no-repeat;
+  width: 36px;
+  height: 26px;
+  vertical-align: middle;
+}
+.icon-nvidia {
+  background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+  background-repeat: no-repeat;
+  width: 95px;
+  height: 26px;
+  background-position: -36px;
+  vertical-align: middle;
+}
+.faq {
+  width: 1000px;
+  height: 136px;
+  margin: 0 auto 8px;
+  padding-top: 40px;
+  position: relative;
+  text-align: left;
+}
+.bz {
+  width: 140px;
+  height: 80px;
+  display: inline-block;
+  background: url(http://hearthstone.nos.netease.com/3/suspense/logo_blizzard.png) no-repeat 0 0;
+}
+.wy {
+  width: 125px;
+  height: 38px;
+  display: inline-block;
+  background: url(http://hearthstone.nos.netease.com/3/suspense/logo_ne.png) no-repeat 0 0;
+  margin-left: 20px;
+}
+.info {
+  margin-left: 60px;
+  width: 640px;
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  position: relative;
+}
+.info ul {
+  margin-left: -10px;
+  padding-bottom: 5px;
+}
+.info li {
+  float: left;
+  color: #ccc;
+}
+.info a {
+  color: #ccc;
+  padding: 0 12px;
+  display: inline-block;
+  font-size: 14px;
+}
+.info p {
+  color: rgba(255,255,255,.3);
+  font-size: 12px;
+  line-height: 20px;
+}
+.icon-police {
+  padding: 8px 0;
+}
+.icon-police a {
+  padding: 0;
+  margin: 0;
+  margin-right: 15px;
+}
+.tips {
+  border-top: 1px solid #1a1a1a;
+  width: 90%;
+  padding: 20px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.tips p {
+  color: rgba(255,255,255,.3);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* page footer css end*/
