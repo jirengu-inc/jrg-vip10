@@ -1,0 +1,84 @@
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd{
+
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.layout{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    font: 12px/1.3 Arial;
+    background-color: #000;
+}
+ html,body{
+     height:100%;
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+ }
+#header{
+    height: 100%;
+    background: url(http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg) no-repeat center center;
+    background-size:cover;
+    overflow:hidden;
+    min-width: 1200px;
+    position: relative;
+}
+.navbar {
+    margin-top: 40px;
+    margin-left:;
+}
+.navbar>li {
+    float:left;
+    height:70px;
+    width: 160px;
+    border: 1px solid #291b16;
+    border-left: none;
+    background-color: #251712;
+}
+.navbar>li:first-child{
+    border-left: 1px solid #3f2a22;
+}
+
+.navbar .logo {
+    width: 240px;
+}
+.navbar a {
+    color: #f8b408;
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-image: url(http://wow.nos.netease.com/1/images/landing-legion/bg_nav.jpg)
+}
+
+
+

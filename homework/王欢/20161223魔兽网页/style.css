@@ -1,0 +1,170 @@
+*{margin-right: 0;padding: 0;
+	box-sizing: border-box;}
+ul,ol{list-style: none;}
+a{text-decoration: none;}
+
+/*common*/
+.clearfix:after{
+	content: '';
+	display:block;
+	clear: both;
+}
+.layout{
+	width: 1200px;
+	margin: 0 auto;
+}
+.fl{float: left;}
+.fr{float: right;}
+
+/*page css*/
+body{
+	font-size: 12px;
+	font-family: Microsoft Yahei,Arial;
+	line-height: 1.3px;
+	background:#000; 
+}
+
+html,body{height: 100%;}
+#header{
+	background: url(img/01.jpg) center center no-repeat;
+	height: 100%;
+	background-size: cover;/*宽度自适应*/
+	overflow: hidden;
+}
+.navbar{
+	margin:0 auto;
+	margin-top: 40px;
+	width: 1200px;
+}
+.navbar a{
+	color: #f8b408;
+	display: block;
+	line-height: 70px;
+	font-size: 16px;
+	font-weight:bold;
+	text-align: center;
+}
+.navbar>li{
+	float: left;
+	border: 1px solid #3f2a22;
+	border-left: none;
+	height: 70px;
+	width: 160px;
+	background-color: #261716;
+}
+.navbar>li:first-child{
+	border-left: 1px solid #3f2a22;
+}
+.navbar .logo{
+	height: 70px;
+	width: 240px;
+}
+.navbar .logo img{
+	margin-top: -40px;
+}
+
+#content{
+	background-color: #120d0a;
+	border-top: 2px solid #030500;
+	padding-top: 40px;
+	padding-bottom: 70px;
+	margin-bottom: 60px;
+}
+#content .container{margin-left: -16px;}
+#content .item{
+	width: 288px;
+	float: left;
+	margin-right: 16px;
+	transition: top 0.3;
+}
+#content .item:hover {
+	top: -10px;
+}
+#content .item:hover h3{
+	color: #fff;
+}
+#content .item h3{
+	background-color: #251812;
+	color: #f8b700;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 70px;
+	margin-bottom: 0px;
+}
+
+.business {
+	width: 980px;
+	margin: 0 auto;
+	margin-bottom: 60px;
+}
+.help{
+	width: 980px;
+	margin: 0 auto;
+	margin-bottom: 90px;
+}
+.help .service a{
+	color: #afafaf;
+	font-size: 14px;
+	margin-right: 40px;
+	float: left;
+}
+.help .service .icon{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-image:url(img/04icon.png);
+	background-repeat:no-repeat;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.help .service .icon-kefu{
+	background-position: -3px -5px;
+}
+.help .service .icon-fankui{
+	background-position: -33px -5px;
+}
+.help .service .icon-jiaru{
+	background-position: -5px -31px;
+}
+.help .work a{
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	float: right;
+}
+
+.help .work .icon-work{
+	display: inline-block;
+	width: 138px;
+	height: 26px;
+	background: url(img/05icon.png);
+	vertical-align: middle;
+}
+
+.business .img a{
+	display: inline-block;
+	vertical-align: top;
+}
+.business .img .wangyi{
+	margin-top: 40px;
+	margin-left: 20px;
+}
+.business .law{
+	color: #474747;
+	padding-left: 350px;
+	line-height: 18px;
+}
+.business .law span{
+	color: #fff;
+	font-size: 14px;
+}
+.suggestion{
+	border-top:1px solid #1a1a1a;
+	color: #474747;
+	margin:0 auto;
+	text-align: center;
+	line-height: 10px;
+	margin-bottom: 30px;
+	width: 1800px;
+}

@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+     <head>
+	     <meta charset="utf-8"/>
+		 <title>三列布局</title>
+		 <link href="css/base.css" rel="stylesheet"/>
+		 <link href="css/style.css" rel="stylesheet"/>
+	 		 <style>
+			
+			 #content:after{
+                 content: '';
+                 display: block;
+                 clear: both;
+             }
+		     .left{
+			     width:200px;
+				 height:600px;
+				 background:red;
+				 float:left;
+			 }
+			 .middle{
+			     margin-left:210px; <!--加margin是因为要离两边-->
+				 margin-right:210px;<!--加了margin为什么还是在一起-->
+				 height:500px;
+				 background:pink;
+			 }
+			 .right{
+			     width:200px;
+				 height:600px;
+				 background:yellow;
+				 float:right;
+			 }
+			 #footer{
+			     
+			     background:black;
+			 }
+		 </style>
+	 </head>
+     <body>
+	     <div class="content">
+	         <div class="left">11</div>
+		     <div class="right">22</div>
+		     <div class="middle">33两侧两列固定宽度，中间列自适应宽度</div>
+		 </div>	 
+		 <div id="footer"></div>
+	 </body>
+</html>
