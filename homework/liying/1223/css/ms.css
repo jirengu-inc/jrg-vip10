@@ -1,0 +1,244 @@
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*common*/
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.layout{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+*{
+    box-sizing: border-box;
+}
+/*page*/
+body{
+    font: 12px/1.3 Arial;
+    background-color: #000;
+}
+
+body, html{
+    height: 100%;
+}
+#header{
+    height: 100%;/*需要父容器上都设置高度为100%才有效*/
+    background: url(http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg) center center no-repeat;
+    background-size: cover;
+    overflow: hidden;/*阻止外边距合并*/
+}
+
+.navbar{
+    margin-top: 40px;
+}
+
+.navbar>li{
+    float: left;
+    border: 1px solid #fff;
+    height: 70px;
+    width: 160px;
+    border: 1px solid #3f2a22;
+    border-left: none;
+    background-color: #261712;
+}
+/*.navbar下第一个为li的子元素，即first-child用在选中的子元素上，不是父元素上*/
+.navbar>li:first-child{
+    border-left: 1px solid #3f2a22;
+}
+.navbar .logo{
+    width: 240px;
+}
+
+.navbar a{
+    display: block;
+    line-height: 70px;
+    color: #f8b700;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar .logo img{
+    position: relative;
+    top: -40px;
+}
+
+#content{
+    background-color: #120d0a;
+    border-top: 2px solid #030500;
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+/*负margin不能和margin-left:auto一起使用，所以要在.container外面包裹一层layout*/
+#content .container{
+    margin-left: -16px;
+}
+
+.container .item{
+    width: 288px;
+    float: left;
+    margin-left: 16px;
+}
+#content .item a {
+    display: block;
+    transition: all .3s;
+}
+
+#content .item:hover a {
+    transform: translateY(-30px);
+}
+
+.container .item h3{
+    background: #241712;
+    line-height: 70px;
+    color: #f8b700;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#content .item:hover h3 {
+    color: #fff;
+}
+.container .item img{
+    height: 145px;
+}
+
+#footer{
+    font-size: 14px;
+    color: #fff;
+}
+
+.business{
+    width: 1000px;
+    margin: 70px auto 0 auto;
+}
+
+.business .contact{
+    float: left;
+}
+/*设置背景图片的窗口*/
+.contact .icon-c{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url(http://hearthstone.nos.netease.com/3/common/f-business_20160608.png);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.custom-service{
+    background-position: -5px -6px;
+}
+
+.feedback{
+    background-position: -35px -6px;
+}
+
+.join{
+    background-position: -7px -31px;
+}
+
+.contact a{
+    margin-right: 20px;
+    color: #fff;
+}
+
+.business .partners{
+     font-weight: bold;
+     float: right;
+}
+.partners .icon-p{
+    display: inline-block;
+    background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+    width: 35px;
+    height: 25px;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+
+.partners .nvidia{
+    display: inline-block;
+    width: 110px;
+    height: 25px;
+    background-position: -34px 0px;
+}
+
+.cooperation{
+    width: 1000px;
+    margin: 100px auto 0 auto;
+}
+.cooperation .relevance{
+    float: left;
+}
+.relevance a{
+    display: inline-block;
+    vertical-align: top;
+}
+.relevance .blizzard{
+    position: relative;
+    bottom: -30px;
+}
+
+.relevance .blizzard{
+    margin-top: -30px;
+}
+.relevance .wangyi{
+    margin-top: 40px;
+    margin-left: 20px
+}
+.info{
+    float: right;
+    width: 650px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.7em;
+}
+
+.info p:first-child{
+    color: #fff;
+    font-size: 14px;
+    line-height: 2em;
+}
+.info span{
+    padding: 0 10px;
+}
+
+.info span:first-child{
+    padding-left: 0;
+}
+
+.info .last{
+    padding-bottom: 10px;
+}
+.info>a{
+    margin-right: 15px;
+}
+
+
+.tips{
+    margin-top: 50px;
+    border-top: 1px solid #666;
+    padding: 20px 200px 60px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.7em; 
+}
+
+

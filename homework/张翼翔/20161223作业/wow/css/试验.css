@@ -1,0 +1,200 @@
+
+body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd{
+
+    margin: 0;
+    padding: 0;
+}
+ul,ol,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.layout{
+    width: 1200px;
+    margin: 0 auto;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font: 12px/1.3 Arial;
+    background-color: #000;
+}
+html,body{
+    height:100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+#header{
+    height: 100%;
+    background: url(http://wow.nos.netease.com/1/landing/wow/landing_20160831.jpg) no-repeat center center;
+    background-size:cover;
+    overflow:hidden;
+}
+.navbar {
+    margin-top: 40px;
+}
+.navbar>li {
+    float:left;
+    height:70px;
+    width: 160px;
+    border: 1px solid #291b16;
+    border-left: none;
+    background-color: #251712;
+    display: inline-block;
+    text-align: center;
+}
+.navbar>li:first-child{
+    border-left: 1px solid #3f2a22;
+}
+.navbar .logo {
+    width: 240px;
+}
+.navbar a {
+    color: #f8b408;
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.navbar .logo img {
+    position: relative;
+    top: -40px;
+}
+#contain {
+    background-color: #120d0a;
+    border-top: 2px solid #030500;
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+#contain .container {
+    margin-left: -16px;/*不加负边框会让块级元素溢出*/
+}
+#contain .item{
+    position: relative;
+   width:288px;/* 1200px-288*4=16px */
+    float:left;
+    margin-left: 16px;
+    transition: all  0.3s;
+}
+#contain .item:hover {     /*item后面加空格会没有hover效果*/
+    top: -10px;
+}
+#contain .item  h3 {
+    background-color: #251812;
+    color: #f8b700;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    line-height: 70px;
+}
+/* footer css*/
+.business {
+    width: 900px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+.business .logos{
+    width: 330px;
+    float: left;
+
+    font-size:14px;
+}
+.business .contact a{
+    margin-right:20px;
+    color: #fff;
+}
+
+
+
+.business .info {
+    margin-left: 350px;
+
+}
+.business .contact .icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+
+    background-image:  url(../img/3-common-f-business_20160608.png);/*background-image后面只加链接URL,position要另起一行*/
+    background-repeat: no-repeat;
+}
+.icon-kefu {
+    background-position: -4px -6px;
+}
+
+.icon-feedback{
+    background-position: -34px -6px;
+}
+.icon-join{
+    background-position: -5px -32px;
+}
+.suggesion {
+    padding-top: 95px;
+
+}
+.suggesion .bx{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.info .info-partner{
+    text-align: right;
+    color: #fff;
+    font-size:16px;
+    font-weight:bold;
+    vertical-align: middle;
+
+}
+.warning{
+    margin-top: 50px;
+}
+.warning ul{
+    margin-bottom: 6px;
+}
+.warning li{
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .7);
+}
+.warning p{
+    padding-left: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, .3);
+    line-height: 1.5em;
+}
+.warning-pics{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.warning-pics img{
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
