@@ -1,0 +1,66 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	max-width: 1024px;
+	min-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+/*header部分开始*/
+header{
+	font-size: 0;
+	padding: 50px 150px 55px 45px;
+}
+header:after{
+	clear: both;
+	display: block;
+	content: "";
+}
+.logo-name{
+	float: left;
+}
+.logo{
+	width: 160px;
+	height: 160px;
+	background-color: #333;
+	border-radius: 50%;
+	display: inline-block;
+}
+.logo:before{
+	content: "";
+	background-color: red;
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.name{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 20px;
+	padding-left: 50px;
+}
+.contacts{
+	float: right;
+	font-size: 16px;
+}
+.contacts h3{
+	border-bottom: 5px solid;
+}
+.contacts p{
+	line-height: 36px;
+	padding-right: 50px;
+}
+.contacts p span{
+	margin-right: 10px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei";
+}
+/*header部分结束*/
+
+/*工作经验开始*/
+
+/*工作经验结束*/

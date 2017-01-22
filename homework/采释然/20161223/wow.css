@@ -15,15 +15,15 @@ a{
 	margin-right: auto;
 }
 .clearfix::after{
-   content: '';
-   clear: both;
-   display: block;
+        content: '';
+        clear: both;
+        display: block;
 }
 html,body{
 	height: 100%;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", 
 	             "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    background-color: #000;
+        background-color: #000;
 }
 .nav a:hover{
 	color: #fff;
@@ -46,24 +46,23 @@ html,body{
 	height: 70px;
 	line-height: 70px;
 	border:  1px solid #301F19;
-    color: #F7AB08;
-    text-align: center;
-    background-image: url(http://wow.nos.netease.com/1/images/landing-legion/bg_nav.jpg);
+        color: #F7AB08;
+        text-align: center;
+        background-image: url(http://wow.nos.netease.com/1/images/landing-legion/bg_nav.jpg);
 }
 .nav>.logo{
 	width: 235px;
 	position: relative;
-
 }
 .logo>img{
-    position: absolute;
-    left: 0;
-    top: -40px;   
+        position: absolute;
+        left: 0;
+        top: -40px;   
 }
 #main{
-    background-image: url(http://wow.nos.netease.com/1/images/landing-legion/mid-bg.jpg);
-    padding-top: 30px;
-    padding-bottom: 95px;
+        background-image: url(http://wow.nos.netease.com/1/images/landing-legion/mid-bg.jpg);
+        padding-top: 30px;
+        padding-bottom: 95px;
 }
 .main-items{
 	display: inline-block;
@@ -79,8 +78,8 @@ html,body{
 .main-items-headline{
 	font-size: 17px;
 	height: 70px;
-    line-height: 70px;    
-    background-color: #251812;
+        line-height: 70px;    
+        background-color: #251812;
 }
 .main-items-img{
 	border-top: 1px solid #674512;
@@ -96,10 +95,10 @@ html,body{
 	padding-bottom: 60px;
 }
 .about-us{
-    background-color: #ccc;
-    padding-top: 50px;
-    background-color: #000;
-    float: left;
+        background-color: #ccc;
+        padding-top: 50px;
+        background-color: #000;
+        float: left;
 }
 .contact-us{
 	display: inline-block;
@@ -111,7 +110,7 @@ html,body{
 	color: #ccc;
 }
 .contact-us>a:hover{
-    color: #fff;
+        color: #fff;
 }
 .contact-us .service{
 	display: inline-block;
@@ -147,9 +146,9 @@ html,body{
 	position: relative;
 }
 .logo-netease{
-    position: absolute;
-    top: 38px;
-    margin-left: 30px;
+        position: absolute;
+        top: 38px;
+        margin-left: 30px;
 }
 .cooperation{
 	margin-left: 371px;
@@ -162,30 +161,30 @@ html,body{
 	margin-bottom: 100px;
 }
 .cooperation-brand a:nth-child(1){
-    display: inline-block;
-    width: 35px;
-    height: 20px;
-    background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
-    background-repeat: no-repeat;
-    background-position: 0 -3px;
-    vertical-align: middle;
-    margin-right: 10px;
+        display: inline-block;
+        width: 35px;
+        height: 20px;
+        background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+        background-repeat: no-repeat;
+        background-position: 0 -3px;
+        vertical-align: middle;
+        margin-right: 10px;
 }
 .cooperation-brand a:nth-child(2){
-    display: inline-block;
-    width: 95px;
-    height: 20px;
-    background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
-    background-repeat: no-repeat;
-    background-position: -38px -3px;
-    vertical-align: middle;
-    margin-right: 15px;
+        display: inline-block;
+        width: 95px;
+        height: 20px;
+        background-image: url(http://diablo3.nos.netease.com/1/common/business-logo-wow.png);
+        background-repeat: no-repeat;
+        background-position: -38px -3px;
+        vertical-align: middle;
+        margin-right: 15px;
 }
 .cooperation-brand a:nth-child(3){
 	display: inline-block;
 	line-height: 14px;
-    padding-left: 2px;
-    padding-right: 2px;
+        padding-left: 2px;
+        padding-right: 2px;
 	color: #ac771f;
 	background-color: #241101;
 	vertical-align: middle;
@@ -195,9 +194,9 @@ html,body{
 	color: #fff;
 }
 .clause li{
-    display: inline-block;
-    padding-right: 5px;
-    line-height: 40px;
+        display: inline-block;
+        padding-right: 5px;
+        line-height: 40px;
 }
 .clause li>a{
 	color: #aaa;
@@ -239,18 +238,18 @@ html,body{
 	padding-bottom: 50px;
 }
 @font-face {
-  font-family: 'iconfont-more';  /* project id 208878 */
-  src: url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.eot');
-  src: url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.eot?#iefix') format('embedded-opentype'),
-  url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.woff') format('woff'),
-  url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.ttf') format('truetype'),
-  url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.svg#iconfont') format('svg');
+        font-family: 'iconfont-more';  /* project id 208878 */
+        src: url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.eot');
+        src: url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.eot?#iefix') format('embedded-opentype'),
+        url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.woff') format('woff'),
+        url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.ttf') format('truetype'),
+        url('http://at.alicdn.com/t/font_8l4mrha4rdzbmx6r.svg#iconfont') format('svg');
 }
 .iconfont-more{
 	font-family: "iconfont-more" !important;
 	font-style:normal;
 	font-size: 12px;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
 }

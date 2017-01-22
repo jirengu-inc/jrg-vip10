@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <meta chart="utf-8">
+  <title>魔兽世界</title>
+  <head>
+    <style>
+       /*css reset*/
+       body,h1,h2,h3,ul,li,p{
+           margin:0;padding:0;
+       }
+       ul{
+           list-style:none;
+       }
+       a{
+           text-decoration:none;
+       }
+       /*通用*/
+       .clearfix:after{
+           content:"";
+           display:block;
+           clear:both;
+       }
+       .layout{
+           width:1200px;
+           margin:0 auto;
+       }
+       *{
+           box-sizing:border-box;
+       }
+       html,body{
+           height: 100%;
+       }
+       body{
+           font:12px/1.3 Arial;
+           background: #000;
+       }
+       /*头部*/
+       #header{
+           height: 100%;
+           background: url(images/head-bg.jpg) no-repeat center center;   
+           background-size: cover;
+           overflow:hidden;
+       }
+       .navbar{
+           margin-top:40px;
+       }
+       .navbar>li{
+           float:left;
+           width: 160px;
+           height: 70px;
+           border: 1px solid #fff;
+           border: 1px solid #3f2a22;
+           border-left: none;
+           background-color: #291913;
+       }
+       .navbar>li:first-child{
+           border-left: 1px solid #3f2a22;
+       }
+       .navbar li:hover a{ 
+           color:#fff;
+       }
+       .navbar a{
+           display: block;
+           height: 70px;
+           line-height: 70px;
+           font-size: 18px;
+           text-align: center;
+           color: #f8b700;
+           font-weight: bold;
+       }
+       .navbar .logo{
+           width:240px;
+       }
+       .navbar .logo img{
+           margin-top: -40px;
+       }
+       /*内容*/
+       #content{
+           background: #120d0a;
+           border-top: 2px solid #030500;
+           padding-top: 40px;
+           padding-bottom: 70px;
+           overflow: hidden;
+       }
+       #content .item{
+           position: relative;
+           float: left;
+           margin-left: 16px;
+           transition: all .3s;
+       }
+       #content .item:hover{
+           transform: translateY(-10px);
+       }
+       #content .item img{
+           width: 288px;
+       }
+       #content .item:first-child{
+           margin-left: 0;
+       }
+       #content .item h3{
+           width: 288px;
+           line-height: 70px;
+           background: #241712;
+           color: #f8b700;
+           border-bottom: 1px solid #45300f;
+           font-size: 18px;
+           font-weight: bold;
+           text-align: center;
+       }
+       #content .item:hover h3{
+           color: #fff;
+       }
+       /*底部*/
+       #footer .date{
+           width: 1000px;
+           margin: 0 auto;
+           padding-top: 60px;
+           padding-bottom: 60px;
+           overflow: hidden;
+       }
+       #footer .date .logos{
+           float: left;
+           width: 330px;
+           font-size: 14px;
+       }
+       #footer .date .logos .relation a{
+           display: inline-block;
+           color:#b3b3b3;
+           margin-right: 25px;
+       }
+       #footer .date .logos .relation a:hover{
+           color: #fff;
+       }
+       #footer .date .logos .relation .icon{
+           display: inline-block;
+           width: 30px;
+           height: 20px;
+           background-image: url(images/icon.png); 
+           background-repeat: no-repeat;
+           vertical-align: middle;
+       }
+       .icon-kf{
+           background-position: -5px -6px;
+       }
+       .icon-fk{
+           background-position: -33px -5px;
+       }
+       .icon-jr{
+           background-position: -7px -32px;
+       }
+       .date .logos .coop{
+           margin-top: 70px;
+       }
+       .date .logos .coop a{
+           margin-right: 20px;
+       }
+       .date .info{
+           margin-left: 360px;
+       }
+       .info .partner{
+           color: #fff;
+           font-size: 14px;
+           font-weight: bold;
+           text-align: right;
+           
+       }
+       .info .partner a{
+           display: inline-block;
+           vertical-align: middle;
+       }
+       .info .partner a:last-child{
+           margin-left: 10px;
+       }
+       .company .int{
+           color: #fff;
+           margin-left: -10px;
+           margin-bottom: 5px;
+           margin-top: 60px;
+       }
+       .company .int a{
+           color: #b3b3b3;
+           font-size: 15px;
+           margin-right: 10px;
+           margin-left: 10px;
+       }
+       .company .int a:hover{
+           color: #fff;
+       }
+       .company p{
+           font-size: 12px;
+           color: #4d4d4d;
+           line-height: 1.5em;
+       }
+       .company .icon-foot a{
+           display: inline-block;
+           vertical-align: top;
+           margin-top: 10px;
+           margin-right: 10px;
+       }
+       #footer .tips{
+           color: #4d4d4d;
+           text-align: center;
+           border-top: 1px solid #999;
+           padding-top: 30px;
+           padding-bottom: 30px;
+           line-height: 1.5em;
+       }
+    </style>
+  </head>
+  <body>
+      <div id="header">
+         <ul class="navbar layout clearfix">
+             <li><a href="">进入官网</a></li>
+             <li><a href="">帐号注册</a></li>
+             <li><a href="">充值管理</a></li>
+             <li class="logo">
+                 <a href="">
+                    <img src="images/logo.png" alt="logo">
+                 </a>
+             </li>
+             <li><a href="">游戏下载</a></li>
+             <li><a href="">客服中心</a></li>
+             <li><a href="">官方论坛</a></li>
+         </ul>
+      </div>
+      <div id="content">
+          <ul class="layout">
+              <li class="item"><a href="">
+                      <h3>全新职业恶魔猎手</h3>
+                      <img src="images/game1.jpg" alt="">
+                  </a></li>
+              <li class="item"><a href="">
+                      <h3>神器系统</h3>
+                      <img src="images/game2.png" alt="">
+                  </a></li>
+              <li class="item"><a href="">
+                      <h3>职业大厅一览</h3>
+                      <img src="images/game3.png" alt="">
+                  </a></li>
+              <li class="item"><a href="">
+                      <h3>新服务器瓦里安、苏拉玛10/1开放</h3>
+                      <img src="images/game4.png" alt="">
+                  </a></li>
+          </ul>
+      </div>
+      <div id="footer">
+          <div class="date">
+              <div class="logos clearfix">
+                  <div class="relation">
+                      <a href=""><span class="icon icon-kf"></span> 在线客服</a>
+                      <a href=""><span class="icon icon-fk"></span> 反馈</a>
+                      <a href=""><span class="icon icon-jr"></span> 加入我们</a> 
+                  </div>
+                  <div class="coop">
+                      <a href=""><img src="images/baoxue.png" alt="暴雪"></a>
+                      <a href=""><img src="images/wangyi.png" alt="网易"></a>
+                  </div>
+              </div>
+              <div class="info">
+                  <p class="partner">
+                      合作品牌 : 
+                      <a href=""><img src="images/icon-1.png" alt=""></a>
+                      <a href=""><img src="images/icon-2.png" alt=""></a>
+                      <a href=""><img src="images/icon-3.png" alt=""></a>
+                  </p>
+                  <div class="company">
+                      <p class="int">
+                          <a href="">隐私</a> |
+                          <a href="">法律条款</a> |
+                          <a href="">API</a> 
+                      </p>
+                      <p>&copy;2016 暴雪娱乐股份有限公司版权所有 由上海网之易网络科技发展有限公司运营 著作权侵权 新出审字：[2014]1451号</p>
+                      <p>文网进字[2014]0116号 沪网文[2014]0731-161号 增值电信业务经营许可证编号：沪B2－20080012</p>
+                      <p>互联网违法和不良信息举报电话：0571-28090163</p>
+                      <p class="icon-foot">
+                          <a href=""><img src="images/icon-4.png" alt=""></a>
+                          <a href=""><img src="images/icon-5.png" alt=""></a>
+                          <a href=""><img src="images/icon-6.png" alt=""></a>
+                          <a href=""><img src="images/icon-7.png" alt=""></a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="tips layout">
+              <p>积极健康的游戏心态是健康游戏的开端，本游戏故事情节设置紧凑，请您合理控制游戏时间，避免沉溺游戏影响生活，注意自我保护，防范网络陷阱。</p>
+              <p>健康游戏忠告：抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活。</p>
+          </div>
+      </div>
+  </body>
+</html>
