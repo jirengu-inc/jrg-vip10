@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="ct">
+	    <li>这里是</li>
+	    <li>饥人谷</li>
+	    <li>任务班</li>
+	</ul>
+	<input class="ipt-add-content" placeholder="添加内容"/>
+	<button id="btn-add-start">开头添加</button>
+	<button id="btn-add-end">结尾添加</button>
+	<script>
+	    var ct = document.querySelector('.ct');
+	    var iptAddContent = document.querySelector('.ipt-add-content');
+	    var btnAddStart = document.querySelector('#btn-add-start');
+	    var btnAddEnd = document.querySelector('#btn-add-end');
+	    //-------------绑定点击li元素事件处理程序------------
+	    ct.addEventListener('click',function(e){
+	    	console.log(e.target.innerText)
+	    },false)
+	    //--------------绑定点击开头添加事件处理程序----------
+	    btnAddStart.addEventListener('click',function(){
+	    	if(iptAddContent.value !== ''){
+	    		var li = document.createElement('li');
+	    		li.innerText = iptAddContent.value;
+	    		ct.insertBefore(li,ct.children[0]);
+	    	}else{
+	    		alert('请输入非空字符串')
+	    	}
+	    },false)
+	    //---------------绑定点击结尾添加事件处理程序---------
+	    btnAddEnd.addEventListener('click',function(){
+	    	if(iptAddContent.value !== ''){
+	    		var li = document.createElement('li');
+	    		li.innerText = iptAddContent.value;
+	    		ct.appendChild(li);
+	    	}else{
+	    		alert('请输入非空字符串')
+	    	}
+	    },false)
+	</script>
+</body>
+</html>

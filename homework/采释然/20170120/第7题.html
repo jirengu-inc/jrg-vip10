@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="ct">
+	    <li data-img="http://img4.imgtn.bdimg.com/it/u=4276059573,182131&fm=23&gp=0.jpg">鼠标放置查看图片1</li>
+	    <li data-img="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=702881307,2060448943&fm=23&gp=0.jpg">鼠标放置查看图片2</li>
+	    <li data-img="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=551005910,3188570109&fm=23&gp=0.jpg">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+	<script>
+	    var ct = document.querySelector('.ct');
+	    var imgPreview = document.querySelector('.img-preview');
+	    var img = document.createElement('img');
+	    //-----------绑定鼠标放置事件----------------
+	    ct.addEventListener('mouseover',function(e){
+	    	img.setAttribute('src',e.target.getAttribute('data-img'));
+	    	imgPreview.appendChild(img);
+	    },false)
+	    //------------绑定鼠标移开事件---------------
+	    ct.addEventListener('mouseout',function(){
+	    	imgPreview.removeChild(imgPreview.children[0]);
+	    },false)
+	</script>
+</body>
+</html>
