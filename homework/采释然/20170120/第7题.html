@@ -17,8 +17,10 @@
 	    var img = document.createElement('img');
 	    //-----------绑定鼠标放置事件----------------
 	    ct.addEventListener('mouseover',function(e){
-	    	img.setAttribute('src',e.target.getAttribute('data-img'));
-	    	imgPreview.appendChild(img);
+	    	if(e.target.getAttribute('data-img')){
+                  img.setAttribute('src',e.target.getAttribute('data-img'));
+	    	  imgPreview.appendChild(img);
+                }
 	    },false)
 	    //------------绑定鼠标移开事件---------------
 	    ct.addEventListener('mouseout',function(){
