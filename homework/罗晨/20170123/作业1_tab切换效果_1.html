@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            font-size: 0;
+            list-style: none;
+        }
+        .board{
+            width: 700px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .ct li{
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ccc;
+            border-left: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        .ct>li:first-child{
+            border-left: 1px solid #ccc;
+        }
+        .target{
+            background-color: #ccc;
+        }
+        .content>li{
+            display: none;
+            width: 602px;
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #ccc;
+            border-top: none;
+            font-size: 16px;
+        }
+        .choose{
+            display: block!important;
+            margin-left: 48px!important;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <ul class="ct">
+            <li class="target">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <ul class="content">
+            <li class="choose">内容1</li>
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+    <script>
+        var ct = document.querySelectorAll(".ct>li");
+        var content = document.querySelectorAll(".content>li");
+        var choose = document.querySelector(".choose");
+        ct.forEach(function(e){
+            e.addEventListener("mouseover", function(){
+                this.classList.add("target");
+                idx = [].indexOf.call(ct, this);
+                console.log(idx);
+                if(idx === 0){
+                    choose.innerText = content[1].innerText;
+                    ct[1].classList.remove("target");
+                    ct[2].classList.remove("target");
+                }else if(idx === 1){
+                    choose.innerText = content[2].innerText;
+                    ct[0].classList.remove("target");
+                    ct[2].classList.remove("target");
+                }else{
+                    choose.innerText = content[3].innerText;
+                    ct[0].classList.remove("target");
+                    ct[1].classList.remove("target");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
