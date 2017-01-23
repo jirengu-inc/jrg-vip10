@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    *{
+	    	box-sizing: border-box;
+	    	padding: 0;
+	    	margin: 0;
+	    }
+		.btn{
+			font-size: 16px;
+			line-height: 30px;
+			width: 70px;
+			background-color: #FD9627;
+			color: #fff;
+			border: 2px solid #F9696D;
+			outline: none;
+		}
+		.shade{
+			display: none;
+			position: absolute;
+			background-color: #000;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0.7;
+		}
+		.modal{
+			position: absolute;
+			z-index: 1;
+			width: 350px;
+			height: 200px;
+			background-color: #fff;
+			top: 50%;
+			left: 50%;
+			margin-top: -100px;
+			margin-left: -175px;
+			display: none;
+			border: 1px solid #000;
+		}
+		.modal::after{
+			content: '';
+			clear: both;
+			display: block;
+		}
+		.modal-header{
+			line-height: 30px;
+			padding-right: 20px;
+			padding-left: 20px;
+			border-bottom: 1px solid #166E0D;
+		}
+		.modal-content{
+			padding: 20px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid #3A3C6B;
+			height: 130px;
+		}
+		.modal-content>p{
+			margin-bottom: 20px;
+		}
+		.modal-btn{
+            float: right;
+            padding-right: 10px;
+		}
+		.modal-btn>button{
+			margin-left: 10px;
+			width: 40px;
+			line-height: 20px;
+		}
+		@font-face {
+		    font-family: 'iconfont-close';  /* project id 225691 */
+		    src: url('http://at.alicdn.com/t/font_44ft7kg6jp4iy66r.eot');
+		    src: url('http://at.alicdn.com/t/font_44ft7kg6jp4iy66r.eot?#iefix') format('embedded-opentype'),
+		    url('http://at.alicdn.com/t/font_44ft7kg6jp4iy66r.woff') format('woff'),
+		    url('http://at.alicdn.com/t/font_44ft7kg6jp4iy66r.ttf') format('truetype'),
+		    url('http://at.alicdn.com/t/font_44ft7kg6jp4iy66r.svg#iconfont') format('svg');
+		}
+		.iconfont-close{
+		    font-family:"iconfont-close" !important;
+		    font-size:16px;font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -webkit-text-stroke-width: 0.2px;
+		    -moz-osx-font-smoothing: grayscale;
+		    position: absolute;
+		    top: -1px;
+		    right: 20px;
+		    cursor: pointer;
+        }
+        .show{
+        	display: block;
+        }
+	</style>
+</head>
+<body>
+	<button class="btn">点我</button>
+	<div class="shade"></div>
+	<div class="modal">
+		<div class="modal-header">
+			<h4>标题</h4>
+			<i class="iconfont-close">&#xe600;</i>
+		</div>
+		<div class="modal-content">
+			<p>内容1</p>
+			<p>内容2</p>
+		</div>
+		<div class="modal-btn">
+			<button>确定</button>
+		    <button class="cancle">取消</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var btn = document.querySelector('.btn');
+		var modal = document.querySelector('.modal');
+		var shade = document.querySelector('.shade');
+		var modalCloseIcon = document.querySelector('.iconfont-close');
+		var modalCancel = document.querySelector('.cancle');
+		//----------给点我按钮绑定点击事件-------------------
+		btn.addEventListener('click',function(){
+             modal.classList.add('show');
+             shade.classList.add('show');
+		},false)
+		//----------给弹窗关闭图标绑定点击事件----------------
+        modalCloseIcon.addEventListener('click',function(){
+        	modal.classList.remove('show');
+            shade.classList.remove('show');
+        },false)
+        //-----------给弹窗取消按钮绑定点击事件----------------
+        modalCancel.addEventListener('click',function(){
+        	modal.classList.remove('show');
+            shade.classList.remove('show');
+        },false)
+        //------------给弹窗以外部分绑定点击事件---------------
+        shade.addEventListener('click',function(){
+        	modal.classList.remove('show');
+            shade.classList.remove('show');
+        },false)
+        //-------------给阻止弹窗的点击事件冒泡---------------------
+        modal.addEventListener('click',function(e){
+            e.stopPropagation();
+        })
+	</script>
+</body>
+</html>
