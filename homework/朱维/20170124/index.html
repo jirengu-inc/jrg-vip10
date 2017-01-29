@@ -24,7 +24,7 @@
             border: 1px solid #ccc;
         }
         .bg{
-            background: #eee;
+            background: #ccc;
         }
         .content>li{
             display:none;
@@ -56,9 +56,14 @@
     ul.addEventListener("mouseover",function (e) {
         tabs.forEach(function(tab){
             tab.classList.remove("bg");
-            console.log(tabs.indexOf(tab))
         })
         e.target.classList.add("bg");
+        var index = [].indexOf.call(tabs,e.target);
+//        console.log(index)
+        cons.forEach(function (con) {
+            con.classList.remove("disp")
+        });
+        cons[index].classList.add("disp");
     })
 </script>
 </html>
