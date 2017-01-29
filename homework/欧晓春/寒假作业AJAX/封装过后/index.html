@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>未封装加载更多</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #ct>li {
+      padding: 15px;
+      border: 1px solid;
+      margin: 10px 0;
+    }
+
+    #ct>li:hover {
+      background: gray;
+    }
+
+    #btn {
+      display: block;
+      margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+    <ul id="ct">
+      <li>内容1</li>
+      <li>内容2</li>
+      <li>内容3</li>
+    </ul>
+    <button id="btn">点击加载</button>
+    <script>
+      var ct = document.querySelector('#ct')
+      var btn = document.querySelector('#btn')
+
+      function ajax(opts){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status == 200){
+                opts.success(xhr.responseText)
+            }else if(xhr.readyState === 4 && xhr.status !== 200){
+                opts.error();
+            }
+        }
+
+          var urlStr = ''
+          for(var key in opts.data){
+            urlStr =  key + '=' + opts.data[key] + '&';
+            
+          }
+          urlStr = urlStr.substring(0, urlStr.length-1);
+
+          if(opts.type.toLowerCase() === 'get'){
+            xhr.open(opts.type, opts.url + '?' + urlStr, true)
+            xhr.send()
+          }
+
+          if(opts.type.toLowerCase() === 'post'){
+            xhr.open('post', opts.url, true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send(urlStr);
+          }
+      }
+      
+
+
+
+
+
+
+
+      btn.addEventListener('click', function(){
+        ajax({
+          url: '/more',
+          type: 'post',
+          data: {
+            len: document.querySelectorAll('li').length
+          },
+          success: function(data){
+              btn.setAttribute('disabled','')
+              data = data.split(',')
+              for(var i = 0; i < data.length; i++){
+                var li = document.createElement('li')
+                li.innerText = '内容' + data[i]
+                ct.appendChild(li)
+              }
+              btn.removeAttribute('disabled')
+          },
+          error: function(){
+            console.log('发生了错误...')
+          }
+        })
+      })
+
+
+    </script>
+</body>
+</html>
