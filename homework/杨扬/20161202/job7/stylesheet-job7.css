@@ -31,4 +31,5 @@ p::after {
 	right:0;		/*这里不懂为何直接用right*/
 	position: absolute;
 	background-color:#fff;  /* 搜索自网上的方法 */
+	width: 100px;	/*已测试可以设置宽高度*/
 }
