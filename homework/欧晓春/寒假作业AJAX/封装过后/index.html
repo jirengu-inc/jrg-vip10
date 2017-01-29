@@ -72,9 +72,11 @@
 
 
 
-
-
+      var lock = false;
+    
       btn.addEventListener('click', function(){
+        if(lock===false){
+        lock = true;
         ajax({
           url: '/more',
           type: 'post',
@@ -82,19 +84,18 @@
             len: document.querySelectorAll('li').length
           },
           success: function(data){
-              btn.setAttribute('disabled','')
               data = data.split(',')
               for(var i = 0; i < data.length; i++){
                 var li = document.createElement('li')
                 li.innerText = '内容' + data[i]
                 ct.appendChild(li)
               }
-              btn.removeAttribute('disabled')
           },
           error: function(){
             console.log('发生了错误...')
           }
-        })
+        })}
+        lock = false;
       })
 
 
