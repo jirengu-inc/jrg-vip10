@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第六题</title>
+    <style>
+        .show {
+            width: 300px;
+            background-color: pink;
+            text-align: center;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>任务班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <div class="show"></div>
+    <script>
+        // todo...
+        var ct = document.querySelector('.ct'),
+            iptAddContent = document.querySelector('.ipt-add-content'),
+            btnAddStart = document.querySelector('#btn-add-start'),
+            btnAddEnd = document.querySelector('#btn-add-end'),
+            show = document.querySelector('.show');
+
+        ct.addEventListener('click', function (e) {
+            if(e.target.tagName.toLowerCase() === 'li'){
+                console.log(e.target.innerText);
+                show.innerHTML = '<p>' + e.target.innerText + '</p>';
+            }
+        });
+        btnAddStart.addEventListener('click', function () {
+            var li = document.createElement('li');
+            li.innerText = iptAddContent.value;
+            ct.insertBefore(li, ct.firstChild);
+        });
+        btnAddEnd.addEventListener('click', function () {
+            var li = document.createElement('li');
+            li.innerText = iptAddContent.value; // 思考一下属性设置方法
+            ct.appendChild(li);
+        })
+    </script>
+</body>
+</html>
