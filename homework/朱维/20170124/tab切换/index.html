@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .clear-fix:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .container{
+            display:inline-block;
+            border:1px solid #ccc;
+        }
+        .tab>li{
+            float:left;
+            padding:10px 70px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-left: none
+        }
+        .tab .last-li{
+            border-right: none;
+        }
+        .bg{
+            background: #ccc;
+        }
+        .content>li{
+            display:none;
+        }
+        .content>.disp{
+            display:block;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tab clear-fix">
+        <li class="bg">tab1</li>
+        <li>tab2</li>
+        <li class="last-li">tab3</li>
+    </ul>
+    <ul class="content">
+        <li class="disp">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+</body>
+<script>
+    var ul = document.querySelector(".tab");
+    var tabs = document.querySelectorAll(".tab>li");
+    var cons = document.querySelectorAll(".content>li");
+    ul.addEventListener("mouseover",function (e) {
+        tabs.forEach(function(tab){
+            tab.classList.remove("bg");
+        })
+        e.target.classList.add("bg");
+        var index = [].indexOf.call(tabs,e.target);
+//        console.log(index)
+        cons.forEach(function (con) {
+            con.classList.remove("disp");
+        });
+        cons[index].classList.add("disp");
+    })
+</script>
+</html>
