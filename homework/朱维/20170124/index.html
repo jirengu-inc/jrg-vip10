@@ -22,6 +22,11 @@
             float:left;
             padding:10px 70px;
             border: 1px solid #ccc;
+            border-top: none;
+            border-left: none
+        }
+        .tab .last-li{
+            border-right: none;
         }
         .bg{
             background: #ccc;
@@ -40,7 +45,7 @@
     <ul class="tab clear-fix">
         <li class="bg">tab1</li>
         <li>tab2</li>
-        <li>tab3</li>
+        <li class="last-li">tab3</li>
     </ul>
     <ul class="content">
         <li class="disp">内容1</li>
@@ -61,7 +66,7 @@
         var index = [].indexOf.call(tabs,e.target);
 //        console.log(index)
         cons.forEach(function (con) {
-            con.classList.remove("disp")
+            con.classList.remove("disp");
         });
         cons[index].classList.add("disp");
     })
