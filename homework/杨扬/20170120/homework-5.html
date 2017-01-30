@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第五题</title>
+    <style>
+        ul,.panal {
+            margin: 15px auto;
+            width: 450px;
+            padding: 15px;
+            background-color: pink;
+        }
+        li,.panal>p {
+            margin: 10px;
+            padding: 10px;
+            background-color: yellow;
+            list-style: none;
+            cursor: pointer;
+        }
+        .panal>p:first-child,.record>p {
+            margin: 10px auto;
+            width: 300px;
+            padding: 15px;
+            background-color: #cccccc;
+            font-weight: bold;
+        }
+        .panal,.record {
+            float: left;
+            margin-left: 120px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>前端6班</li>
+    </ul>
+    <div class="panal">
+        <p>当前显示</p>
+    </div>
+    <ul class="record">
+        <p>历史记录</p>   <!--这里偷懒没有正规使用-->
+    </ul>
+    <script>
+        // todo ...
+        var ct = document.querySelector('.ct'); // 事件代理
+        var pannal = document.querySelector('.panal');
+        var record = document.querySelector('.record');
+
+        ct.addEventListener('click', function (e) {
+            var clickNode = e.target;
+            if(clickNode.tagName.toLowerCase() === 'li'){ // 判断触发源
+                var text = clickNode.innerText;
+                console.log(clickNode.innerText);
+                pannal.innerHTML = '<p>当前显示</p>' + '<p>' + text + '</p>';
+
+                var lis = document.createElement('li');
+                lis.innerText = text;
+                record.appendChild(lis);
+            }
+        });
+    </script>
+</body>
+</html>

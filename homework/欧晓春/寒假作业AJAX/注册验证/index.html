@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册验证</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  input {
+    display: block;
+    margin: 10px 0 5px 20px;
+  }
+  .a {
+    margin: 10px 0 25px 20px;
+    color: #ccc;
+  }
+</style>
+</head>
+<body>
+
+  用户名： <input type="text" id="username" placeholder="oxc和hunger被注册了">
+  <p class="usernameText a">只能是字母、数字、下划线，3-10个字符</p>
+  密码： <input type="password" id="password" placeholder="">
+  <p class="passwordText a">大写字母、小写、数字、下划线最少两种，6-15个字符</p>
+  再输入一次密码: <input type="password" id="password2" placeholder="在输入一次密码">
+  <p class="password2Text a"></p>
+
+  <script>
+    // 获取所有的DOM节点
+    var usernameText = document.querySelector('.usernameText')
+    var passwordText = document.querySelector('.passwordText')
+    var password2Text = document.querySelector('.password2Text')
+    var username = document.querySelector('#username')
+    var password = document.querySelector('#password')
+    var password2 = document.querySelector('#password2')
+
+    // 封装ajax函数
+    function ajax(opts){
+
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+          var response = JSON.parse(xhr.responseText)
+          opts.success(response)
+        }else if(xhr.readyState === 4 && xhr.status !== 200){
+          opts.error()
+        }
+      }
+      var dataStr = '';
+      for(var key in opts.data){
+        dataStr = key + '=' + opts.data[key] + '&';
+      }
+      dataStr = dataStr.substring(0,dataStr.length-1);
+
+      if(opts.type.toLowerCase() === 'post'){
+        xhr.open(opts.type, opts.url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send(dataStr);
+      }
+      if(opts.type.toLowerCase() === 'get'){
+        xhr.open(opts.type, opts.url+'?'+dataStr, true)
+        xhr.send()
+      }
+
+    }
+
+
+    // 通过后台验证账号是否可以使用
+    username.addEventListener('blur', function(){
+      ajax({
+        url: '/test',
+        type: 'post',
+        data: {
+          username: username.value
+        },
+        success: function(json){
+          console.log(json)
+          for(var key in json){
+            usernameText.innerText = json[key]
+          }
+          if(json[key] === '账号可以使用'){
+            username.style.borderColor = 'green'
+          }else if(json[key] === '此账号已被注册' || json[key] === '账号格式不符合'){
+            username.style.borderColor = 'red'
+          }
+        },
+        error: function(){
+          console.log('发生了错误')
+        }
+      })
+    })
+
+    // 验证密码是否可以使用
+    password.addEventListener('blur', function(){
+      testPassword(password.value)
+    })
+    function testPassword(str){
+      var patt = /\W/g
+      var regPassword = /(^[A-Z]+$)|(^[a-z]+$)|(^[0-9]+$)|(^_+$)/g;
+      if(str.length<6 || str.length>15){
+        passwordText.innerText = '密码格式错误';
+        password.style.borderColor = 'red';
+      }else if(patt.test(str)){
+        passwordText.innerText = '密码格式错误';
+        password.style.borderColor = 'red';
+      }else if(regPassword.test(str)){
+        passwordText.innerText = '密码格式错误';
+        password.style.borderColor = 'red';
+      }else{
+        passwordText.innerText = '密码可以使用';
+        password.style.borderColor = 'green';
+      }
+    }
+
+    // 验证再次输入的密码是否和密码一致
+    password2.addEventListener('blur', function(){
+      if(password2.value !== password.value){
+        password2Text.innerText = '两次密码不一致';
+        password2.style.borderColor = 'red';
+      }else{
+        password2Text.innerText = '两次密码一致';
+        password2.style.borderColor = 'green';        
+      }
+    })
+  </script>
+</body>
+</html>

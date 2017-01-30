@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第六题</title>
+    <style>
+        .show,.metion {
+            width: 600px;
+            background-color: pink;
+            text-align: center;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>任务班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容"/>
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <div class="show"></div>
+    <div class="metion"></div>
+    <script>
+        // todo...
+        var ct = document.querySelector('.ct'),
+            iptAddContent = document.querySelector('.ipt-add-content'),
+            btnAddStart = document.querySelector('#btn-add-start'),
+            btnAddEnd = document.querySelector('#btn-add-end'),
+            show = document.querySelector('.show'),
+            metion = document.querySelector('.metion');
+            iptReg = /^\w{6,20}$/;
+        // 点击 li 显示当前点击信息
+        ct.addEventListener('click', function (e) {
+            if(e.target.tagName.toLowerCase() === 'li'){
+                // console.log(e.target.innerText);
+                show.innerHTML = '<p>' + e.target.innerText + '</p>';
+            }
+        });
+        // 点击 按钮：开头添加 在列表首位添加用户输入的非空字符串
+        btnAddStart.addEventListener('click', function (){
+            // 正则判断用户输入是否符合格式要求
+            var iptTest = iptReg.test(iptAddContent.value);
+            if (iptTest) {
+                // 将用户输入添加到列表中，并给出提示
+                var li = document.createElement('li');
+                li.innerText = iptAddContent.value;
+                ct.insertBefore(li, ct.firstChild);
+                metion.innerText = '输入格式正确：本次输入值为 “' + iptAddContent.value + '”，并添加在首位';
+            }else {
+                metion.innerText = '输入格式错误：请输入6~20个字符，可使用字母、数字、下划线，不能使用空字符';
+            }
+        });
+        // 点击 按钮：结尾添加 在列表末尾添加用户输入的非空字符串
+        btnAddEnd.addEventListener('click', function () {
+            var iptTest = iptReg.test(iptAddContent.value);
+            if(iptTest){
+                var li = document.createElement('li');
+                li.innerText = iptAddContent.value; // 思考一下属性设置方法
+                ct.appendChild(li);
+                metion.innerText = '输入格式正确：本次输入值为 “' + iptAddContent.value + '”，并添加在末尾';
+            }else {
+                metion.innerText = '输入格式错误：请输入6~20个字符，可使用字母、数字、下划线，不能使用空字符';
+            }
+        })
+    </script>
+</body>
+</html>

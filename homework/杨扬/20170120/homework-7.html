@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>第七题</title>
+    <style>
+        li {
+            width: 900px;
+            margin-bottom: 10px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="homework-7-1.jpg">鼠标放置查看图片1</li>
+        <li data-img="homework-7-2.jpg">鼠标放置查看图片2</li>
+        <li data-img="homework-7-3.jpg">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview"></div>
+    <script>
+        // todo...
+        var ct = document.querySelector('.ct');
+        var panal = document.querySelector('.img-preview');
+
+        ct.addEventListener('mouseover', function (e) { // 了解事件特性
+            if(e.target.tagName.toLowerCase() === 'li'){
+                var dataImg = e.target.getAttribute('data-img');
+                panal.innerHTML = '<img src="'  +  dataImg  +  '">';
+            }
+        });
+    </script>
+</body>
+</html>

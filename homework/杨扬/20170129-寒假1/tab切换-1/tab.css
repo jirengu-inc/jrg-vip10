@@ -1,0 +1,60 @@
+/* 1. reset css */
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+/* 2. general css */
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+/* 3. real css */
+#tab {
+    margin: 50px auto;
+    padding: 35px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    width: 450px;
+}
+
+.tab-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid red;
+}
+.tab-header>li {
+    float: left;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-bottom: none;
+    width: 50px;  // 防止字体粗体改变原本宽度
+    color: blue;
+    cursor: pointer;
+    text-align: center;  // 字体居中
+}
+.tab-header>.active {
+    margin-bottom: -1px;
+    border: 1px solid red;
+    border-bottom-color: white;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    color: red;
+}
+
+.tab-content {
+    padding: 10px 20px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+.tab-content>li {
+    display: none;
+}
+.tab-content>.active {
+    display: block;
+    height: 100px;
+}
