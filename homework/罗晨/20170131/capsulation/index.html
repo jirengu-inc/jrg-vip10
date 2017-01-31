@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>封装一个ajax函数</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+    <script>
+        function ajax(opts){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    opts["success"](xhr.responseText);
+                }else{
+                    opts["error"]();
+                }
+            }
+            var str = "";
+            for(var key in opts["data"]){
+                str += key + '=' + opts["data"]["key"] + '&';
+            }
+            new_str = str.substr(0, str.length - 1);
+            if(opts["type"] === "get"){
+                xhr.open(opts["type"], opts["url"] + "?" + new_str, true);
+                xhr.send();
+            }else if(opts["type"] === "post"){
+                xhr.open(opts["type"], opts["url"], true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send(new_str);
+            }
+        }
+        document.querySelector("#btn").addEventListener("click", function(){
+            ajax({
+                url: "/login",
+                type: "get",
+                data: {
+                    username: "Lyndon",
+                    password: "abcd1234"
+                },
+                success: function (ret) {
+                    console.log(ret);
+                },
+                error: function () {
+                    console.log("出错了");
+                }
+            })
+        });
+    </script>
+</body>
+</html>
