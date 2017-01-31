@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>londmore</title>
+        <style>
+            ul{
+                margin: 0 auto;
+                padding: 0;
+            }
+            li{
+                margin: 10px;
+                padding: 6px;
+                border: 1px solid #ccc;
+                list-style: none;
+                cursor: pointer;
+            }
+            li:hover{
+                background: green;
+                color: #fff;
+            }
+            div{
+                padding: 10px;
+                text-align: center;
+            }
+            #btn{
+                padding: 10px;
+                border: 1px solid pink;
+                border-radius: 2px;
+                text-decoration: none;
+                color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="ct">
+            <li>内容1</li>
+            <li>内容2</li>
+        </ul>
+        <div>
+            <a id="btn" href="#">加载更多</a>
+        </div>
+
+        <script>
+            var load = 6;
+            var ct = $("#ct");
+
+            function $(id){
+                if(document.querySelectorAll(id).length > 1){
+                    return document.querySelectorAll(id);
+                }else{
+                    return document.querySelector(id);
+                }
+            }
+
+            function ajax(opts){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4 && xhr.status === 200){
+                        opts.success(JSON.parse(xhr.responseText));
+                    }else if(xhr.readyState === 4){
+                        opts.error();
+                    }
+                };
+                var data = "";
+                for(var key in opts["data"]){
+                    data += key + "=" + opts.data[key] + "&";
+                }
+                data = data.substr(0, data.length-1);
+                var type = opts["type"];
+                url = opts["url"];
+                if(type === "get"){
+                    xhr.open(type, url + "?" + data, true);
+                    xhr.send();
+                }else{
+                    xhr.open(type, url, true);
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhr.send(data);
+                }
+            }
+            $('#btn').addEventListener('click',function(){
+                ajax({
+                    url:'/loadMore',
+                    type: 'get',
+                    data:{
+                        start: $('li').length,
+                        length: load
+                    },
+                    success: function(data) {
+                        if (data["status"] === 1) {
+                            for (var i = 0; i < data.data.length; i++) {
+                                var li = document.createElement('li');
+                                li.innerHTML = '内容' + data.data[i];
+                                ct.appendChild(li);
+                                console.log(li);
+                            }
+                        }
+                    },
+                    error: function(){
+                        console.log('出错了')
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
