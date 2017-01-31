@@ -59,15 +59,21 @@
     var tabs = document.querySelectorAll(".tab>li");
     var cons = document.querySelectorAll(".content>li");
     ul.addEventListener("mouseover",function (e) {
-        tabs.forEach(function(tab){
-            tab.classList.remove("bg");
-        })
+//        tabs.forEach(function(tab){
+//            tab.classList.remove("bg");
+//        })
+        for(var i=0;i<tabs.length;i++){
+            tabs[i].classList.remove("bg");
+        }
         e.target.classList.add("bg");
         var index = [].indexOf.call(tabs,e.target);
 //        console.log(index)
-        cons.forEach(function (con) {
-            con.classList.remove("disp");
-        });
+//        cons.forEach(function (con) {
+//            con.classList.remove("disp");
+//        });
+        for(var j=0;j<cons.length;j++){
+            cons[j].classList.remove("disp")
+        }
         cons[index].classList.add("disp");
     })
 </script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height:100%;
+        }
+        .wrapper{
+            height:100%;
+            width:100%;
+            /*border:1px solid;*/
+            position:absolute;
+            top:-21px;
+            box-sizing:border-box;
+            background: rgba(0,0,0,.4);
+            /*display:none;*/
+        }
+        .dialog{
+            height:200px;
+            width:300px;
+            position:absolute;
+            background: #fff;
+            left:50%;
+            margin-left:-150px;
+            top:50%;
+            margin-top:-100px;
+        }
+        .dialog>h3{
+            border-bottom:1px solid #aaa;
+        }
+        .dialog>p{
+            margin:20px 0;
+        }
+        .dialog>span:first-child{
+            float:right;
+            padding-right:10px;
+            cursor: pointer;
+        }
+        .btn{
+            position:absolute;
+            top:170px;
+            left:200px;
+            font-size:20px;
+        }
+        .btn>span{
+            margin:0 5px;
+            cursor: pointer;
+        }
+        .show{
+            display:block;
+        }
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <button>点我</button>
+    <div class="wrapper hidden">
+        <div class="dialog">
+            <span>×</span>
+            <h3>我是标题</h3>
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+            <div class="btn"><span>取消</span><span>确定</span></div>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector("button");
+        var wrapper = document.querySelector(".wrapper");
+        var dialog = document.querySelector(".dialog");
+        var span = document.querySelectorAll(".btn>span");
+        var cancel1 = document.querySelector(".dialog>span:first-child");
+        var cancel2 = span[0];
+
+        btn.addEventListener("click",function () {
+            wrapper.classList.remove("hidden");
+            wrapper.classList.add("show");
+        });
+        wrapper.addEventListener("click",function () {
+            wrapper.classList.remove("show");
+            wrapper.classList.add("hidden");
+        });
+        cancel1.addEventListener("click",function () {
+            wrapper.classList.remove("show");
+            wrapper.classList.add("hidden");
+        });
+        cancel2.addEventListener("click",function () {
+            wrapper.classList.remove("show");
+            wrapper.classList.add("hidden");
+        });
+        dialog.addEventListener("click",function (e) {
+            e.stopPropagation();
+        })
+    </script>
+</body>
+</html>
