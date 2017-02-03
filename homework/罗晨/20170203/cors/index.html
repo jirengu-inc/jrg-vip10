@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+    .ct{
+        width: 900px;
+        margin: 0 auto;
+    }
+</style>
+</head>
+<body>
+    <div class="ct">
+        <ul class="nums">
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+        <button class="btn">换一组</button>
+    </div>
+    <script>
+        function $(id){
+            return document.querySelector(id);
+        }
+
+        $(".btn").addEventListener("click", function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "http://b.com:8080/getNums", true);
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    appendHtml(JSON.parse(xhr.responseText));
+                }
+            }
+        })
+
+        function appendHtml(nums){
+            var html = "";
+            for(var i = 0; i < nums.length; i++){
+                html += "<li>" + nums[i] + "</li>";
+            }
+            console.log(html);
+            $(".nums").innerHTML = html;
+        }
+    </script>
+</body>
+</html>
