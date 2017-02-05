@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>换一批功能</title>
+    <style>
+        #change {
+        	margin-top: 100px;
+        	background-color: rgba(0, 0, 0, 0.05);
+            border: 1px solid #ccc;
+        }
+        #change>h1 {
+            text-align: center;
+        }
+        .panal{
+            margin: 0 auto 30px;
+            width: 400px;
+            border: 1px solid black;
+        }
+        .panal>li{
+            margin: 15px auto;
+        }
+        .btn {
+            margin: 0 auto 10px;
+            padding: 10px;
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="change">
+        <h1>今日要闻</h1>
+        <ul class="panal">
+            <li>《太平轮》：千万万个人像蚂蚁一样在地上爬</li>
+            <li>《八恶人》: 路漫漫其修远，我们要携手前行</li>
+            <li>董子健将执导中国版《秒速5厘米》？传鹿晗主演</li>
+            <li>都是拍喜剧 星爷韩寒王宝强有什么不同</li>
+            <li>电影君送《功夫瑜伽》票券 想要练习瑜伽吗？</li>
+        </ul>
+        <div class="btn">换一批看看</div>
+    </div>
+
+<script src="ajaxJian.js"></script>
+<script>
+    var btn = document.querySelector('.btn'),
+        panal = document.querySelector('.panal'),
+        len = 5;
+        
+    btn.addEventListener('click', function () {
+        ajax({
+            method: 'get',
+            url: '/change',
+            data: {
+                len: len
+            },
+            asyns: true,
+            success: function (back) {
+                onSuccess(back);
+            },
+            error: function () {
+                onError();
+            }
+        })
+    });
+
+    function onSuccess(back){
+        var htmlStr = '';
+        for(var i = 0; i < back.length; i++){
+            htmlStr += '<li>' + back[i] + '</li>';
+            panal.innerHTML = htmlStr;
+        }
+    }
+    function onError() {
+        console.log('出错了！');
+    }
+</script>
+</body>
+</html>
