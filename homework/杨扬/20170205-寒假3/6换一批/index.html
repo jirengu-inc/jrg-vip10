@@ -49,8 +49,12 @@
     var btn = document.querySelector('.btn'),
         panal = document.querySelector('.panal'),
         len = 5;
-        
+
+    var isLoading = false;
     btn.addEventListener('click', function () {
+        if(isLoading){
+            return
+        }
         ajax({
             method: 'get',
             url: '/change',
@@ -60,19 +64,23 @@
             asyns: true,
             success: function (back) {
                 onSuccess(back);
+                isLoading = false;
             },
             error: function () {
                 onError();
+                isLoading = false;
             }
-        })
+        });
+        isLoading = true;
+        console.log(isLoading);
     });
 
     function onSuccess(back){
         var htmlStr = '';
         for(var i = 0; i < back.length; i++){
             htmlStr += '<li>' + back[i] + '</li>';
-            panal.innerHTML = htmlStr;
         }
+        panal.innerHTML = htmlStr;
     }
     function onError() {
         console.log('出错了！');
