@@ -7,9 +7,9 @@
 ajax（{
      method: '',
      url: '',
-     data: '',
-     dataType: '', // 若需要则添加，否则不需添加
-     asyns: true,
+     data: {},
+     // dataType: '', // 若需要则添加，否则不需添加
+     asyns: true, // 根据需要可以设置封装函数的默认值为 true
      success: function () {},
      error: function () {}
 }）
