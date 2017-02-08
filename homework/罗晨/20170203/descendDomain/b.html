@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            margin: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="http://b.lyndon.com:8080/b.html">
+    <script>
+        document.querySelector("#input").addEventListener("input", function(){
+            console.log(this.value);
+            window.parent.document.querySelector("input").value = this.value;
+        });
+        document.domain = "lyndon.com";
+    </script>
+</body>
+</html>

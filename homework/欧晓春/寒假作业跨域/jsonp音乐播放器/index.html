@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>音乐</title>
+<style>
+  body {
+    background: black;
+  }
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 10px;
+    width: 500px;
+    color: white;
+    font-family: '微软雅黑';
+  }
+  #gc {
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    overflow: hidden;
+    top: 160px;
+    left: 50%;
+    margin-left: -300px;
+    padding-top: 20px; 
+  }
+  ul {
+    position: absolute;
+    padding-top: 340px;
+    width: 300px;
+  }
+  audio {
+    width: 620px;
+    height: 620px;
+    border-radius: 620px;
+    display: block;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.5;
+    padding: 120px;
+  }
+
+  p {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    margin-left: -50px;
+    text-align: center;
+    color: white;
+    font-family: '微软雅黑';
+  }
+  .move {
+    transition: top 1s;
+  }
+  
+  .bg {
+    transition: transform 2s ease-out;
+  }
+
+</style>
+</head>
+<body>
+  
+  <audio controls="controls" autoplay="autoplay"></audio>
+  <p id="info"></p>
+  <div id="gc">
+    <ul id="ct" class="move">
+    </ul>
+  </div>
+  <button id="btn">点击播放随机音乐</button>
+  <script> 
+    // 第一步：获取需要的节点；
+    var btn = document.querySelector('#btn');
+    var audio = document.querySelector('audio');
+    var ct = document.querySelector('#ct');
+    var info = document.querySelector('#info');
+
+    // 第二步：为按钮添加点击事件，点击创建脚本并添加链接，实现点击切歌功能，但最开始是没有歌的；
+    btn.addEventListener('click',function(){
+      var song = document.createElement('script');
+      song.src = 'http://api.jirengu.com/fm/getSong.php?channel=4&callback=getSong';
+      document.body.appendChild(song);  
+      document.body.removeChild(song);
+      ct.innerHTML = '';
+    })
+
+
+    // 第三步：获取歌曲信息，包含：歌曲，背景，歌词等；
+    function getSong(json){
+      a = json.song[0]
+      var p = document.createElement('p');
+      audio.src = a.url
+
+      // 第四步：通过歌曲信息中的歌词链接使用get方式获取类型为text的歌词；
+      // 相当于使用ajax读取歌曲文件中的文本；
+      var xhr = new XMLHttpRequest();
+      var lrc = a.lrc;
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+          lyc(xhr.responseText);
+          audio.style.backgroundImage = 'url' + '(' + a.picture + ')';
+        }
+      }
+      xhr.open('get', lrc, true)
+      // 设置获取类型为text
+      xhr.responseType = 'text'
+      xhr.send();
+    }
+
+
+    // 第五步：歌词处理函数
+    function lyc(text){
+      var lyric = text.split('\n');
+      var result = [];
+      var reg = /(\d{2}:{1}\d{2}.{1}\d{2})+/g;
+      lyric.forEach(function(e, i, a){
+        if(reg.test(lyric[i]) && lyric[i].match(reg).length === 1){
+          var a = [];
+          a[0] = lyric[i].match(reg)[0];
+          a[1] = lyric[i].substring(lyric[i].lastIndexOf(']')+1, lyric[i].length);
+          result.push(a);
+        }else if(reg.test(lyric[i]) && lyric[i].match(reg).length > 1){
+          lyric[i].match(reg).forEach(function(e1, i1, a1){
+            var b = [];
+            b.push(lyric[i].match(reg)[i1]);
+            b.push(lyric[i].substring(lyric[i].lastIndexOf(']')+1, lyric[i].length));
+            result.push(b);
+          })
+        } 
+      })
+      result.forEach(function(e2, i2, a2){
+        a2[i2][0] = parseFloat(a2[i2][0].substring(3, a2[i2][0].length))+parseInt(a2[i2][0])*60;
+      }) 
+      result = result.sort(function(a, b){
+        return a[0] - b[0];
+      })  
+      result.forEach(function(e3, i3, a3){
+          var li = document.createElement('li');
+          li.innerText = result[i3][1]
+          ct.appendChild(li);
+      })
+      // 设置audio标签的播放事件函数，用以正确显示歌词；
+      audio.ontimeupdate = function(){
+        info.innerText = '曲目：'+a.title+'\n'+'歌唱者：'+a.artist;
+        for(var x = 0; x < result.length; x++){
+          if(this.currentTime > result[x][0]){
+            ct.style.top = -x*40+'px';
+            ct.childNodes[x].style.color = 'red';
+            var now = document.querySelectorAll('#ct li');
+            if(this.currentTime - result[x][0] > result[x+1][0] - result[x][0]){
+              now[x].style.color = 'white';
+            }
+          }
+        }
+      }
+      // 第六步：设置audio标签的播放结束事件函数，歌曲结束后自动切歌
+      audio.onended = function(){
+        var song = document.createElement('script');
+        song.src = 'http://api.jirengu.com/fm/getSong.php?channel=4&callback=getSong';
+        document.body.appendChild(song);  
+        document.body.removeChild(song);
+        ct.innerHTML = '';
+      }
+    }
+  </script>
+</body>
+</html>

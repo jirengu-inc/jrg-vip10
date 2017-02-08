@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>防止重复点击</title>
+</head>
+<body>
+<script>
+    var btn = document.querySelector('.btn'),
+        isLoading = false; // 1状态锁：请求数据之前，解锁状态
+
+    btn.addEventListener('click', function () {
+        if(isLoading){
+            return; // 2状态锁：用于检测是否正在请求数据
+        }
+        ajax({ // 调用 ajax 函数
+            method: 'get',
+            url: '',
+            data: {},
+            datatype: 'json',
+            async: 'true',
+            success: function () {
+                isLoading = false; // 4.1状态锁：数据接收成功（接收响应），解锁状态
+            },
+            error: function() {
+                isLoading = false; // 4.2状态锁：数据接收失败（接收响应），解锁状态
+            }
+        });
+        isLoading = true; // 3状态锁：正在请求数据，上锁状态
+    })
+</script>
+</body>
+</html>

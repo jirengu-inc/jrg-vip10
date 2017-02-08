@@ -119,28 +119,24 @@
 		var modalCancel = document.querySelector('.cancle');
 		//----------给点我按钮绑定点击事件-------------------
 		btn.addEventListener('click',function(){
-             modal.classList.add('show');
-             shade.classList.add('show');
+                    modal.classList.add('show');
+                    shade.classList.add('show');
 		},false)
 		//----------给弹窗关闭图标绑定点击事件----------------
-        modalCloseIcon.addEventListener('click',function(){
-        	modal.classList.remove('show');
-            shade.classList.remove('show');
-        },false)
-        //-----------给弹窗取消按钮绑定点击事件----------------
-        modalCancel.addEventListener('click',function(){
-        	modal.classList.remove('show');
-            shade.classList.remove('show');
-        },false)
-        //------------给弹窗以外部分绑定点击事件---------------
-        shade.addEventListener('click',function(){
-        	modal.classList.remove('show');
-            shade.classList.remove('show');
-        },false)
-        //-------------给阻止弹窗的点击事件冒泡---------------------
-        modal.addEventListener('click',function(e){
-            e.stopPropagation();
-        })
+                modalCloseIcon.addEventListener('click',function(){
+        	    modal.classList.remove('show');
+                    shade.classList.remove('show');
+                },false)
+                //-----------给弹窗取消按钮绑定点击事件----------------
+                modalCancel.addEventListener('click',function(){
+        	    modal.classList.remove('show');
+                    shade.classList.remove('show');
+                },false)
+               //------------给弹窗以外部分绑定点击事件---------------
+               shade.addEventListener('click',function(){
+        	    modal.classList.remove('show');
+                    shade.classList.remove('show');
+               },false)
 	</script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    width: 300px;
+    height: 300px;
+    border: 1px solid;
+    float: left;
+  }
+  #ipt {
+    display: block;
+    margin: 0 auto;
+  }
+  iframe {
+    width: 300px;
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+<div>
+    <input type="text" id="ipt" placeholder="b.oxc">
+</div>
+
+    <script>
+       var ipt = document.querySelector('#ipt');
+       ipt.addEventListener('input', function(e) {
+       	 window.parent.frames.ipt.value = this.value;
+       })
+       
+       document.domain = 'oxc.com'
+    </script>
+</body>
+</html>

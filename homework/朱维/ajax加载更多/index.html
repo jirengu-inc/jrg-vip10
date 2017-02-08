@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  ul,li{
+    list-style: none;
+    margin:0;
+    padding:0;
+
+  }
+  .content>li{
+    border:1px solid tan;
+    margin-top:10px;
+    padding:10px;
+  }
+  .content>li:hover{
+    border:1px solid tan;
+    margin-top:10px;
+    padding:10px;
+    background: green;
+    color:white;
+  }
+  .more{
+    position:absolute;
+    left:50%;
+    margin-top:20px;
+    margin-left:-43px;
+    text-decoration: none;
+    color:#e27272;
+    padding:5px 10px;
+    border:1px solid #e27272;
+    border-radius: 2px;
+  }
+
+</style>
+</head>
+<body>
+    <ul class="content">
+      <li>内容1</li>
+      <li>内容2</li>
+    </ul>
+
+    <a href="#" class="more">加载更多</a>
+    <script>
+      var btn = $(".more");
+      var content = $(".content");
+      var num =3;
+      btn.addEventListener("click",function(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("get","/content?num="+num,true)
+        xhr.send();
+        num+=6;
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState===4&&xhr.status===200){
+            console.log(xhr.responseText)
+            var inner = appendHtml(xhr.responseText);
+            content.innerHTML+=inner;
+          }
+        }
+        
+      });
+
+      function $(selector){
+        return document.querySelector(selector);
+      }
+      function appendHtml(response) {
+          var arr = JSON.parse(response);
+          var inner='';
+          for(var i =0;i<arr.length;i++){
+              inner+= "<li>"+arr[i]+"</li>";
+          }
+          console.log(inner);
+          return inner;
+      }
+  	</script>
+</body>
+</html>

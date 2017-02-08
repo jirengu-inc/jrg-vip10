@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+            float: left;
+            width: 500px;
+            height: 400px;
+            border: 1px solid blue;
+        }
+        .main input{
+            margin: 20px;
+            width: 300px;
+        }
+        iframe{
+            float: left;
+            width: 500px;
+            height: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input type="text" placeholder="http://a.lyndon.com:8080/a.html">
+    </div>
+    <iframe src="http://b.lyndon.com:8080/b.html" frameborder="0"></iframe>
+    <script>
+        document.querySelector(".main input").addEventListener("input", function(){
+            console.log(this.value);
+            window.frames[0].document.querySelector("#input").value = this.value;
+        });
+        document.domain = "lyndon.com";
+    </script>
+</body>
+</html>
