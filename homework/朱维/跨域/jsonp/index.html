@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+  <ul class="news">
+      <li></li>
+      <li></li>
+      <li></li>
+  </ul>
+  <button class="change">换一批</button>
+
+  	
+    <script>
+    var news = $(".news");
+    var btn = $(".change");
+
+    btn.addEventListener("click",function () {
+        var script = document.createElement("script");
+        script.src="http://zhuwei.com:8080/news?callback=appendHtml";
+        document.body.appendChild(script);
+        // document.body.removeChild(script);
+    });
+
+
+  	function $(selector){
+        return document.querySelector(selector);
+    }
+
+    function appendHtml(arr) {
+        var inner='';
+        for(var i =0;i<arr.length;i++){
+            inner+= "<li>"+arr[i]+"</li>";
+        }
+        // console.log(inner);
+        news.innerHTML = inner;
+    }
+  	</script>
+</body>
+</html>
