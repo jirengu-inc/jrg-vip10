@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="ct"></ul>
+	<button class="btn">点击获取数据</button>
+	<script type="text/javascript">
+		var btn = document.querySelector('.btn');
+		btn.addEventListener('click',function(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState === 4){
+					if(xhr.status === 200 || xhr.status === 304 ){
+						addHtml(JSON.parse(xhr.responseText))
+					}else{
+						alert('出错了')
+					}
+				}
+			}
+			xhr.open('get','http://b.hello.com:8080/getMore',true);
+			xhr.send();
+		})
+		function addHtml(e){
+			var ul = document.querySelector('.ct');
+			var fragment = document.createDocumentFragment();
+			for(var i = 0;i<e.length;i++){
+				var li = document.createElement('li');
+				li.innerText = e[i];
+				fragment.appendChild(li);
+				console.log(fragment)
+			}
+			ul.appendChild(fragment);
+		}
+	</script>
+</body>
+</html>

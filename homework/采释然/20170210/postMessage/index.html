@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	    *{
+	    	box-sizing: border-box;;
+	    }
+	    .box{
+	    	width: 400px;
+	    	height: 250px;
+	    	border: 1px solid #ccc;
+	    	padding-left: 10px;
+	    	padding-top: 20px;
+	    	float: left;
+	    	margin-top: 10px;
+	    }
+	    iframe{
+            width: 500px;
+	    	height: 265px;
+	    	float: right;
+	    }
+	    .ct{
+	    	width: 900px;
+	    }
+	</style>
+</head>
+<body>
+    <div class="ct">
+    	<div class="box">
+    	    <input type="text" placeholder="a.hello.com" class="ipt">
+        </div>
+	    <iframe src="http://b.hello.com:8080/2.html" frameborder="0"></iframe>
+    </div>
+    <script type="text/javascript">
+    	var ipt = document.querySelector('.ipt');
+    	ipt.addEventListener('change',function(){
+    		var message = ipt.value;
+    		console.log(message);
+    		window.frames[0].postMessage(message,'*');
+    	})
+    	window.addEventListener('message',function(e) {
+		    ipt.value = e.data;
+            console.log(e.data);
+        });
+    </script>
+</body>
+</html>
