@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+
+</head>
+<body>
+<div class="query-area">
+  <input type="text" name="username">
+  <button>点击查询</button>
+</div>
+<div class="detail-area">
+  <ul>
+    
+  </ul>
+</div>
+  
+<script>
+var btn=document.querySelector('.query-area button');
+var input=document.querySelector('.query-area input');
+var detailCt=document.querySelector('.detail-area ul');
+
+btn.addEventListener('click',function(){
+  var xhr=new XMLHttpRequest();
+  xhr.onredaystatechange=function(){
+    if(xhr.redaystate===4&&(xhr.status==='200'||xhr.status==='304')){
+        
+    }
+  }
+
+  xhr.open('get','/friends',true);
+  xhr.send();
+
+})
+  
+</script>
+
+  
+</body>
+</html>
