@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实现jsonp跨域</title>
+    <style>
+        .ct {
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        .panal {
+            margin: 0 auto;
+            border: 1px solid black;
+            width: 450px;
+            height: 100px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="panal"></div>
+    <button class="btn">点我</button>
+</div>
+
+<script>
+    var btn = document.querySelector('.btn'),
+        panal = document.querySelector('.panal');
+
+    btn.addEventListener('click', function () {
+        var script = document.createElement('script');
+        script.src = 'http://b.yang.com:8080/loadData?callback=onSuccess';
+        document.head.appendChild(script);
+        document.head.removeChild(script);
+    });
+
+    function onSuccess(data) {
+        panal.innerText = data;
+    }
+</script>
+</body>
+</html>

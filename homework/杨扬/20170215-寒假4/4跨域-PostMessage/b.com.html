@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实现降域跨域</title>
+    <style>
+        input {
+            margin: 40px;
+            width: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text" placeholder="http://b.com:8080/b.com.html">
+</body>
+
+<script>
+    var input = document.querySelector('input');
+    input.addEventListener('input', function () {
+        console.log('iframe:'+ this.value);
+        window.parent.postMessage(this.value, 'http://a.com:8080');
+    });
+    window.addEventListener('message', function (e) {
+        console.log('ifream:'+ e.data);
+        input.value = e.data;
+    })
+
+</script>
+</html>
