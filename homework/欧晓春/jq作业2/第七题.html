@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<style>
+
+	body {
+		height: 2000px;
+	}
+
+	#btn {
+		width: 100px;
+		height: 100px;
+		border: 1px solid;
+		border-radius: 50px;
+		outline: none;
+		cursor: pointer;
+	}
+
+	div {
+		width: 200px;
+		height: 200px;
+		border: 1px solid;
+	}
+
+	#color {
+		border: 3px solid;
+	}
+</style>
+</head>
+<body>
+	<h3>第一题：当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</h3>
+	<button id="btn">点击btn变色</button>
+	<script>
+		$('#btn').on('click', function(){
+			$('#btn').css('background-color', 'red');
+			setTimeout(function(){
+				$('#btn').css('background-color', 'blue');
+			}, 1000)
+		})
+	</script>
+	
+	<h3>第二题：当窗口滚动时，获取垂直滚动距离</h3>
+	<p>直接滚动就可以在控制台看到数字了</p>
+	<script>
+		$(window).on('scroll', function(){
+			console.log($(window).scrollTop())
+		})
+	</script>
+
+	<h3>第三题：当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</h3>
+	<div id="color">我会变色</div>
+	<script>
+		$('#color').on('mouseover', function(){
+			$('#color').css('background-color', 'red');
+		})
+		$('#color').on('mouseout', function(){
+			$('#color').css('background-color', '');
+		})
+	</script>
+
+	<h3>第四题：当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</h3>
+	<input type="text" id="ipt">
+	<script>
+		var $ipt = $('#ipt');
+		$ipt.on('focus', function(){
+			$ipt.css('border-color', 'blue')
+		})
+		$ipt.on('blur', function(){
+			$ipt.css('border-color', '')
+			console.log($ipt.val());
+		})
+		$ipt.on('input', function(e){
+			var b = $ipt.val()
+			var lastStr = b.substr(b.length-1, 1).toUpperCase()
+			var remain = b.slice(0, b.length-1)
+		})
+	</script>
+
+
+	<h3>第五题：当选择 select 后，获取用户选择的内容</h3>
+	<p>单选</p>
+	<div id="radio">
+		<label for="nan">男</label>
+		<input type="radio" id="nan" value="男" name="sex">
+		<label for="nv">女</label>
+		<input type="radio" id="nv" value="女" name="sex">
+	</div>
+	<script>
+		$('#radio>input').on('click', function(){
+			console.log($(this).attr('value'))
+		})
+	</script>
+	
+	<p>复选</p>
+	<div id="checkbox">
+		<label for="husky">哈士奇</label>
+		<input type="checkbox" id="husky" value="哈士奇" name="dog">
+		<label for="samoyed">萨摩耶</label>
+		<input type="checkbox" id="samoyed" value="萨摩耶" name="dog">
+		<label for="alaskan">阿拉斯加</label>
+		<input type="checkbox" id="alaskan" value="阿拉斯加" name="dog">
+	</div>
+	<script>
+		$('#checkbox>input[type="checkbox"]').on('click', function(){
+			if($(this).is(':checked')){
+				console.log($(this).attr('value'))
+			}
+		})
+	</script>
+</body>
+</html>
+
+
+
+
+
