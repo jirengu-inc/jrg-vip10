@@ -80,6 +80,7 @@
 			var b = $ipt.val()
 			var lastStr = b.substr(b.length-1, 1).toUpperCase()
 			var remain = b.slice(0, b.length-1)
+			$ipt.val(remain+lastStr)
 		})
 	</script>
 
