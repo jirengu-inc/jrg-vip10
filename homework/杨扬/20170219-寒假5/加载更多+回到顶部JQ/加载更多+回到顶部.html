@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>加载更多（jQuery）</title>
+    <style>
+        ul,li,h4,p {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .clearfix {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /*加载更多*/
+        .page {
+            margin: 0 auto;
+            width: 936px;
+            text-align: center;
+        }
+        .prod {
+            margin-left: -15px;
+        }
+        .prod>li {
+            position: relative;
+            float: left;
+            margin-left: 15px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 300px;
+        }
+        .prod>li h4,p {
+            margin: 10px 0;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .prod>li p {
+            font-weight: bold;
+            color: red;
+        }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: none;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -21px;
+            margin-left: -44px;
+            padding: 10px;
+            border: 2px solid red;
+            border-radius: 5px;
+            background-color: white;
+            color: red;
+        }
+        .prod>li>.active {
+            display: block;
+        }
+        .load {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            padding: 8px;
+            border: 2px solid red;
+            border-radius: 5px;
+            background-color: white;
+            color: red;
+        }
+        /*回到顶部*/
+        .back-btn {
+            position: fixed;
+            right: 30px;
+            bottom: 100px;
+            display: none;
+            width: 20px;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #666;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+        .back-top>.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>珠宝首饰</h1>
+        <!--加载更多 / 事件代理-->
+        <ul class="prod clearfix">
+            <li>
+                <div class="cover">
+                    <a href="" class="btn">立即抢购</a>
+                </div>
+                <a href="#">
+                    <img src="1.jpg" alt="简介1">
+                    <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                    <p>￥699.00</p>
+                </a>
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="" class="btn">立即抢购</a>
+                </div>
+                <a href="#">
+                    <img src="2.jpg" alt="简介2">
+                    <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                    <p>￥1699.00</p>
+                </a>
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="" class="btn">立即抢购</a>
+                </div>
+                <a href="#">
+                    <img src="3.jpg" alt="简介3">
+                    <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                    <p>￥1800.00</p>
+                </a>
+            </li>
+        </ul>
+        <a href="#" class="load">加载更多</a>
+    </div>
+    <!--回到顶部-->
+    <div class="back-top">
+        <div class="back-btn">回到顶部</div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款',
+                price: '￥45.00'
+            }
+        ];
+//        加载更多、事件代理
+        var $prod = $('.prod'),
+                $load = $('.load'),
+                $cover = $('.cover');
+        $prod.on('mouseenter', 'li', function () {
+            var $this = $(this);
+            $this.children($cover).addClass('active');
+        });
+        $prod.on('mouseleave', 'li', function () {
+            var $this = $(this);
+            $this.children($cover).removeClass('active');
+        });
+        $load.on('click',function (e) {
+            e.preventDefault();
+            $.each(products, function (idx, value) {
+                var prodHtml = appendHtmls(value);
+                $(prodHtml).appendTo($prod);
+            });
+        });
+        function appendHtmls(value) {
+            var htmls = '';
+            htmls += '<li>';
+            htmls +=    '<div class="cover">';
+            htmls +=       '<a href="" class="btn">立即抢购</a>';
+            htmls +=    '</div>';
+            htmls +=    '<a href="#">';
+            htmls +=       '<img src="' + value.img + '" alt="' + value.name + '">';
+            htmls +=       '<h4>' + value.name + '</h4>';
+            htmls +=       '<p>' + value.price + '</p>';
+            htmls +=    '</a>';
+            htmls += '</li>';
+            return htmls;
+        }
+//        回到顶部
+        var $backBtn = $('.back-btn'),
+            $window = $(window);
+        $window.on('scroll', function () {
+            // 记住 窗口高度 获取方式
+            var top = $window.scrollTop();
+            if(top > 150){
+                $backBtn.addClass('active');
+            }else {
+                $backBtn.removeClass('active');
+            }
+        });
+        $backBtn.on('click', function () {
+            $window.scrollTop(0);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab切换（jQuery）</title>
+    <style>
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .menu {
+            background-color: #c7171e;
+            padding: 20px;
+            width: 200px;
+        }
+        .menu>li {
+            position: relative;
+            padding-left: 20px;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.5);
+            line-height: 30px;
+        }
+        .menu>li:last-child {
+            border-bottom: none;
+        }
+        .hover {
+            background-color: #fff;
+            width: 200px;
+        }
+        .menu>li:hover>a {
+            color: black;
+        }
+        .menu>li span {
+            float: right;
+            padding-right: 20px;
+        }
+        .detail {
+            position: absolute;
+            top: 0;
+            left: 220px;
+            display: none;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            width: 240px;
+        }
+        .detail>li {
+            float: left;
+            display: inline-block;
+            margin: 10px;
+            width: 100px;
+            background-color: antiquewhite;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="menu">
+            <li>
+                <a href="#">珠宝玉器-橙
+                    <span> > </span>
+                </a>
+                <ul class="detail">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器-紫
+                    <span> > </span>
+                </a>
+                <ul class="detail">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器-蓝
+                    <span> > </span>
+                </a>
+                <ul class="detail">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器-绿
+                    <span> > </span>
+                </a>
+                <ul class="detail">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">珠宝玉器-白
+                    <span> > </span>
+                </a>
+                <ul class="detail">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>水晶</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $menuLis = $('.menu>li'),
+            $detail = $('.detail');
+        $menuLis.on('mouseenter',  function () {
+            var $this = $(this);
+            $this.addClass('hover');
+            $this.children($detail).addClass('active clearfix');
+        });
+        $menuLis.on('mouseleave', function () {
+            var $this = $(this);
+            $this.removeClass('hover');
+            $this.children($detail).removeClass('active clearfix');
+        })
+    </script>
+</body>
+</html>
