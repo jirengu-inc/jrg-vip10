@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -79,13 +78,13 @@
         var script = document.createElement("script");
         script.src="http://api.jirengu.com/weather.php?callback=getWeather";
         $("body").append($(script));
-        $("body").remove($(script));
+        $(script).remove();
     });
     $("a").on("click",function () {
         var script = document.createElement("script");
         script.src="http://api.jirengu.com/weather.php?callback=getWeather";
         $("body").append($(script));
-        $("body").remove($(script));
+        $(script).remove();
     });
 
     function getWeather(localWeather) {
