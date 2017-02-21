@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="today">
+    <div class="wrapper">
+        <div class="temp"></div>
+        <div><span class="city"></span><span class="weather"></span></div>
+    </div>
+    <div class="wrapper">
+        <ul class="todayMsg">
+            <li>
+                <div class="wind"></div>
+                <div class="windLevel"></div>
+            </li>
+            <li>
+                <div class="air">PM指数</div>
+                <div class="airLevel"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="threeDay">
+        <ul>
+            <li>
+                <div>
+                    <div class="date"></div>
+                    <div class="weather"></div>
+                </div>
+                <div class="temp"></div>
+            </li>
+            <li>
+                <div>
+                    <div class="date"></div>
+                    <div class="weather"></div>
+                </div>
+                <div class="temp"></div>
+            </li>
+            <li>
+                <div>
+                    <div class="date"></div>
+                    <div class="weather"></div>
+                </div>
+                <div class="temp"></div>
+            </li>
+        </ul>
+    </div>
+<div class="tips">
+    <ul>
+        <li>
+            <h3 class="title"></h3>
+            <p class="des"></p>
+            <p class="tipt"></p>
+            <p class="zs"></p>
+        </li>
+        <li>
+            <h3 class="title"></h3>
+            <p class="des"></p>
+            <p class="tipt"></p>
+            <p class="zs"></p>
+        </li>
+        <li>
+            <h3 class="title"></h3>
+            <p class="des"></p>
+            <p class="tipt"></p>
+            <p class="zs"></p>
+        </li>
+    </ul>
+</div>
+<a href="#">获取天气内容</a>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var script = document.createElement("script");
+        script.src="http://api.jirengu.com/weather.php?callback=getWeather";
+        $("body").append($(script));
+        $("body").remove($(script));
+    });
+    $("a").on("click",function () {
+        var script = document.createElement("script");
+        script.src="http://api.jirengu.com/weather.php?callback=getWeather";
+        $("body").append($(script));
+        $("body").remove($(script));
+    });
+    
+    function getWeather(localWeather) {
+        // $.get("http://api.jirengu.com/weather.php").done(function (data) {
+            // var localWeather = JSON.parse(data);
+            console.log(localWeather);
+            var realTemp = localWeather.results[0].weather_data[0].date.match(/\d+\u2103/)[0];
+            var curCity = localWeather.results[0].currentCity;
+            var weather1 = localWeather.results[0].weather_data[0].weather;
+            // localWeather.results[0].weather_data[0].wind = "东南风微风";
+            var wind = localWeather.results[0].weather_data[0].wind.match(/[\u4e00-\u9fa5]+?\u98ce/)[0];
+            var start = wind.length;
+            var windLevel = localWeather.results[0].weather_data[0].wind.slice(start);
+            var airLevel = localWeather.results[0].pm25;
+            var weatherData = localWeather.results[0].weather_data;
+            var tips = localWeather.results[0].index;
+
+            $(".today .temp").text(realTemp);
+            $(".today .city").text(curCity);
+            $(".today .weather").text(weather1);
+            $(".today .todayMsg .wind").text(wind);
+            $(".today .todayMsg .windLevel").text(windLevel);
+            $(".today .todayMsg .airLevel").text(airLevel);
+
+            for(var i=0;i<weatherData.length-1;i++){
+                var $oneDay = $(".threeDay li").eq(i);
+                if(i === 0){
+                    $oneDay.find(".date").text("今天");
+                } else if(i===1){
+                    $oneDay.find(".date").text("明天");
+                }else{
+                    $oneDay.find(".date").text(weatherData[i].date.match(/周[一二三四五六日]/)[0]);
+                }
+                $oneDay.find(".weather").text(weatherData[i].weather);
+                $oneDay.find(".temp").text(weatherData[i].temperature)
+            }
+            for(var j = 0;j<3;j++){
+                var $oneTip = $(".tips li").eq(j);
+                $oneTip.find(".des").text(tips[j].des);
+                $oneTip.find(".tipt").text(tips[j].tipt);
+                $oneTip.find(".title").text(tips[j].title);
+                $oneTip.find(".zs").text(tips[j].zs);
+            }
+
+        // });
+    }
+</script>
+</body>
+</html>
