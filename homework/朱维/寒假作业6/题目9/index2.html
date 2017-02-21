@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -86,7 +87,7 @@
         $("body").append($(script));
         $("body").remove($(script));
     });
-    
+
     function getWeather(localWeather) {
         // $.get("http://api.jirengu.com/weather.php").done(function (data) {
             // var localWeather = JSON.parse(data);
