@@ -81,7 +81,7 @@
         getWeather();
     });
     function getWeather() {
-        $.get("https://api.jirengu.com/weather.php").done(function (data) {
+        $.get("http://api.jirengu.com/weather.php").done(function (data) {
             var localWeather = JSON.parse(data);
             console.log(localWeather);
             var realTemp = localWeather.results[0].weather_data[0].date.match(/\d+\u2103/)[0];
