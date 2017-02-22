@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style-type: none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear:both;
+        }
+        /*html,body,.bg{*/
+            /*height:100%;*/
+        /*}*/
+        /*.bg{*/
+            /*background: lightblue;*/
+            /*overflow:hidden;*/
+        /*}*/
+        .wrapper{
+            width:625px;
+            height:270px;
+            overflow:hidden;
+            margin:50px auto;
+            /*background:red;*/
+            position:relative;
+            border-radius: 5px;
+        }
+        .content img{
+            height:270px;
+            width:625px;
+            vertical-align: middle;
+        }
+        .content{
+            position:absolute;
+            width:3750px;
+            top:0;
+            left:0;
+
+        }
+        .content li{
+            float:left;
+        }
+        .btn{
+            text-decoration: none;
+            color:white;
+            font-weight: bolder;
+            position: absolute;
+            display:inline-block;
+            width:40px;
+            height:50px;
+            background:rgba(0,0,0,.4);
+            top:50%;
+            margin-top:-25px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .btn:hover{
+            background: rgba(0,0,0,.7);
+        }
+        .pre{
+            left:0;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            display: none;
+        }
+        .next{
+            right:0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            display:none;
+        }
+        .carousel{
+            width:100%;
+            position:absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0;
+        }
+        .carousel li{
+            display:inline-block;
+            height:5px;
+            width:30px;
+            background: #4e4e4d;
+            border-radius: 2px;
+            margin-left: 10px;
+        }
+        .carousel .active{
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper clearfix">
+        <ul class="content">
+            <li data-src="0"><a href="javascript:void(0)"><img src="http://upload.jianshu.io/admin_banners/web_images/2786/9db80ee6c8e6c1c5f10c885c921e68819f6fbe26.jpg" alt=""></a></li>
+            <li data-src="1"><a href="javascript:void(0)"><img src="http://upload.jianshu.io/admin_banners/web_images/2790/4e77184c3a25624515364af94ab1d05bedcbe00a.jpg" alt=""></a></li>
+            <li data-src="2"><a href="javascript:void(0)"><img src="http://upload.jianshu.io/admin_banners/web_images/2791/3730b6875f719d166c91cdc338f6bd60c2f38aec.jpg" alt=""></a></li>
+            <li data-src="3"><a href="javascript:void(0)"><img src="http://upload.jianshu.io/admin_banners/web_images/2785/6680190992bc8df69e6ba0882d933cc644f5b5b0.jpg" alt=""></a></li>
+        </ul>
+        <a href="javascript:void(0)" class="btn pre"><</a>
+        <a href="javascript:void(0)" class="btn next">></a>
+        <ul class="carousel">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var $pages = $(".content li");
+        var $page0 = $pages.eq(0).clone();
+        var $page3 = $pages.eq(3).clone();
+        var $content = $(".content");
+        var $btnPre = $(".btn.pre");
+        var $btnNext = $(".btn.next");
+        var $carousels = $(".carousel li");
+        var $wrapper = $(".wrapper");
+
+        var pageIndex = 0;
+        var pageWidth = $(".content img").width();
+
+        var stateLock = true;//防止用户重复点击
+
+        //测试
+
+        //添加备用页面
+        $content.append($page0);
+        $content.prepend($page3);
+        $content.css({
+            left:"-"+pageWidth+"px"
+        });
+        //为向前按钮添加事件
+        $btnPre.on("click",function(){
+            if(!stateLock) return;
+            stateLock = false;
+            play($content,true);
+        });
+        //为向后按钮添加事件
+        $btnNext.on("click",function(){
+            if(!stateLock) return;
+            stateLock = false;
+            play($content,false)
+        });
+        //底部长条添加点击事件
+        $(".carousel").on("click","li",function () {
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+            var liIndex = $(this).index();
+            if(liIndex>pageIndex){
+                play($content,false,liIndex-pageIndex);
+            }else if(liIndex<pageIndex){
+                play($content,true,pageIndex-liIndex);
+            }
+        });
+        //显示按钮
+        $wrapper.on({
+            mouseover:function () {
+                clearInterval(auto1);
+                $btnNext.show();
+                $btnPre.show();
+            },
+            mouseout:function () {
+                auto1 = setInterval(function () {
+                    play($content,false);
+                },2500);
+                $btnNext.hide();
+                $btnPre.hide();
+            }
+        });
+        //自动播放
+        var auto1 = setInterval(function () {
+            play($content,false);
+        },2500);
+
+        //播放函数
+        function play($obj,dir,len) {
+            //dir ：true 向前/false 向后
+            if(len===undefined||len===null){
+                len=1;
+            }
+            var symbol = dir?"+=":"-=";
+            var backFlag = dir?-1:4;
+            var clear = dir?3:0;
+            var backIndex = dir?4:1;
+
+
+
+            $obj.animate({
+                left:symbol+len*pageWidth+"px"
+            },function () {
+                if(dir){
+                    pageIndex -=len;
+                    console.log(pageIndex);
+                    if(pageIndex<backFlag+1){
+                        pageIndex = clear;
+                        $obj.css({
+                            left:"-"+backIndex*pageWidth+"px"
+                        })
+                    }
+                }else{
+                    pageIndex +=len;
+                    console.log(pageIndex);
+                    if(pageIndex>backFlag-1){
+                        pageIndex = clear;
+                        $obj.css({
+                            left:"-"+backIndex*pageWidth+"px"
+                        })
+                    }
+                }
+                $carousels.eq(pageIndex).siblings().removeClass("active");
+                $carousels.eq(pageIndex).addClass("active");
+                stateLock = true;
+            })
+        }
+    });
+</script>
+
+</body>
+</html>
