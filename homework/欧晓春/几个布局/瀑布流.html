@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>瀑布流布局</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.count {
+		position: absolute;
+		font-size: 30px;
+		width: 280px;
+		margin-top: 20px;
+		margin-right: 20px;
+		transition: all .1s;
+	}
+	
+	.a {
+		height: 200px;
+		background-color: yellow;
+	}
+	
+	.b {
+		height: 400px;
+		background-color: red;
+	}
+
+	.c {
+		height: 250px;
+		background-color: pink;
+	}
+
+	.d {
+		height: 500px;
+		background-color: blue;
+	}
+
+	#hide {
+		height: 1px;
+	}
+</style>
+</head>
+<body>
+    <div id="wrap">
+    	<div class="count a">1</div>
+    	<div class="count b">2</div>
+    	<div class="count c">3</div>
+    	<div class="count d">4</div>
+    	<div class="count a">5</div>
+    	<div class="count d">6</div>
+    	<div class="count c">7</div>
+    	<div class="count b">8</div>
+    	<div class="count c">9</div>
+    	<div class="count a">10</div>
+    	<div class="count a">1</div>
+    	<div class="count b">2</div>
+    	<div class="count c">3</div>
+    	<div class="count d">4</div>
+    	<div class="count a">5</div>
+    	<div class="count d">6</div>
+    	<div class="count c">7</div>
+    	<div class="count b">8</div>
+    	<div class="count c">9</div>
+    	<div class="count a">10</div>
+    	<div class="count a">1</div>
+    	<div class="count b">2</div>
+    	<div class="count c">3</div>
+    	<div class="count d">4</div>
+    	<div class="count a">5</div>
+    	<div class="count d">6</div>
+    	<div class="count c">7</div>
+    	<div class="count b">8</div>
+    	<div class="count c">9</div>
+    	<div class="count a">10</div>
+    	<div class="count a">1</div>
+    	<div class="count b">2</div>
+    	<div class="count c">3</div>
+    	<div class="count d">4</div>
+    	<div class="count a">5</div>
+    	<div class="count d">6</div>
+    	<div class="count c">7</div>
+    	<div class="count b">8</div>
+    	<div class="count c">9</div>
+    	<div class="count a">10</div>
+    	<div class="count a">1</div>
+    	<div class="count b">2</div>
+    	<div class="count c">3</div>
+    	<div class="count d">4</div>
+    	<div class="count a">5</div>
+    	<div class="count d">6</div>
+    	<div class="count c">7</div>
+    	<div class="count b">8</div>
+    	<div class="count c">9</div>
+    	<div class="count a">10</div>
+    </div>
+    <div id="hide"></div>
+    <script src='jquery-3.1.1.js'></script>
+    <script>
+    waterLayout()
+    function waterLayout(){
+    	var windowWidth = $(window).width(),
+    		elementWidth = $('.count').outerWidth(true),
+    		rowElement = Math.floor(windowWidth/elementWidth),
+    		colHeight = [];
+    		for(var i = 0; i < rowElement; i++){
+    			colHeight.push(0)
+    		}
+    		$('.count').each(function(){
+    			var index = 0,
+    				min = colHeight[index];
+    			for(var i = 0; i < colHeight.length; i++){
+    				if(colHeight[i] < min){
+    					index = i;
+    					min = colHeight[index]
+    				}
+    			}
+    			$(this).css({
+    				'left': elementWidth * index,
+    				'top': min
+    			})
+    			colHeight[index] = $(this).outerHeight(true) + min
+    			$('#wrap').height(colHeight[index])
+    		})
+    }
+    $(window).on('scroll', function(){
+    	var windowHeight = $(window).height(),
+    		scrollTop = $(window).scrollTop(),
+    		offsetTop = $('#hide').offset().top,
+    		nodeHeight = $('#hide').outerHeight();
+    	if(windowHeight + scrollTop > offsetTop && offsetTop + nodeHeight > scrollTop){
+    		for(var i = 0; i < 11; i++){
+    			var count = '<div class="count ' + getRandom() + '">' + i + '</div>';
+    			$('#wrap').append(count)
+    			waterLayout()
+    		}
+    	}
+    })
+
+
+    function getRandom(){
+    	var arr = ['a', 'b', 'c', 'd']
+    	return arr[Math.floor(Math.random()*4)]
+    }
+
+
+    $(window).on('resize', waterLayout)
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>轮播1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	img {
+		width: 380px;
+		height: 280px;
+	}
+
+	.clearfix:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+
+	#window {
+		width: 380px;
+		height: 280px;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.pic {
+		width: 1520px;
+		position: absolute;
+	}
+
+	.pic>li {
+		float: left;
+	}
+
+	.btn {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		position: absolute;
+		display: inline-block;
+		background-color: rgba(0,0,0,0.5);
+		text-decoration: none;
+		text-align: center;
+		line-height: 40px;
+		color: white;
+		font-family: '微软雅黑';
+		font-size: 20px;
+		margin-top: 140px;
+		top: -20px;
+	}
+	
+	.btn-prev {
+		left: 10px;
+	}
+
+	.btn-next {
+		right: 10px;
+	}
+	
+	.indexCt {
+		display: inline-block;
+	}
+
+	.pageIndex {
+		position: relative;
+		top: 240px;
+	}
+
+	.pageIndex>li {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: white;
+		float: left;
+		margin: 0 6px;
+		cursor: pointer;
+	}
+
+	.pageIndex>.active {
+		background-color: gray;
+	}
+</style>
+</head>
+<body>
+    <div id="window">
+    	<ul class="pic">
+    		<li class="pic0"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-5625658440cb542d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li class="pic1"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-b70e9d81d26e2a27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li class="pic2"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-dc724649454c2ddc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li class="pic3"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-d2148a1bb7ea9d21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    	</ul>
+		<a href="#" class="btn btn-prev">&lt;</a>
+		<a href="#" class="btn btn-next">&gt;</a>
+		<div class="indexCt">
+			<ul class="pageIndex clearfix">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+    </div>
+    <script src='jquery-3.1.1.js'></script>
+    <script>
+    	var $pic = $('.pic'),
+    		$btnp = $('.btn-prev'),
+    		$btnn = $('.btn-next'),
+    		$pageIndex = $('.pageIndex'),
+    		mark = 0,
+    		picLength = $('.pic>li').length
+
+    	// 克隆头尾元素
+    	$pic.prepend($pic.find('.pic3').clone())
+    	$pic.append($pic.find('.pic0').clone())
+    	
+    	// 计算$pic的真实宽度，并改变它的偏移值
+    	$pic.css('width', ($pic.children().length * 380 + 'px'))
+    	$pic.css('left', '-380px')
+
+    	// 绑定事件
+    	$btnn.on('click', function(){
+    		playNext()
+    	})
+
+
+    	$btnp.on('click', function(){
+    		playPrev()
+    	})
+
+
+    	$pageIndex.on('click', 'li', function(){
+    		choosePage($(this))
+    	})
+
+    	// 下一页
+		var lock = false
+    	function playNext(){
+    		if(lock){
+    			return
+    		}else{
+    			lock = true
+    			$pic.animate({
+    				'left': '-=380'
+    			},function(){
+    				mark++
+    				if(mark === picLength){
+    					$pic.css('left', -380)
+    					mark = 0
+    				}
+    				movePageIndex()
+    				lock = false
+    			})    			
+    		}
+    	}
+
+    	// 上一页
+    	function playPrev(){
+    		if(lock){
+    			return
+    		}else{
+    			lock = true
+	    		$pic.animate({
+	    			'left': '+=380'
+	    		},function(){
+	    			mark--
+	    			if(mark < 0){
+	    				$pic.css('left', -1520)
+	    				mark = 3
+	    			}
+	    			movePageIndex()
+    				lock = false
+    			})    			
+    		}
+    	}
+
+    	// 页面移动时候pageIndex变化
+    	function movePageIndex(){
+    		$pageIndex.children().removeClass('active')
+	    	$pageIndex.children().eq(mark).addClass('active')
+    	}
+
+    	// 选页时的变换
+    	function choosePage($e){
+    		$pageIndex.children().removeClass('active')
+    		$e.addClass('active')
+    		$pic.animate({
+    			'left': -380*($e.index()+1)+'px'
+    		})
+    	}
+
+    	// 自动执行点击下一张
+    	(function(){
+    		setInterval(function(){
+    			playNext()
+    		},2000)
+    	})()
+    </script>
+</body>
+</html>

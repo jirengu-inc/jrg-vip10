@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>木桶布局</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #ct {
+        width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        background-color: pink;
+    }
+
+    #ct>div {
+        text-align: center;
+        line-height: 20px;
+        font-size: 30px;
+        font-family: '微软雅黑';
+        position: absolute;
+    }
+
+    #hide {
+        height: 1px;
+    }
+</style>
+</head>
+<body>
+    <div id="ct"></div>
+    <div id="hide"></div>
+    <script src='jquery-3.1.1.js'></script>
+    <script>
+        var Y = 0;
+        check()
+        $(window).on('scroll', function(){
+            check()
+        })
+
+
+        function check(){
+            if(isShow($('#hide'))){
+                randomImg(10)
+                check()
+            }
+        }
+
+
+        function randomImg(num){
+            var nodeWidth = $('#ct').width(),
+                sum = 0,
+                img = [],
+                left = 0,
+                height = Math.floor(Math.random() * 60 + 100),
+                mark = 0;
+                $('#ct').height(height)
+            for(var i = 0; i < num; i++){
+                var color = 'rgb(' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ',' + Math.floor(Math.random()*255) + ')',                   
+                    width = Math.floor(Math.random() * 50 + 150),
+                    $img = $('<div></div>');
+                $img.css({
+                    'background-color': '' + color,
+                    'height': height,
+                    'width': width,
+                    'line-height': height + 'px'
+                }).text(height + 'X' + width)
+                img.push($img)
+            }
+            for(var i = 0; i < img.length; i++){
+                sum += img[i].outerWidth(true)
+                if(sum < nodeWidth){                  
+                    mark = i
+                    continue
+                }   
+            }
+            img.splice(mark+1, img.length-mark)
+            var w = 0;
+            for(var i = 0; i < img.length; i++){
+                    w += img[i].width()              
+            }
+            for(var i = 0; i < img.length; i++){
+                var imgWidth = img[i].width()
+                img[i].css({
+                    'left': left,
+                    'top': Y
+                })
+                img[i].width(img[i].width() + (nodeWidth - w)/img.length)
+                $('#ct').append(img[i])
+                left += (imgWidth + (nodeWidth - w)/img.length)
+            }      
+            Y += height
+            $('#ct').height(Y)
+        }
+
+
+        function isShow($node){
+            var windowHeight = $(window).height(),
+                scrollTop = $(window).scrollTop(),
+                nodeHeight = $node.height(),
+                nodeOffsetTop = $node.offset().top
+            if(windowHeight + scrollTop > nodeOffsetTop && nodeHeight + nodeOffsetTop > scrollTop){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
