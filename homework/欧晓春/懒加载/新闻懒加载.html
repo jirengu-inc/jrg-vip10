@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>新闻懒加载</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	#ct {
+		margin: 0 auto;
+		/*width: 750px;*/
+	}
+	.clearfix:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	#ct>li>.left-img {
+		float: left;
+		padding: 18px 20px;
+	}
+	#ct>li>.right-info {
+		float: left;
+	}
+	#ct>li>.right-info>h4 {
+		margin: 50px 0;
+		font-size: 18px;
+	}
+	#ct>li>.right-info>p {
+		color: gray;
+	}
+	#load-more {
+		height: 1px;
+	}
+</style>
+</head>
+<body>
+    <ul id="ct" class="clearfix">
+    </ul>
+    <div id="load-more"></div>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+    	var $mark = $('#load-more');
+    	check();
+    	$(window).on('scroll', function(){
+    		if($mark.hasClass('.no-more')){
+    			return;
+    		}else{
+    			check();
+    		}
+    	})
+
+
+    	function check(){
+    		if(isShow()){
+    			getNews();
+    		}
+    	}
+
+
+
+    	function isShow(){
+    		var windowHeight = $(window).height(),
+    			scrollTop = $(window).scrollTop();
+    			nodeHeight = $mark.height(),
+    			offsetTop = $mark.offset().top;
+    		if(windowHeight + scrollTop > offsetTop && offsetTop + nodeHeight > scrollTop){
+    			return true;
+    		}else{
+    			return false;
+    		}
+    	}
+
+
+    	function append(json){
+    		var html = '';
+    		json.forEach(function(e, i, a){
+    			if(json[i] !== null){
+    				html += '<li class="clearfix"><div class="left-img"><img src="' + json[i].img + '">';
+    				html += '</div><div class="right-info"><h4><a href="' + json[i].link + '">' + json[i].title + '</a></h4>';
+    				html += '<p>' + json[i].title + '......</p></div></li>';
+    			}else{
+    				$mark.addClass('.no-more')
+    			}
+    		})
+    		$('#ct').append(html);		
+    	}
+
+
+
+
+    	function getNews(){
+    		$.get('/more', {count: $('li').length})
+    			.done(function(json){
+    				append(json)
+    				if(isShow($mark)){
+    					getNews();
+    				}	
+    			})
+    			.fail(function(){
+    				console.error('错误')
+    			})
+    	}
+
+
+    	
+
+
+		
+    </script>
+</body>
+</html>

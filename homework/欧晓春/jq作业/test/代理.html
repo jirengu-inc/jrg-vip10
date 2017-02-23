@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0 auto;
+		padding: 0;
+		list-style: none;
+	}
+	
+	#ct {
+		width: 702px;
+	}
+	
+	#ct:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	#ct>li {
+		float: left;
+		width: 200px;
+		padding: 10px 10px;
+		margin-top: 15px;
+		margin-left: 10px;
+		text-align: center;
+		border: 1px solid #eee;
+	}
+
+	.price {
+		color: red;
+	}
+
+	#btn {
+		color: red;
+		font-family: '微软雅黑';
+		font-size: 20px;
+		background: white;
+		border: 1px solid red;
+		border-radius: 5px;
+		margin-top: 30px;
+		padding: 10px;
+		display: block;
+		cursor: pointer;
+		outline: none;
+	}
+</style>
+
+</head>
+<body>
+    <ul id="ct">
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    	<li>
+    		<img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+    		<p class="name">藏美千足金和田玉金镶玉路路通吊坠</div>
+    		<p class="price">￥1699.00</div>
+    	</li>
+    </ul>
+    <button id="btn">添加</button>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    	var products = [
+			{
+				img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+				name: '珂兰 黄金手 猴哥款',
+				price: '￥405.00'
+			},{
+				img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+				name: '珂兰 黄金转运珠 猴哥款',
+				price: '￥100.00'
+			},{
+				img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+				name: '珂兰 黄金手链 3D猴哥款',
+				price: '￥45.00'
+			}
+		];
+
+		$('#btn').on('click', products, function(e){
+			for(var i = 0; i < products.length; i++){
+				var img = '<img src=' + products[i].img + '>'
+				var name = '<p class="name">' + products[i].name + '</p>'
+				var price = '<p class="price">' + products[i].price + '</p>'
+				var str = '<li>' + img + name + price + '</li>'
+				var $li = $(str)
+				$li.appendTo('#ct')
+			}
+		})
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	#ct {
+		width: 222px;
+		border: 1px solid gray;
+		border-radius: 5px;
+	}
+	
+	#ct:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	#ct>li {
+		cursor: pointer;
+		padding: 10px;
+		float: left;
+	}
+
+	#ct>li:nth-child(2) {
+		border-left: 1px solid gray;
+		border-right: 1px solid gray;
+	}
+
+	
+
+	.wrap {
+		width: 700px;
+		float: left;
+		display: none;
+		border: 1px solid gray;
+	}
+
+	.wrap>li {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		margin-left: 8px;
+		border: 1px solid gray;
+		float: left;
+	}
+
+	.show {
+		display: block;
+	}
+	
+	.active {
+		color: red;
+		background: pink;
+	}
+	
+	.cover {
+		width: 220px;
+		height: 221px; 
+		display: none;
+		position: absolute;
+		background: rgba(0, 0, 0, 0.5);
+	}
+	
+	.cover>span {
+		display: block;
+		width: 100px;
+		height: 30px;
+		background: white;
+		text-align: center;
+		line-height: 30px;
+		margin: 90px 60px;
+		border: 1px solid gray;
+		border-radius: 8px;
+		color: red;
+		cursor: pointer;
+	}
+
+	img {
+		width: 220px;
+		height: 200px;
+	}
+
+</style>
+</head>
+<body>
+	<ul id="ct">
+	    <li class="active">哈士奇</li>
+	    <li>萨摩耶</li>
+	    <li>阿拉斯加</li>
+	</ul>
+    <ul id="ct2">
+    	<li>
+    		<ul class="wrap show">
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-a22f4d98d063609e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="哈士奇">
+    				<p>雪橇三傻最傻的那个</p>
+    			</li>
+    		</ul>
+    	</li>
+    	<li>
+    		<ul class="wrap">
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-339d29c7cdf68bec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="萨摩耶">
+    				<p>天使笑容，魔鬼内心</p>
+    			</li>
+    		</ul>
+    	</li>
+    	<li>
+    		<ul class="wrap">
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    			<li>
+    				<div class="cover"><span>雪橇三傻</span></div>
+    				<img src="http://upload-images.jianshu.io/upload_images/3360875-78ae76288ae710d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="阿拉斯加">
+    				<p>嗯，撕家</p>
+    			</li>
+    		</ul>
+    	</li>
+    </ul>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    	$('#ct').on('click', 'li', function(){
+    		$('#ct').children().removeClass('active')
+    		$(this).addClass('active')
+    		$('.wrap').removeClass('show')
+    		var $index = $(this).index()
+    		$('#ct2>li').eq($index).children().addClass('show')
+    	})
+
+    	$('.wrap').on('mouseenter', 'li', function(){
+    		var $cover = $(this).children('.cover')
+    		$cover.fadeIn('fast')
+    		$cover.css('display', 'block')
+    		$(this).siblings().find('.cover').hide()
+    	})
+
+    	$('.wrap').on('mouseleave', 'li', function(){
+    		var $cover = $(this).children('.cover')
+    		$cover.hide()
+    	})
+
+    </script>
+</body>
+</html>

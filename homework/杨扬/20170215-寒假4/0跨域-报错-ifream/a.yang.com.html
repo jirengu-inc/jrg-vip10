@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实现降域跨域</title>
+    <style>
+        .ct {
+            margin: auto;
+            padding: 30px;
+            width: 804px;
+        }
+        .main {
+            float: left;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        .main input{
+            margin: 50px;
+            width: 300px;
+        }
+        iframe {
+            float: right;
+            width: 400px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="main">
+            <input type="text" placeholder="http://a.yang.com:8080/a.yang.con.html">
+        </div>
+
+        <iframe src="http://b.yang.com:8080/b.yang.com.html"></iframe>
+    </div>
+
+    <script>
+        var input = document.querySelector('.main input');
+        input.addEventListener('input', function () {
+            console.log('window:' + this.value);
+            window.frames[0].document.querySelector('input').value = this.value;
+        });
+    </script>
+</body>
+</html>

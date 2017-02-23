@@ -80,7 +80,7 @@ html,body,.page {
 }
 .content li {
     display: block;
-    transition: all 0.5s;
+    transition: all 1s;
 }
 .content li:hover {
     transform: translateY(-30px);

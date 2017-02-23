@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab多个(jQuery)</title>
+    <style>
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        h4,p {
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        .clearfix:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        .tab {
+            margin-bottom: 30px;
+        }
+        .header {
+            border: 1px solid black;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            width: 300px;
+        }
+        .header>li {
+            float: left;
+            padding: 10px 0;
+            width: 100px;
+            text-align: center;
+        }
+        .header>li>a {
+            padding: 0 33px;
+            border-right: 1px solid black;
+        }
+        .header>li:last-child>a {
+            border-right: none;
+        }
+        .header>.active {
+            background-color: #ccc;
+        }
+        .header>.active>a {
+            font-weight: bold;
+            color: red;
+        }
+        .prod {
+            border: 1px solid black;
+            width: 926px;
+        }
+        .panals {
+            display: none;
+            margin-left: -10px;
+            margin-bottom: -10px;
+        }
+        .panals>li {
+            position: relative;
+            float: left;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .panals>li p {
+            padding: 0 25px;
+            text-align: left;
+            color: red;
+        }
+        .prod>.active {
+            display: block;
+        }
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .cover>.btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -21px;
+            margin-left: -45px;
+            display: block;
+            padding: 10px;
+            border: 2px solid red;
+            border-radius: 5px;
+            background-color: white;
+            font-weight: bold;
+            color: red;
+            cursor: pointer;
+        }
+        .panals .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active"><a href="javascript:void(0)">戒指</a></li>
+                <li><a href="javascript:void(0)">吊坠</a></li>
+                <li><a href="javascript:void(0)">项链</a></li>
+            </ul>
+            <div class="prod">
+                <ul class="panals clearfix active">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="panals clearfix">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="panals clearfix">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active"><a href="javascript:void(0)">戒指</a></li>
+                <li><a href="javascript:void(0)">吊坠</a></li>
+                <li><a href="javascript:void(0)">项链</a></li>
+            </ul>
+            <div class="prod">
+                <ul class="panals clearfix active">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="1.jpg">
+                            <h4>水晶镶钻金和田玉金镶玉路路通戒指</h4>
+                            <p>￥699.00</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="panals clearfix">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="2.jpg">
+                            <h4>藏美千足金和田玉金镶玉路路通吊坠</h4>
+                            <p>￥1699.00</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="panals clearfix">
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="javascript:void(0)" class="btn">立即抢购</a>
+                        </div>
+                        <a href="javascript:void(0)">
+                            <img src="3.jpg">
+                            <h4>完美闪耀金和田玉金镶玉路路通项链</h4>
+                            <p>￥1800.00</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $header = $('.header'),
+            $panals = $('.panals'),
+            $cover = $('.tab .cover');
+
+        $header.on('click', 'li', function () {
+            var $this = $(this),
+                $index = $this.index();
+            $this.siblings().removeClass('active');
+            $this.addClass('active');
+            $this.parents('.tab').find($panals)
+                 .removeClass('active');
+            $this.parents('.tab').find($panals).eq($index)
+                 .addClass('active');
+        });
+        $panals.on('mouseenter', 'li', function () {
+            var $this = $(this);
+            $this.find($cover)
+                 .addClass('active');
+        });
+        $panals.on('mouseleave', 'li', function () {
+            var $this = $(this);
+            $this.find($cover)
+                 .removeClass('active');
+        })
+    </script>
+</body>
+</html>

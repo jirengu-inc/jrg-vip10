@@ -1,0 +1,246 @@
+<!--
+ * Created by Ricky on 17/2/20.
+ * Date:二月
+ * Project Name: 代理.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <style>
+        /*清楚默认样式*/
+        body{
+            margin: 0;
+            padding: 0;
+            /*list-style: none;*/
+
+        }
+        .all-contain{
+            width: 800px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+
+            /*描述栏css*/
+        }
+        .description p{
+            font-size: 24px;
+            font-weight: bold;
+            color: #666666;
+            position: relative;
+            top: -10px;
+            left: 50px;
+        }
+
+        /*菜单栏css*/
+        .item-ct{
+            list-style: none;
+
+        }
+        .item-ct:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .item{
+            float: left;
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            font-size: 12px;
+
+        }
+        .item img{
+            position: relative;
+            left: 45px;
+        }
+        .item p{
+            margin-left: 10px;
+            color: #666666;
+        }
+
+
+
+        /*"添加"按钮*/
+        .btn{
+            /*box-sizing: border-box;*/
+            width: 100px;
+            height: 40px;
+            border: 1px solid firebrick;
+            position: relative;
+            left: 50px;
+            border-radius: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: firebrick;
+
+        }
+
+
+        /*鼠标放上去的样式（立即抢购，变灰）*/
+        .qianggou{
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            border: 1px solid sienna;
+            border-radius: 5px;
+            top: 100px;
+            left: 80px;
+            z-index: 3;
+            text-decoration: none;
+            color: firebrick;
+            opacity: 0;
+            background-color: white;
+
+        }
+        .qianggou span{
+            position: absolute;
+            top: 10px;
+            left: 5px;
+        }
+
+        .show{
+            opacity: 1;
+
+
+        }
+
+        .active{
+            background-color: #cccccc;
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!--总的容器包裹所有-->
+    <div class="all-contain">
+        <!--顶部描述栏（杭州美景）-->
+        <div class="description">
+            <p>杭州美景</p>
+        </div>
+
+        <!--菜单栏-->
+        <ul class="item-ct">
+            <!--每个单独的items-->
+            <li class="item">
+                <a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：￥<span>40</span></p>
+            </li>
+            <li class="item">
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：￥<span>40</span></p>
+            </li>
+            <li class="item">
+                <a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：￥<span>40</span></p>
+            </li>
+            <li class="item">
+                <a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：￥<span>40</span></p>
+            </li>
+            <li class="item">
+                <a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：￥<span>40</span></p>
+            </li>
+            <li class="item">
+                <a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>
+                <img src="http://cdn.rickyer.com/leifengta130130" alt="">
+                <p class="item-name">杭州名胜古迹之一，修建于北宋</p>
+                <p class="item-price">门票：<span>￥40</span></p>
+            </li>
+
+
+
+        </ul>
+
+        <!--添加按钮-->
+
+        <a href="javascript: void(0)" class="btn">添加</a>
+
+
+
+
+    </div>
+
+
+    <script>
+
+//            步骤：
+//            1.点击按钮，创建一个li class=item
+//            2.在item里添加img标签和2个p标签，并设置标签class
+//            3.将li class= item 添加到ul的后面
+
+
+            var products = [
+                {
+                    img: 'http://cdn.rickyer.com/linyingsi130130',
+                    name: '浙江灵隐寺为全国重点文物保护单位',
+                    price: '￥75'
+                },{
+                    img: 'http://cdn.rickyer.com/linyingsi130130',
+                    name: '浙江灵隐寺为全国重点文物保护单位',
+                    price: '￥45'
+                },{
+                    img: 'http://cdn.rickyer.com/linyingsi130130',
+                    name: '浙江灵隐寺为全国重点文物保护单位',
+                    price: '￥75'
+                }
+            ];
+
+
+//            点击添加之后
+            $(".btn").on("click",function () {
+
+              for(var i = 0; i<products.length;i++){
+
+                  item = $('<li class="item"></li>')   //创建item
+                  qianggou = $('<a href="javascript: void(0)" class="qianggou"><span>立即抢购</span></a>')
+                  img = $('<img>').attr("src",products[i].img); //创建img
+                  des = $('<p class="item-name">').html(products[i].name); //创建描述
+                  price = $('<p class="item-price">').html(products[i].price) //创建价格
+                  item.append(img,des,price,qianggou);   //将img，描述，价格 放入item
+
+                  $('.item-ct').append(item);//添加到ul之后
+              }
+
+            })
+
+//            鼠标移动上去之后
+            $(".item-ct").on("mouseenter",'.item',function () {
+                $(this).addClass("active");
+                $(this).find("a").addClass("show");
+
+            })
+//            鼠标撤离之后
+            $(".item-ct").on("mouseleave",'.item',function () {
+                $(this).removeClass("active");
+                $(this).find("a").removeClass("show");
+
+            })
+    </script>
+</body>
+</html>

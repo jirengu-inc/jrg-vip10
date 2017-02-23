@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>加载更多</title>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+
+  li {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid gray;
+    list-style: none;
+  }
+  
+  li:hover {
+    background-color: gray;
+  }
+
+  #btn {
+    width: 80px;
+    height: 40px;
+    margin: 40px auto;
+    display: block;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+  <ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+  </ul>
+  <button id="btn">加载更多</button>
+  <script src="jquery-3.1.1.js"></script>
+  <script>
+    $('#btn').on('click', function(){
+      $.ajax({
+        url: '/more',
+        data: {count: $('li').length},
+        type: 'get',
+      }).done(function(json){
+        append(json)
+      }).fail(function(){
+        console.log('出错误了')
+      }).always(function(){
+        console.log('已完成')
+      })
+    })
+
+    function append(json){
+      var ct = document.querySelector('#ct');
+      var frag = document.createDocumentFragment();
+      for(var i = 0; i < json.length; i++){
+        var $li = $('<li>' + json[i] + '</li>')
+        frag.appendChild($li[0])
+      }
+      ct.appendChild(frag)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    	* {
+    		margin: 0;
+    		padding: 0;
+    		list-style: none;
+    	}
+
+    	@font-face {
+    		font-family: "iconfont";
+  			src: url('http://at.alicdn.com/t/font_dzm37x9z3ii442t9.eot?t=1486997487893'); /* IE9*/
+  			src: url('http://at.alicdn.com/t/font_dzm37x9z3ii442t9.eot?t=1486997487893#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  			url('http://at.alicdn.com/t/font_dzm37x9z3ii442t9.woff?t=1486997487893') format('woff'), /* chrome, firefox */
+  			url('http://at.alicdn.com/t/font_dzm37x9z3ii442t9.ttf?t=1486997487893') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  			url('http://at.alicdn.com/t/font_dzm37x9z3ii442t9.svg?t=1486997487893#iconfont') format('svg'); /* iOS 4.1- */
+		}
+
+		.iconfont {
+		  font-family:"iconfont" !important;
+		  font-size:20px;
+		  font-style:normal;
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		  float: right;
+		}
+		
+    	#ct>li {
+    		width: 200px;
+			padding: 10px 20px;
+			border-bottom: 1px dotted;
+			background-color: #de272e;
+			position: relative;
+    	}
+
+		.ct2 {
+			width: 300px;
+			border: 1px solid;
+			position: absolute;
+			left: 240px;
+    		top: 0px;
+			display: none;
+		}
+
+		.ct2>li {
+			padding: 10px 80px 10px 20px; 
+			float: left;
+		}
+    </style>
+</head>
+<body>
+<ul id="ct">
+	<li>
+		珠宝玉器
+		<span class="iconfont">&#xe604;</span>
+		<ul class="ct2">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+			<li>钻石</li>
+			<li>琥珀</li>
+			<li>和田</li>
+			<li>琥珀</li>
+		</ul>
+	</li>
+	<li>
+		珠宝玉器
+		<span class="iconfont">&#xe604;</span>
+		<ul class="ct2">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+		</ul>
+	</li>
+	<li>
+		珠宝玉器
+		<span class="iconfont">&#xe604;</span>
+		<ul class="ct2">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+		</ul>
+	</li>
+	<li>
+		珠宝玉器
+		<span class="iconfont">&#xe604;</span>
+		<ul class="ct2">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+			<li>玛瑙</li>
+			<li>珍珠</li>
+		</ul>
+	</li>
+	<li>
+		珠宝玉器
+		<span class="iconfont">&#xe604;</span>
+		<ul class="ct2">
+			<li>翡翠</li>
+			<li>玉石</li>
+			<li>宝石</li>
+			<li>水晶</li>
+		</ul>
+	</li>
+</ul>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js"></script>
+<script>
+	$("#ct").on("mouseover", "li", function(e){
+		var $ct2 = $(this).find(".ct2")		
+		$ct2.show()
+		$(this).siblings().find(".ct2").hide()
+		$(this).find("span").css({"transform":"rotate(90deg)", "transition": "transform .3s"})
+		$(this).siblings().find("span").css("transform", "rotate(0deg)")
+	})
+
+
+</script>
+</body>
+</html>

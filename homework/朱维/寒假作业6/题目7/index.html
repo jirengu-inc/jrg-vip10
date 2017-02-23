@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题目7</title>
+    <style>
+        .q1,.q2,.q3,.q4,.q5{
+            border:1px solid;
+            margin:30px 0;
+        }
+        .q3>div{
+            margin:10px;
+            border:1px solid;
+            height:50px;
+        }
+        .q4>input{
+            margin:10px;
+            outline:none;
+        }
+    </style>
+</head>
+<body>
+<div class="q1">
+    <h1>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</h1>
+    <button>点我变色</button>
+</div>
+<div class="q2">
+    <h1>当窗口滚动时，获取垂直滚动距离</h1>
+    <div></div>
+</div>
+<div class="q3">
+    <h1>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</h1>
+    <div></div>
+</div>
+<div class="q4">
+    <h1>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</h1>
+    <input type="text">
+</div>
+<div class="q5">
+    <h1>当选择 select 后，获取用户选择的内容</h1>
+    <select name="hobby" id="">
+        <option value="reading">阅读</option>
+        <option value="movie">电影</option>
+        <option value="travel">旅游</option>
+        <option value="pet">宠物</option>
+    </select>
+    <div></div>
+</div>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    //题目1
+    $(".q1>button").on("click",function () {
+        $(this).css({
+            background:"red"
+        });
+        setTimeout(function () {
+            $(".q1>button").css({
+                background:"blue"
+            })
+        },1000)
+    });
+    //题目2
+    $(window).on("scroll",function () {
+        $(".q2>div").text($(window).scrollTop()+"px");
+    });
+    //题目3
+    $(".q3>div").on({
+        mouseover:function () {
+            $(this).css({
+                background:"red"
+            })
+        },
+        mouseout:function () {
+            $(this).css({
+                background:"white"
+            })
+        }
+    });
+    //题目4
+    $(".q4>input").on({
+        focus:function () {
+           $(this).css({
+               outline:"1px solid blue"
+           })
+        },
+        blur:function () {
+            $(this).css({
+                outline:"none"
+            })
+        },
+        input:function () {
+            this.value = this.value.toUpperCase();
+            console.log(this.value);
+        }
+    });
+    //题目5
+    $(".q5>select").on("change",function () {
+           console.log(this.selectedIndex);
+        var index = 0;
+        index = this.selectedIndex;
+        $(".q5>div").text("用户选择了："+this.options[index].text);
+    })
+</script>
+</body>
+</html>
