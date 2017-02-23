@@ -1,0 +1,25 @@
+- 跨域类型
+
+前端与非同源后端交互——读写资源
+
+- 页面功能
+
+A 页面中有一个按钮和一个面板：点击按钮，按钮会发送 AJAX 请求，当接受到响应时，将数据展示在面板中
+
+A 页面的域为：localhost：8080；AJAX 发送请求的域为：a.yang.com：8080
+
+此时使用 AJAX 发送请求时，发生跨域访问，浏览器会阻止访问并报错
+
+- 请求说明
+
+开启 server-mock，点击按钮，无内容显示，并且会报错，报错提示为：
+
+XMLHttpRequest cannot load http://a.yang.com:8080/loadData?len=10. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://b.yang.com:8080' is therefore not allowed access.
+
+- 比喻理解
+
+如果没有同源策略的限制，我们就可以通过任意网站，去读写淘宝网的所有数据，这样的话能做的事情就有很多
+所以，现代浏览器一般都会遵循同源策略的规则，以此避免此类事情的发生
+
+- 处理
+jsonp、cors

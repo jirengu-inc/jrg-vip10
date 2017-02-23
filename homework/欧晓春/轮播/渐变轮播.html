@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>渐变轮播1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	img {
+		width: 380px;
+		height: 280px;
+	}
+
+	.clearfix:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+
+	#window {
+		width: 380px;
+		height: 280px;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.pic {
+		position: absolute;
+	}
+
+	.pic>li {
+		position: absolute;
+		opacity: 0;
+	}
+
+	.btn {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		position: absolute;
+		display: inline-block;
+		background-color: rgba(0,0,0,0.5);
+		text-decoration: none;
+		text-align: center;
+		line-height: 40px;
+		color: white;
+		font-family: '微软雅黑';
+		font-size: 20px;
+		margin-top: 140px;
+		top: -20px;
+	}
+	
+	.btn-prev {
+		left: 10px;
+	}
+
+	.btn-next {
+		right: 10px;
+	}
+	
+	.indexCt {
+		display: inline-block;
+	}
+
+	.pageIndex {
+		position: relative;
+		top: 240px;
+	}
+
+	.pageIndex>li {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: white;
+		float: left;
+		margin: 0 6px;
+		cursor: pointer;
+	}
+
+	.pageIndex>.active {
+		background-color: gray;
+	}
+	
+	.hide {
+		display: none;
+	}
+</style>
+</head>
+<body>
+    <div id="window">
+    	<ul class="pic">
+    		<li count="0"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-5625658440cb542d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li count="1"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-b70e9d81d26e2a27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li count="2"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-dc724649454c2ddc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    		<li count="3"><a href="#"><img src="http://upload-images.jianshu.io/upload_images/3360875-d2148a1bb7ea9d21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></a></li>
+    	</ul>
+		<a href="#" class="btn btn-prev">&lt;</a>
+		<a href="#" class="btn btn-next">&gt;</a>
+		<div class="indexCt">
+			<ul class="pageIndex clearfix">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+    </div>
+    <script src='jquery-3.1.1.js'></script>
+    <script>
+    	var $pic = $('.pic'),
+    		$btnp = $('.btn-prev'),
+    		$btnn = $('.btn-next'),
+    		$pageIndex = $('.pageIndex'),
+    		$picChild = $pic.children(),
+    		mark = 0,
+    		picLength = $('.pic>li').length,
+    		lock = false
+
+    	$pic.children().eq(0).css('opacity', '1')
+    	$pic.children().eq(0).siblings().addClass('hide')
+
+
+
+    	$btnn.on('click', function(){
+    		playNext()
+    	})
+
+    	$btnp.on('click', function(){
+    		playPrev()
+    	})
+
+    	$pageIndex.on('click', 'li', function(){
+    		mark = $(this).index()
+    		changeClass()
+    		movePageIndex()
+    	})
+    	
+
+    	function playNext(){
+    		if(lock)return;
+    		lock = true
+    		$picChild.eq(mark).animate({
+    			'opacity': '0'
+    		}, 200, function(){
+    			mark++
+    			if(mark === picLength){
+    				mark = 0
+    				changeClass()
+    				movePageIndex()
+    				lock=false
+    			}else{
+    				changeClass()
+    				movePageIndex()
+    				lock=false    				
+    			}
+    		})
+    	}
+
+
+    	function playPrev(){
+    		if(lock)return;
+    		lock = true
+    		$picChild.eq(mark).animate({
+    			'opacity': '0'
+    		}, 200, function(){
+    			mark--
+    			if(mark < 0){
+    				mark = 3
+    				changeClass()
+    				movePageIndex()
+    				lock=false
+    			}else{
+    				changeClass()
+    				movePageIndex() 
+    				lock=false     				
+    			}
+    		})
+    	}
+
+    	function movePageIndex(){
+    		$pageIndex.children().removeClass('active')
+    		$pageIndex.children().eq(mark).addClass('active')
+    	}
+    	
+
+    	function changeClass(){
+    		$picChild.eq(mark).removeClass('hide')
+    		$picChild.eq(mark).animate({'opacity': '1'})
+    		$picChild.eq(mark).siblings().addClass('hide')
+    		$picChild.eq(mark).siblings().css('opacity', 0)
+    		  		
+    	}
+
+    </script>
+</body>
+</html>

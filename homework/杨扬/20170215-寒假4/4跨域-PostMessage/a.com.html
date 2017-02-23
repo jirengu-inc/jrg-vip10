@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>实现降域跨域</title>
+    <style>
+        .ct {
+            margin: auto;
+            padding: 30px;
+            width: 803px;
+        }
+        .main {
+            float: left;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        .main input{
+            margin: 50px;
+            width: 300px;
+        }
+        iframe {
+            float: right;
+            width: 400px;
+            height: 300px;
+            border: 1px solid red;
+            border-left: none;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>使用 postMessage 实现跨域</h1>
+    <div class="ct">
+        <div class="main">
+            <input type="text" placeholder="http://a.com:8080/a.com.html">
+        </div>
+
+        <iframe src="http://b.com:8080/b.com.html"></iframe>
+    </div>
+
+    <script>
+        var input = document.querySelector('.main input');
+        input.addEventListener('input', function () {
+            console.log('window:' + this.value);
+            window.frames[0].postMessage(this.value, '*');
+        });
+
+        window.addEventListener('message', function (e) {
+            console.log('window:'+ e.data);
+            input.value = e.data;
+        })
+    </script>
+</body>
+</html>

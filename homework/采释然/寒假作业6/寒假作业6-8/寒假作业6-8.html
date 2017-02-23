@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.ct{
+			padding: 15px;
+			list-style: none;
+		}
+		.content{
+			line-height: 50px;
+			padding: 5px;
+			border: 1px solid #000;
+			margin-bottom: 10px;
+		}
+		.btn{
+			width: 80px;
+			line-height: 40px;
+			color: pink;
+			border: 1px solid #6D1418;
+			text-align: center;
+			background-color: #fff;
+			display: block;
+			margin: 0 auto;
+			outline: none;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		.content:hover{
+			background-color: #2A7219;
+			color: #fff;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<ul class="ct">
+		<li class="content">内容1</li>
+		<li class="content">内容2</li>
+	</ul>
+	<button class="btn">加载更多</button>
+	<script>
+	    var start = 3;
+	    var lock = true;
+		$('.btn').on('click',function(){
+
+			if(lock){
+				lock = false;
+				$.ajax({
+					url: '/getMore',
+					method: 'get',
+					data: {
+						len: 5,
+	                    start: start
+					}
+			    }).done(function(result){
+					for(var i = 0;i<result.length;i++){
+						var newLi = $('<li class="content">'+result[i]+'</li>');
+						$('.ct').append(newLi);
+					}
+					start += 5;
+					lock = true;
+			    }).fail(function(){
+			    	alert('出错了');
+			    	lock = true;
+			    })
+			}
+		})
+	</script>
+</body>
+</html>

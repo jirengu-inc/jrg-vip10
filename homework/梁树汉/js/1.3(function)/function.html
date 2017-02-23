@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+</head>
+<body>
+<script type="text/javascript">
+	// //  function
+	// function print(){
+	// 	console.log('function命令函数')
+	// }
+	// print();
+
+	// //  函数表达式
+	// var print=function(){
+	// 		console.log('函数表达式')
+	// };
+	// print();
+	// //  function 命令后面不带函数名，如果加上，该函数名只在函数体内部有效
+	// var print=function x(){
+	// 	console.log(typeof x);
+
+	// };
+
+ //  // x
+	// typeof x;
+	// print();
+
+	// //  构造函数
+	// var add = new Function(
+	// 	'x',
+	// 	'y',
+	// 	'return(x+y)'
+	// 	);
+ //   // 等价于
+	// function add(x,y){
+	// 	return(x+y);
+	// }
+
+
+	// var foo = new Function(
+	// 	'return "Hello World"'
+	// );
+
+	// // 等价于
+	// function foo(){
+	// 	return 'Hello World';
+	// }
+
+	// //  函数重复声明
+
+	// function f(){
+	// 	console.log('函数重复声明1');
+	// }
+	// f();
+
+	// function f(){
+	// 	console.log('函数重复声明2');
+	// }
+
+	// f();
+	// // 圆括号运算符，和return语句
+	// function add(a,b){
+	// return a+b;
+	// }
+	// console.log(add(2,3));
+
+	// // 函数可以调用本身，就是递归
+	// function fib(num){
+	// 	if(num>2){
+	// 		return fib(num-2)+fib(num-1)
+	// 	}else{
+	// 		return 1;
+	// 	}
+	// }
+	// console.log(fib(6));
+
+	// // name属性
+	// function fn(){
+
+	// }
+	// console.log(fn.name);
+
+	// var fn = function(){
+
+	// }
+	// console.log(fn.name);
+
+	// var f3 =function myName(){
+
+	// }
+	// console.log(f3.name);
+	// // length 属性
+	// function f(a,b,c){
+
+	// }
+	// console.log(f.length);
+
+	// // toString() 返回函数的源代码
+
+	// function f(a,b){
+	// 	return a+b;
+	// }
+	// console.log(f.toString())
+
+	// // 参数默认值
+	// function f(a){
+	// 	a=a||1;
+	// 	return a;
+	// }
+	// console.log(f());
+	// console.log(f(3));
+	// console.log(f(0));
+
+	// function f(a){
+	// 	(a!==undefined&&a!==null)? a=a : a=1;
+	// 	return a;
+	// }
+	// console.log(f(0));
+	// console.log(f());
+
+
+
+	// function fn(){
+	// 	var a=2;
+	// 	console.log(a++)
+	// }
+	// fn();   //调用
+
+	// // 声明前置
+
+
+
+
+	// var result=function(){
+
+	// 	var a=2;
+	// 	console.log(a++)
+
+	// }
+	// result();
+
+
+	// f();
+	// function f(){}
+
+
+	// f();
+	// var f=function(){} // 报错
+
+
+	// // 相当于
+	// var f;
+	// f();
+	// f=fucntion(){};
+
+
+	// function result(n){
+	// 	if (n===1){
+	// 		return 1;
+	// 	}
+	// 	else{
+	// 		return n*result(n-1);
+	// 	}
+		
+	// }
+	// result(5);
+
+	// var x=10;
+ //  bar();
+
+	// function foo(){
+	// 	console.log(x);
+	// }
+	// function bar(){
+	// 	var x=30;
+	// 	foo();
+	// }
+ //  foo();//输出的是10
+
+ //  var x = 10;
+	// bar() //  输出什么
+	// function bar(){
+ //  	var x = 30;
+ // 	 function foo(){
+ //   	 console.log(x)
+ // 	 }
+ //  	foo();
+	// }
+
+ //  第一步：
+	// globalContext={
+	// 	AO:{
+	// 		X: 10;
+	// 		foo: function;
+	// 		bar: function;
+
+	// 	},
+	// 	scope:null;
+	// }
+	// // 声明foo时得到以下
+	// foo.[[scope]]=globalContext.AO
+	// // 声明bar时得到以下下
+ //  bar.[[scope]]=globalContext.AO;
+
+ //  第二步：
+
+ //  barContect={
+ //  	AO:{
+ //  		X:30;
+
+ //  	},
+ //  	scope: bar.[[scppe]]
+ //  }
+
+ //  第三步
+
+ //  fooContent={
+ //  	AO:{}
+ //  	scope:foo.[[scope]];
+ //  }
+// var a = 1
+// var b = 2
+// var c = { name: '饥人谷', age: 2 }
+// var d = [a, b, c]
+
+// var aa = a
+// var bb = b
+// var cc = c
+// var dd = d
+
+// a = 11
+// b = 22
+// c.name = 'hello'
+// d[2]['age'] = 3
+
+// console.log(aa) 
+// console.log(bb) 
+// console.log(cc)
+// console.log(dd)
+
+
+// var a = 1
+// var c = { name: 'jirengu', age: 2 }
+
+// function f1(n){
+//   ++n
+// }
+// function f2(obj){
+//   ++obj.age
+// }
+
+// f1(a) 
+// f2(c) 
+// f1(c.age) 
+// console.log(a) 
+// console.log(c) 
+
+// console.log('---------')
+//     var arr = [3,1,0,-1,-3,2,-5]
+//     function filter(arr){
+//         for(var i=0;i<arr.length;i++){
+//              if(arr[i]<=0){
+//                     delete arr[i];
+//                     // filter(arr)
+//                 }
+//             }
+//     }
+//     filter(arr);
+//     console.log(arr);
+
+//     console.log('------')
+//     var arr = [3,1,0,-1,-3,2,-5]
+//     function filter(arr){
+//         for(var i=0;i<arr.length;i++){
+//              if(arr[i]<=0){
+//                     arr.splice(i,1);
+//                     filter(arr);
+//                 }
+//             }
+//     }
+//     filter(arr);
+//     console.log(arr);
+
+    // var arr=[3,1,0,-1,-3,2,-5];
+    // function filter(arr){
+    //     var newArr=[];
+    //     for(i=0;i<arr.length;i++){
+    //         if(arr[i]>0){
+    //             newArr.push(arr[i])
+                
+    //         }
+            
+    //     }
+    //     return newArr
+    // }
+    
+    // var arr2 =filter(arr)
+    // console.log(arr2)
+    // console.log(arr)
+    // 转义字符
+    console.log('2017.1.12----转义字符')
+    var str="jirengu\nruyu"
+    console.log(str.length);
+
+    console.log('String 对象')
+    console.log('String.fromCharCode(),该方法参数是一些列的Unicode码，返回对应的字符串')
+    String.fromCharCode(104,101,108,108,111);
+    var Str=String.fromCharCode(104,101,108,108,111);
+    console.log(Str);
+
+
+    console.log('------')
+    console.log('length属性，返回字符串的长度------abadgegege')
+    console.log('abadgegege'.length);
+
+
+    console.log('------')
+    console.log('charAt()---返回指定位置的字符')
+    var s=new String('abc');
+    s.charAt(2);
+    s.charAt(1);
+    s.charAt([0]);
+    s.charAt(-3);
+    s.charAt(3);
+    console.log(s.charAt(2));
+    console.log(s.charAt(1));
+    console.log(s.charAt([0]));
+    console.log(s.charAt(-3));
+    console.log(s.charAt(3));
+
+    console.log('------')
+    console.log('charCodeAt---返回指定字符的Unicode码')
+    var S = new String('hello');
+    console.log(S.charCodeAt(0))
+
+    console.log('------')
+    console.log('concat()---链接两个字符串，返回一个新字符串，不改变原字符串')
+    var s1 =' abc ';
+    var s2 ='def';
+    console.log(s1.concat(s2));
+
+    console.log('------')
+    console.log('slice()---从原字符串取出子字符串并返回，不改变原字符串')
+    s1.slice(0,1);
+    s2.slice(1,2);
+    console.log(s1.slice(0,2));
+    console.log(s2.slice(1));
+
+    console.log('------')
+    console.log('substring()---从原字符串取出子字符串并返回，不改变原字符串，作用和slice相同，但是有一些奇怪的规则不建议使用')
+
+    console.log('------')
+    console.log('indexOf(),lastIndexOf---确定一个字符串在另外一个字符串中的位置，都返回一个整数，表示匹配开始的位置，如果返回-1，则表示不匹配')
+    console.log('Hello World'.indexOf('d'))
+    console.log('Hello World'.lastIndexOf('r'))
+    console.log('hello'.indexOf('w'))
+
+    console.log('------')
+    console.log('trim()---用来改变字符串两端的空格，返回一个新字符串，不改变原字符串')
+    console.log(s1.trim())
+    console.log(s1)
+
+
+    console.log('------')
+    console.log('toLowerCase(),toUpperCase(),')
+    console.log(s1.toLowerCase());
+    console.log(s2.toUpperCase());
+
+    var d= 3;
+    var f= 4;
+    console.log('------')
+    console.log('localeCompare()---用于比较两个字符，0 小于0 大于0')
+    console.log('d'.localeCompare('f'))
+
+
+    console.log('------')
+    console.log('match()---用于字符串是否匹配某个子字符，返回一个数组，成员为匹配的第一个字符串---返回的数组还有index属性和input属性')
+    console.log('cat,bat,sat,fat'.match('at'))
+
+
+    console.log('------')
+    console.log('search()返回值为匹配的第一个位置，如果没有找到匹配，则返回-1')
+    console.log('cat,bat,sat,fat'.search('at'))
+
+    console.log('------')
+    console.log('replace()---用于匹配替换子字符串，一般情况下只替换第一个匹配')
+    console.log('aaa'.replace('a','c'))
+
+    console.log('------')
+    console.log('split()---按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组')
+    console.log('a|b|c')
+    console.log('a|b|c'.split('|'))
+    console.log('a|b|c'.split(''))
+    console.log('a|b|c'.split())
+    console.log('a|b|c'.split('|',2))
+
+   console.log('------')
+   console.log('Math.abs()---javascript的内置对象，提供一些列常数和数学方法')
+   console.log('Math.abs(),Math.ceil(),Math.floor(),Math.max,Math.min,Math.pow(),Math.log(),Math.sqrt(),Math.exp(),Math.random(),')
+   console.log(Math.abs('-3'))
+
+
+
+
+
+
+</script>
+	
+</body>
+</html>

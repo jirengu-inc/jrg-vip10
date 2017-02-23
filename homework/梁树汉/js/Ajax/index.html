@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>封装加载更多</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#ct>li {
+		padding: 20px;
+		border: 1px solid gray;
+		margin: 10px 0;
+	}
+	#ct>li:hover {
+		background: #333;
+	}
+	#btn {
+		width: 200px;
+		line-height: 40px;
+		display: block;
+		margin: 0 auto;
+		background: #999;
+		font-size: 18px;
+	}
+  
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>server-mock使用说明</h1>
+    <pre>
+1. 执行 mock init, 生成使用范例
+2. 修改 router.js, 设置数据接口响应格式
+3. 写模板或者 html 文件，包含 ajax 接口
+4. mock start 启动服务器，在浏览器输入 http://localhost:8080/页面或者路由地址
+5. 审查元素查看请求
+    </pre>   
+  </div>
+  <ul id="ct">
+  	<li>内容1</li>
+  	<li>内容2</li>
+  	<li>内容3</li>
+  </ul>
+  <button id="btn">点击加载更多</button>
+
+	<script>
+		var ct = document.querySelector('#ct');
+		var btn= document.querySelector('#btn');
+
+		function ajax(opts){
+			var xhr = new XMLHttpRequest();
+
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					opts.success(xhr.responseText)
+				}else if (xhr.redayState==4&&xhr.status!==200){
+					opts.error();
+				}
+			}
+
+			var urlStr = '';
+			for(var key in opts.data){
+				urlStr = key + '='+opts.data[key]+'&';
+			}
+			urlStr = urlStr.substring(0,urlStr.length-1);
+
+			if(opts.type.toLowerCase()==='get'){
+				xhr.open(opts.type,opts.url+'?'+urlStr,true)
+				xhr.send()
+			}
+
+			if(opts.type.toLowerCase()==='post'){
+				xhr.open('post',opts.url,true);
+				xhr.setRequestHeader('Content-type','appplication/x-www-form-urlencoded');
+				xhr.send(urlStr)
+			}
+		}
+
+
+		btn.addEventListener('click',function(){
+			ajax({
+				url: '/more',
+				type: 'get',
+				data: {
+					len: document.querySelectorAll('li').length
+				},
+				success: function(data){
+					data = data.split(',');
+					for(var i=0;i<data.length;i++){
+						var li = document.createElement('li');
+						li.innerText = '内容' + data[i];
+						ct.appendChild(li)
+					}
+				},
+				error:function(){
+					console.log('出错了')
+				}
+
+			})
+		})
+	</script>
+  	
+</body>
+</html>

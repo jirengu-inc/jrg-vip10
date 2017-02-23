@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+  <body>
+  <ul class="news">
+      <li></li>
+      <li></li>
+      <li></li>
+  </ul>
+  <button class="change">换一批</button>
+      <script>
+          var news = $(".news");
+          var btn = $(".change");
+
+          btn.addEventListener("click",function () {
+              var xhr = new XMLHttpRequest();
+              xhr.open("post","http://zhuwei.com:8080/news",true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send("action=change");
+              xhr.onreadystatechange = function () {
+              if(xhr.readyState === 4 && xhr.status === 200){
+                  //console.log(xhr.responseText);
+                  //console.log(JSON.parse(xhr.responseText));
+                  var data = JSON.parse(xhr.responseText);
+                  news.innerHTML = appendHtml(data);
+              }
+          }
+          });
+
+          function $(selector){
+              return document.querySelector(selector);
+          }
+          function appendHtml(arr) {
+              var inner='';
+              for(var i =0;i<arr.length;i++){
+                  inner+= "<li>"+arr[i]+"</li>";
+              }
+              console.log(inner);
+              return inner;
+          }
+      </script>
+</body>
+</html>

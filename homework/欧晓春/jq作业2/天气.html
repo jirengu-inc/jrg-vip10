@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>天气</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div id="show"></div>
+	<button id="btn">点击获取天气</button>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+    	$('#btn').on('click', function(){
+    		$.ajax({
+    			url: 'http://api.jirengu.com/weather.php',
+    			type: 'get',
+    		}).done(function(json){
+    			append(json)
+    		}).fail(function(){
+    			console.log('error')
+    		}).always(function(){
+    			console.log('已完成')
+    		})
+    	})
+    	function append(json){
+    		var a = JSON.parse(json)
+    		var html = '';
+    		html += '<h2>你的城市：'+ a.results[0].currentCity + '</h2>';
+    		html += '<h4>最近几日天气：</h4>';
+    		for(var i = 0; i < a.results[0].weather_data.length; i++){
+    			html +=	'<p>时间：' + a.results[0].weather_data[i].date + '</p>';
+    			html += '<p>温度：' + a.results[0].weather_data[i].temperature + '</p>';
+    			html += '<p>风度：' + a.results[0].weather_data[i].temperature + '</p>';
+    		}
+    		html += '<h4>穿衣指数：</h4><p>' + a.results[0].index[0].des + '</p>';
+    		html += '<h4>洗车指数：</h4><p>' + a.results[0].index[1].des + '</p>';
+    		html += '<h4>旅游指数：</h4><p>' + a.results[0].index[2].des + '</p>';
+    		html += '<h4>感冒指数：</h4><p>' + a.results[0].index[3].des + '</p>';
+    		html += '<h4>运动指数：</h4><p>' + a.results[0].index[4].des + '</p>';
+    		html += '<h4>紫外线强度：</h4><p>' + a.results[0].index[5].des + '</p>';
+    		$('#show').html(html)
+    	}
+    </script>
+</body>
+</html>

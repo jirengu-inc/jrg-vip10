@@ -72,11 +72,7 @@
 
 
 
-      var lock = false;
-    
       btn.addEventListener('click', function(){
-        if(lock===false){
-        lock = true;
         ajax({
           url: '/more',
           type: 'post',
@@ -94,8 +90,6 @@
           error: function(){
             console.log('发生了错误...')
           }
-        })}
-        lock = false;
       })
 
 
