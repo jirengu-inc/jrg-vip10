@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流布局</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			list-style: none;
+		}
+		.ct li{
+			width: 180px;
+			position: absolute;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			transition: all 1s;
+		}
+		.h1{
+			background-color: #FD74CA;
+			height: 200px;
+		}
+		.h2{
+			background-color: #FFF195;
+			height: 250px;
+		}
+		.h3{
+			background-color: #20B417;
+			height: 270px;
+		}
+		.h4{
+			background-color: #6876FF;
+			height: 300px;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div class="ct">
+		<ul>
+			<li class="h1">1</li>
+			<li class="h4">2</li>
+			<li class="h1">3</li>
+			<li class="h3">4</li>
+			<li class="h1">5</li>
+			<li class="h3">6</li>
+			<li class="h4">7</li>
+			<li class="h1">8</li>
+			<li class="h4">9</li>
+			<li class="h3">10</li>
+			<li class="h4">11</li>
+			<li class="h1">12</li>
+			<li class="h3">13</li>
+			<li class="h2">14</li>
+			<li class="h3">15</li>
+			<li class="h2">16</li>
+			<li class="h4">17</li>
+			<li class="h2">18</li>
+			<li class="h3">19</li>
+			<li class="h2">20</li>
+		</ul>
+	</div>
+	<script>
+	    $(function(){
+	    	layout();
+	    	$(window).on('resize',function(){
+	    		layout();
+	    	})
+	    })
+		function layout(){
+			var arr = [],
+			    liWidth = $('.ct li').outerWidth(true),
+			    ctWidth = $('.ct').outerWidth(true),
+			    columns = parseInt(ctWidth/liWidth);
+			    console.log(liWidth);
+		    for(var i = 0;i<columns;i++){
+		    	arr[i] = 0;
+		    }
+            $('.ct li').each(function(){
+            	var minValue = Math.min.apply(null,arr),
+            	    minIndex = arr.indexOf(minValue);
+            	$(this).css({
+            		left: minIndex*$(this).outerWidth(true),
+            		top: arr[minIndex]
+            	})
+            	arr[minIndex] += $(this).outerHeight(true);
+            })
+		}
+	</script>
+</body>
+</html>

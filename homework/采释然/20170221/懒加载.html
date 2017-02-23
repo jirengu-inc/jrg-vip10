@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			list-style: none;
+		}
+		.clearfix::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.ct{
+			width: 940px;
+			margin: 0 auto;
+		}
+		.img-list{
+			margin-right: -20px;
+		}
+        .img-list>li{
+        	width: 300px;
+        	height: 300px;
+        	float: left;
+        	margin-right: 20px;
+        	border: 1px solid #ccc;
+        	margin-bottom: 20px;
+        }
+        .img-list>li>img{
+        	width: 300px;
+        	height: 300px;
+        }
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div class="ct">
+		<ul class="clearfix img-list">
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/1.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/2.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/3.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/4.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/5.jpg">
+		  	</li>
+		  	<li>
+		  	    <img src="" alt="" data-src="img/6.jpg">
+		  	</li>   
+	    </ul>
+	</div>
+	<script>
+		//--------------给所有img标签绑定scroll事件------------------
+		$(function(){
+			render();
+			var lock;
+			$(window).on('scroll',function(){
+                if(lock){
+                	clearTimeout(lock);
+                }
+                lock = setTimeout(function(){
+                	render();
+                },500)
+			})
+		})
+		function render(){
+			$('.img-list img').each(function(){
+				if(checkImg($(this)) && !isLoad($(this))){
+					loadImg($(this));
+				}
+			})
+		}
+		function checkImg(value){
+            var scrollLength = $(window).scrollTop(),
+                wimdowHeight = $(window).height(),
+                imgOffset = value.offset().top;
+                if(imgOffset = scrollLength || imgOffset < (scrollLength+wimdowHeight)){
+                	return true;
+                }else{
+                	return false;
+                }
+		}
+		function isLoad(value){
+			return value.attr('src') === value.attr('data-src');
+		}
+		function loadImg(value){
+            value.attr('src',value.attr('data-src'));
+		}
+	</script>
+</body>
+</html>
