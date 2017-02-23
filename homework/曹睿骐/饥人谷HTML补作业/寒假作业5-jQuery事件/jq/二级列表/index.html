@@ -1,0 +1,164 @@
+<!--
+ * Created by Ricky on 17/2/18.
+ * Date:二月
+ * Project Name: jQ二级菜单.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery二级菜单</title>
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <!-- <link rel="stylesheet" href="style.css" type="text/css" /> -->
+    <style>
+                /*清除默认样式*/
+        html {
+            font-family: sans-serif; /* 1 */
+            line-height: 1.15; /* 2 */
+            -ms-text-size-adjust: 100%; /* 3 */
+            -webkit-text-size-adjust: 100%; /* 3 */
+        }
+        body{
+            margin: 0;
+        }
+        .sidebar{
+            position: relative;
+            top: -10px;left: -20px;
+        }
+        .category{
+            width: 200px;
+            height: 50px;
+            border: 1px solid black;
+            background-color: red;
+            list-style: none;
+            position: relative;
+        }
+
+
+        .category>p>a{
+            position: relative;
+            color: white;
+            text-decoration: none;
+            left: 20px;
+
+        }
+        .category>p>span{
+            padding-left: 110px;
+            color: white;
+            position: absolute;
+        }
+
+        .jewellery{
+            border: 1px solid gray;
+            list-style: none;
+            width: 200px;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            /*float: right;*/
+            display: none;
+
+
+        }
+        .jewellery:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .jewelleryList{
+            display: inline-block;
+            padding: 20px 30px;
+            line-height: 10px;
+            font-size: 12px;
+            width: 40px;
+            float: right;
+
+        }
+
+        .jewelleryList>span{
+            padding-top: 20px;
+        }
+
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul class="sidebar">
+        <li class="category">
+            <p class="btn"><a href="#">珠宝玉器</a><span> > </span></p>
+            <ul class="jewellery">
+                <li class="jewelleryList">翡翠</li>
+                <li class="jewelleryList">玉石</li>
+                <li class="jewelleryList">宝石</li>
+                <li class="jewelleryList">水晶</li>
+                <li class="jewelleryList">玛瑙</li>
+                <li class="jewelleryList">珍珠</li>
+                <li class="jewelleryList">钻石</li>
+                <li class="jewelleryList">琥珀</li>
+                <li class="jewelleryList">和田</li>
+                <li class="jewelleryList">琥珀</li>
+            </ul>
+        </li>
+        <li class="category">
+            <p class="btn"><a href="#">珠宝玉器</a><span> > </span></p>
+            <ul class="jewellery">
+                <li class="jewelleryList">翡翠</li>
+                <li class="jewelleryList">玉石</li>
+                <li class="jewelleryList">宝石</li>
+                <li class="jewelleryList">水晶</li>
+                <li class="jewelleryList">玛瑙</li>
+                <li class="jewelleryList">珍珠</li>
+
+            </ul>
+        </li>
+        <li class="category">
+            <p class="btn"><a href="#">珠宝玉器</a><span> > </span></p>
+            <ul class="jewellery">
+                <li class="jewelleryList">翡翠</li>
+                <li class="jewelleryList">玉石</li>
+                <li class="jewelleryList">宝石</li>
+                <li class="jewelleryList">水晶</li>
+
+            </ul>
+        </li>
+        <li class="category">
+            <p class="btn"><a href="#">珠宝玉器</a><span> > </span></p>
+            <ul class="jewellery">
+                <li class="jewelleryList">翡翠</li>
+                <li class="jewelleryList">玉石</li>
+                <li class="jewelleryList">宝石</li>
+                <li class="jewelleryList">水晶</li>
+                <li class="jewelleryList">玛瑙</li>
+                <li class="jewelleryList">珍珠</li>
+
+            </ul>
+        </li>
+        <li class="category">
+            <p class="btn"><a href="#">珠宝玉器</a><span> > </span></p>
+            <ul class="jewellery">
+                <li class="jewelleryList"><span>翡翠</span></li>
+                <li class="jewelleryList"><span>玉石</span></li>
+                <li class="jewelleryList"><span>宝石</span></li>
+                <li class="jewelleryList"><span>水晶</span></li>
+
+
+            </ul>
+        </li>
+    </ul>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    <script>
+        $(".category").on('mouseenter',function () {
+            console.log($(this))
+            $(this).find(".jewellery").addClass('show');
+        })
+        $(".category").on('mouseleave',function () {
+            $(this).find(".jewellery").removeClass('show');
+        })
+    </script>
+</body>
+</html>
