@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<style>
+			ul, li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			a{
+				color: #333;
+				text-decoration: none;
+			}
+			.nav-aside{
+				background-color: #c7171e;
+				width: 200px;
+			}
+			.nav-aside .category{
+				position: relative;
+			}
+			.nav-aside .category:last-of-type{
+				border: none;
+			}
+			.nav-aside .cate-title{
+				display: block;
+				color: white;
+				font-size: 14px;
+				margin: 0 10px;
+				padding: 10px;
+				border-bottom: 1px dotted #de272e;
+			}
+			.nav-aside .icon-goto{
+				color：white;
+				font-size: 14px;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			.nav-aside .child-panel{
+				position: absolute;
+				top: 0;
+				left: 200px;
+				background-color: white;
+				border: 1px solid #ccc;
+				width: 210px;
+				font-size: 12px;
+				display: none;
+			}
+			.child-panel li{
+				width: 55px;
+				float: left;
+				padding: 10px 20px;
+			}
+			.nav-aside .category.hover .child-panel{
+				display: block;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="area-nav">
+			<ul class="nav-aside">
+				<li class="category">
+					<a href="#" class="cate-title">珠宝玉器</a>
+					<span class="icon-goto">></span>
+					<ul class="child-panel">
+						<li><a href="">翡翠</a></li>
+						<li><a href="">玉石</a></li>
+						<li><a href="">宝石</a></li>
+						<li><a href="">水晶</a></li>
+						<li><a href="">玛瑙</a></li>
+						<li><a href="">珍珠</a></li>
+						<li><a href="">钻石</a></li>
+						<li><a href="">琥珀</a></li>
+						<li><a href="">和田</a></li>
+						<li><a href="">琥珀</a></li>
+					</ul>
+				</li>
+				<li class="category">
+					<a href="#" class="cate-title">珠宝玉器</a>
+					<span class="icon-goto">></span>
+					<ul class="child-panel">
+						<li><a href="">翡翠</a></li>
+						<li><a href="">玉石</a></li>
+						<li><a href="">宝石</a></li>
+						<li><a href="">水晶</a></li>
+						<li><a href="">玛瑙</a></li>
+						<li><a href="">珍珠</a></li>
+					</ul>
+				</li>
+				<li class="category">
+					<a href="#" class="cate-title">珠宝玉器</a>
+					<span class="icon-goto">></span>
+					<ul class="child-panel">
+						<li><a href="">翡翠</a></li>
+						<li><a href="">玉石</a></li>
+						<li><a href="">宝石</a></li>
+						<li><a href="">水晶</a></li>
+					</ul>
+				</li>
+				<li class="category">
+					<a href="#" class="cate-title">珠宝玉器</a>
+					<span class="icon-goto">></span>
+					<ul class="child-panel">
+						<li><a href="">翡翠</a></li>
+						<li><a href="">玉石</a></li>
+						<li><a href="">宝石</a></li>
+						<li><a href="">水晶</a></li>
+						<li><a href="">玛瑙</a></li>
+						<li><a href="">珍珠</a></li>
+					</ul>
+				</li>
+				<li class="category">
+					<a href="#" class="cate-title">珠宝玉器</a>
+					<span class="icon-goto">></span>
+					<ul class="child-panel">
+						<li><a href="">翡翠</a></li>
+						<li><a href="">玉石</a></li>
+						<li><a href="">宝石</a></li>
+						<li><a href="">水晶</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			var $category = $(".nav-aside .category");
+			$category.on("mouseenter", function(){
+				$(this).addClass("hover");
+			})
+			$category.on("mouseleave", function(){
+				$(this).removeClass("hover");
+			})
+		</script>
+	</body>
+</html>
