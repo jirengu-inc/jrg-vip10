@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			box-sizing: border-box;
+		}
+		.clearfix::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.ct{
+			width: 800px;
+			margin: 0 auto;
+			background-color: #118FFF;
+			letter-spacing: 3px;
+			color: #fff;
+		}
+		.today-weather,.the-weather-forecast,.life{
+			background-color: rgba(0,0,0,0.7);
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		.today-weather>h1,.today-weather>p,.today-weather>span,.the-weather-forecast p{
+			line-height: 40px;
+		}
+		.today-weather>.place,.weather{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.img{
+			vertical-align: middle;
+		}
+		.the-weather-forecast>h2{
+			margin-bottom: 20px;
+		}
+		.the-weather-forecast p,.the-weather-forecast img{
+            display: inline-block;
+            margin-right: 40px;
+            margin-bottom: 20px;
+            vertical-align: middle;
+		}
+		.the-weather-forecast p{
+			width: 100px;
+		}
+		.life>h2{
+			margin-bottom: 20px;
+		}
+		.life>ul>li{
+			width: 240px;
+			float: left;
+			margin-right: 20px;
+			margin-bottom: 20px;
+		}
+		.life>ul>li>div{
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 30px;
+		}
+		.life>ul>li>div>h3{
+			margin-bottom: 10px;
+		}
+		.life>ul{
+			margin-right: -20px;
+			margin-bottom: -20px;
+		}
+		.life>ul>li>span{
+			font-size: 60px;
+		}
+		@font-face {
+			font-family: 'iconfont-weather';
+			src: url('http://at.alicdn.com/t/font_jc2mxx8i0k40lik9.eot');
+			src: url('http://at.alicdn.com/t/font_jc2mxx8i0k40lik9.eot?#iefix') format('embedded-opentype'),
+			url('http://at.alicdn.com/t/font_jc2mxx8i0k40lik9.woff') format('woff'),
+			url('http://at.alicdn.com/t/font_jc2mxx8i0k40lik9.ttf') format('truetype'),
+			url('http:////at.alicdn.com/t/font_jc2mxx8i0k40lik9.svg#iconfont') format('svg');
+		}
+		.iconfont-weather{
+		    font-family:"iconfont-weather" !important;
+		    font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -webkit-text-stroke-width: 0.2px;
+		    -moz-osx-font-smoothing: grayscale;
+		    vertical-align: middle;
+        }
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="today-weather">
+		    <h1>今日天气</h1>
+			<span class="iconfont-weather">&#xe606;</span>
+			<p class="place"></p>
+			<p class="real-time-weather"></p>
+			<p class='pm'></p>
+			<img src="" alt="" class="img">
+			<p class="weather"></p>
+			<p class="wind"></p>
+			<p class="temperature"></p>
+		</div>
+		<div class="the-weather-forecast">
+			<h2>天气预报</h2>
+			<ul>
+				<li class="tomorrow">
+				    <p class="date"></p>
+					<img src="" alt="" class="img">
+					<p class="weather"></p>
+					<p class="wind"></p>
+					<p class="temperature"></p>
+				</li>
+				<li class="two-days-later">
+				    <p class="date"></p>
+					<img src="" alt="" class="img">
+					<p class="weather"></p>
+					<p class="wind"></p>
+					<p class="temperature"></p>
+				</li>
+				<li class="three-days-later">
+				    <p class="date"></p>
+					<img src="" alt="" class="img">
+					<p class="weather"></p>
+					<p class="wind"></p>
+					<p class="temperature"></p>
+				</li>
+			</ul>
+		</div>
+		<div class="life">
+		    <h2>生活指数</h2>
+			<ul class="clearfix">
+				<li class="clothes">
+					<span class="iconfont-weather">&#xe600;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+				<li class="car-wash">
+					<span class="iconfont-weather">&#xe623;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+				<li class="travel">
+					<span class="iconfont-weather">&#xe60e;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+				<li class="cold">
+					<span class="iconfont-weather">&#xe629;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+				<li class="sport">
+					<span class="iconfont-weather">&#xe609;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+				<li class="ultraviolet-ray">
+					<span class="iconfont-weather">&#xe711;</span>
+					<div>
+						<h3></h3>
+					    <p></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function(){
+            getData();
+		})
+		//-----------------获取天气数据--------------------
+		function getData(){
+            $.ajax({
+            	url: 'http://api.jirengu.com/weather.php',
+            	method: 'get'
+            }).done(function(results){
+            	addHtml(results);
+            })
+		}
+		//-------------------封装数据到来后处理函数-----------
+		function addHtml(vl){
+			var data = JSON.parse(vl);
+			$('.place').text(data.results[0].currentCity);
+			$('.pm').text('PM2.5:  '+data.results[0].pm25);
+			changeText(data);			
+		}
+		function changeText(value){
+			var weatherData = value.results[0].weather_data;
+			var liftDate = value.results[0].index;
+			for(var i = 0;i < weatherData.length;i++){
+				if(i === 0){
+					var $today = $('.today-weather')
+					$today .find('.real-time-weather').text(weatherData[i].date);
+					$today .find('.weather').text(weatherData[i].weather);
+					$today .find('.wind').text(weatherData[i].wind);
+					$today .find('.temperature').text(weatherData[i].temperature);
+					changeImg(weatherData,$today,i);
+				}else if(i === 1){
+					var $tomorrow = $('.the-weather-forecast .tomorrow')
+					$tomorrow.find('.date').text(weatherData[i].date);
+					$tomorrow.find('.weather').text(weatherData[i].weather);
+					$tomorrow.find('.wind').text(weatherData[i].wind);
+					$tomorrow.find('.temperature').text(weatherData[i].temperature);
+					changeImg(weatherData,$tomorrow,i);
+				}else if(i === 2){
+					var $twoDaysLater = $('.the-weather-forecast .two-days-later')
+					$twoDaysLater.find('.date').text(weatherData[i].date);
+					$twoDaysLater.find('.weather').text(weatherData[i].weather);
+					$twoDaysLater.find('.wind').text(weatherData[i].wind);
+					$twoDaysLater.find('.temperature').text(weatherData[i].temperature);
+					changeImg(weatherData,$twoDaysLater,i);
+				}else if(i === 3){
+					var $threeDaysLater = $('.the-weather-forecast .three-days-later')
+					$threeDaysLater.find('.date').text(weatherData[i].date);
+					$threeDaysLater.find('.weather').text(weatherData[i].weather);
+					$threeDaysLater.find('.wind').text(weatherData[i].wind);
+					$threeDaysLater.find('.temperature').text(weatherData[i].temperature);
+					changeImg(weatherData,$threeDaysLater,i);
+				}
+			}
+			for(var j = 0;j<liftDate.length;j++){
+				$liList = $('.life ul').children('li');
+				$liList.eq(j).find('h3').text(liftDate[j].title);
+				$liList.eq(j).find('p').text(liftDate[j].zs);
+			}
+		}
+		function changeImg(value1,element,index){
+            var time = new Date();
+			if(time < 18){
+				element.find('.img').attr('src',value1[index].dayPictureUrl);
+			}else{
+				element.find('.img').attr('src',value1[index].nightPictureUrl);
+			}
+		}
+	</script>
+</body>
+</html>

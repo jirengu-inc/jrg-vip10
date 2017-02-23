@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+		.box{
+			height: 2000px;
+			background-color: #fff;
+			border: 1px solid #000;
+			padding: 20px;
+		}
+		.btn{
+			height: 50px;
+			width: 50px;
+			margin-top: 30px;
+		}
+		.ct{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+    <div class="box">
+    	<form action="">
+			<input type="text" name="username">
+			<select name="hobby">
+				<option name="hobby value="sing">唱歌</option>
+				<option name="hobby value="playgame">玩游戏</option>
+				<option name="hobby value="read">阅读</option>
+			</select>
+	    </form>
+	    <button class="btn">确定</button>
+	    <p class="scroll-text"></p>
+	    <p class="select-text"></p>
+	    <div class="ct"></div>
+    </div>
+	<script>
+         var $btn = $('.btn'),
+             $div = $('.ct')
+         //------------------第一题-------------------
+         $btn.on('click',function(){
+         	$btn.css({backgroundColor: 'red'});
+         	setTimeout(function(){
+         		$btn.css({backgroundColor: 'blue'});
+         	},2000)
+         })
+         //------------------第二题-------------------
+         $(window).on('scroll',function(){
+         	$('.scroll-text').text($(window).scrollTop()+'px');
+         	console.log($(window).scrollTop()+'px')
+         })
+         //------------------第三题-------------------
+         $div.on('mouseenter',function(){
+         	$div.css({backgroundColor: 'red'});
+         })
+         $div.on('mouseleave',function(){
+         	$div.css({backgroundColor: 'white'});
+         })
+         //------------------第四题-------------------
+         $('input').on('focus',function(){
+         	$('input').css({outline: '1px solid blue'})
+         })
+         $('input').on('blur',function(){
+         	$('input').css({outline: 'none'})
+         })
+         $('input').on('change',function(){
+         	var str = $('input').val();
+         	    str = str.toUpperCase();
+         	$('input').val(str);
+         	console.log(str);
+         })
+         //------------------第五题-------------------
+         $('select').on('change',function(){
+         	$('.select-text').text($('select').val());
+         })
+	</script>
+</body>
+</html>
