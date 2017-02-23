@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .items{
+            width:100%;
+        }
+        .items>li{
+            width:200px;
+            position:absolute;
+            margin-right:10px;
+            margin-bottom:10px;
+        }
+        .b1{
+            height:250px;
+            background: lightblue;
+        }
+        .b2{
+            height:300px;
+            background: lightgoldenrodyellow;
+        }
+        .b3{
+            height:330px;
+            background: lightgreen;
+        }
+        .b4{
+            height:370px;
+            background: lightpink;
+        }
+        .b5{
+            height:450px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="items">
+        <li class="b4">1</li>
+        <li class="b2">2</li>
+        <li class="b5">3</li>
+        <li class="b1">4</li>
+        <li class="b3">5</li>
+        <li class="b4">6</li>
+        <li class="b2">7</li>
+        <li class="b5">8</li>
+        <li class="b1">9</li>
+        <li class="b3">10</li>
+    </ul>
+</div>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var copyLi = $(".items>li").clone();
+        var clock;
+        //页面初始加载
+        waterfall();
+        //窗口尺寸变化
+        $(window).on("resize",function () {
+            waterfall();
+        });
+        //初始列表加载完了
+        $(window).on("scroll",function(){
+            if(clock){
+                clearTimeout(clock)
+            }
+            clock = setTimeout(function () {
+                var docHeight = $(document).height();
+                var winHeight = $(window).height();
+                var scrollTop = $(window).scrollTop();
+                if(docHeight===winHeight+scrollTop){
+                    $(".items").append(copyLi.clone());
+                    waterfall();
+                }
+            },300)
+        });
+
+
+        function waterfall() {
+            var $items = $(".items>li");
+            //计算有多少列
+            var colNum = parseInt($(window).width()/$items.outerWidth(true));
+            //为了使所有列居中，需要初始化left值
+            var leftInit = parseInt(($(window).width()-colNum*$items.outerWidth(true))/2);
+            //用于存储每一列的高度
+            var colHeight = [];
+            for(var i=0;i<colNum;i++){
+                colHeight[i] = 0;
+            }
+            //遍历每个元素，放置它们
+            $items.each(function () {
+                var top;
+                var left = leftInit;
+                var index;
+                top = Math.min.apply(null,colHeight);
+                index = colHeight.indexOf(top);
+                left +=$items.outerWidth(true)*index;
+                colHeight[index] += $(this).outerHeight(true);
+                $(this).css({
+                    top:top,
+                    left:left
+                })
+            })
+        }
+    })
+</script>
+</body>
+</html>
