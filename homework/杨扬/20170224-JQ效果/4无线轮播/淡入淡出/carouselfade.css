@@ -1,0 +1,94 @@
+/* reset css */
+ul,li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+/* general css */
+.clearfix:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+/* real css */
+.carousel {
+    /* 容器、图片处理 */
+    position: relative;
+    width: 790px;
+    height: 340px;
+    overflow: hidden;
+}
+.ct-img {
+    position: absolute;
+    /* width: 6320px; //滚动动画中的设置 */
+}
+.ct-img>li {
+    /* float: left; //滚动动画中的设置 */
+    display: none;
+}
+.ct-img>li>a {
+    display: block;
+}
+.arrow {
+    /* 两侧图片切换按钮 */
+    position: absolute;
+    top: 50%;
+    display: none;
+    margin-top: -8px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 1;
+}
+.carousel:hover .arrow {
+    display: block;
+}
+.arrow:hover {
+    opacity: 1;
+}
+.next {
+    right: 10px;
+}
+.pre {
+    left: 10px;
+}
+.bullet {
+    /* 底部图片切换标记按钮 */
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -110px;
+    padding: 5px;
+    border-radius: 20px;
+    width: 220px;
+    background-color: rgba(255,255,255,0.3);
+    font-size: 0;
+    z-index: 1;
+}
+.bullet>ul {
+    margin: 0 auto;
+}
+.bullet>ul>li {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 15px;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+.bullet .active {
+    background-color: #db192a;
+}

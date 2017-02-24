@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        h1,h2,h3,h4,h5,h6 {
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .container {
+            position: relative;
+            /*margin: 0 auto;*/
+            /*width: 1100px;*/
+        }
+        .item {
+            position: absolute;
+            /*float: left;*/
+            margin: 10px;
+            width: 200px;
+            transition: all 1s;
+        }
+        h1 {
+            height: 200px;
+            background-color: red;
+        }
+        h2  {
+            height: 300px;
+            background-color: yellow;
+        }
+        h3  {
+            height: 400px;
+            background-color: blue;
+        }
+        h4 {
+            height: 500px;
+            background-color: green;
+        }
+        h5 {
+            height: 600px;
+            background-color: pink;
+        }
+        h6 {
+            height: 700px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="item">1</h1>
+        <h3 class="item">2</h3>
+        <h4 class="item">3</h4>
+        <h2 class="item">4</h2>
+        <h3 class="item">5</h3>
+        <h5 class="item">6</h5>
+        <h1 class="item">7</h1>
+        <h4 class="item">8</h4>
+        <h6 class="item">9</h6>
+        <h5 class="item">10</h5>
+        <h1 class="item">11</h1>
+        <h3 class="item">12</h3>
+        <h6 class="item">13</h6>
+        <h2 class="item">14</h2>
+        <h4 class="item">15</h4>
+        <h2 class="item">16</h2>
+        <h5 class="item">17</h5>
+        <h2 class="item">18</h2>
+        <h1 class="item">19</h1>
+        <h6 class="item">20</h6>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+
+        function changeSize() {
+            var $container = $('.container');
+            var $items = $('.item');
+            var columnN = parseInt( $container.width() / $items.outerWidth(true) );
+            var columnH = [];
+
+            for(var i = 0; i < columnN; i++){
+                columnH[i] = 0;
+            }
+
+            $items.each(function () {
+                var minHeight = Math.min.apply(null, columnH);
+                var minIndex = columnH.indexOf(minHeight);
+
+                var $this = $(this);
+                var itemsH = $this.outerHeight(true);
+                var itemsW = $this.outerWidth(true);
+
+                $this.css({
+                    top: columnH[minIndex],
+                    left: itemsW * minIndex
+                });
+
+                columnH[minIndex] += itemsH;
+            });
+        }
+
+        changeSize();
+
+        $(window).on('resize', function () {
+            changeSize()
+        })
+
+    </script>
+</body>
+</html>

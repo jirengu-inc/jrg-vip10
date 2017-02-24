@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+        /* reset css */
+        ul,li,p {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+        /* general css */
+        .clearfix:after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .container {
+            margin: 0 auto;
+            width: 800px;
+            color: #666;
+        }
+        .container>ul {
+            margin: 0 auto;
+            width: 220px;
+        }
+        .item {
+            float: left;
+            margin: 10px;
+            width: 236px;
+            border: 1px solid #aaa;
+        }
+        .item>a {
+            display: block;
+            height: 334px;
+            text-align: center;
+            line-height: 334px;
+        }
+        .item>.info {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            background-color: rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .title {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .title>a:hover {
+            color: blue;
+        }
+        .pic>.iconfont {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .pic>.iconfont:hover {
+            color: red;
+        }
+        .pic>.icon-see:hover {
+            color: #666;
+        }
+        .pic>.iconfont>i {
+            font-style: normal;
+            margin-left: 3px;
+        }
+        .author {
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .author:hover {
+            text-decoration: underline;
+        }
+        /*回到顶部样式*/
+        .go-top {
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            display: none;
+            padding: 8px;
+            border-radius: 5px;
+            width: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: #666;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+        .go-top:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="clearfix">
+            <li class="item">
+                <a href="#">
+                    <img class="a" src="./images/heart.gif" data-src="./images/1.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <div class="author">
+                        <!--头像暂不实现<a href="#"><img src="" alt=""></a>-->
+                        <span class="name"><a href="#">病友战五渣</a></span>
+                    </div>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img src="./images/heart.gif" data-src="./images/2.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img src="./images/heart.gif" data-src="./images/3.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img src="./images/heart.gif" data-src="./images/4.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img src="./images/heart.gif" data-src="./images/5.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img class="b" src="./images/heart.gif" data-src="./images/6.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img class="b" src="./images/heart.gif" data-src="./images/7.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img class="b" src="./images/heart.gif" data-src="./images/8.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img class="b" src="./images/heart.gif" data-src="./images/9.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+
+            <li class="item">
+                <a href="#">
+                    <img class="b" src="./images/heart.gif" data-src="./images/10.jpg">
+                </a>
+                <div class="info">
+                    <div class="pic">
+                        <p class="title"><a href="#">宇宙爆发拿下五杀</a></p>
+                        <span class="iconfont icon-see"><i>999</i></span>
+                        <span class="iconfont icon-good"><i>666</i></span>
+                        <span class="iconfont icon-favour"><i>333</i></span>
+                    </div>
+                    <a class="author" href="#">病友战五渣</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="go-top">回到顶部</div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $window = $(window);
+        var $images = $('.item>a>img');
+        var clock;
+        var $goTop = $('.go-top');
+
+        $window.on('scroll', function () {
+        //当滑动时，触发图片懒加载功能；防止重复触发，只执行最后一次触发
+            if(clock){
+                clearTimeout(clock)
+            }
+            clock = setTimeout(function () {
+                lazyLoad()
+            }, 500)
+        });
+        lazyLoad();
+        function lazyLoad() {
+        //定义函数：懒加载效果核心逻辑
+            $images.each(function () {
+                if( checkShow($(this)) && !isLoaded($(this)) ){
+                    loadImg($(this));
+                }
+            })
+        }
+
+        function checkShow($img) {
+        //检测：元素是否出现在屏幕中
+            var eleTop = $img.offset().top;
+            var scrollTop = $window.scrollTop();
+            var winTop = $window.height();
+            if( (eleTop < winTop + scrollTop) && (eleTop > scrollTop) ){
+                return true;
+
+            }else {
+                return false;
+            }
+        }
+        function isLoaded($img) {
+        //检测：元素是否已被加载过
+            if( $img.hasClass('isLoaded') ){
+                return true
+            }else {
+                return false
+            }
+        }
+        function loadImg($img) {
+        //加载元素图片资源
+            var newSrc = $img.attr('data-src');
+            $img.attr('src', newSrc);
+            $img.attr('iaLoaded', 'true')
+        }
+
+        //回到顶部功能
+        $window.on('scroll', function () {
+            var scrollTop = $window.scrollTop();
+            if(scrollTop > 300) {
+                $goTop.show()
+            }else {
+                $goTop.hide()
+            }
+        });
+        $goTop.on('click', function () {
+            //设置整个文档的顶部，而不是window的顶部
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        })
+    </script>
+</body>
+</html>
