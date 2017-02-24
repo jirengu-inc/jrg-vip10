@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .items{
+            width:1000px;
+            margin:0 auto;
+            font-size:0;
+            /*background: #000;*/
+        }
+        .items>li{
+            display:inline-block;
+            margin-bottom:10px;
+            font-size:15px;
+        }
+        .b1{
+            height:110px;
+            width:230px;
+            background: lightblue;
+        }
+        .b2{
+            height:133px;
+            width:146px;
+            background: lightgoldenrodyellow;
+        }
+        .b3{
+            height:150px;
+            width:249px;
+            background: lightgreen;
+        }
+        .b4{
+            height:78px;
+            width:66px;
+            background: lightpink;
+        }
+        .b5{
+            height:129px;
+            width:233px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="items">
+        <li class="b4">1</li>
+        <li class="b2">2</li>
+        <li class="b5">3</li>
+        <li class="b1">4</li>
+        <li class="b3">5</li>
+        <li class="b4">6</li>
+        <li class="b2">7</li>
+        <li class="b5">8</li>
+        <li class="b1">9</li>
+        <li class="b3">10</li>
+        <li class="b5">3</li>
+        <li class="b1">4</li>
+        <li class="b4">6</li>
+        <li class="b2">7</li>
+        <li class="b5">8</li>
+        <li class="b1">9</li>
+        <li class="b5">4</li>
+        <li class="b4">6</li>
+        <li class="b3">5</li>
+        <li class="b4">6</li>
+        <li class="b2">7</li>
+        <li class="b5">8</li>
+        <li class="b1">9</li>
+        <li class="b3">10</li>
+        <li class="b5">3</li>
+        <li class="b1">4</li>
+        <li class="b4">6</li>
+        <li class="b2">7</li>
+    </ul>
+</div>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function () {
+    var widthSum = 0;
+    var stHeight =100;
+    var $items = $(".items>li");
+    var oldIndex =0;
+    var newIndex =0;
+    var h100WidthArr = [];
+    var rowWidth=0;
+    var rowHeight;
+    $items.each(function () {
+        //将元素的高度固定为100px后，计算元素的宽度
+        var h100Width = $(this).width()/$(this).height()*stHeight;
+        h100WidthArr.push(h100Width);
+        widthSum += h100Width;
+        if($(this).index()===$items.length-1){
+            widthSum = 1001;
+            h100Width= 1001 -widthSum;
+        }
+        if(widthSum>1000){
+            rowWidth = widthSum - h100Width;
+            widthSum = h100Width;
+            rowHeight = 100000/rowWidth;
+            if($(this).index()===$items.length-1){
+                newIndex = $(this).index()+1;
+            }else{
+                newIndex = $(this).index();
+            }
+
+            for(var i=oldIndex;i<newIndex;i++){
+               var  realWidth = rowHeight*h100WidthArr[i]/100;
+               $items.eq(i).css({
+                   height:rowHeight,
+                   width:realWidth
+               })
+            }
+            oldIndex = newIndex;
+        }
+    })
+
+})
+</script>
+</body>
+</html>
