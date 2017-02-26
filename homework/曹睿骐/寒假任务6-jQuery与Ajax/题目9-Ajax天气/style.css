@@ -1,0 +1,117 @@
+body,html{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+body{
+
+}
+
+
+.all{
+    position: absolute;
+    width: 600px;
+    height: 700px;
+    border: 1px solid black;
+    top: 20px;
+    left: 50%;
+    /*margin-top: -350px;*/
+    margin-left: -300px;
+    /*background-color: #FECEA8;*/
+    background: linear-gradient(to bottom, #DD5E89,#F7BB97);
+}
+/*地点*/
+.location{
+    position: absolute;
+    width: 400px;
+    height: 80px;
+    /*border: 1px solid black;*/
+    left: 50%;
+    margin-left: -200px;
+}
+.location p {
+    position: relative;
+    /*left: 50%;*/
+    text-align: center;
+
+}
+.location p span{
+    font-size: 20px;
+}
+/*温度*/
+
+.temp{
+    position: relative;
+    width: 400px;
+    height: 350px;
+    /*border: 1px solid black;*/
+    left: 50%;
+    margin-left: -200px;
+    top: 50%;
+    margin-top: -240px;
+    text-align: center;
+}
+.temp .shishi{
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    /*border: 1px solid black;*/
+
+}
+.temp .ziliao>span{
+    display: inline-block;
+    margin-top: 20px;
+}
+.temp .temp-num{
+    font-size: 100px;
+}
+.temp .temp-div{
+    font-size: 40px;
+}
+.temp .temp-weather{
+    font-size: 20px;
+}
+
+
+.pm25 .pm-val{
+    color: #355C7D;
+    font-size: 20px;
+}
+.cur-time .cur-time-val{
+    color: #474747;
+}
+
+
+
+/*接下来的四天的天气*/
+.next{
+    position: relative;
+    width: 400px;
+    height: 250px;
+    /*border: 1px solid red;*/
+    left: 50%;
+    margin-left: -200px;
+    top: 50%;
+
+}
+.next>ul{
+    padding: 0;
+    margin-top: 20px;
+}
+.next>ul>li{
+    /*border: 1px solid red;*/
+    padding: 5px;
+    margin: 10px;
+
+}
+.next >ul .next-item{
+    font-size: 20px;
+}
+
+
+
+
+
+

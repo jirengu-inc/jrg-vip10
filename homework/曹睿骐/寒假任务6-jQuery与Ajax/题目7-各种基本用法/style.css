@@ -1,0 +1,58 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+.all{
+    width: 1000px;
+    height: 3000px;
+    border: 1px solid black;
+    position: relative;
+}
+.no1 p{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    border-radius: 50%;
+}
+.no1 p a{
+    text-decoration: none;
+
+}
+.no2{
+    width: 500px;
+    height: 100px;
+    border: 1px solid darkgreen;
+    position: fixed;
+    top: 1px;
+    left: 500px;
+    background-color: #ccc;
+}
+
+.no3 .no3-change{
+    width: 100px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.no4 .no4-input{
+    width: 80px;
+    height: 40px;
+    background:transparent
+}
+
+.no5{
+
+    position: relative;
+}
+.no5 .no5-city{
+    margin: 0 10px;
+    border: 1px solid #C8C8A9;
+}
+
+
+

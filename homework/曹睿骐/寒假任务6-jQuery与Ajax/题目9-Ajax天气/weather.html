@@ -1,0 +1,147 @@
+<!--
+ * Created by Ricky on 17/2/24.
+ * Date:二月
+ * Project Name: 题目9-Ajax天气.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>题目9-Ajax天气</title>
+
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <!-- main css -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- disable iPhone inital scale -->
+    <!--网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%-->
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+    <!-- 引用字体 -->
+    <link href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--引入jQuery-->
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+    <div class="all">
+        <!--获取地点-->
+        <div class="location">
+            <p>
+                <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                <span>123</span>
+            </p>
+        </div>
+        <!--获取温度-->
+        <div class="temp">
+            <p class="shishi">实时：</p>
+            <p class="ziliao">
+                <span class="temp-num">15℃</span>
+                <span class="temp-div">/</span>
+                <span class="temp-weather">晴</span>
+            </p>
+            <p class="division">
+                ------<i class="fa fa-diamond" aria-hidden="true"></i>------
+            </p>
+            <p class="pm25">
+                <i class="fa fa-align-right" aria-hidden="true"></i>
+                <span>PM2.5:</span>
+                <span class="pm-val">123</span>
+            </p>
+            <p class="cur-time">
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                <span class="cur-time-val">2016-6-12</span>
+            </p>
+        </div>
+
+        <!--接下来四天的天气-->
+        <div class="next">
+            <ul class="next-ct">
+                <li class="next-item">接下来三天的天气:</li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+//        $.ajax({
+//            url: 'http://api.jirengu.com/weather.php',
+//            method: 'GET',
+//            data: {
+//                city: '杭州',
+//                callback: 'showWeather'
+//            }
+//        }).done(function(result){
+//
+//            console.log(result);
+//
+//        }).fail(function(jqXHR, textStatus){
+//
+//            console.log(textStatus);
+//
+//        });
+        function getWeather(){
+            $.ajax({
+                type:'get',
+                url: 'http://api.jirengu.com/weather.php',
+                dataType:'jsonp',
+                jsonp:'callback',
+                jsonpCallback:'show',
+                data: {
+                city: '杭州',
+                }
+            }).done(function(data) {
+                  append(data);
+            }).fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+            })
+        }
+
+        function append(data) {
+//            获取当前位置
+            $('.location>p>span').text(data.results["0"].currentCity)
+
+//           获取温度
+            var allTemp = data.results["0"].weather_data["0"].date
+            var tempera = allTemp.split('：')[1].substring(0,2)
+            $('.temp .temp-num').text(tempera)
+
+//            获取pm2.5
+            $('.pm-val').text(data.results["0"].pm25)
+
+//           获取日期
+            $('.cur-time-val').text(data.date)
+
+//            获取接下来四天的天气
+            var weatherThree = data.results["0"].weather_data
+            console.log(weatherThree.length)
+            for (var i = 1;i<weatherThree.length;i++){
+                $('.next-ct').append(
+                    '<li>'+
+                        '<span>'+weatherThree[i].date+'</span>'+ '\n'+
+                        '<span>'+weatherThree[i].temperature+'</span>'+'\n'+
+                        '<span>'+weatherThree[i].weather+'</span>'
+                    +'</li>')
+            }
+
+
+
+        }
+
+        getWeather();
+
+    </script>
+
+</body>
+</html>

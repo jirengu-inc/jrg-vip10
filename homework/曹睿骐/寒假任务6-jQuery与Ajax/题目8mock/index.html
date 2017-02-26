@@ -1,0 +1,129 @@
+<!--
+ * Created by Ricky on 17/2/24.
+ * Date:二月
+ * Project Name: 题目8-加载更多.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>题目8</title>
+
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <!-- disable iPhone inital scale -->
+    <!--网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%-->
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+    <!-- 引用字体 -->
+    <link href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--引入jQuery-->
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+    
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+
+        }
+        .ct .ct-item{
+            list-style: none;
+        }
+        .ct .ct-item .item{
+            padding: 10px;
+            border: 1px solid red;
+            margin-top: 10px;
+        }
+        .hover{
+            background-color: #547980;
+            color: white;
+        }
+
+        .more{
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            width: 80px;
+            height: 40px;
+
+            background-color: #FC9D9A;
+            border-radius: 10px;
+            left: 50%;
+            margin-left: -40px;
+        }
+
+        .more p{
+            position: relative;
+            top: 7px;
+            color: white;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="ct">
+        <ul class="ct-item">
+            <li class="item">内容1</li>
+            <li class="item">内容2</li>
+            <li class="item">内容3</li>
+            <li class="item">内容4</li>
+
+        </ul>
+        <a href="javascript: void(0)" class="more">
+            <p>加载更多</p>
+        </a>
+    </div>
+
+
+    <script>
+        var $more = $('.more');
+        var $ctItem = $('.ct-item');
+        var  page  = 5;
+        $ctItem.on('mouseenter','li',function () {
+            $(this).addClass('hover');
+        });
+        $ctItem.on('mouseleave','li',function () {
+            $(this).removeClass('hover');
+        });
+
+        $more.on('click',function () {
+            $.ajax({
+                url: '/getMore',
+                data: {
+                    start: page,
+                    len: 5
+                },
+                dataType: 'json',
+                type: 'get'
+            }).done(function (json) {
+                append(json);
+            }).fail(function (json) {
+                console.log('ERROR!')
+            })
+        })
+        function append(json) {
+
+            console.log(json);
+            for (var i=0;i<json.length;i++){
+                $ctItem.append('<li class="item">'+json[i]+'</li>');
+            }
+            page+=5;
+
+        }
+
+
+    </script>
+</body>
+</html>
