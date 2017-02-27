@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab组件-面向对象</title>
+    <style>
+        /* reset css */
+        ul,li {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* general css */
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .ct {
+            margin: 0 auto;
+            width: 450px;
+        }
+        .tab {
+            margin: 30px;
+            padding: 15px;
+            border: 1px solid #666;
+            border-radius: 10px;
+            width: 450px;
+        }
+        .header>li {
+            float: left;
+            padding: 10px;
+            border: 1px solid #666;
+            border-right: none;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .header>li:last-child {
+            border-right: 1px solid #666;
+        }
+        .header>.active {
+            font-weight: bold;
+            color: red;
+            background-color: #ccc;
+        }
+        .content>li {
+            display: none;
+            padding: 10px;
+            border: 1px solid #666;
+            border-top: none;
+            height: 200px;
+        }
+        .content>.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        //绑定（定义）方法：函数内部
+        function Tab(tabNode) {
+            this.init = function (tabNode) {
+                this.header = tabNode.querySelector('.header');
+                this.headerLis = tabNode.querySelectorAll('.header>li');
+                this.contents = tabNode.querySelectorAll('.content>li');
+            };
+            this.bind = function () {
+                var self = this;
+                //this.header.addEventLisenter('click', function (e)) {} //也能用，与下区别
+                this.header.onclick = function (e) {
+                    if(e.target.tagName.toLowerCase() === 'li'){
+                        self.headerLis.forEach(function (ele) {
+                            ele.classList.remove('active');
+                        });
+                        e.target.classList.add('active');
+
+                        var index = [].indexOf.call(self.headerLis, e.target);
+
+                        self.contents.forEach(function (ele) {
+                            ele.classList.remove('active');
+                        });
+                        self.contents[index].classList.add('active');
+                    }
+                }
+            };
+
+            this.init(tabNode);
+            this.bind();
+        }
+        //获取页面节点
+        var tabNode1 = document.querySelectorAll('.tab')[0];
+        var tabNode2 = document.querySelectorAll('.tab')[1];
+        //构造函数-创建实例
+        new Tab(tabNode1);
+        new Tab(tabNode2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab组件-原生JS</title>
+    <style>
+        /* reset css */
+        ul,li {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* general css */
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .ct {
+            margin: 0 auto;
+            width: 450px;
+        }
+        .tab {
+            margin: 30px;
+            padding: 15px;
+            border: 1px solid #666;
+            border-radius: 10px;
+            width: 450px;
+        }
+        .header>li {
+            float: left;
+            padding: 10px;
+            border: 1px solid #666;
+            border-right: none;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .header>li:last-child {
+            border-right: 1px solid #666;
+        }
+        .header>.active {
+            font-weight: bold;
+            color: red;
+            background-color: #ccc;
+        }
+        .content>li {
+            display: none;
+            padding: 10px;
+            border: 1px solid #666;
+            border-top: none;
+            height: 200px;
+        }
+        .content>.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1
+                    <p>没有实现该tab的功能，因为：代码一样，但需重新命名</p>
+                </li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var header = document.querySelector('.header');
+        var headerLis = document.querySelectorAll('.header>li');
+        var contents = document.querySelectorAll('.content>li');
+
+        header.addEventListener('click', function (e) {
+            var self = e.target;
+            if(self.tagName.toLowerCase() === 'li'){
+                for(var i = 0; i < headerLis.length; i++){
+                    headerLis[i].classList.remove('active');
+                }
+                self.classList.add('active');
+
+                var index = [].indexOf.apply(headerLis, [self]);
+                //var index = [].indexOf.call(headerLis, self); //作用同上
+
+                for(var j = 0; j < contents.length; j++){
+                    contents[j].classList.remove('active');
+                }
+                contents[index].classList.add('active');
+            }
+        })
+    </script>
+</body>
+</html>
