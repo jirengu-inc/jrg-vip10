@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .clear-fix:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .container{
+            display:inline-block;
+            border:1px solid #ccc;
+        }
+        .tab>li{
+            float:left;
+            padding:10px 70px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-left: none
+        }
+        .tab .last-li{
+            border-right: none;
+        }
+        .bg{
+            background: #ccc;
+        }
+        .content>li{
+            display:none;
+        }
+        .content>.disp{
+            display:block;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tab clear-fix">
+        <li class="bg">tab1</li>
+        <li>tab2</li>
+        <li class="last-li">tab3</li>
+    </ul>
+    <ul class="content">
+        <li class="disp">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+<div class="container">
+    <ul class="tab clear-fix">
+        <li class="bg">tab1</li>
+        <li>tab2</li>
+        <li class="last-li">tab3</li>
+    </ul>
+    <ul class="content">
+        <li class="disp">内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+    </ul>
+</div>
+</body>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    function Tab($container){
+
+        this.init = function(){
+            // console.log(this);
+            this.tab = $container.find(".tab");
+            this.content = $container.find(".content");
+        };
+
+        this.go = function(){
+            var that = this;
+            this.tab.on("click","li",function(){
+                //console.log(this);  此处this是触发事件的li元素
+                that.tab.find("li").each(function(){
+                    $(this).removeClass("bg");
+                })
+                $(this).addClass("bg");
+                var index = $(this).index();
+                that.content.find("li").each(function(){
+                    $(this).removeClass("disp");
+                });
+                that.content.find("li").eq(index).addClass("disp");
+
+            });
+
+        }
+
+    }
+    var $node1 = $(".container").eq(0);
+    var $node2 = $(".container").eq(1);
+    var tab1 = new Tab($node1);
+    var tab2 = new Tab($node2);
+
+    tab1.init();
+    tab1.go();
+    tab2.init();
+    tab2.go();
+</script>
+</html>
