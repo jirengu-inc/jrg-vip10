@@ -1,0 +1,126 @@
+<!--
+ * Created by Ricky on 17/2/24.
+ * Date:二月
+ * Project Name: 题目7.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>题目7</title>
+
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <!-- disable iPhone inital scale -->
+    <!--网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%-->
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+
+    <!-- main css -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+    <!-- 引用字体 -->
+    <link href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!--引入jQuery-->
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+
+</head>
+<body>
+    <div class="all">
+        <div class="no1">
+            <h3>1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+            </h3>
+            <p><a href="#">点我</a></p>
+        </div>
+        <div class="no2">
+            <h3>2.当窗口滚动时，获取垂直滚动距离</h3>
+            <p>你当前滚动的距离为： <span></span>px</p>
+        </div>
+        <div class="no3">
+            <h3>3.当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</h3>
+            <div class="no3-change"></div>
+        </div>
+        <div class="no4">
+            <h3>4.当鼠标激活 input 输入框时让输入框边框变为绿色，</h3>
+            <h3>当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</h3>
+            <input type="text" class="no4-input">
+        </div>
+        <div class="no5">
+            <h3>5.当选择 select 后，获取用户选择的内容</h3>
+            <select name="city" class="no5-city">
+                <option value="beijing">北京</option>
+                <option value="shanghai" selected>上海</option>
+                <option value="hangzhou">杭州</option>
+            </select>
+            <p>你选择的城市是： <span></span></p>
+
+        </div>
+    </div>
+
+    <script>
+        //第一题
+        $('.no1>p').click(function () {
+            $(this).css({'background-color':'red'});
+            setTimeout(function () {
+                $('.no1>p').css({'background-color':'blue'});
+                $('.no1>p>a').css({'color':'white'});
+            },1000)
+        })
+
+        //第二题
+        $(window).scroll(function () {
+            $('.no2 >p span').text($(window).scrollTop())
+        })
+
+        //第三题
+        $('.no3 .no3-change').on('mouseenter',function () {
+            $(this).css({'background-color': '#FF4E50'})
+        })
+        $('.no3 .no3-change').on('mouseleave',function () {
+            $(this).css({'background-color': 'white'})
+        })
+
+        //第四题
+        $('.no4 .no4-input').on('focus',function (e) {
+
+            $(this).css({outline: '1px solid red'})
+        })
+        $('.no4 .no4-input').on('blur',function (e) {
+
+            $(this).css({outline: 'none'})
+        })
+        //小写变大写
+        $('.no4 .no4-input').on('change',function () {
+            $value = $(this).val();
+            console.log($value);
+            $(this).val($value.toUpperCase());
+
+        })
+        //第五题
+        $('.no5 .no5-city').on('change',function () {
+            var onecity = $('.no5 .no5-city option:selected').text()
+//            console.log(onecity)
+            $('.no5 p span').text(onecity)
+        }).trigger('change')
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

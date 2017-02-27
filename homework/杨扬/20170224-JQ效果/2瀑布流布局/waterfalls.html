@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>火影瀑布流</title>
+    <style>
+        /* reset css */
+        ul,li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+        /* general css */
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .ct {
+            position: relative;
+        }
+        .ct>li {
+            position: absolute;
+            /*float: left;*/
+            margin: 10px;
+            transition: all 1s;
+        }
+        /*回到顶部样式*/
+        .go-top {
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            display: none;
+            padding: 8px;
+            border-radius: 5px;
+            width: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: #666;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+        .go-top:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="ct">
+            <li>
+                <a href="#"><img src="./images/1.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/2.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/3.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/4.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/5.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/6.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/7.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/8.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/9.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/10.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/1.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/2.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/3.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/4.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/5.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/6.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/7.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/8.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/9.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/10.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/1.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/2.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/3.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/4.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/5.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/6.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/7.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/8.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/9.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+            <li>
+                <a href="#"><img src="./images/10.jpg"></a>
+                <p>我最漂亮</p>
+            </li>
+        </ul>
+
+        <div class="go-top">回到顶部</div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $window = $(window);
+        var $goTop = $('.go-top');
+
+        function render() {
+        //瀑布流图片布局渲染方法 ↓
+            var $imgCt = $('.ct'),
+                $items = $('.ct>li'),
+                ctWidth = $imgCt.width(),
+                itemsWidth = $items.outerWidth(true),
+                //初始化 ↓
+                cols = parseInt(ctWidth / itemsWidth),
+                itemsArr = [];
+
+            for(var i = 0; i < cols; i++){
+                itemsArr[i] = 0;
+            }
+            //遍历每个元素，按照规定进行摆放 ↓
+            $items.each(function () {
+                var $this = $(this),
+                    thisHeight = $this.outerHeight(true),
+
+                    minHeight = Math.min.apply(null, itemsArr),
+                    minIndex = itemsArr.indexOf(minHeight);
+
+                $this.css({
+                    top: minHeight,
+                    left: minIndex * itemsWidth
+                });
+                itemsArr[minIndex] += thisHeight;
+            });
+        }
+        //进入页面初次调用 ↓
+        render();
+        //监听窗口宽高的改变，以便重新调用瀑布流函数渲染界面 ↓
+        $window.on('resize', function(){
+            render();
+        });
+
+        //回到顶部功能
+        $window.on('scroll', function () {
+            var scrollTop = $window.scrollTop();
+            if(scrollTop > 300) {
+                $goTop.show()
+            }else {
+                $goTop.hide()
+            }
+        });
+        $goTop.on('click', function () {
+            //设置整个文档的顶部，而不是window的顶部
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        })
+    </script>
+</body>
+</html>

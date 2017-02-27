@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .items{
+            width:100%;
+        }
+        .items>li{
+            width:300px;
+            position:absolute;
+            margin-right:10px;
+            margin-bottom:10px;
+            text-align: center;
+            padding:10px;
+            border:1px solid;
+        }
+        .items>li a{
+            display: inline-block;
+            text-decoration: none;
+            text-align: justify;
+            width:300px;
+            color: #454545;
+        }
+        .items>li img{
+            width:300px;
+        }
+        .items>li h3{
+            margin-top:10px;
+            margin-bottom:10px;
+            border-bottom:1px solid #454545;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="items">
+
+    </ul>
+</div>
+<!--<script src="jquery-3.1.1.min.js"></script>-->
+<script src="jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var $ul = $(".items");
+        var clock;
+        var curPage =1;
+        //页面初始加载
+        reqData(curPage);
+        //窗口尺寸变化
+        $(window).on("resize",function () {
+            waterfall();
+        });
+        //初始列表加载完了
+        $(window).on("scroll",function(){
+            if(clock){
+                clearTimeout(clock)
+            }
+            clock = setTimeout(function () {
+                var docHeight = $(document).height();
+                var winHeight = $(window).height();
+                var scrollTop = $(window).scrollTop();
+                if(docHeight===winHeight+scrollTop){
+                    reqData(curPage);
+                }
+            },300)
+        });
+
+        function reqData() {
+            var perPageCount = 9;
+
+            $.ajax({
+                url: 'http://platform.sina.com.cn/slide/album_tech',
+                dataType: 'jsonp',   //这里使用了新浪新闻的 jsonp 接口，大家可以直接看数据， 如： http://platform.sina.com.cn/slide/album_tech?jsoncallback=func&app_key=1271687855&num=3&page=4
+                jsonp:"jsoncallback",
+                data: {
+                    app_key: '1271687855',
+                    num: perPageCount,
+                    page: curPage
+                }
+            }).done(function (ret) {
+                curPage++;
+//                console.log(ret);
+                if(ret.status.code === "0"){
+                    //得等 数据接收完毕再进行布局
+                    place(ret.data);
+                }
+            })
+        }
+
+        function packHtml(data) {
+            var html="";
+            for(var i=0;i<data.length;i++){
+                html+="<li>"+"<a href="+data[i].url+">"
+                    +"<img src="+data[i].img_url+">"
+                    +"<h3>"+data[i].short_name+"</h3>"
+                    +"<p>"+data[i].short_intro+"</p>"
+                    +"</a>"+"</li>";
+            }
+            $ul.append($(html));
+            return $(html);
+        }
+
+        function place(data) {
+            var $node = packHtml(data);
+            var defereds = [];
+            $node.find("img").each(function () {
+                var defered =$.Deferred();
+                $(this).load(function () {
+                    defered.resolve();
+                });
+                defereds.push(defered)
+            });
+            $.when.apply(null,defereds).done(function () {
+                waterfall();
+            })
+            
+        }
+
+        function waterfall() {
+            var $items = $ul.children();
+            console.log($items);
+            //计算有多少列
+            console.log($(window).width());
+            console.log($items.outerWidth(true));
+            var colNum = parseInt($(window).width()/$items.outerWidth(true));
+            //为了使所有列居中，需要初始化left值
+            var leftInit = parseInt(($(window).width()-colNum*$items.outerWidth(true))/2);
+            //用于存储每一列的高度
+            var colHeight = [];
+            for(var i=0;i<colNum;i++){
+                colHeight[i] = 0;
+            }
+            //遍历每个元素，放置它们
+            $items.each(function () {
+                var top;
+                var left = leftInit;
+                var index;
+                top = Math.min.apply(null,colHeight);
+                index = colHeight.indexOf(top);
+                left +=$items.outerWidth(true)*index;
+                colHeight[index] += $(this).outerHeight(true);
+                $(this).css({
+                    top:top,
+                    left:left
+                })
+            })
+        }
+    })
+</script>
+</body>
+</html>

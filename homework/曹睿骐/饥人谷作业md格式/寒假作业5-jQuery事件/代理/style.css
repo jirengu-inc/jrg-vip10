@@ -1,0 +1,110 @@
+/*清楚默认样式*/
+body{
+    margin: 0;
+    padding: 0;
+    /*list-style: none;*/
+
+}
+.all-contain{
+    width: 800px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+
+/*描述栏css*/
+}
+.description p{
+    font-size: 24px;
+    font-weight: bold;
+    color: #666666;
+    position: relative;
+    top: -10px;
+    left: 50px;
+}
+
+/*菜单栏css*/
+.item-ct{
+    list-style: none;
+
+}
+.item-ct:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.item{
+    float: left;
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    font-size: 12px;
+
+}
+.item img{
+    position: relative;
+    left: 45px;
+}
+.item p{
+    margin-left: 10px;
+    color: #666666;
+}
+
+
+
+/*"添加"按钮*/
+.btn{
+    /*box-sizing: border-box;*/
+    width: 100px;
+    height: 40px;
+    border: 1px solid firebrick;
+    position: relative;
+    left: 50px;
+
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: firebrick;
+
+}
+
+
+/*鼠标放上去的样式（立即抢购，变灰）*/
+.qianggou{
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border: 1px solid sienna;
+    border-radius: 5px;
+    top: 100px;
+    left: 80px;
+    z-index: 3;
+    text-decoration: none;
+    color: firebrick;
+    opacity: 0;
+    background-color: white;
+
+}
+.qianggou span{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+.show{
+    opacity: 1;
+
+
+}
+
+.active{
+    background-color: #cccccc;
+
+}
+
+
+
+
+
+

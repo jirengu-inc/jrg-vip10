@@ -1,0 +1,401 @@
+<!--
+ * Created by Ricky on 17/2/19.
+ * Date:二月
+ * Project Name: jq.
+ * Package Name: .
+ * ©2016-2017 Ricky. All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab切换</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+
+
+
+    <style>
+        /*清楚默认样式*/
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+        /*导航栏*/
+        /*总边框样式*/
+        .navigation{
+            position: relative;
+            width: 190px;
+            height: 45px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            margin-left: 10px;
+            border-bottom: none;
+        }
+        a{
+            text-decoration: none;
+            color: #666;
+
+        }
+        .ct .ct-list{
+            float: left;
+            padding: 10px 0;
+        }
+        .ct .ct-list a{
+            padding: 0 10px;
+            border-right: 1px solid #ccc;
+        }
+        .ct .ct-list #shechi{
+            border-right: none;
+        }
+        .navigation:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+
+        /*菜单栏div(6个商品)*/
+        .all-items{
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-left: 10px;
+            width: 718px;
+            height: 425px;
+        }
+        /*每个单独的商品*/
+        .items{
+            position: relative;
+            width: 220px;
+            height: 200px;
+            border: 1px solid #666666;
+            float: left;
+            margin: 0 25px 20px 0;
+            /*margin-bottom: 25px;*/
+
+            /*display:none;*/
+        }
+
+        /*单独商品里面的图片，描述，价格*/
+        .items .items-picture{
+            position: absolute;
+            left: 45px;
+        }
+        .items .items-describe{
+            position: absolute;
+            top: 140px;
+            font-size: 10px;
+            text-align: center;
+            padding: 0 5px;
+        }
+        .items .items-price{
+            position: absolute;
+            top: 175px;
+            font-size: 10px;
+            /*text-align: center;*/
+            padding-left: 5px;
+            color: crimson;
+        }
+
+
+
+
+
+
+
+
+        /*鼠标移动到商品上去的样式*/
+        .items-hover{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+            border-radius: 5px;
+            top: 85px;
+            left: 57px;
+            display: none;
+            background-color: white;
+
+
+
+
+        }
+        .items-hover a{
+            /*padding: 20px;*/
+            text-align: center;
+            position: absolute;
+            top: 13px;
+            left: 17px;
+            color: red;
+
+        }
+
+
+        /*点击之后的样式*/
+        .items-all{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+
+        .active{
+            background-color: cornflowerblue;
+
+        }
+        .active>a{
+            color: aliceblue;
+        }
+        .see{
+            display: block;
+            opacity: 0.5;
+            background-color: #666666;
+        }
+
+        .guankan{
+
+            opacity: 1;
+            display: block;
+            z-index: 3;
+        }
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+<!--总的div-->
+    <div class="all-container">
+        <!--导航栏div-->
+        <div class="navigation">
+            <!--三个导航列表-->
+            <ul class="ct">
+                <li class="ct-list active"><a href="#">西湖</a></li>
+                <li class="ct-list"><a href="#">灵隐寺</a></li>
+                <li class="ct-list"><a href="#" id="shechi">雷峰塔</a></li>
+            </ul>
+        </div>
+        
+        
+        
+        
+        
+        <!--菜单栏（6个商品）-->
+        <div class="all-items">
+            <!--第一个导航栏中的6个景点（西湖）-->
+            <div class="items-all show">
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+
+
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://oe49kbrbt.bkt.clouddn.com/xihu130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">中国大陆首批国家重点风景名胜区和中国十大风景名胜之一</p>
+                    <p class="items-price">门票：不要钱</p>
+                </div>
+            </div>
+
+
+            <!--第二个导航栏里的6个景点（灵隐寺）-->
+            <div class="items-all">
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+                </div>
+
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/linyingsi130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">浙江灵隐寺为全国重点文物保护单位</p>
+                    <p class="items-price">门票：75元</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <!--第三个导航栏里的6个景点（雷锋塔）-->
+            <div class="items-all">
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+                </div>
+
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+                </div>
+                <div class="items">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+                </div>
+                <div class="items" style="margin-right: 0">
+                    <p class="items-hover"><a href="#">立即观看</a></p>
+                    <img src="http://cdn.rickyer.com/leifengta130130" alt="" class="items-picture">
+                    <!--文字描述和价格-->
+                    <p class="items-describe">国家AAAA级旅游景区</p>
+                    <p class="items-price">门票：40元</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+<script>
+//    $(".items").on("mouseenter",function () {
+//        $(".items-hover").css("display","block");
+//    })
+//点击导航栏颜色change
+    $(".ct >.ct-list").on('click',function () {
+
+        var idx = $(this).index();
+//        console.log(idx)
+
+        $(".all-items").find(".items-all").eq(idx).addClass("show");
+        $(".all-items").find(".items-all").eq(idx).siblings().removeClass("show");
+
+
+
+        $(this).addClass("active").siblings().removeClass("active");
+
+    })
+
+    $(".items").on("mouseenter",function () {
+
+        $(this).addClass("see");
+        $(this).find(".items-hover").addClass("guankan");
+    })
+
+    $(".items").on("mouseleave",function () {
+
+        $(this).removeClass("see");
+        $(this).find(".items-hover").removeClass("guankan");
+    })
+
+
+
+
+
+</script>
+</body>
+</html>
