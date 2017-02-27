@@ -85,6 +85,8 @@
             		top: arr[minIndex]
             	})
             	arr[minIndex] += $(this).outerHeight(true);
+            	minValue = Math.min.apply(null,arr),
+            	minIndex = arr.indexOf(minValue);
             })
 		}
 	</script>
