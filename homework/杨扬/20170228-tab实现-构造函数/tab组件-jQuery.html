@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab组件-jQuery</title>
+    <style>
+        /* reset css */
+        ul,li {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* general css */
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .ct {
+            margin: 0 auto;
+            width: 450px;
+        }
+        .tab {
+            margin: 30px;
+            padding: 15px;
+            border: 1px solid #666;
+            border-radius: 10px;
+            width: 450px;
+        }
+        .header>li {
+            float: left;
+            padding: 10px;
+            border: 1px solid #666;
+            border-right: none;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .header>li:last-child {
+            border-right: 1px solid #666;
+        }
+        .header>.active {
+            font-weight: bold;
+            color: red;
+            background-color: #ccc;
+        }
+        .content>li {
+            display: none;
+            padding: 10px;
+            border: 1px solid #666;
+            border-top: none;
+            height: 200px;
+        }
+        .content>.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct">
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+
+        <div class="tab">
+            <ul class="header clearfix">
+                <li class="active">选项1</li>
+                <li>选项2</li>
+                <li>选项3</li>
+            </ul>
+            <ul class="content">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $header = $('.header');
+        //var $headerLis = $('.header>li');
+        var $contents = $('.content>li');
+        
+        $header.on('click', 'li', function () {
+            var $this = $(this);
+            var index = $this.index();
+
+            $this.siblings().removeClass('active');
+            $this.addClass('active');
+
+            $this.parents('.tab').find($contents)
+                 .removeClass('active');
+            $this.parents('.tab').find($contents).eq(index)
+                 .addClass('active');
+
+            //$contents.eq(index).addClass('active');
+            //$($contents[index]).addClass('active'); // 与上一行的区别
+        })
+    </script>
+</body>
+</html>

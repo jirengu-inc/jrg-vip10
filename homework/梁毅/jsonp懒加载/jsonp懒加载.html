@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瀑布流JSONP懒加载</title>
+	
+<style>
+html,body,ul,li,p,div{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul,li{
+	list-style: none;
+}
+
+.clearfix:after{
+	display: block;
+	clear: both;
+	content: '';
+}
+#pic-ct{
+	position: relative;
+}
+#pic-ct li{
+	position: absolute;
+	padding: 0 0 10px 0;
+	width: 280px;
+	margin: 10px;
+	border: 1px solid #dfdfdf;
+	background-color: #fff;
+	opacity: 1;
+	transition: all .8s;
+}
+#pic-ct li img{
+	margin: 10px;
+	width: 260px;
+}
+#pic-ct li h4{
+	height: 25px;
+	margin: 0 12px;
+	border-bottom: 1px solid #dbdbdb;
+}
+#pic-ct p{
+	font-size: 12px;
+	line-height: 1.8;
+	margin: 10px 15px 0;
+	color: #777371;
+}
+#load{
+	visibility: hidden;
+	height: 20px; 
+}
+#hide{
+	display: none;
+}
+	</style>
+	
+</head>
+<body>
+	<div class="wrap">
+		<div class="ct-waterfall">
+			<ul id="pic-ct" class="clearfix">
+				
+			</ul>
+			<div id="load">我是看不见的</div>
+		</div>
+	</div>
+
+	
+<script src='jquery-3.1.1.js'></script>	
+<script>
+
+check()
+
+$(window).on('scroll',function(){
+	check()
+})
+
+
+function check(){
+	if(isShow($('#load'))){
+		getNews(func)
+	}
+}
+
+function getNews(callback){
+
+	$.ajax({
+		type:'get',
+		url: 'http://platform.sina.com.cn/slide/album_tech',
+		dataType: 'jsonp',
+		jsonp: 'jsoncallback',
+		data: {
+			jsoncallback: 'func',
+			app_key: '1271687855',
+			num: '18',
+			page: Math.floor(Math.random()*5),
+			size: 'img',
+			format: 'json'
+		},
+	}).done(function(ret){
+		if(ret.status.code === 0){
+			callback(ret)
+		}
+	})
+}
+
+function func(data){
+	var nodes = data.data
+	nodes.forEach(function(e,i,nodes){
+		var html = '<li><img src="' + nodes[i].img_url + '">';
+		html += '<h4><a href="' + nodes[i].url + '">' + nodes[i].short_name + '</a></h4>';
+		html += '<p>' + nodes[i].short_intro + '</p></li>';
+		$('#pic-ct').append($(html))
+	})
+	$('li').each(function(){
+		$(this).find('img').on('load',function(){
+			waterLayout($('li'))
+		})
+	})
+}
+
+function isShow($node){
+	var windowHeight = $(window).height(),
+		scrollTop = $(window).scrollTop(),
+		nodeHeight = $node.height(),
+		nodeOffsetTop = $node.offset().top
+	if(windowHeight + scrollTop > nodeOffsetTop && nodeHeight + nodeOffsetTop > scrollTop){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function waterLayout($node){
+	var windowWidth = $(window).width(),
+		nodeWidth = $node.outerWidth(true),
+		rowElement = Math.floor(windowWidth/nodeWidth),
+		colElementHeight = [];
+		
+
+		for(var i = 0; i < rowElement; i++){
+			colElementHeight.push(0)
+		}
+
+
+	$node.each(function(){
+		var idx = 0;
+		var Y = colElementHeight[0];
+		for(var i = 0; i < colElementHeight.length; i++){
+			if(colElementHeight[i] < Y){
+				idx = i;
+				Y = colElementHeight[i];
+			}
+		}
+		$(this).css({
+			'left': nodeWidth*idx,
+			'top': Y
+		})
+		colElementHeight[idx] = Y + $(this).outerHeight(true);
+		$('#ct').height(colElementHeight[idx])
+	})
+}
+</script>
+
+
+</body></html>

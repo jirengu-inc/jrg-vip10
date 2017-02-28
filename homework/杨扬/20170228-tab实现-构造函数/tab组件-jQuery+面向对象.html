@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tab组件-jQuery+面向对象</title>
+    <style>
+        /* reset css */
+        ul,li {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /* general css */
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        /* real css */
+        .ct {
+            margin: 0 auto;
+            width: 450px;
+        }
+        .tab {
+            margin: 30px;
+            padding: 15px;
+            border: 1px solid #666;
+            border-radius: 10px;
+            width: 450px;
+        }
+        .header>li {
+            float: left;
+            padding: 10px;
+            border: 1px solid #666;
+            border-right: none;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .header>li:last-child {
+            border-right: 1px solid #666;
+        }
+        .header>.active {
+            font-weight: bold;
+            color: red;
+            background-color: #ccc;
+        }
+        .content>li {
+            display: none;
+            padding: 10px;
+            border: 1px solid #666;
+            border-top: none;
+            height: 200px;
+        }
+        .content>.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ct"></div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        function BuildTab(node, count) {
+            count = count || 2;
+            this.render(node, count);
+            this.init();
+            this.bind();
+        }
+        BuildTab.prototype.render = function (node,count) {
+            var htmlStr = '';
+            for(var i = 0; i < count; i++){
+                htmlStr += '<div class="tab">';
+                htmlStr += '   <ul class="header clearfix">';
+                htmlStr += '       <li class="active">选项1</li>';
+                htmlStr += '       <li>选项2</li>';
+                htmlStr += '       <li>选项3</li>';
+                htmlStr += '   </ul>';
+                htmlStr += '   <ul class="content">';
+                htmlStr += '       <li class="active">内容1</li>';
+                htmlStr += '       <li>内容2</li>';
+                htmlStr += '       <li>内容3</li>';
+                htmlStr += '   </ul>';
+                htmlStr += '</div>';
+            }
+            $(htmlStr).appendTo(node);
+        };
+        BuildTab.prototype.init = function () {
+            this.$header = $('.header');
+            this.$contents = $('.content>li');
+        };
+        BuildTab.prototype.bind = function () {
+            var self = this;
+            this.$header.on('click', 'li', function () {
+                var $this = $(this);
+                $this.siblings().removeClass('active');
+                $this.addClass('active');
+
+                var index = $this.index();
+
+                $this.parents('.tab').find(self.$contents)
+                        .removeClass('active');
+                $this.parents('.tab').find(self.$contents).eq(index)
+                        .addClass('active');
+            })
+        };
+        var $ct = $('.ct');
+        new BuildTab($ct, 2);
+    </script>
+</body>
+</html>
