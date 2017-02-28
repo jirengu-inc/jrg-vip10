@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			box-sizing: border-box;
+		}
+		.claerfix::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.tab{
+			margin-left: 20px;
+			margin-bottom: 20px;
+		}
+		.header{
+			width: 302px;
+			border: 1px solid #ccc;
+		}
+		.header>li{
+            float: left;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+		}
+		.header>li:nth-child(2){
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+		}
+		.content{
+			width: 302px;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			height: 150px;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.content>li{
+			display: none;
+			height: 150px;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.show{
+			display: block !important;
+		}
+		.change-color{
+			background-color: #ccc;
+		}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div class="tab">
+		<ul class="header claerfix">
+			<li class="change-color">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<ul class="content">
+			<li class="show">内容1</li>
+			<li class="">内容2</li>
+			<li class="">内容3</li>
+		</ul>
+	</div>
+	<div class="tab">
+		<ul class="header claerfix">
+			<li class="change-color">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<ul class="content">
+			<li class="show">内容1</li>
+			<li class="">内容2</li>
+			<li class="">内容3</li>
+		</ul>
+	</div>
+	<div class="tab">
+		<ul class="header claerfix">
+			<li class="change-color">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<ul class="content">
+			<li class="show">内容1</li>
+			<li class="">内容2</li>
+			<li class="">内容3</li>
+		</ul>
+	</div>
+	<script>
+		function Tab(element){
+			this.init = function(){
+				this.tabBtn = element.find('.header li');
+			}
+			Tab.prototype.bind = function(){
+				this.tabBtn.on('click',function(){
+					Tab.prototype.show($(this))
+				})
+			}
+			Tab.prototype.show = function($elem){
+                $elem.siblings('li').removeClass('change-color');
+                $elem.addClass('change-color');
+                var index = $elem.index()
+                $elem.parents('.tab').find('.content li').siblings('li').removeClass('show');
+                $elem.parents('.tab').find('.content li').eq(index).addClass('show')
+			}
+			this.init();
+			this.bind();
+		}
+		var tab1 = $('.tab').eq(0);
+		var tab2 = $('.tab').eq(1);
+		var tab3 = $('.tab').eq(2);
+		var modulTab1 = new Tab(tab1);
+		var modulTab2= new Tab(tab2);
+		var modulTab3 = new Tab(tab3);
+	</script>
+</body>
+</html>
