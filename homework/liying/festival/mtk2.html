@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			.clearfix:after{
+		        content: '';
+		        display: block;
+		        clear: both;
+		    }
+			@font-face {
+			  font-family: 'icon-off';  /* project id 240960 */
+			  src: url('https://at.alicdn.com/t/font_dv0ppfkqbmx6r.eot');
+			  src: url('https://at.alicdn.com/t/font_dv0ppfkqbmx6r.eot?#iefix') format('embedded-opentype'),
+			  url('https://at.alicdn.com/t/font_dv0ppfkqbmx6r.woff') format('woff'),
+			  url('https://at.alicdn.com/t/font_dv0ppfkqbmx6r.ttf') format('truetype'),
+			  url('https://at.alicdn.com/t/font_dv0ppfkqbmx6r.svg#icon-off') format('svg');
+			}
+
+			.wrap{
+				position: fixed;
+	            left: 0;
+	            top: 0;
+	            bottom: 0;
+	            right: 0;
+	            background-color: rgba(0, 0, 0, 0.4);
+              	display: none;
+			}
+
+			.dialog{
+				width: 500px;
+				position: absolute;
+				
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: #fff;
+
+			}
+			.header{
+				padding: 5px 10px;
+				border-bottom: 1px solid #999;
+			}
+			.header h3{
+				float: left;
+			}
+			.header .icon-off:before{ 
+	            font-family:"icon-off";
+	            content: "\e686"; 
+	            font-size: 20px;
+	            float: right;
+	        }
+
+	       .content{
+	        	padding: 10px;
+	        	border-bottom: 1px solid #ccc;
+	        	line-height: 40px;
+	        }
+			
+			.footer{
+				float: right;
+				padding: 10px 10px;
+			}
+
+			.footer a{
+				text-decoration: none;
+				color: black;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="click-btn">	
+			<button>点我1</button>
+		</div>
+		<div class="wrap">
+			<div class="dialog">
+				<div class="header clearfix">
+					<h3>我是标题1</h3>
+					<span class="icon-off"></span>
+				</div>
+				<div class="content">
+					<p>我是内容1</p>
+					<p>我是内容2</p>
+				</div>
+
+				<div class="footer clearfix">
+					<a href="#">确定</a>
+					<a href="#" class='cancel'>取消</a>
+				</div>
+			</div>
+		</div>
+		
+
+		<script>
+			var btn = document.querySelector('.click-btn');
+			var wrap = document.querySelector('.wrap');
+            var dialog = document.querySelector('.dialog');
+            var off = document.querySelector('.icon-off');
+            var cancel = document.querySelector('.cancel');            
+
+			btn.addEventListener('click', function(){
+				wrap.style.display = 'block';
+			})
+
+			
+			cancel.addEventListener('click', function(){
+				wrap.style.display = 'none';
+			})
+
+			
+			off.addEventListener('click', function(){
+				wrap.style.display = 'none';
+			})
+            
+            wrap.addEventListener('click', function(){
+				wrap.style.display = 'none';
+			})
+            
+            
+            dialog.addEventListener('click', function(e){
+                e.stopPropagation();
+			})
+            
+		</script>
+	</body>
+</html>

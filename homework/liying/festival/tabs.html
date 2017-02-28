@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			li{
+				list-style: none;
+			}
+
+			a{
+				text-decoration: none;
+				color: #666;
+			}
+
+			.clearfix:after{
+		        content: '';
+		        display: block;
+		        clear: both;
+		    }
+
+			.tab{
+				width: 544px;
+				border: 1px solid #ccc;
+				margin: 20px auto;
+				padding: 5px;
+				/*border-radius: 4px;*/
+
+			}
+
+			.tab-header{
+				border: 1px solid #ccc;
+			}
+
+			.tab-header>li{
+				float: left;
+				text-align: center;
+				width: 100px;
+				border-right: 1px solid #ccc;
+				padding: 0 40px;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			
+			.tab-header>li:last-child{
+				border-right: none;
+			}
+
+			.tab-header .active{
+				background-color: #eee;
+			}
+
+			.tab-container{
+				border: 1px solid #ccc;
+				border-top: none;
+				padding: 10px 5px;
+			}
+
+			.tab-container li{
+				display: none;
+				line-height: 100px;
+			}
+
+			.tab-container .active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<ul class="tab-header clearfix">
+			<!-- 事件代理会出问题 -->
+<!-- 				<li class="active"><a href="#">tab1</a></li>
+				<li><a href="#">tab2</a></li>
+				<li><a href="#">tab3</a></li> -->
+				<li class="active">tab1</li>
+				<li>tab2</li>
+				<li>tab3</li>
+			</ul>
+			<ul class="tab-container clearfix">
+				<li  class="active">内容1</li>
+				<li>内容2</li>
+				<li>内容3</li>
+			</ul>
+		</div>
+
+		<script>
+			var tabHeader = document.querySelector('.tab-header');
+			var tabContainer = document.querySelector('.tab-container');
+			tabHeader.addEventListener('click', function(e){
+				var clickNode = e.target;
+				if (clickNode.tagName.toLowerCase() === 'li'){
+					for (var i = 0; i < tabHeader.children.length; i++){
+						tabHeader.children[i].classList.remove('active');
+					}
+				}
+				clickNode.classList.add('active');
+
+				for (var i = 0; i < tabHeader.children.length; i++){
+					tabContainer.children[i].classList.remove('active');
+				}
+				var actvieNode =  document.querySelector('.tab-header .active');
+				// for (var i = 0; i < tabHeader.children.length; i++){
+				// 	console.log(tabHeader.children[i]);	
+				// 	if (actvieNode === tabHeader.children[i]){
+				// 		tabContainer.children[i].classList.add('active');
+				// 	}
+				// }
+				var index = [].indexOf.call(tabHeader.children, actvieNode);
+				tabContainer.children[index].classList.add('active');
+			})
+		</script>
+
+
+	</body>
+</html>
