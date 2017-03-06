@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题目11</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .panel-ct {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .panel-ct:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .panel {
+            width: 280px;
+            height: 200px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin: 10px;
+            float: left;
+            position: relative;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+        }
+
+        .cover > button {
+            display: block;
+            width: 80px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 2px solid red;
+            border-radius: 6px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -15px;
+            margin-left: -40px;
+            cursor: pointer;
+        }
+
+        .panel > img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .panel > .name {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .panel > .price {
+            font-size: 12px;
+            padding: 10px;
+            color: #f00;
+        }
+
+        .load-more {
+            border: 1px solid #ff0000;
+            width: 100px;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="panel-ct">
+<h1>珠宝首饰</h1>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+    <li class="panel">
+        <div class="cover">
+            <button>立即抢购</button>
+        </div>
+        <img src="1.jpg" alt="1">
+        <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>
+        <p class="price">￥1699.00</p>
+    </li>
+</ul>
+<div class="load-more">加载更多</div>
+<script>
+    $('.panel').on('mouseover', function () {
+        $(this).find('.cover').css({opacity: 1})
+    })
+    $('.panel').on('mouseout', function () {
+        $(this).find('.cover').css({opacity: 0})
+    })
+    $('.load-more').click(function () {
+        getMore()
+    })
+    function getMore() {
+        var tpl='<li class="panel">\
+            <div class="cover">\
+            <button>立即抢购</button>\
+            </div>\
+            <img src="2.jpg" alt="2">\
+            <p class="name">藏美千足金和田玉金镶玉路路通吊坠</p>\
+            <p class="price">￥1699.00</p>\
+        </li>'
+        $(tpl).appendTo('.panel-ct')
+        $(tpl).appendTo('.panel-ct')
+        $(tpl).appendTo('.panel-ct')
+    }
+</script>
+</body>
+</html>
