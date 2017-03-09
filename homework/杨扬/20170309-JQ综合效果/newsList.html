@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻列表：曝光加载+jsonp+瀑布流</title>
+    <style>
+        ul,li,h4,p {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .clearfix:after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .page {
+            margin: 0 auto;
+        }
+        .warp {
+            position: relative;
+            padding: 20px;
+        }
+        .item {
+            position: absolute;
+            /*float: left;*/
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            width: 280px;
+            opacity: 0;
+            transition: all 1s;
+        }
+        .item>img {
+            width: 280px;
+        }
+        .item>.title {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+        .item>.intor {
+            margin-top: 10px;
+        }
+        .hide {
+            display: none;
+        }
+        .loader {
+            margin: 0 auto;
+            width: 300px;
+            text-align: center;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <ul class="warp">
+            <!--<li class="item">-->
+            <!--<img src="http://n.sinaimg.cn/tech/transform/20170308/j2xe-fycapec3284204.jpg" alt="">-->
+            <!--<h4 class="title">标题</h4>-->
+            <!--<p class="intor">简介</p>-->
+            <!--</li>-->
+            <li class="item hide">隐藏元素：用于获取宽度</li>
+        </ul>
+        <div class="loader">正在加载...</div>
+    </div>
+
+    <script src="jquery-1.9.1.js"></script>
+    <script>
+        var $warp = $('.warp');
+        var perPageCount = 9;
+        var curPage = 1;
+        var warpWidth = $warp.width();
+        var itemWidth = $('.item').outerWidth(true);
+        var colNum = parseInt(warpWidth/itemWidth);
+        var colArr = [];
+        for(var i = 0; i < colNum; i++){
+            colArr[i] = 0;
+        }
+        var clock;
+        // 第一次进入时页面的渲染
+        getData();
+        // 滚动页面时页面的渲染，并加时间锁：防止二次点击（还有一种状态锁）
+        $(window).on('scroll', function(){
+            if(clock){
+                clearTimeout(clock);
+            }
+            // bug：严格来说需要曝光加载功能，此处未加，所以每当鼠标滚动停止便会执行数据加载，这就是问题所在bug
+            clock = setTimeout(function(){
+                getData();
+            }, 300);
+        });
+        // 使用 jsonp 向后台请求数据
+        function getData() {
+            $.ajax({
+                url: 'http://platform.sina.com.cn/slide/album_tech',
+                type: 'get',
+                dataType: 'jsonp',
+                jsonp: 'jsoncallback',
+                data: {
+                    app_key: '1271687855',
+                    num: perPageCount,
+                    page: curPage
+                }
+            }).done(function (ret) {
+                // 为防止数据出错，验证 status 是否正确
+                if(ret.status.code === '0'){
+                    render(ret.data);
+                    curPage++;
+                }
+            }).fail(function () {
+                alert('系统异常，请稍后再试！')
+            })
+        }
+        // 获得后台数据后，元素渲染的核心逻辑：遍历数据，一个个处理
+        function render(newsData) {
+            $.each(newsData, function (idx, val) {
+                var $nodes = getHtmls(val);
+                // 防止图片为加载完全时得不到正确高度，所以要监听 load 事件
+                $nodes.find('img').on('load', function () {
+                    $nodes.appendTo($warp);
+                    waterFall($nodes);
+                });
+            });
+        }
+        // 将数据拼装成 HTML 的逻辑
+        function getHtmls(news) {
+            var htmls='';
+            htmls += '<li class="item">';
+            htmls += '  <img src='+news.img_url+'>';
+            htmls += '  <h4 class="title">'+news.name+'</h4>';
+            htmls += '  <p class="intor">'+news.short_intro+'</p>';
+            htmls += '</li>';
+            return $(htmls);
+        }
+        // 将拼装好的 HTML 以瀑布流的规则进行排列
+        function waterFall(node) {
+            var itemHeight = node.outerHeight(true);
+            var minVal = Math.min.apply(null, colArr);
+            var minIdx = colArr.indexOf(minVal);
+            node.css({
+                top: minVal,
+                left: minIdx * itemWidth,
+                opacity: 1
+            });
+            // 设置整个新闻列表宽度，为了让容器居中显示
+            $('.page').css({
+                width: colNum * itemWidth
+            });
+            colArr[minIdx] +=  itemHeight;
+            $warp.height(Math.max.apply(null, colArr));
+        }
+    </script>
+</body>
+</html>
