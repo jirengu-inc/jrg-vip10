@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	box-sizing: border-box;
+	    	padding: 0;
+	    	margin: 0;
+	    	list-style: none;
+	    }
+	    body{
+	    	background-color: #FD9915;
+	    	user-select: none;
+	    }
+	    .clearfix::after{
+	    	content: '';
+	    	display: block;
+	    	clear: both;
+	    }
+		#carousel{
+			position: relative;
+			height: 550px;
+			overflow: hidden;
+		}
+		#carousel>ul{
+			position: absolute;
+		}
+		#carousel>ul>li{
+			background-position: center center;
+			background-size: cover;
+            float: left;
+            height: 550px;
+		}
+		#carousel>ul>.first{
+			background-image: url('images/hy0.jpg');
+		}
+		#carousel>ul>.second{
+			background-image: url('images/yh0.jpg');
+		}
+		#carousel>ul>.third{
+			background-image: url('images/jr0.jpg');
+		}
+		#carousel>ul>.fourth{
+			background-image: url('images/qm0.jpg');
+		}
+		.pre{
+			line-height: 40px;
+			width: 40px;
+			z-index: 1;
+			position: absolute;
+			left: 40px;
+			top: 50%;
+			cursor: pointer;
+			text-align: center;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,0.6)
+		}
+		.next{
+			text-align: center;
+			line-height: 40px;
+			width: 40px;
+			z-index: 1;
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			cursor: pointer;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,0.6)
+		}
+		#lazyload{
+			width: 1120px;
+			margin: 0 auto;
+		}
+		#lazyload>ul{
+			margin-right: -20px;
+		}
+		#lazyload>ul>li{
+			float:left;
+			width: 360px;
+			height: 250px;
+			margin-right: 20px;
+			margin-bottom: 20px;
+		}
+		#lazyload>ul>li>img{
+			width: 360px;
+			height: 250px;
+		}
+		.title{
+			text-align: center;
+			line-height: 100px;
+			color: #000000;
+		}
+		.gotop{
+			border: 1px solid #000;
+			width: 55px;
+			line-height: 25px;
+			background-color: rgba(255,255,255,0.5);
+			position: fixed;
+			right: 40px;
+			bottom: 40px;
+			word-break: break-all;
+			padding: 5px;
+		    text-align: center;
+		    cursor: pointer;
+		}
+		@font-face {
+		  font-family: 'iconfont-toggle';  /* project id 253869 */
+		  src: url('http://at.alicdn.com/t/font_evt6txh22o0cc8fr.eot');
+		  src: url('http://at.alicdn.com/t/font_evt6txh22o0cc8fr.eot?#iefix') format('embedded-opentype'),
+		  url('http://at.alicdn.com/t/font_evt6txh22o0cc8fr.woff') format('woff'),
+		  url('http://at.alicdn.com/t/font_evt6txh22o0cc8fr.ttf') format('truetype'),
+		  url('http://at.alicdn.com/t/font_evt6txh22o0cc8fr.svg#iconfont') format('svg');
+		}
+		.iconfont-toggle{
+			font-family:"iconfont-toggle" !important;
+			font-size:30px;font-style:normal;
+			-webkit-font-smoothing: antialiased;
+			-webkit-text-stroke-width: 0.2px;
+			-moz-osx-font-smoothing: grayscale;
+			color: #fff;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<ul class="clearfix">
+			<li class="first"></li>
+			<li class="second"></li>
+			<li class="third"></li>
+			<li class="fourth"></li>
+		</ul>
+		<span class="pre iconfont-toggle">&#xe611;</span>
+		<span class="next iconfont-toggle">&#xe600;</span>
+	</div>
+	<h1 class="title">人在保护自己最重要的人时就会变得很强</h1>
+	<div id="lazyload">
+		<ul class="clearfix">
+			<li><img src="" data-src="images/hy1.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh1.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr1.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm1.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy2.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh2.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr2.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm2.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy3.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh3.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr3.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm3.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy4.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh4.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr4.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm4.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy5.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh5.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr5.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm5.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy6.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh6.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr6.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm6.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy7.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh7.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr7.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm7.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy8.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh8.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr8.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm8.jpg" alt=""></li>
+			<li><img src="" data-src="images/hy9.jpg" alt=""></li>
+			<li><img src="" data-src="images/yh9.jpg" alt=""></li>
+			<li><img src="" data-src="images/jr9.jpg" alt=""></li>
+			<li><img src="" data-src="images/qm9.jpg" alt=""></li>
+		</ul>
+	</div>
+	<div class="gotop hide">回到顶部</div>
+	<script data-main="js/index.js" src="js/require.js"></script>
+
+</html>
