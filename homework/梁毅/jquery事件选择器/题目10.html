@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>题目10</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content: "";
+        }
+        .navbar>li{
+            display: inline-block;
+            padding:8px 0;
+            float: left;
+            color: #333;
+            border:1px solid #666;
+            border-left:none;
+            border-right:none;
+            border-bottom:none;
+        }
+        .navbar>li.active{
+            color: #f00;
+            background-color: #ccc;
+        }
+        .navbar>li:first-child{
+            border-left: 1px solid #666;
+            border-radius: 3px 0 0 3px;
+        }
+        .navbar>li:last-child{
+            border-radius: 0 3px 3px 0;
+            border-right: 1px solid #666;
+        }
+        .navbar>li>a{
+            padding:0 10px;
+            border-right: 1px solid #666;
+        }
+        .navbar>li:last-child>a{
+            border-right: none;
+        }
+        .panel-ct{
+            width:700px;
+            height: 442px;
+            border:1px solid #ccc;
+        }
+        .panels>li{
+            width:216px;
+            height: 207px;
+            border:1px solid #ccc;
+            float: left;
+            margin: 7px;
+        }
+        .panel-ct>li{
+            display: none;
+        }
+        .panel-ct>li.active{
+            display: block;
+        }
+        .panels>li{
+            position: relative;
+        }
+        .panels>li>.under>img{
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+        .panels>li p{
+            font-size: 12px;
+            padding: 10px 10px;
+        }
+        .panels>li .price{
+            color: #f00;
+        }
+        .panels .cover{
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            opacity:0;
+        }
+        .panels .cover>.btn{
+            position: absolute;
+            top:50%;
+            left:50%;
+            display: block;
+            width:70px;
+            height: 30px;
+            border: 1px solid red;
+            border-radius:5px;
+            box-sizing: border-box;
+            margin-left: -35px;
+            margin-top: -15px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div class="wrap clearfix">
+    <div class="nav clearfix">
+        <ul class="navbar">
+            <li class="active"><a href="#">热门</a></li>
+            <li><a href="#">珠宝首饰</a></li>
+            <li><a href="#">奢侈品</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul class="panel-ct">
+            <li class=" active">
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+            <li>
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+            <li>
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+        </ul></div>
+</div>
+
+<div class="wrap clearfix" >
+    <div class="nav clearfix">
+        <ul class="navbar">
+            <li class="active"><a href="#">热门</a></li>
+            <li><a href="#">珠宝首饰</a></li>
+            <li><a href="#">奢侈品</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul class="panel-ct">
+            <li class=" active">
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="1.jpg" alt="1"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+            <li>
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="2.jpg" alt="2"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+            <li>
+                <ul class="panels">
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                    <li><div class="cover"><button class="btn">立即抢购</button></div><div class="under"><img src="3.jpg" alt="3"><p class="commodity-name">千足金和田玉路路通吊坠</p><p class="price">￥1699.00</p></div></li>
+                </ul></li>
+        </ul></div>
+</div>
+<script>
+
+    $('.navbar>li').on('click',function () {
+        var idx = $(this).index()
+        $(this).siblings().removeClass('active')
+        $(this).parents('.wrap').find('.navbar>li').eq(idx).addClass("active")
+        $(this).parents('.wrap').find('.panel-ct>li').eq(idx).siblings().removeClass('active')
+        $(this).parents('.wrap').find('.panel-ct>li').eq(idx).addClass('active')
+    })
+    $('.panels>li').on('mouseover',function () {
+        $(this).find('.cover').css({opacity:1})
+    })
+    $('.panels>li').on('mouseout',function(){
+        $(this).find('.cover').css({opacity:0})
+    })
+    console.log($('.panel-ct>li'))
+
+
+</script>
+</body>
+</html>

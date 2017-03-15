@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.ct li{
+			list-style-type: none;
+			border: 1px solid #ccc;
+			line-height: 20px;
+			font-size: 20px;
+			margin: 20px 10px;
+			padding: 10px;
+		}
+		
+		.ct li:hover{
+			background-color: yellow;
+		}
+		
+		.load-more{
+			margin: 0 auto;
+			font-size: 30px;
+			border: 1px solid red;
+			width: 180px;
+			text-align: center;
+			opacity: 0.7;
+			padding: 10px 0;
+			border-radius: 10px;
+		}
+
+		.load-more a{
+			text-decoration: none;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<ul class='list'>
+			<li>内容1</li>
+			<li>内容2</li>
+		</ul>
+	</div>
+	<div class="load-more" id='btn'>
+		<a href="javascript:void(0)">加载更多</a>
+	</div>
+	<!-- <button id="btn">click</button> -->
+	<script>
+
+	var lock = true;
+	var Index = 2;
+	var ctList = document.querySelector('.ct .list');
+	function createXHR(){
+	    var xhr = null;
+	    try {
+	        // Firefox, Opera 8.0+, Safari，IE7+
+	        xhr = new XMLHttpRequest();
+	    }
+	    catch (e) {
+	        // Internet Explorer
+	        try {
+	            xhr = new ActiveXObject("Msxml2.XMLHTTP");
+	        }
+	        catch (e) {
+	            try {
+	                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	            }
+	            catch (e) {
+	                xhr = null;
+	            }
+	        }
+	    }
+	    return xhr;
+	}
+	
+
+	function setContainer(content, num){
+		var docFragment = document.createDocumentFragment();
+		console.log(num);
+		for (var i = 0; i < num; i++){
+			var li = document.createElement('li');
+			console.log(content[i])
+			li.innerText = content[i];
+			docFragment.appendChild(li);
+		}
+		console.log(docFragment);
+		ctList.appendChild(docFragment);
+		Index += parseInt(num);
+	}
+	
+	function ajax(opts){ 
+		if (!lock){
+			return;
+		}
+		//var xhr = new XMLHttpRequest();
+		var xhr = createXHR();
+
+		opts.success = opts.success || function() {};
+		opts.error = opts.error || function() {};
+		opts.type = opts.type || 'get';
+		opts.data = opts.data || {};
+
+		var dataStr = '';
+	    for (var key in opts.data) {
+	      	dataStr += key + '=' + opts.data[key] + '&';
+	    }
+	    console.log(dataStr);
+	    var data = dataStr.slice(0, -1);
+	    console.log(data);
+		xhr.onreadystatechange = function () {
+		    if (xhr.readyState == 4) {
+		        if (xhr.status == 200){
+		        	//opts.success(xhr.responseText);
+		        	//console.log(xhr.responseText);
+		        	setContainer(JSON.parse(xhr.responseText), opts.data['num']);
+		        }else{
+		        	opts.error();
+		        }
+		        
+		        lock = true;
+		    }
+		}
+		if (opts.type.toLowerCase() === 'post') {
+			xhr.open(opts.type, opts.url, true);
+			//xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send(dataStr);
+	    }
+	    if (opts.type.toLowerCase() === 'get') {
+			xhr.open(opts.type, opts.url + '?' + data, true);
+			xhr.send();
+	    }
+
+	}
+
+	document.querySelector('#btn').addEventListener('click', function(){ 
+	ajax({ 
+		url: '/loadmore', //接口地址 
+		type: 'get', // 类型， post 或者 get, 
+		data: { 
+			username: 'xiaoming', 
+			password: 'abcd1234',
+			index: Index,
+			num: 5,
+		},
+		success: function(ret){ 
+			console.log(ret); 
+		}, 
+		error: function(){ 
+			console.log('出错了'); 
+		} 
+	})
+
+});
+	</script>
+</body>
+</html>

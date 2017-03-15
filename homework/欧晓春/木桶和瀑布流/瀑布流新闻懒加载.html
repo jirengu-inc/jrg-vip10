@@ -56,7 +56,7 @@
 
 	</ul>
     <div id="mark"></div>
-    <script src='jquery-3.1.1.min.js'></script>
+    <script src='jquery-3.1.1.js'></script>
     <script>
     	
        	check()
@@ -71,7 +71,7 @@
 
 		function check(){
 			if(isShow($('#mark'))){
-				getNews(func)
+				getNews(slideNewsSinaComCnCB)
 			}
 		}
 		
@@ -80,7 +80,18 @@
 			
 			$.ajax({
 				type: 'get',
-				url: 'http://platform.sina.com.cn/slide/album_tech',
+				url: 'http://api.slide.news.sina.com.cn/interface/api_album.php',
+				dataType: 'jsonp',
+				jsonp:'jsoncallback',
+				data:{
+					jsoncallback:'slideNewsSinaComCnCB',
+					activity_size:'198_132',
+					size:'img',
+					ch_id:'1',
+					page: Math.floor(Math.random()*5),
+					num:'16'
+				}
+/*				url: 'http://platform.sina.com.cn/slide/album_tech',
 				dataType: 'jsonp',
 				jsonp: 'jsoncallback',
 				data: {
@@ -90,7 +101,7 @@
 					page: Math.floor(Math.random()*5),
 					size: 'img',
 					format: 'json'
-				},
+				},*/
 			}).done(function(ret){
 				if(ret.status.code === 0){
 					callback(ret)
@@ -99,7 +110,7 @@
 			})
 		}
 
-		function func(data){
+		function slideNewsSinaComCnCB(data){
 			var a = data.data;
 			a.forEach(function(e, i, a){
 				var html = '<li><img src="' + a[i].img_url + '">';

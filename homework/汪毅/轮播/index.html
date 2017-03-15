@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		img{width: 520px;height: 180px;}
+		.content {
+			width: 520px;
+			height: 180px;
+			overflow: hidden;
+			position: relative;
+			margin: 50px auto;
+		}
+		ul,li{list-style: none;}
+		.imgCt{			
+			height: 180px;	
+			position: absolute;
+		}
+		ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.imgCt li {
+			float: left;
+		}
+		a.btn{
+			display: inline-block;
+			background: #666;
+			color: #fff;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			text-align: center;
+			text-decoration: none;
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;
+			opacity: 0.5;
+		}
+		a.pre{
+			left: 10px;
+		}
+		a.next{
+			right: 10px;
+		}
+		.btn-list {
+			position: absolute;
+			bottom: 10px;
+			height: 12px;
+			width: 100%;
+			font-size: 0;
+			text-align: center;
+		}
+		.btn-list>li{
+			width: 40px;
+			height: 10px;
+			border: 1px solid #ccc;
+			display: inline-block;
+			text-align: center;
+			margin: 0 3px;
+			border-radius: 3px;
+			cursor:pointer;		
+		}
+		.btn-list>li.active{
+			background: #ccc;
+		}
+	</style>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+	<div class="content">
+		<ul class="imgCt">
+			<li><img src="1.jpg"></li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+			<li><img src="4.jpg"></li>
+		</ul>
+		<a class='pre btn' href="#"><</a> 
+		<a class='next btn' href="#">></a>
+		<ul class="btn-list">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	</script>
+	<script type="text/javascript">
+
+		var pageIndex = 0;
+		var imgWidth = $('.content img').width();
+		var $li = $('.imgCt li');
+		var imgLength = $li.length;
+		var $imgCt = $('.imgCt');
+
+
+		$imgCt.append($li.first().clone());
+		$imgCt.prepend($li.last().clone());
+		$imgCt.width($('.imgCt li').length * imgWidth);
+		$imgCt.css({left:-imgWidth});
+
+		$('.next').click(function(){
+			 playNext(1);
+		});
+
+		$('.pre').click(function(){
+			 playPre(1);
+		})
+
+		$('.btn-list li').click(function(){
+			var index = $(this).index();
+			if(index > pageIndex){
+				playNext(index - pageIndex);
+			}else if(index < pageIndex){
+				playPre(pageIndex-index);
+			}
+
+		});
+
+		function playNext(len){
+			$('.imgCt').animate({
+					left: '-=' + len*imgWidth
+				},function(){
+					pageIndex += len;		
+					if(pageIndex === imgLength){
+						pageIndex=0;
+						$imgCt.css({left:-imgWidth});			
+					}
+					btnMove();
+			});
+		}
+
+		function playPre(len){	
+			$('.imgCt').animate({
+				left: '+=' + len*imgWidth
+			},function(){
+				pageIndex -= len;
+				if(pageIndex === -1){
+					pageIndex = imgLength-1;
+					$imgCt.css({left:-imgLength*imgWidth});
+				}	
+				btnMove();							
+			});	
+		};
+
+		function btnMove(){
+			$('.btn-list li').removeClass('active').eq(pageIndex).addClass('active');
+		}
+	</script>
+</body>
+</html>
