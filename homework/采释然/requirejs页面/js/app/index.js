@@ -1,8 +1,5 @@
-requirejs.config({
-	    baseUrl: 'js'
-    })
 
-require(['jquery','eventCenter','lazyload','carousel','goTop'],function($,eventcenter,lazyload,carousel,gotop){
+define(['jquery','eventCenter','lazyload','carousel','goTop'],function($,eventcenter,lazyload,carousel,gotop){
 	new lazyload();
 	new carousel();
 	new gotop();
