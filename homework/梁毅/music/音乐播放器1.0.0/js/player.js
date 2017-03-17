@@ -2,31 +2,33 @@
  * Created by ly on 2017/3/15.
  */
 function musicPlayer() {
-    this.createHtml()
-    this.linkCss()
-    this.getChannels()
-    this.init($('.music-player'))
+    this.createHtml()//创建html
+    this.linkCss()//引入css
+    this.getChannels()//获取音乐频道
+    this.init($('.music-player'))//初始化音乐播放器
+    //下面都是绑定事件
     this.bind()
     this.bindOther()
     this.bindDragDiv()
 }
 musicPlayer.prototype = {
     init: function ($node) {
-        this.audioObject = $node.find('#music')[0]
-        this.isplayed = false
-        this.musicList = []
-        this.musicIndex = 0
-        this.audioObject.volume = 0.5
-        this.volumeCurrent = this.audioObject.volume
-        this.channelId = 'public_fengge_qingyinyue'
-        this.lyricArr = []
+        this.audioObject = $node.find('#music')[0]//绑定音乐
+        this.isplayed = false//初始化音乐是否播放，否
+        this.musicList = []//初始化音乐容器空数组
+        this.musicIndex = 0//初始化音乐idx
+        this.audioObject.volume = 0.5//初始化音量为0.5
+        this.volumeCurrent = this.audioObject.volume//当前音乐音量
+        this.channelId = 'public_fengge_qingyinyue'//初始化音乐频道
+        this.lyricArr = []//初始化歌词空数组
 
-        var _this = this
+        var self = this
         setInterval(function () {
-            _this.progressBar()
-            _this.getTime()
+            self.progressBar()
+            self.getTime()
         }, 500)//监听时间
 
+        //绑定一大堆$node下面的对象
         this.dragDiv = $node.find('.drag-div')
         this.music = $node.find('.music')
         this.sideBar = $node.find('.side-bar')
@@ -59,19 +61,19 @@ musicPlayer.prototype = {
         var self = this
         this.play.on('click', function () {
             self.playMusic()
-        })
+        })//点击播放键事件
         this.forward.on('click', function () {
             self.getSong()
             self.isplayed = false
             self.playForward()
             self.getLyric()
 
-        })
+        })//下一曲事件
         this.back.on('click', function () {
             self.isplayed = false
             self.playBack()
             self.getLyric()
-        })
+        })//上一曲事件
         this.sideBar.on('click', 'li', function () {
             $(this).addClass("active").siblings().removeClass("active");
             self.channelId = $(this).attr("channel-id")
@@ -89,20 +91,20 @@ musicPlayer.prototype = {
             setInterval(function () {
                 self.progressBar()
             }, 500)
-        })
+        })//监听音乐播放时做什么事
         this.audioObject.addEventListener('ended', function () {
             self.forward.trigger('click')
-        })
+        })//监听音乐结束时做什么事
         this.volume.on('click', function (e) {
             var percent = e.offsetX / parseInt(getComputedStyle(this).width)
             self.volumeNow.css({'width': percent * 100 + '%'})
             self.audioObject.volume = percent * 1
-        })
+        })//改变音量
         this.timeBar.on('click', function (e) {
             var percent = e.offsetX / parseInt(getComputedStyle(this).width)
             self.audioObject.currentTime = percent * self.audioObject.duration
             self.timeNow.css({'width': percent * 100 + "%"})
-        })
+        })//改变时间进度
     },
     bindOther: function () {
         var self = this
@@ -132,10 +134,10 @@ musicPlayer.prototype = {
         })//绑定歌词显示事件
         this.playBtnIcon.on('mouseover', function () {
             $(this).addClass('active')
-        })
+        })//鼠标放到播放键时，不透明
         this.playBtnIcon.on('mouseout', function () {
             $(this).removeClass('active')
-        })
+        })//鼠标离开播放键，透明
     },//绑定一些其他图标事件
     bindDragDiv : function(){
         var self = this;
@@ -157,7 +159,7 @@ musicPlayer.prototype = {
                 left: e.pageX - $('.onMove').data('newPos').X
             });
         })
-    },
+    },//如何拖动音乐盒
     getChannels: function () {
         $.get('http://api.jirengu.com/fm/getChannels.php')
             .done(function (ret) {
@@ -199,14 +201,14 @@ musicPlayer.prototype = {
         second = second.length == 2 ? second : '0' + second
         var time = min + ':' + second
         this.currentTime.text(time)
-    },
+    },//获取时间
     setTime: function () {
         var mins = parseInt(this.audioObject.duration / 60)
         var seconds = parseInt(this.audioObject.duration % 60) + ''
         seconds = seconds.length == 2 ? seconds : '0' + seconds
         var time = mins + ':' + seconds
         this.totalTime.text(time)
-    },
+    },//设置时间
     playMusic: function () {
         if (this.isplayed === false) {
             this.audioObject.play()
@@ -217,7 +219,7 @@ musicPlayer.prototype = {
             this.isplayed = false
             this.playIcon.removeClass('icon-zanting').addClass('icon-bofang')
         }
-    },
+    },//播放（暂停）音乐
     playForward: function () {
         if (this.musicIndex < this.musicList.length - 1) {
             this.musicIndex++
@@ -226,7 +228,7 @@ musicPlayer.prototype = {
         }
         this.getInfo()
         this.playMusic()
-    },
+    },//下一曲
     playBack: function () {
         if (this.musicIndex > 0) {
             this.musicIndex--
@@ -235,7 +237,7 @@ musicPlayer.prototype = {
         }
         this.getInfo()
         this.playMusic()
-    },
+    },//上一曲
     clickChannelChangeSong: function () {
         var self = this
         for (var i = 0; i < 800; i += 100) {
@@ -247,15 +249,15 @@ musicPlayer.prototype = {
             }, i)
         }
 
-    },
+    },//只有选频道时触发，暂时用的函数，存在bug隐患
     progressBar: function () {
         var percent = this.audioObject.currentTime / this.audioObject.duration
         this.timeNow.css({'width': percent * 100 + "%"})
-    },
+    },//进度条
     changeVolumeBar: function () {
         var percent = this.audioObject.volume
         this.volumeNow.css({'width': percent * 100 + '%'})
-    },
+    },//音量条
     getLyric: function () {
         var self = this;
         $.get('http://api.jirengu.com/fm/getLyric.php', {sid: self.musicList[self.musicIndex].sid})
@@ -295,7 +297,7 @@ musicPlayer.prototype = {
             }).fail(function () {
             self.lrc.html("<li>本歌曲展示没有歌词</li>");
         });
-    },
+    },//获取歌词
     renderLyric: function () {
         var lyrLi = "";
         for (var i = 0, l = this.lyricArr.length; i < l; i++) {
@@ -304,13 +306,13 @@ musicPlayer.prototype = {
         //console.log(lyrLi);
         this.lrc.append(lyrLi);
         this.lrcTime();//怎么展示歌词
-    },
+    },//渲染歌词
     lrcTime: function () {
         var self = this;
         setInterval(function () {
             self.showLyric();
         }, 200)
-    },
+    },//歌词时间
     showLyric: function () {
         var self = this,
             liH = $(".show-lrc li").eq(5).outerHeight() - 3; //每行高度
@@ -324,7 +326,7 @@ musicPlayer.prototype = {
                 self.lrc.css('top', -liH * (i - 2));
             }
         }
-    },
+    },//显示歌词
 
     createHtml: function () {
         var html = ''
@@ -383,9 +385,5 @@ musicPlayer.prototype = {
     },//引入音乐播放器css
 }
 
-function drag(d) {
-    this.init($node)
-    this.bind()
-}
 
 var musicPlayer = new musicPlayer();
