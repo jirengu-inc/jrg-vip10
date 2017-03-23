@@ -109,7 +109,6 @@ musicPlayer.prototype = {
     bindOther: function () {
         var self = this
         this.channelListIcon.on('click', function () {
-            console.log('1')
             self.sideBar.toggle(300)
         })//绑定频道列表触发事件
         this.copyrightIcon.on('click', function () {
@@ -350,7 +349,7 @@ musicPlayer.prototype = {
             + '<span class="channel-list-icon"><i class="iconfont icon-diaozhenggeci"></i></span>'
             + '<div class="copyright">'
             + '<i class="iconfont icon-banquan"></i>'
-            + '<div class="copyright-info"><p>made by ly</p><p>version 1.0.2</p></div>'
+            + '<div class="copyright-info"><p>made by ly</p><p>version 1.0.3</p></div>'
             + '</div>'
             + '<p class="title">hello</p>'
             + '  <p class="author">ly</p>'
