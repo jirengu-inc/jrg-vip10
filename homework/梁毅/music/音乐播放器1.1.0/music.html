@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <title>音乐播放器</title>
+    <script src="js/player.js"></script>
+    <style>
+        body{
+            position: relative;
+        }
+
+        #aaa{
+            position: absolute;
+            left:40px;
+            top:40px;
+        }
+        #bbb{
+            position: absolute;
+            left:400px;
+            top:120px;
+        }
+        #ccc{
+            position: absolute;
+            left:800px;
+            top:200px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="aaa"></div>
+<div id="bbb"></div>
+<div id="ccc"></div>
+
+<script src="./js/jquery-3.1.1.min.js"></script>
+<script src="./js/player.js"></script>
+
+<script>
+    var musicPlayer1 = new musicPlayer($('#aaa'));
+    var musicPlayer2 = new musicPlayer($('#bbb'));
+    var musicPlayer2 = new musicPlayer($('#ccc'));
+</script>
+
+</body>
+</html>
