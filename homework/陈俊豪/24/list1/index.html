@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>open</button>
+</body>
+<script>
+	var btn = document.querySelector('button')
+	window.$ = function(){
+		let f = []
+		return f
+	}
+	$.bom = {
+		openAtCenter :function(width,height,url){
+			window.open(url,'_blank',`
+				width=${width}px,height=${height}px,
+				screenX=${screen.width / 2 - width / 2}px,
+				screenY=${screen.height / 2 - height /2}px,
+					
+				`)
+		}
+	}
+
+
+	btn.addEventListener('click',function(e){
+		$.bom.openAtCenter(400,400,'iframe.html')
+	})
+	document.write(Math.random())
+
+
+	
+
+	
+</script>
+</html>

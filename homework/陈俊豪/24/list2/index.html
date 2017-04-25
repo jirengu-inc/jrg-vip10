@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>get</button>
+</body>
+<script>
+	window.$ = function(){
+		let array = []
+		return array
+	}
+	$.bom = {
+		search : function(name,value){
+			let searchAll = function(){
+				let search = window.location.search
+				let result = {}
+
+				// 去掉问号
+				if(search[0] === '?'){
+					console.log("去掉问号" +search.slice(1))
+					var searchSlice = search.slice(1)
+				}
+
+
+
+				// 用&分割
+				console.log("单纯的看一下search"+search)
+				console.log("用&分割"+search.split('&'))
+				var searchSplit = searchSlice.split('&')
+				console.log("创建一个变量顺便看看结果"+searchSplit)
+				
+
+
+				// 变成一个数组对象
+				for(let i = 0;i<searchSplit.length;i++){
+					console.log("遍历，然后用等号分割"+searchSplit[i].split('='))
+					let parts = searchSplit[i].split('=')
+					console.log("看一下parts[0]是什么"+parts[0])
+					console.log("看一下parts[1]是什么"+parts[1])
+					result[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1] || '')
+				}
+
+
+				return result
+			}	
+				let result = searchAll()
+				console.log('看一下result' + result)
+
+				if(value === undefined){
+					console.log('1111111111111')
+					return result[name]
+
+				}else{
+					if(result[name] === undefined){
+						location.search +=`&${encodeURIComponent(name)}=${encodeURIComponent(value)}`
+						console.log("name111"+encodeURIComponent(name))
+					}else{
+						console.log('111')
+						result[name] = encodeURIComponent(value)
+						let newSearch = '?'
+						for(let key in result){
+							newSearch += `${encodeURIComponent(key)}=${encodeURIComponent(result[key])}`
+						}
+						location.search = newSearch
+					}
+				}
+
+			return window.location.search
+		}
+	}
+	var btn = document.querySelector('button')
+
+	btn.addEventListener('click',function(){
+		console.log("最终结果: "+ $.bom.search('a'))
+		
+	})
+	
+	</script>
+</html>

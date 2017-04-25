@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	p{display: none;}
+	</style>
+</head>
+<body>
+
+	<button>reload</button>
+	<p>
+		<a href="iframe.html" class="aa" target="_blank">点击我立即跳转</a>
+		<span>5</span>
+	</p>
+	<script>
+	var btn = document.querySelector('button')
+	var p = document.querySelector('p')
+	var span = document.querySelector('span')
+	var aa = document.querySelector('aa')
+	btn.addEventListener('click',function(){
+		window.opener.location.reload()
+		p.style.display='block';
+		var i = 5
+
+		setInterval(function(){
+			i= i-1
+			span.innerHTML = i
+			console.log(span.innerHTML)
+			if(i===0){
+				window.close()
+			}
+		},1000)
+	})
+
+	</script>
+</body>
+</html>
