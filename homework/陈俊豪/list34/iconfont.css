@@ -1,0 +1,42 @@
+
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1495610921787'); /* IE9*/
+  src: url('iconfont.eot?t=1495610921787#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1495610921787') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1495610921787') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1495610921787#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:26px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-caret:before { content: "\e658"; font-size: 0.625rem;}
+
+.icon-shu:before { content: "\e640"; font-size: 0.6875rem;}
+
+.icon-ditu:before { content: "\e634"; font-size: 0.6875rem;}
+
+.icon-xiala:before { content: "\e611"; position: absolute;
+font-size: 0.6rem; 
+right:2.9rem;top: 0.65rem;transform:translate(-50%,-50%);}
+
+.icon-mic:before { content: "\e666"; font-size: 0.6rem;position: absolute;right:3.49375rem;top: 0.5625rem;transform:translate(-50%,-50%);}
+
+.icon-guanzhu:before { content: "\e605"; font-size: 0.6875rem;}
+
+.icon-denglu:before { content: "\e600"; font-size: 0.78125rem;}
+
+.icon-xinwen:before { content: "\e622"; font-size: 0.6875rem;}
+
+.icon-nuomi:before { content: "\e61d"; font-size: 0.6875rem;}
+
+.icon-xiayu:before { content: "\e623"; font-size: 0.875rem;}
+
+.icon-shipin:before { content: "\e694"; font-size: 0.6875rem;}
+

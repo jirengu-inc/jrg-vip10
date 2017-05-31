@@ -1,0 +1,153 @@
+@function rem($px){
+	$remSize : $px / 320 * 10;
+	@return #{$remSize}rem;
+}
+
+*{margin:0;padding: 0;}
+body{
+	color:#999;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: rem(16);
+}
+ul,li{
+	list-style: none;
+	}
+a{color:#333;text-decoration: none;}
+
+
+
+#header{
+	background-color: rgb(248,248,248);
+	height: rem(35);
+	.weather{
+		display: inline-block;
+		font-size: rem(10);
+		width: rem(148.86);
+		padding-left: 3%;
+		.temperature{
+			font-size: rem(29);
+			font-weight: 300;
+		}
+		.detailed{
+			display: inline-block;
+			p{
+				font-size: rem(10);
+			}
+		}
+	}
+	.login{
+		display: inline-block;
+		float: right;
+		padding-right: rem(16);
+		padding-top: rem(8);
+	}
+}
+#logo-search{
+	background-color: rgb(248,248,248);
+	.logo{
+		position: relative;
+		padding-bottom: rem(17);
+		padding-top: rem(7);
+		height: rem(57);
+		img{
+			position: absolute;
+			left: 50%;
+			transform:translateX(-50%);
+			max-width: rem(183.02);
+		}
+	}
+	.search{
+		text-align: center;
+		form{
+			
+			font-size: 0;
+			position: relative;
+			input[type="text"]{
+				font-size: 16px;
+				padding: rem(7) rem(42) rem(7) rem(6);
+				vertical-align: top;
+				line-height: rem(28);
+				border:1px solid rgb(210,210,210);
+				overflow: hidden;
+				width: rem(204);
+				height: rem(45);
+				resize: none;
+				word-break: break-all;
+				word-wrap: break-word;
+				box-shadow:0 1px 1px #ccc;
+				box-sizing:border-box;
+			}
+			
+			button{
+				font-size: rem(16);
+				border: 0;
+				background-color: #38f;
+				color:#fff;
+				border-top: 1px solid #38f;
+				border-bottom: 1px solid #38f;
+				width: rem(82);
+				line-height: rem(45);
+				height: rem(45);
+			}
+		}
+	nav{
+		padding: 6% 6.2%;
+		display: flex;
+		flex-direction:row;
+		justify-content:space-between;
+		a{
+			color:#999;
+			text-decoration: none;
+			font-size: rem(13);		
+		}
+	}
+	}
+}
+#news{
+	padding: 0 rem(16);
+	ul{
+		width: rem(288);
+		li{
+			font-size: 0;
+			padding: rem(10) 0 rem(13) 0;
+			border-top: 1px solid #f0f0f0;
+			min-height: rem(118);
+			h4{
+				font-size: rem(18);
+			}
+			p{
+				p{
+					padding-top: rem(5);
+				}
+				span{
+					color:#999;
+					font-size: rem(13);
+				}
+				span:nth-child(1){
+					padding-right: rem(5);
+				}
+			}
+			img{
+				width: rem(95.33);
+			}
+		}
+		li:nth-child(1){
+			border-top: 0;
+		}
+		li[name="one-pic"]{
+			img{
+				float: left;
+				padding-right: 5%;
+			}
+			p{
+				padding-top: 5px;
+			}
+		}
+		li[name="movie"]{
+			video{
+				width: rem(288);
+				height: rem(161.27);
+			}
+		}
+	}
+}

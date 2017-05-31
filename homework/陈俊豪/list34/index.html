@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="iconfont.css">
+	<script src="jquery-3.1.1.min.js"></script>
+	<title>动态REM——百度首页</title>
+</head>
+<body>
+	<header id="header">
+		<div class="weather">
+			<i class="iconfont icon-xiayu"></i>
+			<span class="temperature">24°</span>
+			<div class="detailed">
+				<p class="address">广州</p>
+				<p class="air-quality">22&nbsp优</p>
+			</div>
+			<i class="iconfont icon-caret"></i>
+		</div>
+		<div class="login">
+			<i class="iconfont icon-denglu"></i>
+		</div>
+	</header>
+
+	<section id="logo-search">
+		<div class="logo">
+			<img src="https://m.baidu.com/static/index/plus/plus_logo.png" alt="">
+		</div>
+
+		<div class="search">
+			<form action="/search">
+				<input type="text">
+				<i class="iconfont icon-mic"></i>
+				<i class="iconfont icon-xiala"></i>
+				<button>百度一下</button>
+			</form>
+			<nav>
+				<a href="#">
+					<i class="iconfont icon-guanzhu"></i>
+					<p>关注</p>
+				</a>
+				<a href="#">
+					<i class="iconfont icon-xinwen"></i>
+					<p>新闻</p>
+				</a>
+				<a href="#">
+					<i class="iconfont icon-shu"></i>
+					<p>小说</p>
+				</a>
+				<a href="#">
+					<i class="iconfont icon-shipin"></i>
+					<p>视频</p>
+				</a>
+				<a href="#">
+					<i class="iconfont icon-nuomi"></i>
+					<p>糯米</p>
+				</a>
+				<a href="#">
+					<i class="iconfont icon-ditu"></i>
+				<p>地图</p>
+			</nav>
+		</div>
+	</section>
+
+	<section id="news">
+		<ul>
+			<li><a href="#">
+					<h4>标题标题标题标题标题标题</h4>
+					<img src="http://placehold.it/100x100" alt="">
+					<img src="http://placehold.it/100x100" alt="">
+					<img src="http://placehold.it/100x100" alt="">
+					<p>
+						<span>作者作者作者</span>
+						<span>05-29</span>
+						<i></i>
+					</p>
+				</a>
+			</li>
+			<li><a href="#">
+					<h4>标题标题标题标题标题标题标题标题标题标题标题标题</h4>
+					<img src="http://placehold.it/100x100" alt="">
+					<img src="http://placehold.it/100x100" alt="">
+					<img src="http://placehold.it/100x100" alt="">
+					<p>
+						<span>作者作者作者</span>
+						<span>05-29</span>
+						<i></i>
+					</p>
+				</a>
+			</li>
+			<li name="one-pic"><a href="#">
+					<img src="http://placehold.it/100x100" alt="">
+					<h4>标题标题标题标题标题标题标题标题标题标题标题标题</h4>
+					<p>
+						<span>作者作者作者</span>
+						<span>05-29</span>
+						<i></i>
+					</p>
+				</a>
+			</li>
+			<li name="movie"><a href="#">
+				<h4>标题标题标题标题标题标题标题标题标题标题标题标题</h4>
+				<video>
+  					<source src="Transformers3.flv"  type="video/mp4">
+				</video>
+				<p>
+					<span>作者作者作者</span>
+					<span>05-29</span>
+					<i></i>
+				</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+</body>
+<!-- /****	动态REM方案	****/ -->
+<script>
+	var width = document.documentElement.clientWidth 
+	var scale = width / 375
+	var css = `
+	html{
+		font-size:${375 * scale / 10}px;
+	}
+	`
+	document.write(`<style>${css}</style>`)
+</script>
+
+</html>
