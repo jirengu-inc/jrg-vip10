@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="iconfont.css">
 	<script src="jquery-3.1.1.min.js"></script>
@@ -117,11 +117,19 @@
 </body>
 <!-- /****	动态REM方案	****/ -->
 <script>
-	var width = document.documentElement.clientWidth 
+	var scale = 1 /window.devicePixelRatio
+	document.write(`
+			 <meta name="viewport"
+        content="initial-scale=${scale}, maximum-scale=${scale}, minimum-scale=${scale}, user-scalable=no"> 
+		`)
+
+
+
+	var width = document.documentElement.clientWidth / window.devicePixelRatio
 	var scale = width / 375
 	var css = `
 	html{
-		font-size:${375 * scale / 10}px;
+		font-size:${width / 10 * window.devicePixelRatio}px;
 	}
 	`
 	document.write(`<style>${css}</style>`)
